@@ -10,8 +10,6 @@
 \newcounter{prop}
 \newcounter{cor}
 
-\newtheorem{percodyn}[def]{Définition}
-\newtheorem{couplage}[def]{Définition}
 \newtheorem{interface}[def]{Définition}
 \newtheorem{probainv}[thm]{Théorème}
 \newtheorem{cdb}[def]{Définition}
@@ -37,6 +35,9 @@
 \begin{document}
 \maketitle
 
+\section{Introduction}
+à faire...
+
 \section{Définition et le couplage pour la dimension 2}
 Dans cette partie, on définit l'interface d'abord à l'aide de la percolation dynamique et d'un couplage. On utilise les notations suivantes:
 \begin{itemize}
@@ -49,20 +50,20 @@ Dans cette partie, on définit l'interface d'abord à l'aide de la percolation d
 On définit d'abord la percolation dynamique dans un réseau $\mathbb{Z}^2$. 
 Soit $p\in [0,1]$, on munit indépendamment chaque arête $e$ de $\mathbb{Z}^2$ d'une horloge exponentielle $T_e$ de paramètre 1. Le processus de percolation dynamique $X(t)$ est le processus de sauts à valeurs dans $\{0,1\}^E$. Quand chaque horloge $T_e$ sonne, l'état de l'arête $e$ est déterminé selon une variable de loi $p\delta_1+(1-p)\delta_0$ (indépendante de tout le reste). 
 
-On peut remarquer d'abord que pour une arête fixée $e$, le nombre sauts entre $0$ et $t$ est majoré par une loi de Poisson $t$. De même pour le nombre d'ouverture(resp. fermeture) de $e$ est majoré par $pt$(resp. $(1-p)t$).
+\paragraph{Remarque 1} pour une arête fixée $e$, le nombre sauts entre $0$ et $t$ est majoré par une loi de Poisson $t$. De même pour le nombre d'ouverture(resp. fermeture) de $e$ est majoré par $pt$(resp. $(1-p)t$).
 
-On remarque dans une boite finie $\Lambda_{l,h}$, on peut remplacer $X(t)$ par une chaîne de Markov en temps discret $X_n$ à valeurs dans $\{0,1\}^E$, où $E$ est l'ensemble des arêtes dans $\Lambda_{l,h}$. A l'instant $n$, on choisit une arête $e$ dans $E$ uniformément et on change son état selon une variable de loi $p\delta_1 +(1-p)\delta_0$.
+\paragraph{Remarque 2} dans une boite finie $\Lambda_{l,h}$,  $X(t)$ est équivalent à une chaîne de Markov en temps discret $X_n$ à valeurs dans $\{0,1\}^E$, où $E$ est l'ensemble des arêtes dans $\Lambda_{l,h}$. A l'instant $n$, on choisit une arête $e$ dans $E$ uniformément et on change son état selon une variable de loi $p\delta_1 +(1-p)\delta_0$. 
 
 \subsection{L'interface}
-On définit l'interface $\mathcal{I}$ à l'aide de la percolation dynamique. On considère la boite $\Lambda_{l,h}$ et le processus de percolation dynamique $X_n$ dans la boite. On définit un couplage suivant:
-\begin{couplage}
+On définit l'interface $\mathcal{I}$ à l'aide de la percolation dynamique. On considère la boite $\Lambda_{l,h}$ et le processus de percolation dynamique $X_n$ dans la boite. On définit un couplage suivant, pour simplifier l'énoncé, on utilise la version discrète $X_n$ au lieu de $X(t)$:
+
 Soit $X_n$ le processus de percolation dynamique de paramètre $p$ dans $\Lambda_{l,h}$ qui vérifie $T\overset{X_0}{\nconnect}B$, soit $Y_n$ un processus à valeurs dans $\{0,1\}^E$ avec $Y_0=X_0$ et à l'instant $n$, soit $e$ l'arête choisi par le processus $X$ et $U_n$ la variable uniforme dans $[0,1]$, on détermine $(X_{n+1},Y_{n+1})$ ainsi:
 $$(X_{n+1},Y_{n+1})=\left\lbrace \begin{array}{cc}
 (1,1) & U_n<p,T\nconnect B \text{ dans } X_{n+1}\\
 (1,0) & U_n<p,T\connect B \text{ dans } X_{n+1} \\
 (0,0) & U_n>p\\
 \end{array}\right..$$
-\end{couplage}
+
 Le processus $Y$ est une percolation dynamique conditionnée à ce qu'il n'existe pas de chemin ouvert entre $T$ et $B$. On définit l'interface à partir du couplage:
 \begin{interface}
 Soit $(X_n,Y_n)_{n\leqslant 0}$ un couplage défini précédemment, on appelle une interface dans $\Lambda_{l,h}$ notée $\mathcal{I}^{l,h}_n$ l'ensemble aléatoire des arêtes qui sont ouverts dans $X_n$ et fermé dans $Y_n$: $$ \mathcal{I}^{l,h}_n = \big\{ e\in E| X_n^e = 1, Y_n^e = 0 \big\}.
