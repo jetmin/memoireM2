@@ -1,4 +1,4 @@
-\documentclass[titlepage,a4paper,11pt]{article}
+\documentclass[titlepage,a4paper,12pt]{article}
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathrsfs}
 \usepackage[french]{babel}
@@ -13,7 +13,6 @@
 \newtheorem{interface}[def]{Définition}
 \newtheorem{probainv}[thm]{Théorème}
 \newtheorem{cdb}[def]{Définition}
-\newtheorem{dual}[def]{Définition}
 \newtheorem{chaine}[prop]{Proposition}
 \newtheorem{cut}[def]{Définition}
 \newtheorem{bcut}[cor]{Corollaire}
@@ -36,42 +35,59 @@
 \maketitle
 
 \section{Introduction}
-à faire...
+Dans ce mémoire, nous allons étudier les interfaces dans le modèle de percolation dans le réseau $\mathbb{Z}^2$ avec une méthode dynamique. Plus généralement, nous considérons un paramètre $p\in [0,1]$ et le réseau $(\mathbb{Z}^d,E^d)$. nous posons $\Omega = \{0,1\}^{E^d}$, $\mathcal{F}\subset \mathcal{P}(\Omega)$ la tribu cylindrique. Nous disons que $\omega = \{\omega(e), e\in E^d\} \in \Omega$ est une configuration pour le réseau $\mathbb{Z}^d$ et que l'arête $e$ est ouverte si $\omega(e) = 1$ et fermée si $\omega(e)= 0$. La probabilité de percolation indépendant de paramètre $p$ est la probabilité produit$P_p = \mathbb{B}_p^{E^d}$, où $\mathbb{B}_p = p\delta_1 +(1-p)\delta_0 $ (la loi de Bernoulli de paramètre $p$).
+
+Chaque configuration correspond à un sous graph de $\mathbb{Z}^d$ si nous considérons uniquement les arêtes ouvertes. Et plus intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^d$ avec une probabilité $1-p$. 
 
 \section{Définition et le couplage pour la dimension 2}
-Dans cette partie, on définit l'interface d'abord à l'aide de la percolation dynamique et d'un couplage. On utilise les notations suivantes:
+Dans cette partie, nous définissons l'interface d'abord à l'aide de la percolation dynamique et d'un couplage. Nous utilisons les notations suivantes:
 \begin{itemize}
 \item $\Lambda_{l,h}$: le rectangle $[-l,l]\times[-h,h]$;
 \item $T$: le coté $[-l,l]\times(0,h)$ soit le côté haut de $\Lambda_{l,h}$, $B$: le coté $[-l,l]\times(0,-h)$, le coté bas du rectangle;
-\item $x\leftrightarrow y$: les deux sommets $x$ et $y$ sont reliés par un chemin ouvert ou fermé, on va considérer que le chemin est ouvert si ce n'est pas précisé;
+\item $x\leftrightarrow y$: les deux sommets $x$ et $y$ sont reliés par un chemin ouvert ou fermé, nous allons considérer que le chemin est ouvert si ce n'est pas précisé;
 \item $E$ l'ensemble d'arêtes d'un graphe $G$, ici $G$ sera le réseau $\mathbb{Z}^2$ ou le rectangle $\Lambda_{l,h}$ avec les arêtes à l'intérieur.
 \end{itemize}
-\subsection{La percolation dynamique}
-On définit d'abord la percolation dynamique dans un réseau $\mathbb{Z}^2$. 
-Soit $p\in [0,1]$, on munit indépendamment chaque arête $e$ de $\mathbb{Z}^2$ d'une horloge exponentielle $T_e$ de paramètre 1. Le processus de percolation dynamique $X(t)$ est le processus de sauts à valeurs dans $\{0,1\}^E$. Quand chaque horloge $T_e$ sonne, l'état de l'arête $e$ est déterminé selon une variable de loi $p\delta_1+(1-p)\delta_0$ (indépendante de tout le reste). 
+
+nous rappelons qu'un graphe dual d'une percolation sur le réseau $\mathbb{Z}^2$ est un réseau sur $\mathbb{Z}^2+(\frac{1}{2},\frac{1}{2})$, dont une arête $e^*$ est ouverte ssi l'arête $e$ dans $\mathbb{Z}^2$ qui l'intersecte est ouverte.
+
+\begin{figure}[h]
+\center
+\begin{tikzpicture}
+\draw[gray] (0.1,0.1) grid (4.9,2.9);
+\draw[xshift=0.5cm,yshift=0.5cm] (0,0) grid (4,2);
+\draw (2.7,1.7) node {O};
+\draw[red,thick] (1.5,0.5) -- (1.5,1.5);
+\draw[red,thick] (1,1)--(2,1);
+\end{tikzpicture}
+\caption{un réseau $\mathbb{Z}^2$(noir) et son dual(gris)}
+\end{figure}
+
+\section{La percolation dynamique}
+nous définissons d'abord la percolation dynamique dans un réseau $\mathbb{Z}^2$. 
+Soit $p\in [0,1]$, nous munissons indépendamment chaque arête $e$ de $\mathbb{Z}^2$ d'une horloge exponentielle $T_e$ de paramètre 1. Le processus de percolation dynamique $X(t)$ est le processus de sauts à valeurs dans $\{0,1\}^E$. Quand chaque horloge $T_e$ sonne, l'état de l'arête $e$ est déterminé selon une variable de loi $p\delta_1+(1-p)\delta_0$ (indépendante de tout le reste). 
 
 \paragraph{Remarque 1} pour une arête fixée $e$, le nombre sauts entre $0$ et $t$ est majoré par une loi de Poisson $t$. De même pour le nombre d'ouverture(resp. fermeture) de $e$ est majoré par $pt$(resp. $(1-p)t$).
 
-\paragraph{Remarque 2} dans une boite finie $\Lambda_{l,h}$,  $X(t)$ est équivalent à une chaîne de Markov en temps discret $X_n$ à valeurs dans $\{0,1\}^E$, où $E$ est l'ensemble des arêtes dans $\Lambda_{l,h}$. A l'instant $n$, on choisit une arête $e$ dans $E$ uniformément et on change son état selon une variable de loi $p\delta_1 +(1-p)\delta_0$. 
+\paragraph{Remarque 2} dans une boite finie $\Lambda_{l,h}$,  $X(t)$ est équivalent à une chaîne de Markov en temps discret $X_n$ à valeurs dans $\{0,1\}^E$, où $E$ est l'ensemble des arêtes dans $\Lambda_{l,h}$. A l'instant $n$, nous choisissons une arête $e$ dans $E$ uniformément et nous changeons son état selon une variable de loi $p\delta_1 +(1-p)\delta_0$. 
 
-\subsection{L'interface}
-On définit l'interface $\mathcal{I}$ à l'aide de la percolation dynamique. On considère la boite $\Lambda_{l,h}$ et le processus de percolation dynamique $X_n$ dans la boite. On définit un couplage suivant, pour simplifier l'énoncé, on utilise la version discrète $X_n$ au lieu de $X(t)$:
+\section{L'interface}
+nous définissons l'interface $\mathcal{I}$ à l'aide de la percolation dynamique. nous considérons la boite $\Lambda_{l,h}$ et le processus de percolation dynamique $X_n$ dans la boite. nous définissons un couplage suivant, pour simplifier l'énoncé, nous utilisons la version discrète $X_n$ au lieu de $X(t)$:
 
-Soit $X_n$ le processus de percolation dynamique de paramètre $p$ dans $\Lambda_{l,h}$ qui vérifie $T\overset{X_0}{\nconnect}B$, soit $Y_n$ un processus à valeurs dans $\{0,1\}^E$ avec $Y_0=X_0$ et à l'instant $n$, soit $e$ l'arête choisi par le processus $X$ et $U_n$ la variable uniforme dans $[0,1]$, on détermine $(X_{n+1},Y_{n+1})$ ainsi:
+Soit $X_n$ le processus de percolation dynamique de paramètre $p$ dans $\Lambda_{l,h}$ qui vérifie $T\overset{X_0}{\nconnect}B$, soit $Y_n$ un processus à valeurs dans $\{0,1\}^E$ avec $Y_0=X_0$ et à l'instant $n$, soit $e$ l'arête choisi par le processus $X$ et $U_n$ la variable uniforme dans $[0,1]$, nous déterminons $(X_{n+1},Y_{n+1})$ ainsi:
 $$(X_{n+1},Y_{n+1})=\left\lbrace \begin{array}{cc}
 (1,1) & U_n<p,T\nconnect B \text{ dans } X_{n+1}\\
 (1,0) & U_n<p,T\connect B \text{ dans } X_{n+1} \\
 (0,0) & U_n>p\\
 \end{array}\right..$$
 
-Le processus $Y$ est une percolation dynamique conditionnée à ce qu'il n'existe pas de chemin ouvert entre $T$ et $B$. On définit l'interface à partir du couplage:
+Le processus $Y$ est une percolation dynamique conditionnée à ce qu'il n'existe pas de chemin ouvert entre $T$ et $B$. nous définissons l'interface à partir du couplage:
 \begin{interface}
-Soit $(X_n,Y_n)_{n\leqslant 0}$ un couplage défini précédemment, on appelle une interface dans $\Lambda_{l,h}$ notée $\mathcal{I}^{l,h}_n$ l'ensemble aléatoire des arêtes qui sont ouverts dans $X_n$ et fermé dans $Y_n$: $$ \mathcal{I}^{l,h}_n = \big\{ e\in E| X_n^e = 1, Y_n^e = 0 \big\}.
+Soit $(X_n,Y_n)_{n\leqslant 0}$ un couplage défini précédemment, nous appelons une interface dans $\Lambda_{l,h}$ notée $\mathcal{I}^{l,h}_n$ l'ensemble aléatoire des arêtes qui sont ouverts dans $X_n$ et fermé dans $Y_n$: $$ \mathcal{I}^{l,h}_n = \big\{ e\in E| X_n^e = 1, Y_n^e = 0 \big\}.
 $$
 \end{interface}
 Le chaîne de Markov $X$ est irréductible et finie donc elle admet une probabilité invariante qui est la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $Y$ est aussi irréductible car toute configuration de $Y$ est reliée à la configuration où toutes les arêtes sont fermées, en effet, il suffit de fermer toute arête choisie à toute instant de saut dans la chaîne $X$. Le théorème suivant donne la probabilité invariante de $Y$.
 \begin{probainv}
-Soit $Z_n$ une chaîne de Markov réversible dans $E$ de probabilité invariante $\pi$, soit $A\subset E$, on définit $Z_n^A$ par sa probabilité de transition:
+Soit $Z_n$ une chaîne de Markov réversible dans $E$ de probabilité invariante $\pi$, soit $A\subset E$, nous définissons $Z_n^A$ par sa probabilité de transition:
 $$p^A(x,y)=\left\lbrace \begin{array}{cc}
 p(x,y) & y\in A, x\neq y \\
 0 & y\notin A \\
@@ -82,11 +98,11 @@ $$
 alors $Z^A$ admet une probabilité invariante qui est $\frac{\mathbf{1}_A(\centerdot)\pi(\centerdot)}{\pi(A)}$ soit la probabilité invariante de la chaîne conditionnée à rester dans $A$.
 \end{probainv}
 
-On applique le théorème à $Y$ et on obtient la probabilité invariante de $Y$ qui est la loi de percolation de Bernoulli de paramètre $p$ conditionnée à $T\nconnect B$.
+nous appliquons le théorème à $Y$ et nous obtenons la probabilité invariante de $Y$ qui est la loi de percolation de Bernoulli de paramètre $p$ conditionnée à $T\nconnect B$.
 
-\subsection{Condition aux bords}
-Pour étudier le comportement d'une interface par rapport à la taille de la boîte $\Lambda_{l,h}$, on introduit la condition aux bords suivantes. Pour instant, on traite uniquement le cas où seulement $l$ varie et on ajoute les conditions aux bords seulement sur le côté gauche et le côté droite. On fixe alors un entier $h$ et on note $\Lambda_l$ la boite de hauteur $2h$ et de longueur $2l$.
-\begin{cdb}Soit $l,m\in \mathbb{N}$ avec $l<m$, on considère une boîte $\Lambda_m$ et la boîte $\Lambda_l$ à l'intérieur de $\Lambda_m$, une condition aux bords $\Pi_{l,m}$ est une application de $\partial_{X}\Lambda_{l} =(\{-l\}\times[-h,h]) \cup (\{l\}\times [-h,h])$ dans $\{top,bot,null\}$ définie ainsi, $\forall x\in \partial_X\Lambda_{l}$:
+\section{Condition aux bords}
+Pour étudier le comportement d'une interface par rapport à la taille de la boîte $\Lambda_{l,h}$, nous introduisons la condition aux bords suivantes. Pour instant, nous traitons uniquement le cas où seulement $l$ varie et nous ajoutons les conditions aux bords seulement sur le côté gauche et le côté droite. nous fixons alors un entier $h$ et nous notons $\Lambda_l$ la boite de hauteur $2h$ et de longueur $2l$.
+\begin{cdb}Soit $l,m\in \mathbb{N}$ avec $l<m$, nous considérons une boîte $\Lambda_m$ et la boîte $\Lambda_l$ à l'intérieur de $\Lambda_m$, une condition aux bords $\Pi_{l,m}$ est une application de $\partial_{X}\Lambda_{l} =(\{-l\}\times[-h,h]) \cup (\{l\}\times [-h,h])$ dans $\{top,bot,null\}$ définie ainsi, $\forall x\in \partial_X\Lambda_{l}$:
 $$\Pi_{l,m}(x)=\left\lbrace \begin{array}{cc}
 top & x\overset{\Lambda_m \setminus \Lambda_l}{\connect} T\\
 bot & x\overset{\Lambda_m \setminus \Lambda_l}{\connect} B\\
@@ -120,33 +136,18 @@ la notation $x\overset{\Lambda_m \setminus \Lambda_l}{\connect} T(resp. B)$ sign
 \end{figure}
 
 \section{Quelques résultats géométriques}
-On va étudier la probabilité qu'une arrête fixée soit dans l'interface. Dans la suite, on considère le régime surcritique, ceci correspond au cas $p>\frac{1}{2}$ en dimension 2. On fait varier seulement la longueur du rectangle, soit $l \rightarrow \infty$ et on veut montrer que la probabilité $\mathbb{P}(E_0 \in I^l_t)$ converge pour $t$ fixé avec $E_0$ l'arête entre $(0,0)$ et $(0,1)$.
+nous allons étudier la probabilité qu'une arrête fixée soit dans l'interface. Dans la suite, nous considérons le régime surcritique, ceci correspond au cas $p>\frac{1}{2}$ en dimension 2. Nous faisons varier seulement la longueur du rectangle, soit $l \rightarrow \infty$ et nous voulons montrer que la probabilité $\mathbb{P}(E_0 \in I^l_t)$ converge pour $t$ fixé avec $E_0$ l'arête entre $(0,0)$ et $(0,1)$.
 
-Intuitivement, on peut deviner que l'influence d'une condition aux bords disparaît quand la taille de la boîte devient très grande. Plus précisément, on considère un couplage de processus de percolation dynamique conditionné à la condition $T\nconnect B$ dans deux boîtes de taille $l$ munies de deux conditions aux bords qui diffèrent à un seul sommet $v_0$. La proposition suivante décrit la façon dont cette différence au bord induit une différence à l'arête $E_0$.
+Intuitivement, nous pouvons deviner que l'influence d'une condition aux bords disparaît quand la taille de la boîte devient très grande. Plus précisément, nous considérons un couplage de processus de percolation dynamique conditionné à la condition $T\nconnect B$ dans deux boîtes de taille $l$ munies de deux conditions aux bords qui diffèrent à un seul sommet $v_0$. La proposition suivante décrit la façon dont cette différence au bord induit une différence à l'arête $E_0$.
 
-Avant d'énoncer la proposition, on introduit le graphe dual qui est particulièrement adapté pour les problèmes en dimension 2.
-\begin{dual}
-Le graphe dual d'une percolation sur le réseau $\mathbb{Z}^2$ est un réseau sur $\mathbb{Z}^2+(\frac{1}{2},\frac{1}{2})$, dont une arête $e^*$ est ouverte ssi l'arête $e$ dans $\mathbb{Z}^2$ qui l'intersecte est ouverte.
-\end{dual}
-\begin{figure}[h]
-\center
-\begin{tikzpicture}
-\draw[gray] (0.1,0.1) grid (4.9,2.9);
-\draw[xshift=0.5cm,yshift=0.5cm] (0,0) grid (4,2);
-\draw (2.7,1.7) node {O};
-\draw[red,thick] (1.5,0.5) -- (1.5,1.5);
-\draw[red,thick] (1,1)--(2,1);
-\end{tikzpicture}
-\caption{un réseau $\mathbb{Z}^2$(noir) et son dual(gris)}
-\end{figure}
 \begin{chaine}
 \label{chaine}
 Soit $\Lambda_l, \Lambda'_l$ deux boites munis des processus $Y,Y'$ couplés avec un processus de percolation dynamique $X$ en commun démarrés avec la même configuration initiale et de condition aux bords qui diffèrent au sommet $v_0$. Soit $t>0$ premier instant où $E_0$ diffère dans les deux boites, alors $\exists N\in \mathbb{N},$ une suite d'arête $\epsilon_1,\dots,\epsilon_N$ et des instant $0<t_1< t_2<\dots<t_N=t$ tels que à $t_1$, $\epsilon_1$ devient différente et deux chemins fermés relient $\epsilon_1^*$ et le bord contenant $v_0$, de plus, $\forall i>1$, l'arête $\epsilon_i$ devient différente à $t_i$ et deux chemins fermés $p_i^1,p_i^2$ distincts relient $\epsilon_{i-1}^*$ et $\epsilon_i^*$ en graphe dual.
 \end{chaine}
 \begin{proof}
-Sans perte de généralité, on peut supposer que à l'instant 0, toutes les arêtes dans les deux boîtes soient fermées. On considère maintenant la première arête $e_1$ qui devient différente dans les deux boites. Par symétrie, on peut supposer que $v_0$ soit dans le bord gauche et que $e_1$ soit fermée dans $\Lambda'_l$.
+Sans perte de généralité, nous pouvons supposer que à l'instant 0, toutes les arêtes dans les deux boîtes soient fermées. nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux boites. Par symétrie, nous pouvons supposer que $v_0$ soit dans le bord gauche et que $e_1$ soit fermée dans $\Lambda'_l$.
 
-Cette arête devient différente car il existe dans une boite un chemin ouvert entre $T$ et $B$ si elle est ouverte et pas dans l'autre boîte. Il existe alors un chemin ouvert entre cette arête et le sommet $v_0$ au bord. Sans perte de généralité, on suppose que $\Pi'_l(v_0)=T$, il existe alors dans $\Lambda_l$ et $\Lambda'_l$ un chemin identique qui relie une extrémité de $e_0$ et $B$. On considère maintenant le cluster ouvert de ce chemin dans la boite $\Lambda'_l$, il n'est pas connecté à $B$ par la condition $T\nconnect B$ dans $\Lambda'_l$, de plus, il n'est pas connecté à $T$ car s'il l'était, $T\connect B$ dans la boîte $\Lambda_l$ où $e_0$ est ouverte. Il existe donc dans le graphe dual un contour fermé $C_1$ qui sépare ce cluster de $T$ et de $B$. L'arête $e^*_1$ sépare donc ce contour en deux parties disjointes (voir Figure \ref{fig:e1}). 
+Cette arête devient différente car il existe dans une boite un chemin ouvert entre $T$ et $B$ si elle est ouverte et pas dans l'autre boîte. Il existe alors un chemin ouvert entre cette arête et le sommet $v_0$ au bord. Sans perte de généralité, nous supposons que $\Pi'_l(v_0)=T$, il existe alors dans $\Lambda_l$ et $\Lambda'_l$ un chemin identique qui relie une extrémité de $e_0$ et $B$. nous considérons maintenant le cluster ouvert de ce chemin dans la boite $\Lambda'_l$, il n'est pas connecté à $B$ par la condition $T\nconnect B$ dans $\Lambda'_l$, de plus, il n'est pas connecté à $T$ car s'il l'était, $T\connect B$ dans la boîte $\Lambda_l$ où $e_0$ est ouverte. Il existe donc dans le graphe dual un contour fermé $C_1$ qui sépare ce cluster de $T$ et de $B$. L'arête $e^*_1$ sépare donc ce contour en deux parties disjointes (voir Figure \ref{fig:e1}). 
 \begin{figure}[h]
 \begin{minipage}{0.45\linewidth}
 \center
@@ -185,7 +186,7 @@ Cette arête devient différente car il existe dans une boite un chemin ouvert e
 \label{fig:e1}
 \end{figure}
 
-On considère maintenant une arête $e_i$ qui devient différente à cause d'une autre arête $e_j, j< i$ qui est déjà différente. Par symétrie, on suppose que $e_j$ est ouverte dans $\Lambda_l$ et fermée dans $\Lambda'_l$, $e_i$ est fermée dans $\Lambda_l$ et ouverte dans $\Lambda'_l$. Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, on suppose que $e_j$ est reliée à $T$ dans les deux boîtes et $e_i$ est reliée à $B$. Quitte à fermer toutes les arêtes $e_k,k \neq i,j$, on peut considérer le cluster ouvert de ce chemin dans les deux boîtes arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $B$ dans $\Lambda_l$ car $e_j$ est ouverte, il n'est pas connecté à $T$ dans $\Lambda'_l$ car $e_i$ est ouverte. On peut donc trouver un contour fermé $C_i$ dans le graphe dual qui sépare ce cluster de $T,B$ qui traverse $e_i$ et $e_j$. Donc $e_i$ et $e_j$ sépare $C_i$ en deux chemins fermés disjoints.
+nous considérons maintenant une arête $e_i$ qui devient différente à cause d'une autre arête $e_j, j< i$ qui est déjà différente. Par symétrie, nous supposons que $e_j$ est ouverte dans $\Lambda_l$ et fermée dans $\Lambda'_l$, $e_i$ est fermée dans $\Lambda_l$ et ouverte dans $\Lambda'_l$. Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$ dans les deux boîtes et $e_i$ est reliée à $B$. Quitte à fermer toutes les arêtes $e_k,k \neq i,j$, nous pouvons considérer le cluster ouvert de ce chemin dans les deux boîtes arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $B$ dans $\Lambda_l$ car $e_j$ est ouverte, il n'est pas connecté à $T$ dans $\Lambda'_l$ car $e_i$ est ouverte. nous pouvons donc trouver un contour fermé $C_i$ dans le graphe dual qui sépare ce cluster de $T,B$ qui traverse $e_i$ et $e_j$. Donc $e_i$ et $e_j$ sépare $C_i$ en deux chemins fermés disjoints.
 \begin{figure}[h]
 \begin{minipage}{0.45\linewidth}
 \center
@@ -233,16 +234,16 @@ On considère maintenant une arête $e_i$ qui devient différente à cause d'une
 \label{fig:ei}
 \end{figure}
 
-Enfin, pour obtenir la suite dans l'énoncé, on part de l'instant $t$ pour trouver l'arête qui a causé la différence à $E_0$, ensuite on répète ce procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête est donnée par une horloge exponentielle, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $t$. On peut donc trouver une suite finie d'arêtes $f_0,f_1,\dots, f_N$ avec $f_N = E_0$ et des instants $t_1<\dots< t_N = t$ qui vérifient l'énoncé.
+Enfin, pour obtenir la suite dans l'énoncé, nous partons de l'instant $t$ pour trouver l'arête qui a causé la différence à $E_0$, ensuite nous répétons ce procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête est donnée par une horloge exponentielle, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $t$. nous pouvons donc trouver une suite finie d'arêtes $f_0,f_1,\dots, f_N$ avec $f_N = E_0$ et des instants $t_1<\dots< t_N = t$ qui vérifient l'énoncé.
 \end{proof}
 
-On estime maintenant la probabilité pour qu'une arête deviennent différente à cause d'une autre arête ou directement à cause du bord. 
+nous estimons maintenant la probabilité pour qu'une arête deviennent différente à cause d'une autre arête ou directement à cause du bord. 
 
 \begin{cut}
 Soit $\Lambda_l$ une boîte de longueur $l$, un cut $C$ est un ensemble d'arête fermé dont le dual contient un chemin fermé de gauche à droite de $\Lambda_l$. Un cut minimal est un cut dont l'ouverture d'un sous-ensemble produit un chemin ouvert de $T$ à $B$.
 \end{cut}
 
-On voit bien que l'existence d'un cut dans une boite $\Lambda_l$ est équivalent à $T\nconnect B$.
+nous voyons bien que l'existence d'un cut dans une boite $\Lambda_l$ est équivalent à $T\nconnect B$.
 
 \begin{bcut}
 Avec les notation précédente, $\forall i>1$, à l'instant $t_i$, il existe un cut $C_i$ et un chemin fermé $c_i^*$ dans le graphe dual disjoint de $C_i$ qui vérifie les conditions suivantes:
@@ -253,14 +254,14 @@ Avec les notation précédente, $\forall i>1$, à l'instant $t_i$, il existe un 
 \end{bcut}
 
 \begin{proof}
-On considère le contour fermé formé par $p_i^1$ et $p_i^2$, la condition $T\nconnect B$ impose qu'il existe un cut $K_i$ qui contient $\epsilon_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, on peut supposer $K_i$ minimal. On considère le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. On peut numéroter les arêtes de $K_i$ de la façon suivante:
+nous considérons le contour fermé formé par $p_i^1$ et $p_i^2$, la condition $T\nconnect B$ impose qu'il existe un cut $K_i$ qui contient $\epsilon_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
 \begin{itemize}
-\item on pose $\epsilon^*_i = k_0$;
-\item si $\epsilon^*_i$ est horizontale, on pose $k_{-1}$ l'arête qui partage le sommet gauche de $\epsilon^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $\epsilon_i^*$ est verticale, on pose $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
-\item On éloigne de $\epsilon_i$, jusqu'à avoir numéroté toutes les arêtes. Dans la direction négative, on diminue l'indice de 1 à chaque pas et on augmente de 1 par pas dans la direction positive.
+\item nous posons $\epsilon^*_i = k_0$;
+\item si $\epsilon^*_i$ est horizontale, nous posons $k_{-1}$ l'arête qui partage le sommet gauche de $\epsilon^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $\epsilon_i^*$ est verticale, nous posons $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
+\item Nous nous éloignons de $\epsilon_i$, jusqu'à avoir numéroté toutes les arêtes. Dans la direction négative, nous diminuons l'indice de 1 à chaque pas et nous augmentons de 1 par pas dans la direction positive.
 \end{itemize}
 
-On considère maintenant l'arête minimale et l'arête maximale de l'ensemble $K_i\cap (p_i^1\cup p_i^2)$ qu'on note $k_{min}$ et $k_{max}$. Les deux arêtes $k_{min}$ et $k_{max}$ coupe $K_i$ en 3 parties disjointes: $C^g_i$ un chemin entre le bord gauche et $k_{min}$; $C^d_i$ un chemin entre le bord droite et $k_{max}$; l'union d'un chemin entre $k_{min}$ et $k_{max}$ et ces deux arêtes. De plus, les deux sommets qui séparent ces trois parties coupent le contour $p_i^1\cup p_i^2$ en deux chemins disjoints $c_i^1$ et $c_i^2$. Quitte à échanger les numéros, on suppose que $|c_i^1| \geqslant |c_i^2|$.
+nous considérons maintenant l'arête minimale et l'arête maximale de l'ensemble $K_i\cap (p_i^1\cup p_i^2)$ que nous notons $k_{min}$ et $k_{max}$. Les deux arêtes $k_{min}$ et $k_{max}$ coupe $K_i$ en 3 parties disjointes: $C^g_i$ un chemin entre le bord gauche et $k_{min}$; $C^d_i$ un chemin entre le bord droite et $k_{max}$; l'union d'un chemin entre $k_{min}$ et $k_{max}$ et ces deux arêtes. De plus, les deux sommets qui séparent ces trois parties coupent le contour $p_i^1\cup p_i^2$ en deux chemins disjoints $c_i^1$ et $c_i^2$. Quitte à échanger les numéros, nous supposons que $|c_i^1| \geqslant |c_i^2|$.
 \begin{figure}[h]
 \center
 \begin{tikzpicture}
@@ -282,50 +283,50 @@ On considère maintenant l'arête minimale et l'arête maximale de l'ensemble $K
 \caption{construction d'un chemin fermé disjoint d'un cut}
 \end{figure}
 
-Enfin on pose $C^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord gauche au bord droite dans le graphe dual et $c_i^* = c_i^1$. On pose $C_i$ le dual de $C^*_i$ qui est un cut. Or $|c_i^1| \geqslant |c_i^2|$, on obtient $|c^*_i| \geqslant \frac{1}{2}|p_i^1\cup p_i^2|$. Par construction, $C_i$ et $c_i^*$ sont disjoints.
+Enfin nous posons $C^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord gauche au bord droite dans le graphe dual et $c_i^* = c_i^1$. nous posons $C_i$ le dual de $C^*_i$ qui est un cut. Or $|c_i^1| \geqslant |c_i^2|$, nous obtenons $|c^*_i| \geqslant \frac{1}{2}|p_i^1\cup p_i^2|$. Par construction, $C_i$ et $c_i^*$ sont disjoints.
 \end{proof}
 
 \section{Quelques inégalités préliminaires}
-On va énoncer quelques inégalités utiles pour montrer la convergence en loi de l'interface quand la taille de la boîte tend vers infini. On commence par une inégalité de type BK adaptée au problème. On commence par généraliser la notion de l'occurrence disjointe.
+nous allons énoncer quelques inégalités utiles pour montrer la convergence en loi de l'interface quand la taille de la boîte tend vers infini. Nous commençons par une inégalité de type BK adaptée au problème. Nous commençons par généraliser la notion de l'occurrence disjointe.
 
 \begin{occ}
-Soit $\Lambda_l$ une boîte de longueur $l$, soit $A$ l'événement $x\connect y$ à l'instant $s$, $B$ l'événement $u\connect v$ à l'instant $t$, soit $K(\omega) = \{e: e=1\}$, on définit l'occurrence disjointe de $A$ et $B$ noté par $A\circ B$ par:
+Soit $\Lambda_l$ une boîte de longueur $l$, soit $A$ l'événement $x\connect y$ à l'instant $s$, $B$ l'événement $u\connect v$ à l'instant $t$, soit $K(\omega) = \{e: e=1\}$, nous définissons l'occurrence disjointe de $A$ et $B$ noté par $A\circ B$ par:
 \begin{itemize}
 \item si $s=t$, $A\circ B = \{\omega: \exists\omega_1\in A,\exists\omega_2\in B, K(\omega_1)\cap K(\omega_2) = \emptyset, K(\omega_1)\cup K(\omega_2)\subset K(\omega) \}$;
 \item si $s<t$, $A\circ B = \{\omega: \exists\omega_1\in A,\exists\omega_2\in B, K(\omega_1)\cup K(\omega_2)\subset K(\omega), \forall e\in (\omega_1)\cap K(\omega_2), \exists r\in [s,t], e(r) = 1 \}$.
 \end{itemize}
 \end{occ}
-On énonce l'inégalité de BK pour la percolation dynamique:
+Nous énonçons l'inégalité de BK pour la percolation dynamique:
 
 \begin{bk}
 Soit $\Lambda_l$ une boîte de longueur $l$, $0<s\leqslant t$, soit $A$ l'événement $x\connect y$ à l'instant $s$, $B$ l'événement $u\connect v$ à l'instant $t$, alors $P(A\circ B) \leqslant P(A)P(B)$ quand $p$ est assez proche de 1.
 \end{bk}
 
 \begin{proof}
-Pour le premier cas, c'est l'inégalité de BK classique. On traite uniquement le deuxième cas où les instants sont différents. Soit $\Gamma = \{f:[s,t]\rightarrow\{0,1\}\text{ càdlàg} \}^{|\Lambda_l|}$. On introduit deux espaces de probabilité identiques $S_1 = (\Gamma_1,\mathcal{F}_1,P_1), S_2 = (\Gamma_2,\mathcal{F}_2,P_2)$, on définit $S$ l'espace produit de $S_1,S_2$. On écrit $x\times y$ un point de $\Gamma_1 \times \Gamma_2$. On note $A' = A\times \Gamma_2$, $B_k' = \{x\times y :(y_1,\dots,y_k,x_{k+1},\dots,x_{|\Lambda_l|}) \in B\}$. On note $P_{12}$ la probabilité produit de $P_1,P_2$. On voit bien que $P(A\circ B) = P_{12}(A'\circ B'_0)$ et $P_{12}(A'\circ B'_{|\Lambda_l|}) = P(A)P(B)$. On montre maintenant: $$\forall k>0, P_{12}(A'\circ B'_{k-1}) \leqslant P_{12}(A'\circ B'_k)$$. 
+Pour le premier cas, c'est l'inégalité de BK classique. Nous traitons uniquement le deuxième cas où les instants sont différents. Soit $\Gamma = \{f:[s,t]\rightarrow\{0,1\}\text{ càdlàg} \}^{|\Lambda_l|}$. Nous introduisons deux espaces de probabilité identiques $S_1 = (\Gamma_1,\mathcal{F}_1,P_1), S_2 = (\Gamma_2,\mathcal{F}_2,P_2)$, nous définissons $S$ l'espace produit de $S_1,S_2$. Nous écrivons $x\times y$ un point de $\Gamma_1 \times \Gamma_2$. Nous notons $A' = A\times \Gamma_2$, $B_k' = \{x\times y :(y_1,\dots,y_k,x_{k+1},\dots,x_{|\Lambda_l|}) \in B\}$. Nous notons $P_{12}$ la probabilité produit de $P_1,P_2$. Nous avons bien que $P(A\circ B) = P_{12}(A'\circ B'_0)$ et $P_{12}(A'\circ B'_{|\Lambda_l|}) = P(A)P(B)$. Nous montrons maintenant: $$\forall k>0, P_{12}(A'\circ B'_{k-1}) \leqslant P_{12}(A'\circ B'_k)$$. 
 
-On considère $x\times y \in A'\circ B'_{k-1}$, donc $x\in A$ et $(y_1,\dots,y_{k-1},x_k,\dots,x_{|\Lambda_l|})\in B$. 
+nous considérons $x\times y \in A'\circ B'_{k-1}$, donc $x\in A$ et $(y_1,\dots,y_{k-1},x_k,\dots,x_{|\Lambda_l|})\in B$. 
 
-On considère d'abord le cas où $e_k$ n'est pas pivot pour $B$. On vérifie facilement $x\times y \in A'\circ B'_k$.
+nous considérons d'abord le cas où $e_k$ n'est pas pivot pour $B$. Nous vérifions facilement $x\times y \in A'\circ B'_k$.
 
-On considère maintenant l'arête $e_k$ est pivot pour $A$ et $B$. On a donc $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$. On pose $$x'=(x_1,\dots,x_{k-1},\bar{x}_k,x_{k+1},\dots,x_{|\Lambda_l|})$$
-$$y'=(y_1,\dots,y_{k-1},x'_k,y_{k+1},\dots,y_{|\Lambda_l|})$$ où $x'_k$ une copie indépendante de $x_k$. $x\times y' \in A'\circ B'_k$ et $\bar{x}_k$ vérifie $\bar{x}_k(s)=1$. On a donc $P_{12}(x\times y \in A'\circ B'_k; e_k \text{ pivot }A,B) = pP_{12}(x\times y \in A'\circ B'_{k-1}; e_k \text{ pivot }A,B)$.
+Nous considérons maintenant l'arête $e_k$ est pivot pour $A$ et $B$. Nous avons donc $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$. Nous posons $$x'=(x_1,\dots,x_{k-1},\bar{x}_k,x_{k+1},\dots,x_{|\Lambda_l|})$$
+$$y'=(y_1,\dots,y_{k-1},x'_k,y_{k+1},\dots,y_{|\Lambda_l|})$$ où $x'_k$ une copie indépendante de $x_k$. $x\times y' \in A'\circ B'_k$ et $\bar{x}_k$ vérifie $\bar{x}_k(s)=1$. nous avons donc $P_{12}(x\times y \in A'\circ B'_k; e_k \text{ pivot }A,B) = pP_{12}(x\times y \in A'\circ B'_{k-1}; e_k \text{ pivot }A,B)$.
 
-Il reste le cas $e_k$ pivot pour $B$ mais pas pour $A$. On a maintenant $x_k(t) = 1$, on pose 
+Il reste le cas $e_k$ pivot pour $B$ mais pas pour $A$. Nous avons maintenant $x_k(t) = 1$, nous posons 
 $$ x'=(x_1,\dots,x_{k-1},f_k,x_{k+1},\dots,x_{|\Lambda_l|})
 $$
 $$y' =(y_1,\dots,y_{k-1},x'_k,y_{k+1},\dots,y_{|\Lambda_l|})
 $$
-où $f_k:[s,t]\rightarrow\{0,1\}$ une fonction càdlàg et $x'_k$ une copie indépendante de $x_k$. On a $x'\times y' \in A'\circ B'_k$, et $P_{12}(x\times y \in A'\circ B'_k; e_k \text{ pivot }B) = \frac{1}{p}P_{12}(x\times y \in A'\circ B'_{k-1}; e_k \text{ pivot }B)$.
+où $f_k:[s,t]\rightarrow\{0,1\}$ une fonction càdlàg et $x'_k$ une copie indépendante de $x_k$. Nous avons $x'\times y' \in A'\circ B'_k$, et $P_{12}(x\times y \in A'\circ B'_k; e_k \text{ pivot }B) = \frac{1}{p}P_{12}(x\times y \in A'\circ B'_{k-1}; e_k \text{ pivot }B)$.
 
-On montre maintenant $P(e_k \text{ pivot } A,B) \leqslant P(e_k \text{ pivot } B)$ quand $p$ proche de 1. En effet, 
+Nous montrons maintenant $P(e_k \text{ pivot } A,B) \leqslant P(e_k \text{ pivot } B)$ quand $p$ proche de 1. En effet, 
 \begin{multline*}
 P(e_k \text{ pivot } A,B)\leqslant P(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0)\\
  \leqslant 1- \exp(-(1-p)(t-s))
 \end{multline*}
 $$P(e_k \text{ pivot }B) \geqslant P(e_k \text{ ne change pas d'état}) \geqslant \exp(-(t-s))
 $$
-Pour $p$ assez proche de 1, on a l'inégalité demandée. On a donc
+Pour $p$ assez proche de 1, nous avons l'inégalité demandée. Nous avons donc
 \begin{align*}
 P_{12}(A'\circ B'_{k-1}) =& P_{12}(A'\circ B'_{k-1};e_k \text{ pivot } A,B) + P_{12}(A'\circ B'_{k-1};e_k \text{ pivot } B) \\
   &+ P_{12}(A'\circ B'_{k-1};e_k \text{ non pivot })\\
@@ -335,18 +336,18 @@ P_{12}(A'\circ B'_{k-1}) =& P_{12}(A'\circ B'_{k-1};e_k \text{ pivot } A,B) + P_
   &+ P_{12}(A'\circ B'_{k};e_k \text{ non pivot })\\
   \leqslant & P_{12}(A'\circ B'_{k})
 \end{align*}
-Avec une récurrence sur $k$, on a l'inégalité demandée dans la proposition.
+Avec une récurrence sur $k$, nous avons l'inégalité demandée dans la proposition.
 \end{proof}
 
-On sait déjà qu'un chemin fermé admet la propriété de décroissance exponentielle en fonction de son cardinal dans la phase surcritique, on montre maintenant une propriété similaire pour la percolation dynamique sur son comportement temporel: 
+Nous avons déjà qu'un chemin fermé admet la propriété de décroissance exponentielle en fonction de son cardinal dans la phase surcritique, nous montrons maintenant une propriété similaire pour la percolation dynamique sur son comportement temporel: 
 
 \begin{decexp}
-Soit $p>\frac{1}{2}$, $c$ un chemin fermé à l'instant $s$ de cardinal $m$, soit $P_{c,c'}$ la probabilité qu'il ne soit pas disjoint d'un chemin $c'$ à l'instant $t>s$, on a $P_{c,c'}\leqslant me^{-\gamma(t-s)}$ avec $\gamma$ une constante indépendante de $c$ et de $c'$.
+Soit $p>\frac{1}{2}$, $c$ un chemin fermé à l'instant $s$ de cardinal $m$, soit $P_{c,c'}$ la probabilité qu'il ne soit pas disjoint d'un chemin $c'$ à l'instant $t>s$, nous avons $P_{c,c'}\leqslant me^{-\gamma(t-s)}$ avec $\gamma$ une constante indépendante de $c$ et de $c'$.
 \end{decexp}
 \begin{proof}
-On considère une arête $(x,y)$ fermé et une modification locale $M$ pour l'ouvrir suivante: on ferme deux arêtes perpendiculaires de même côté qui contiennent respectivement un sommet $x,y$ et l'arête qui relie ces deux arêtes; ensuite on ouvre l'arête $(x,y)$. Chaque étape de la modification est déterminée par une horloge exponentielle et elle respecte la condition de $T\nconnect B$. Entre $[0,1]$, cette modification a une probabilité positive $r$ pour se réaliser. On en déduit qu'il existe une constante $\gamma$ pour qu'entre $[s,t]$, la probabilité que cette modification ne se réalise pas est inférieur à $e^{-\gamma(t-s)}$. 
+nous considérons une arête $(x,y)$ fermé et une modification locale $M$ pour l'ouvrir suivante: nous fermons deux arêtes perpendiculaires de même côté qui contiennent respectivement un sommet $x,y$ et l'arête qui relie ces deux arêtes; ensuite nous ouvrons l'arête $(x,y)$. Chaque étape de la modification est déterminée par une horloge exponentielle et elle respecte la condition de $T\nconnect B$. Entre $[0,1]$, cette modification a une probabilité positive $r$ pour se réaliser. Nous en déduisons qu'il existe une constante $\gamma$ pour qu'entre $[s,t]$, la probabilité que cette modification ne se réalise pas est inférieur à $e^{-\gamma(t-s)}$. 
 
-On considère maintenant deux arêtes $e,e'$ voisines, on peut choisir les arêtes qu'on modifie pour que $e,e'$ soient modifiées indépendamment. En effet, si les $e,e'$ sont colinéaires alors on effectue les modifications à différents côtés; si $e,e'$ sont perpendiculaires, alors on effectue la modification à l'extérieur de l'angle formé par $e,e'$, voir figure \ref{fig:mod}.
+Nous considérons maintenant deux arêtes $e,e'$ voisines, nous pouvons choisir les arêtes que nous modifions pour que $e,e'$ soient modifiées indépendamment. En effet, si les $e,e'$ sont colinéaires alors nous effectuons les modifications à différents côtés; si $e,e'$ sont perpendiculaires, alors nous effectuons la modification à l'extérieur de l'angle formé par $e,e'$, voir figure \ref{fig:mod}.
 
 \begin{figure}[h]
 
@@ -374,51 +375,51 @@ On considère maintenant deux arêtes $e,e'$ voisines, on peut choisir les arêt
 
 \end{figure}
 
-On a donc 
+Nous avons donc 
 \begin{align*}
  P(c \coprod c') &\geqslant P(\forall e \in c, M \text{ se réalise sur } e) \\
  & \geqslant (1-e^{-\gamma (t-s)})^m \geqslant 1-me^{-\gamma (t-s)}
 \end{align*} 
 \end{proof}
 
-On introduit la notion de space-time chemin, en prolongeant la connexion dans le temps, c'est-à-dire si une arête $e=(x,y)$ reste ouverte (resp. fermée) entre $s$ et $t$ alors $(x,s)\connect (y,t)$ par un space-time chemin ouvert (resp.fermé). On montre aussi une décroissance exponentielle avec les space-time chemin.
+Nous introduisons la notion de space-time chemin, en prolongeant la connexion dans le temps, c'est-à-dire si une arête $e=(x,y)$ reste ouverte (resp. fermée) entre $s$ et $t$ alors $(x,s)\connect (y,t)$ par un space-time chemin ouvert (resp.fermé). Nous montrons aussi une décroissance exponentielle avec les space-time chemin.
 
 \begin{stc} \label{stc} Soit $n\in \mathbb{N}$, $t>0$, $p> \frac{1}{2}$, soit $ A(n,t)$ l'événement $(O,0) \connect (n\mathbf{e}_1,t)$ par un space-time chemin fermé ou $\mathbf{e}_1 = (1,0)$, alors $\exists \gamma(p,t),$ une constante qui dépend de $p,t$ tel que $P(A(n,t)) \sim e^{-\gamma(p,t)n}$.
 \end{stc}
 
 \begin{proof}
-On montre cette équivalence par le lemme sous-additif. En fait, 
+Nous montrons cette équivalence par le lemme sous-additif. En fait, 
 \begin{align*}
 P((O,0)\connect ((n+m)\mathbf{e}_1,s+t)) &\geqslant P((O,0)\connect (n\mathbf{e}_1,s))P((n\mathbf{e}_1,s)\connect ((m+n)\mathbf{e}_1,s+t))\\
 & \leqslant P((O,0)\connect (n\mathbf{e}_1,s))P((O,0)\connect (m\mathbf{e}_1,t))
 \end{align*}
-Car on a l'invariance par translation. On conclut avec le lemme sous additif.
+Car nous avons l'invariance par translation. Nous concluons avec le lemme sous additif.
 \end{proof}
 
 \begin{comment}
-On étudie la constante $\gamma(p,t)$ et on a la proposition suivante:
+Nous étudions la constante $\gamma(p,t)$ et nous avons la proposition suivante:
 \begin{tension}$\frac{\gamma(p,t)}{\gamma(p,0)} \rightarrow 1$ quand $p\rightarrow 1$.
 \end{tension}
 \begin{proof}
-On utilise le fait que $\lim_n \frac{1}{n}\ln P(O\connect n\mathbf{e}_1) = \lim_n \frac{1}{n}\ln P(O\connect \partial \Lambda_n)$ et on considère une boite de taille $n$. On remarque le nombre d'arête qui se ferme entre $[0,t]$ est borné par une loi de Poisson de paramètre $n^2(1-p)t$. On note $N$ le nombre de bout d'un space-time chemin, c'est-à-dire le nombre de chemins fermés tel que $$ (O,0) = (x_1,t_1) \connect (x_1,t_2) \connect (x_2,t_2)\dots \connect (x_N,t_N) \connect (\partial\Lambda_n,t).
+Nous utilisons le fait que $\lim_n \frac{1}{n}\ln P(O\connect n\mathbf{e}_1) = \lim_n \frac{1}{n}\ln P(O\connect \partial \Lambda_n)$ et nous considérons une boite de taille $n$. Nous remarquons le nombre d'arête qui se ferme entre $[0,t]$ est borné par une loi de Poisson de paramètre $n^2(1-p)t$. Nous notons $N$ le nombre de bout d'un space-time chemin, c'est-à-dire le nombre de chemins fermés tel que $$ (O,0) = (x_1,t_1) \connect (x_1,t_2) \connect (x_2,t_2)\dots \connect (x_N,t_N) \connect (\partial\Lambda_n,t).
 $$
-On a donc $N$ est borné par une variable aléatoire de loi de Poisson de paramètre $n^2(1-p)t$. Quand $p\rightarrow 1$, on peut rendre $N$ d'ordre de 1 avec une probabilité proche de 1 et on a le résultat.
+Nous avons donc $N$ est borné par une variable aléatoire de loi de Poisson de paramètre $n^2(1-p)t$. Quand $p\rightarrow 1$, nous pouvons rendre $N$ d'ordre de 1 avec une probabilité proche de 1 et nous avons le résultat.
 \end{proof}
 \end{comment}
 \section{La probabilité d'une influence du bord}
 
-On montre maintenant que la probabilité d'avoir une influence du bord sur une arête à l'intérieur de la boîte. 
+Nous montrons maintenant que la probabilité d'avoir une influence du bord sur une arête à l'intérieur de la boîte. 
 \begin{cvg}
-Soit $p\geqslant \frac{1}{2}$, $E$ l'arête au centre de la boîte $\Lambda_l, \Lambda_l'$ décrit dans la proposition \ref{chaine}, il existe une constante $\lambda> 0$ tel que $P(Y(E)\neq Y'(E)) \leqslant e^{-\lambda l} P(T\nconnect B \text{ entre }[0,t])$.
+Soit $p\geqslant \frac{1}{2}$, $\bar{e}$ l'arête au centre de la boîte $\Lambda_l, \Lambda_l'$ décrit dans la proposition \ref{chaine}, il existe une constante $\lambda> 0$ tel que $P(Y(\bar{e})\neq Y'(\bar{e})) \leqslant e^{-\lambda l} P(T\nconnect B \text{ entre }[0,t])$.
 \end{cvg}
 
 \begin{proof}
 
-On utilise les notations de la proposition \ref{chaine} et son corollaire.
-D'après la proposition \ref{chaine}, on sait qu'il existe une suite d'arêtes $\epsilon_1,\epsilon_n$ qui sont reliées l'une après l'autre à différentes instants. On note $x_i,y_i$ les extrémités de $c_i^*$ chemin fermé dans le graphe dual et de $C_i$ le cut, on note aussi $k_i$ le cardinal de $p_i^1\cup p_i^2$. On sépare la suite en différentes sous suites selon l'indépendance, plus précisément, si $c^*_j$ et $c^*_{j+1}$  est de l'occurrence disjointe, alors on coupe la suite à l'indice $j$. Ainsi, on obtient les indices $j_1,\dots,j_r$ telles que $\forall 1\leqslant u\leqslant r, c^*_{j_u}$ et $c^*_{j_{u+1}}$ sont disjoints, $\forall j_k \leqslant v \leqslant j_{k+1}$, $c_k^*$ et $c_{k+1}^*$ ne sont pas disjoints.
+Nous utilisons les notations de la proposition \ref{chaine} et son corollaire.
+D'après la proposition \ref{chaine}, nous savons qu'il existe une suite d'arêtes $\epsilon_1,\epsilon_n$ qui sont reliées l'une après l'autre à différentes instants. Nous notons $x_i,y_i$ les extrémités de $c_i^*$ chemin fermé dans le graphe dual et de $C_i$ le cut, nous notons aussi $k_i$ le cardinal de $p_i^1\cup p_i^2$. Nous séparons la suite en différentes sous suites selon l'indépendance, plus précisément, si $c^*_j$ et $c^*_{j+1}$  est de l'occurrence disjointe, alors nous coupons la suite à l'indice $j$. Ainsi, nous obtenons les indices $j_1,\dots,j_r$ telles que $\forall 1\leqslant u\leqslant r, c^*_{j_u}$ et $c^*_{j_{u+1}}$ sont disjoints, $\forall j_k \leqslant v \leqslant j_{k+1}$, $c_k^*$ et $c_{k+1}^*$ ne sont pas disjoints.
 
 \begin{align*}
-P(Y(E)\neq Y'(E)) =& P(\exists \epsilon_1,\dots,\epsilon_n, \forall i, \exists p_i^1,p_i^2, \epsilon_{i-1}\overset{p_i^1,p_i^2}{\connect}\epsilon_i) \\
+P(Y(\bar{e})\neq Y'(\bar{e})) =& P(\exists \epsilon_1,\dots,\epsilon_n, \forall i, \exists p_i^1,p_i^2, \epsilon_{i-1}\overset{p_i^1,p_i^2}{\connect}\epsilon_i) \\
  \leqslant &P(\exists x_1,\dots,x_n,y_1,\dots,y_n c^*_1,\dots,c^*_n,C_1,\dots,C_n) \\\
  \leqslant &\sum_{j_1,\dots,j_r}\prod_{1\leqslant k \leqslant r} P\left(\begin{array}{c}
  \exists x_{j_{k-1}+1},\dots,x_{j_k},\\
@@ -430,16 +431,16 @@ P(Y(E)\neq Y'(E)) =& P(\exists \epsilon_1,\dots,\epsilon_n, \forall i, \exists p
  \end{array}
  \right)
 \end{align*}
-On utilise la proposition \ref{stc} pour majorer chaque terme du produit. Or les $\forall j_{k-1}+1 \leqslant c^*_m \leqslant j_k$, les $c^*_m$ ne sont pas d'occurrence disjointe, on a un space-time chemin $\sigma_k$ qui relie $x_{j_{k-1}+1}$ et $y_{j_k}$. Donc elle est bornée par $ \displaystyle |\sigma_k|^4 e^{-\gamma(p,t_{j_k}-t_{j_{k-1}+1})|\sigma_k|} P(\exists C_{j_{k-1}+1},\dots,C_{j_k} \text{ cut})$ car $x_{j_{k-1}+1}$ et $y_{j_k}$ sont dans un carré de taille inférieure à $ |\sigma_k|$. Or $\exists \delta>0$ tel que $\forall x>1, x^4e^{-x} \leqslant e^{-\delta x}$, on a 
+Nous utilisons la proposition \ref{stc} pour majorer chaque terme du produit. Or les $\forall j_{k-1}+1 \leqslant c^*_m \leqslant j_k$, les $c^*_m$ ne sont pas d'occurrence disjointe, nous avons un space-time chemin $\sigma_k$ qui relie $x_{j_{k-1}+1}$ et $y_{j_k}$. Donc elle est bornée par $$ \displaystyle |\sigma_k|^4 e^{-\gamma(p,t_{j_k}-t_{j_{k-1}+1})|\sigma_k|} P(\exists C_{j_{k-1}+1},\dots,C_{j_k} \text{ cut})$$ car $x_{j_{k-1}+1}$ et $y_{j_k}$ sont dans un carré de taille inférieure à $ |\sigma_k|$. Or $\exists \delta>0$ tel que $\forall x>1, x^4e^{-x} \leqslant e^{-\delta x}$, nous avons 
 $$|\sigma_k|^4 e^{-\gamma(p,t_{j_k}-t_{j_{k-1}+1})|\sigma_k|} \leqslant |\sigma_k|^4 e^{-\gamma(p,t)|\sigma_k|} \leqslant e^{-\delta\gamma(p,t)|\sigma_k|}$$
 
-On part de $E$, $x_{j_{n-1}+1}$ est de distance inférieure à $2|\sigma_r|$ de $E$, on a donc 
+Nous partons de $\bar{e}$, $x_{j_{n-1}+1}$ est de distance inférieure à $2|\sigma_r|$ de $\bar{e}$, nous avons donc 
 \begin{align*}\sum_{1=j_1<\dots < j_r = n} &\prod_{1\leqslant k \leqslant r} e^{-\delta \gamma(p,t)|\sigma_k|} P(\exists C_{j_{k-1}+1},\dots,C_{j_k} \text{ cut}) \\
 \leqslant & P(\exists C_1,\dots,C_n \text{ cut})\sum_{1=j_1<\dots < j_{r-1}} 4|\sigma_r|^2e^{-\delta \gamma(p,t)|\sigma_r|}\prod_{1\leqslant k \leqslant r-1}e^{-\delta \gamma(p,t)|\sigma_k|} \\
 \leqslant & P(\exists C_1,\dots,C_n \text{ cut})\sum_{1=j_1<\dots < j_{r-1}} 4e^{-\delta^2 \gamma(p,t)|\sigma_r|}\prod_{1\leqslant k \leqslant r-1}e^{-\delta \gamma(p,t)|\sigma_k|} \\
 \leqslant & 4^r e^{-\delta^2 \gamma(p,t)\sum_1^r|\sigma_k|}P(\exists C_1,\dots,C_n \text{ cut})
 \end{align*}
-Enfin, $r$ est borné par une variable aléatoire de loi de Poisson de paramètre $l^2 (1-p) t$, on a le résultat.
+Enfin, $r$ est borné par une variable aléatoire de loi de Poisson de paramètre $l^2 (1-p) t$, nous avons le résultat.
 \end{proof}
 
 
