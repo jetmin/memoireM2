@@ -81,23 +81,25 @@ p & X_t(e) = 0
 $$ 
 Nous avons une définition alternative suivante: nous associons à l'arête $e$ un processus de Poisson de paramètre 1 $N_t(e)$. Nous notons $T_1,T_2,\dots$ les instants de sauts de $N_t(e)$, à chaque $T_i$, nous retirons la configuration de $e$ selon une loi de Bernoulli de paramètre $p$. Nous voyons bien qu'avec cette définition, la probabilité $P_p$ est l'unique probabilité stationnaire du processus.
 
-Nous pouvons aussi définir les instants de changement de l'arête $e$ par récurrence: soit $\tau_0 = 0$, et for all $i\in \mathbb{N}$, $\tau_{i+1} = \inf \{ t>\tau_i, X_t(e) \neq X_{\tau_i}(e)\}$. 
+Nous pouvons aussi définir $(\tau_i)_{i\geqslant 0}$ la suite des instants de changement de configuration par récurrence dans une boîte finie $\Lambda(l,h)$: soit $$\left.
+\begin{array}{l}
+\tau_0 = 0 \\
+\forall i\in \mathbb{N},\tau_{i+1} = \inf \{ t>\tau_i, \exists e_{i+1} \in \Lambda(l,h), X_t(e) \neq X_{\tau_i}(e)\}
+\end{array}\right.,$$
+et nous appelons la suite $(e_{i+1})_{i\in\mathbb{N}}$ la suite d'arête modifiée.
 \section{L'interface}
-Nous définissons l'interface $\mathcal{I}$ à l'aide de la percolation dynamique. nous considérons la boite $\Lambda_{l,h}$ et le processus de percolation dynamique $X_n$ dans la boite. nous définissons un couplage suivant, pour simplifier l'énoncé, nous utilisons la version discrète $X_n$ au lieu de $X(t)$:
+Nous définissons l'interface $\mathcal{I}$ à l'aide de la percolation dynamique. Nous définissons d'abord un couplage suivant:
 
-Soit $X_n$ le processus de percolation dynamique de paramètre $p$ dans $\Lambda_{l,h}$ qui vérifie $T\overset{X_0}{\nleftrightarrow}B$, soit $Y_n$ un processus à valeurs dans $\{0,1\}^E$ avec $Y_0=X_0$ et à l'instant $n$, soit $e$ l'arête choisi par le processus $X$ et $U_n$ la variable uniforme dans $[0,1]$, nous déterminons $(X_{n+1},Y_{n+1})$ ainsi:
-$$(X_{n+1},Y_{n+1})=\left\lbrace \begin{array}{cc}
-(1,1) & U_n<p,T\nleftrightarrow B \text{ dans } X_{n+1}\\
-(1,0) & U_n<p,T\longleftrightarrow B \text{ dans } X_{n+1} \\
-(0,0) & U_n>p\\
+Soit $X_t$ le processus de percolation dynamique de paramètre $p$ dans $\Lambda_{l,h}$ qui satisfait $T\overset{X_0}{\nleftrightarrow}B$ et $(\tau_i)_{i\geqslant 0}$ sa suite des instants de changement de configuration, soit $Y_t$ un processus à valeurs dans $\{0,1\}^E$. Nous déterminons $Y_t$ par récurrence sur $i$: $Y_0=X_0$; soit $i\geqslant 0$, pour tout $s\in [\tau_i, \tau_{i+1}[$, $Y_s = Y_{\tau_i}$, soit $\bar{Y}_i$ la configuration où nous remplaçons $Y_{\tau_i}(e_{i+1})$ par $Y_{\tau_{i+1}}(e_{i+1})$ dans $Y_{\tau_i}$, nous déterminons $(X_{\tau_{i+1}},Y_{\tau_{i+1}})$ ainsi:
+$$(X_{\tau_{i+1}}(e),Y_{\tau_{i+1}}(e))=\left\lbrace \begin{array}{cc}
+(X_{\tau_{i+1}}(e),X_{\tau_{i+1}}(e)) & e \neq e_{i+1}\\
+(X_{\tau_{i+1}}(e_{i+1}),X_{\tau_{i+1}}(e)_{i+1}) & e = e_{i+1}, T \overset{\bar{Y}_i}{\nleftrightarrow} B \\
+(1,0) & e = e_{i+1},T\overset{\bar{Y}_i}{\leftrightarrow} B 
 \end{array}\right..$$
 
-Le processus $Y$ est une percolation dynamique conditionnée à ce qu'il n'existe pas de chemin ouvert entre $T$ et $B$. nous définissons l'interface à partir du couplage:
-\begin{interface}
-Soit $(X_n,Y_n)_{n\leqslant 0}$ un couplage défini précédemment, nous appelons une interface dans $\Lambda_{l,h}$ notée $\mathcal{I}^{l,h}_n$ l'ensemble aléatoire des arêtes qui sont ouverts dans $X_n$ et fermé dans $Y_n$: $$ \mathcal{I}^{l,h}_n = \big\{ e\in E| X_n^e = 1, Y_n^e = 0 \big\}.
-$$
-\end{interface}
-Le chaîne de Markov $X$ est irréductible et finie donc elle admet une probabilité invariante qui est la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $Y$ est aussi irréductible car toute configuration de $Y$ est reliée à la configuration où toutes les arêtes sont fermées, en effet, il suffit de fermer toute arête choisie à toute instant de saut dans la chaîne $X$. Le théorème suivant donne la probabilité invariante de $Y$.
+Nous remarquons d'abord qu'une arête $e$ devient différente dans les deux configurations à l'instant $t$ si et seulement si l'ouverture de l'arête $e$ induit une connexion entre le $T$ et $B$; dans ce cas, l'arête $e$ reste fermée dans la configuration $Y$ mais s'ouvre dans la configuration $X$. 
+
+La chaîne de Markov $X$ est irréductible et finie donc elle admet une probabilité invariante qui est la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $Y$ est aussi irréductible car toute configuration de $Y$ est reliée à la configuration où toutes les arêtes sont fermées, en effet, il suffit de fermer toute arête choisie à toute instant de saut dans la chaîne $X$. Le théorème suivant donne la probabilité invariante de $Y$.
 \begin{probainv}
 Soit $Z_n$ une chaîne de Markov réversible dans $E$ de probabilité invariante $\pi$, soit $A\subset E$, nous définissons $Z_n^A$ par sa probabilité de transition:
 $$p^A(x,y)=\left\lbrace \begin{array}{cc}
@@ -112,6 +114,10 @@ alors $Z^A$ admet une probabilité invariante qui est $\frac{\mathbf{1}_A(\cente
 
 nous appliquons le théorème à $Y$ et nous obtenons la probabilité invariante de $Y$ qui est la loi de percolation de Bernoulli de paramètre $p$ conditionnée à $T\nleftrightarrow B$.
 
+\begin{interface}
+Soit $(X_n,Y_n)_{n\leqslant 0}$ un couplage défini précédemment, nous appelons une interface dans $\Lambda_{l,h}$ notée $\mathcal{I}^{l,h}_n$ l'ensemble aléatoire des arêtes qui sont ouverts dans $X_n$ et fermé dans $Y_n$: $$ \mathcal{I}^{l,h}_n = \big\{ e\in E| X_n^e = 1, Y_n^e = 0 \big\}.
+$$
+\end{interface}
 \section{Condition aux bords}
 Pour étudier le comportement d'une interface par rapport à la taille de la boîte $\Lambda_{l,h}$, nous introduisons la condition aux bords suivantes. Pour instant, nous traitons uniquement le cas où seulement $l$ varie et nous ajoutons les conditions aux bords seulement sur le côté gauche et le côté droite. nous fixons alors un entier $h$ et nous notons $\Lambda_l$ la boite de hauteur $2h$ et de longueur $2l$.
 \begin{cdb}Soit $l,m\in \mathbb{N}$ avec $l<m$, nous considérons une boîte $\Lambda_m$ et la boîte $\Lambda_l$ à l'intérieur de $\Lambda_m$, une condition aux bords $\Pi_{l,m}$ est une application de $\partial_{X}\Lambda_{l} =(\{-l\}\times[-h,h]) \cup (\{l\}\times [-h,h])$ dans $\{top,bot,null\}$ définie ainsi, $\forall x\in \partial_X\Lambda_{l}$:
