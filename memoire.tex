@@ -72,14 +72,14 @@ Nous rappelons qu'un graphe dual d'une percolation sur le réseau $\mathbb{Z}^2$
 
 \section{La percolation dynamique}
 Nous définissons d'abord le processus la percolation dynamique $$X: \mathbb{R}^+ \rightarrow \{0,1\}^{E^2}$$ dans un réseau $(\mathbb{Z}^2,E^2)$. 
-Soit $p\in [0,1]$, et soit $e\in E^2$, notons $X_t$ la configurations de $E^2$ à l'instant $t$ et $X_t(e)$ la configuration d'une arête $e$ à l'instant $t$. Nous écrivons que $X_t(e)= 1$ si $e$ est ouverte à l'instant $t$ et $X_t(e)=0$ sinon. Nous associons à $e$ indépendamment du reste un processus markovien de sauts à deux états $\{0,1\}$ qui représente le changement de configuration de l'arête. Le taux de saut dépend de la configuration de $e$:
+Soit $p\in [0,1]$, et soit $e\in E^2$, notons $X_t$ la configurations de $E^2$ à l'instant $t$ et $X_t(e)$ la configuration d'une arête $e$ à l'instant $t$. Nous écrivons que $X_t(e)= 1$ si $e$ est ouverte à l'instant $t$ et $X_t(e)=0$ sinon. Nous associons à $e$ indépendamment des autres arête un processus markovien de sauts à deux états $\{0,1\}$ qui représente le changement de configuration de l'arête. Le taux de saut dépend de la configuration de $e$:
 $$\lambda(X_t,e) = \left\lbrace \begin{array}{lc}
 1-p & X_t(e) = 1 \\
 p & X_t(e) = 0
 \end{array}
 \right..
 $$ 
-Nous avons une définition alternative suivante: nous associons à l'arête $e$ un processus de Poisson de paramètre 1 $N_t(e)$. Nous notons $T_1,T_2,\dots$ les instants de sauts de $N_t(e)$, à chaque $T_i$, nous retirons la configuration de $e$ selon une loi de Bernoulli de paramètre $p$. Nous voyons bien qu'avec cette définition, la probabilité $P_p$ est l'unique probabilité stationnaire du processus.
+Nous avons une définition alternative suivante: nous associons à l'arête $e$ un processus de Poisson de paramètre 1 $N_t(e)$. Nous notons $T_1(e),T_2(e),\dots$ les instants de sauts de $N_t(e)$, à chaque $T_i(e)$, nous retirons la configuration de $e$ selon une loi de Bernoulli de paramètre $p$. Nous voyons bien qu'avec cette définition, la probabilité $P_p$ est l'unique probabilité stationnaire du processus.
 
 Nous pouvons aussi définir $(\tau_i)_{i\geqslant 0}$ la suite des instants de changement de configuration par récurrence dans une boîte finie $\Lambda(l,h)$: soit $$\left.
 \begin{array}{l}
@@ -97,11 +97,12 @@ $$(X_{\tau_{i+1}}(e),Y_{\tau_{i+1}}(e))=\left\lbrace \begin{array}{cc}
 (1,0) & e = e_{i+1},T\overset{\bar{Y}_i}{\leftrightarrow} B 
 \end{array}\right..$$
 
-Nous remarquons d'abord qu'une arête $e$ devient différente dans les deux configurations à l'instant $t$ si et seulement si l'ouverture de l'arête $e$ induit une connexion entre le $T$ et $B$; dans ce cas, l'arête $e$ reste fermée dans la configuration $Y$ mais s'ouvre dans la configuration $X$. 
+Nous remarquons d'abord qu'une arête $e$ devient différente dans les deux configurations à l'instant $\tau_i$ si et seulement si $e$ devient ouverte à $\tau_i$ mais cette ouverture induit une connexion entre $T$ et $B$ dans la configuration $\bar{Y}_{i-1}$; dans ce cas, l'arête $e$ reste fermée dans la configuration $Y_t$. 
 
-La chaîne de Markov $X$ est irréductible et finie donc elle admet une probabilité invariante qui est la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $Y$ est aussi irréductible car toute configuration de $Y$ est reliée à la configuration où toutes les arêtes sont fermées, en effet, il suffit de fermer toute arête choisie à toute instant de saut dans la chaîne $X$. Le théorème suivant donne la probabilité invariante de $Y$.
+La chaîne de Markov $(X_{\tau_i})_{i\geqslant 0}$ est irréductible et à l'espace d'états fini donc elle admet une probabilité invariante qui est la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $(Y_{\tau_i})_{i\geqslant 0}$ est aussi irréductible car toute configuration de $(Y_{\tau_i})_{i\geqslant 0}$ est reliée à la configuration où toutes les arêtes sont fermées. En effet, pour toute arête $e$ dans $\Lambda(l,h)$, et à toute instant de saut $(T_i(e))_{i\geqslant 0}$, on peut choisir de fermer $e$ avec probabilité $1-p$ qui est strictement positive. Le théorème suivant décrit la probabilité invariante de $Y$.
+
 \begin{probainv}
-Soit $Z_n$ une chaîne de Markov réversible dans $E$ de probabilité invariante $\pi$, soit $A\subset E$, nous définissons $Z_n^A$ par sa probabilité de transition:
+Soit $Z_n$ une chaîne de Markov à valeurs dans un ensemble $E$ fini, irréductible de probabilité invariante $\pi$, soit $A\subset E$, nous définissons $Z_n^A$ par sa probabilité de transition:
 $$p^A(x,y)=\left\lbrace \begin{array}{cc}
 p(x,y) & y\in A, x\neq y \\
 0 & y\notin A \\
@@ -112,10 +113,10 @@ $$
 alors $Z^A$ admet une probabilité invariante qui est $\frac{\mathbf{1}_A(\centerdot)\pi(\centerdot)}{\pi(A)}$ soit la probabilité invariante de la chaîne conditionnée à rester dans $A$.
 \end{probainv}
 
-nous appliquons le théorème à $Y$ et nous obtenons la probabilité invariante de $Y$ qui est la loi de percolation de Bernoulli de paramètre $p$ conditionnée à $T\nleftrightarrow B$.
+Nous appliquons le théorème à $(Y_{\tau_i})_{i\geqslant 0}$ avec $A$ l'ensemble des configuration qui satisfont $T\nleftrightarrow B$. Nous obtenons la probabilité invariante qui est la loi de la percolation Bernoulli de paramètre $p$ conditionnée par l'événement $T\nleftrightarrow B$.
 
 \begin{interface}
-Soit $(X_n,Y_n)_{n\leqslant 0}$ un couplage défini précédemment, nous appelons une interface dans $\Lambda_{l,h}$ notée $\mathcal{I}^{l,h}_n$ l'ensemble aléatoire des arêtes qui sont ouverts dans $X_n$ et fermé dans $Y_n$: $$ \mathcal{I}^{l,h}_n = \big\{ e\in E| X_n^e = 1, Y_n^e = 0 \big\}.
+Soit $(X_t,Y_t)_{t\geqslant 0}$ un couplage défini précédemment, nous appelons une interface dans $\Lambda({l,h})$ notée $\mathcal{I}_t({l,h})$ l'ensemble aléatoire des arêtes qui sont ouvertes dans $X_t$ et fermé dans $Y_t$: $$ \mathcal{I}_t({l,h}) = \big\{ e\in E: X_t(e) = 1, Y_t(e) = 0 \big\}.
 $$
 \end{interface}
 \section{Condition aux bords}
