@@ -5,6 +5,7 @@
 \usepackage{comment}
 \usepackage{tikz}
 \usepackage[utf8]{inputenc}
+\usepackage[parfill]{parskip}
 \newcounter{def}
 \newcounter{thm}
 \newcounter{prop}
@@ -28,8 +29,9 @@
 \author{Wei ZHOU}
 
 
-
 \begin{document}
+
+
 \maketitle
 
 \section{Introduction}
@@ -120,16 +122,26 @@ Soit $(X_t,Y_t)_{t\geqslant 0}$ un couplage défini précédemment, nous appelon
 $$
 \end{interface}
 \section{Condition aux bords}
-Pour étudier le comportement d'une interface par rapport à la taille de la boîte $\Lambda_{l,h}$, nous introduisons la condition aux bords suivantes. Pour instant, nous traitons uniquement le cas où seulement $l$ varie et nous ajoutons les conditions aux bords seulement sur le côté gauche et le côté droite. nous fixons alors un entier $h$ et nous notons $\Lambda_l$ la boite de hauteur $2h$ et de longueur $2l$.
-\begin{cdb}Soit $l,m\in \mathbb{N}$ avec $l<m$, nous considérons une boîte $\Lambda_m$ et la boîte $\Lambda_l$ à l'intérieur de $\Lambda_m$, une condition aux bords $\Pi_{l,m}$ est une application de $\partial_{X}\Lambda_{l} =(\{-l\}\times[-h,h]) \cup (\{l\}\times [-h,h])$ dans $\{top,bot,null\}$ définie ainsi, $\forall x\in \partial_X\Lambda_{l}$:
-$$\Pi_{l,m}(x)=\left\lbrace \begin{array}{cc}
+Nous allons étudier l'influence de $l$ sur la loi de l'interface dans la boîte $\Lambda(l,h)$. Nous introduisons la notion de conditions aux bords. Pour instant, nous traitons uniquement le cas où seulement $l$ varie. Nous fixons alors un entier $h$ et nous introduisons l'ensemble $\{top,bot,null\}$. Nous notons $\partial^{in}\Lambda(l,h)$ le bord intérieur de $\Lambda(l,h)$, soit
+$$ \partial^{in}\Lambda(l,h) = \{x\in \Lambda(l,h), \exists y \notin \Lambda(l,h), \langle x,y\rangle\in E^2\}.
+$$
+Nous posons d'abord la condition aux bords sur les bords horizontaux $T$ et $B$:
+$$ \forall t\geqslant 0, \forall x\in T\cup B, \Pi_t^{l,h}(x) = \left\lbrace \begin{array}{ll}
+top & x\in T\\
+bot & x\in B
+\end{array}
+\right.
+$$
+
+Soit $t\geqslant 0$, pour un sommet $x$ sur le bord vertical $V(l,h)$, nous déterminons $\Pi^{l,h}_t(x)$ à l'aide une boîte plus grande. Plus précisément, soit $m>l$ entier naturel, nous considérons une boîte $\Lambda(m,h)$ qui contient la boîte $\Lambda(l,h)$, avec une configuration $X_t$ et que pour tout $y\in V(m,h), \Pi^{m,h}_t(y) = null $:
+$$\Pi^{l,h}_t(x)=\left\lbrace \begin{array}{cc}
 top & x\overset{\Lambda_m \setminus \Lambda_l}{\longleftrightarrow} T\\
 bot & x\overset{\Lambda_m \setminus \Lambda_l}{\longleftrightarrow} B\\
 null & x\overset{\Lambda_m \setminus \Lambda_l}{\nleftrightarrow} T\cup B 
 \end{array} \right.,
 $$
 la notation $x\overset{\Lambda_m \setminus \Lambda_l}{\longleftrightarrow} T(resp. B)$ signifie que le sommet $x$ est relié à $T(resp. B)$ uniquement par un chemin ouvert dont les arrêtes sont dans l'ensemble $(\Lambda_m \setminus \Lambda_l) \cup \partial \Lambda_l$.
-\end{cdb}
+
 \begin{figure}[h]
 \center
 \begin{tikzpicture}
@@ -155,7 +167,7 @@ la notation $x\overset{\Lambda_m \setminus \Lambda_l}{\longleftrightarrow} T(res
 \end{figure}
 
 \section{Quelques résultats géométriques}
-nous allons étudier la probabilité qu'une arrête fixée soit dans l'interface. Dans la suite, nous considérons le régime surcritique, ceci correspond au cas $p>\frac{1}{2}$ en dimension 2. Nous faisons varier seulement la longueur du rectangle, soit $l \rightarrow \infty$ et nous voulons montrer que la probabilité $\mathbb{P}(E_0 \in I^l_t)$ converge pour $t$ fixé avec $E_0$ l'arête entre $(0,0)$ et $(0,1)$.
+Nous allons étudier la probabilité qu'une arrête fixée soit dans l'interface. Dans la suite, nous considérons le régime surcritique, ceci correspond au cas $p>\frac{1}{2}$ en dimension 2. Nous faisons varier seulement la longueur du rectangle, soit $l \rightarrow \infty$ et nous voulons montrer que la probabilité $\mathbb{P}(E_0 \in I^l_t)$ converge pour $t$ fixé avec $E_0$ l'arête entre $(0,0)$ et $(0,1)$.
 
 Intuitivement, nous pouvons deviner que l'influence d'une condition aux bords disparaît quand la taille de la boîte devient très grande. Plus précisément, nous considérons un couplage de processus de percolation dynamique conditionné à la condition $T\nleftrightarrow B$ dans deux boîtes de taille $l$ munies de deux conditions aux bords qui diffèrent à un seul sommet $v_0$. La proposition suivante décrit la façon dont cette différence au bord induit une différence à l'arête $E_0$.
 
@@ -280,7 +292,7 @@ nous considérons le contour fermé formé par $p_i^1$ et $p_i^2$, la condition 
 \item Nous nous éloignons de $\epsilon_i$, jusqu'à avoir numéroté toutes les arêtes. Dans la direction négative, nous diminuons l'indice de 1 à chaque pas et nous augmentons de 1 par pas dans la direction positive.
 \end{itemize}
 
-nous considérons maintenant l'arête minimale et l'arête maximale de l'ensemble $K_i\cap (p_i^1\cup p_i^2)$ que nous notons $k_{min}$ et $k_{max}$. Les deux arêtes $k_{min}$ et $k_{max}$ coupe $K_i$ en 3 parties disjointes: $C^g_i$ un chemin entre le bord gauche et $k_{min}$; $C^d_i$ un chemin entre le bord droite et $k_{max}$; l'union d'un chemin entre $k_{min}$ et $k_{max}$ et ces deux arêtes. De plus, les deux sommets qui séparent ces trois parties coupent le contour $p_i^1\cup p_i^2$ en deux chemins disjoints $c_i^1$ et $c_i^2$. Quitte à échanger les numéros, nous supposons que $|c_i^1| \geqslant |c_i^2|$.
+Nous considérons maintenant l'arête minimale et l'arête maximale de l'ensemble $K_i\cap (p_i^1\cup p_i^2)$ que nous notons $k_{min}$ et $k_{max}$. Les deux arêtes $k_{min}$ et $k_{max}$ coupe $K_i$ en 3 parties disjointes: $C^g_i$ un chemin entre le bord gauche et $k_{min}$; $C^d_i$ un chemin entre le bord droite et $k_{max}$; l'union d'un chemin entre $k_{min}$ et $k_{max}$ et ces deux arêtes. De plus, les deux sommets qui séparent ces trois parties coupent le contour $p_i^1\cup p_i^2$ en deux chemins disjoints $c_i^1$ et $c_i^2$. Quitte à échanger les numéros, nous supposons que $|c_i^1| \geqslant |c_i^2|$.
 \begin{figure}[h]
 \center
 \begin{tikzpicture}
@@ -461,6 +473,5 @@ Nous partons de $\bar{e}$, $x_{j_{n-1}+1}$ est de distance inférieure à $2|\si
 \end{align*}
 Enfin, $r$ est borné par une variable aléatoire de loi de Poisson de paramètre $l^2 (1-p) t$, nous avons le résultat.
 \end{proof}
-
 
 \end{document}
