@@ -39,6 +39,8 @@ Dans ce mémoire, nous allons étudier les interfaces dans le modèle de percola
 
 Chaque configuration correspond à un sous graph de $\mathbb{Z}^d$ si nous considérons uniquement les arêtes ouvertes. Et plus intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^d$ avec une probabilité $1-p$. 
 
+Dans notre étude, nous nous concentrons pour instant au cas $d = 2$.
+
 \section{Notations générales}
 Dans cette partie, nous définissons d'abord le processus de la percolation dynamique dans le réseau $(\mathbb{Z}^2,E^2)$ puis nous définissons l'interface d'abord à l'aide de la percolation dynamique et d'un couplage. Pour commencer, nous présentons des notations générales pour la suite du mémoire.
 
@@ -56,9 +58,9 @@ Nous notons $\Lambda(l,h)$: le rectangle $[-l,l]\times[-h,h]$;  nous notons auss
 \caption{La boîte $\Lambda(l,h)$};
 \end{figure}
 
-Soit $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, nous notons $x\longleftrightarrow y$ s'ils sont reliés par un chemin ouvert, et $x\nleftrightarrow y$ , si ce n'est pas le cas; de plus, soit $B$ un sous ensemble du réseau, nous notons $x\overset{B}{\longleftrightarrow} y$ si $x$ et $y$ sont reliés par des arêtes contenant dans $B$;
+Soit $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, nous notons $x\longleftrightarrow y$ s'ils sont reliés par un chemin ouvert, et $x\nleftrightarrow y$ , si ce n'est pas le cas; de plus, soit $B$ un sous ensemble de $E^2$, nous notons $x\overset{B}{\longleftrightarrow} y$ si $x$ et $y$ sont reliés par des arêtes contenant dans $B$;
 
-Nous rappelons qu'un graphe dual d'une percolation sur le réseau $\mathbb{Z}^2$ est un réseau sur $\mathbb{Z}^2+(\frac{1}{2},\frac{1}{2})$, dont une arête $e^*$ est ouverte ssi l'arête $e$ dans $\mathbb{Z}^2$ qui l'intersecte est ouverte.
+\paragraph{Graphe dual}Nous rappelons qu'un graphe dual d'une percolation sur le réseau $\mathbb{Z}^2$ est un réseau sur $\mathbb{Z}^2+(\frac{1}{2},\frac{1}{2})$, dont une arête $e^*$ est ouverte ssi l'arête $e$ dans $\mathbb{Z}^2$ qui l'intersecte est ouverte. Désormais, les objets dans le graphe dual seront notés avec une $*$.
 
 \begin{figure}[h]
 \center
@@ -72,6 +74,7 @@ Nous rappelons qu'un graphe dual d'une percolation sur le réseau $\mathbb{Z}^2$
 \caption{un réseau $\mathbb{Z}^2$ et son dual (pointillée)}
 \end{figure}
 
+\paragraph{Ensemble séparant}Nous introduisons la notion d'un ensemble séparant, soit $A,B$ deux sous ensemble de $\mathbb{Z}^2$, nous disons qu'un ensemble d'arête $S\subset E^2$ sépare $A$ et $B$ si pour tout sommet $x\in A$ et tout sommet $y\in B$, $x\overset{E^2\setminus S}{\nleftrightarrow} y$. $S$ est appelé un ensemble séparant pour $A$ et $B$.
 \section{La percolation dynamique}
 Nous définissons d'abord le processus la percolation dynamique $$X: \mathbb{R}^+ \rightarrow \{0,1\}^{E^2}$$ dans un réseau $(\mathbb{Z}^2,E^2)$. 
 Soit $p\in [0,1]$, et soit $e\in E^2$, notons $X_t$ la configurations de $E^2$ à l'instant $t$ et $X_t(e)$ la configuration d'une arête $e$ à l'instant $t$. Nous écrivons que $X_t(e)= 1$ si $e$ est ouverte à l'instant $t$ et $X_t(e)=0$ sinon. Nous associons à $e$ indépendamment des autres arête un processus markovien de sauts à deux états $\{0,1\}$ qui représente le changement de configuration de l'arête. Le taux de saut dépend de la configuration de $e$:
@@ -194,7 +197,7 @@ Soit $t>0$ premier instant où $e_0$ diffère dans les deux configurations, alor
 
 \item[(ii)] pour tout $i>1$, l'arête $\varepsilon_i$ devient différente à $t_i$ et il existe deux chemins fermés $p_i^1,p_i^2$ distincts qui relient $\varepsilon_{i-1}^*$ et $\varepsilon_i^*$ en graphe dual.
 
-\item[(iii)] pour tout $i\geqslant 0$, à l'instant $t_i$, il existe un ensemble séparant $S_i$ et un chemin fermé $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (p_i^1\cup p_i^2)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert p_i^1\cup p_i^2 \vert$
+\item[(iii)] pour tout $i\geqslant 0$, à l'instant $t_i$, il existe un ensemble d'arêtes fermées $S_i$ qui sépare $T(l,h)$ et $B(l,h)$ et un chemin fermé $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (p_i^1\cup p_i^2)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert p_i^1\cup p_i^2 \vert$
 \end{itemize}
 
 \end{chaine}
@@ -293,10 +296,11 @@ Enfin, pour obtenir la suite dans l'énoncé, nous partons de l'instant $t$ pour
 
 nous estimons maintenant la probabilité pour qu'une arête deviennent différente à cause d'une autre arête ou directement à cause du bord. 
 
+\begin{comment}
 \begin{cut}
 Soit $\Lambda(l,h)$ une boîte de longueur $l$, un cut $C$ est un ensemble d'arête fermé dont le dual contient un chemin fermé de gauche à droite de $\Lambda(l,h)$. Un cut minimal est un cut dont l'ouverture d'un sous-ensemble produit un chemin ouvert de $T$ à $B$.
 \end{cut}
-
+\end{comment}
 nous voyons bien que l'existence d'un cut dans une boite $\Lambda(l,h)$ est équivalent à $T\nleftrightarrow B$.
 
 %\begin{bcut}
