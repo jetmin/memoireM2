@@ -190,19 +190,19 @@ Soit $\Lambda(l,h)$ une boite dans $\mathbb{Z}^2,E^2$ munis de deux conditions a
 
 \begin{chaine}
 \label{chaine}
-Soit $t>0$ premier instant où $e_0$ diffère dans les deux configurations, alors il existe $N\in \mathbb{N},$ une suite d'arête $\varepsilon_1,\dots,\varepsilon_N$ et des instant $0<t_1< t_2<\dots<t_N=t$ tels que à $t_1$, $\varepsilon_1$ devient différente qui vérifie les conditions suivantes:
+Soit $t>0$ premier instant où $e_0$ diffère dans les deux configurations, alors il existe $N\in \mathbb{N},$ une suite d'arête $\varepsilon_1,\dots,\varepsilon_N$ et des instant $0<t_1< t_2<\dots<t_N=t$ qui vérifient les conditions suivantes:
 
 \begin{itemize}
-\item[(i)] il existe deux chemins fermés $p_0^1,p_0^2$ qui relient $\varepsilon_1^*$ et le bord contenant $v_0$;
+\item[(i)] à l'instant $t_1$, $\varepsilon_1$ diffère dans les deux configurations. Il existe deux chemins fermés $p_1^*,q_1^*$ disjoints qui relient $\varepsilon_1^*$ et le dual du bord contenant $v_0$;
 
-\item[(ii)] pour tout $i>1$, l'arête $\varepsilon_i$ devient différente à $t_i$ et il existe deux chemins fermés $p_i^1,p_i^2$ distincts qui relient $\varepsilon_{i-1}^*$ et $\varepsilon_i^*$ en graphe dual.
+\item[(ii)] pour tout $i>1$, l'arête $\varepsilon_i$ devient différente à $t_i$ et il existe deux chemins fermés $p_i^*,q_i^*$ disjoints qui relient $\varepsilon_{i-1}^*$ et $\varepsilon_i^*$.
 
-\item[(iii)] pour tout $i\geqslant 0$, à l'instant $t_i$, il existe un ensemble d'arêtes fermées $S_i$ qui sépare $T(l,h)$ et $B(l,h)$ et un chemin fermé $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (p_i^1\cup p_i^2)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert p_i^1\cup p_i^2 \vert$
+\item[(iii)] pour tout $i\geqslant 1$, à l'instant $t_i$, il existe un ensemble d'arêtes fermées $S_i$ qui sépare $T(l,h)$ et $B(l,h)$ et un chemin fermé $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (p_i^*\cup q_i^*)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert p_i^*\cup q_i^* \vert$
 \end{itemize}
 
 \end{chaine}
 \begin{proof}
-Sans perte de généralité, nous pouvons supposer que à l'instant 0, toutes les arêtes dans les deux boîtes soient fermées. nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux boites. Par symétrie, nous pouvons supposer que $v_0$ soit dans le bord gauche et que $e_1$ soit fermée dans $\Lambda'_l$.
+Nous notons $\tau_0 = 0$, $\tau_i = \inf \{s > \tau_{i-1}, \exists e \in \Lambda(l,h),Y_{s^-}(e) = Y'_{s^-}(e),Y_s(e) \neq Y'_s(e)\}$. Nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux boites. Par symétrie, nous pouvons supposer que $v_0$ soit dans le bord gauche et que $e_1$ soit fermée dans $\Lambda'_l$.
 
 Cette arête devient différente car il existe dans une boite un chemin ouvert entre $T$ et $B$ si elle est ouverte et pas dans l'autre boîte. Il existe alors un chemin ouvert entre cette arête et le sommet $v_0$ au bord. Sans perte de généralité, nous supposons que $\Pi'_l(v_0)=T$, il existe alors dans $\Lambda(l,h)$ et $\Lambda'_l$ un chemin identique qui relie une extrémité de $e_0$ et $B$. nous considérons maintenant le cluster ouvert de ce chemin dans la boite $\Lambda'_l$, il n'est pas connecté à $B$ par la condition $T\nleftrightarrow B$ dans $\Lambda'_l$, de plus, il n'est pas connecté à $T$ car s'il l'était, $T\longleftrightarrow B$ dans la boîte $\Lambda(l,h)$ où $e_0$ est ouverte. Il existe donc dans le graphe dual un contour fermé $C_1$ qui sépare ce cluster de $T$ et de $B$. L'arête $e^*_1$ sépare donc ce contour en deux parties disjointes (voir Figure \ref{fig:e1}). 
 \begin{figure}[h]
@@ -243,7 +243,15 @@ Cette arête devient différente car il existe dans une boite un chemin ouvert e
 \label{fig:e1}
 \end{figure}
 
-nous considérons maintenant une arête $e_i$ qui devient différente à cause d'une autre arête $e_j, j< i$ qui est déjà différente. Par symétrie, nous supposons que $e_j$ est ouverte dans $\Lambda(l,h)$ et fermée dans $\Lambda'_l$, $e_i$ est fermée dans $\Lambda(l,h)$ et ouverte dans $\Lambda'_l$. Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$ dans les deux boîtes et $e_i$ est reliée à $B$. Quitte à fermer toutes les arêtes $e_k,k \neq i,j$, nous pouvons considérer le cluster ouvert de ce chemin dans les deux boîtes arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $B$ dans $\Lambda(l,h)$ car $e_j$ est ouverte, il n'est pas connecté à $T$ dans $\Lambda'_l$ car $e_i$ est ouverte. nous pouvons donc trouver un contour fermé $C_i$ dans le graphe dual qui sépare ce cluster de $T,B$ qui traverse $e_i$ et $e_j$. Donc $e_i$ et $e_j$ sépare $C_i$ en deux chemins fermés disjoints.
+Nous considérons maintenant une arête $e_i$ qui devient différente à cause des autres arêtes qui sont déjà différentes. 
+
+Nous pouvons choisir une arête $e_j,j< i$ qui est devenue différente avant 
+
+
+
+
+
+Par symétrie, nous supposons que $e_j$ est ouverte dans $\Lambda(l,h)$ et fermée dans $\Lambda'_l$, $e_i$ est fermée dans $\Lambda(l,h)$ et ouverte dans $\Lambda'_l$. Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$ dans les deux boîtes et $e_i$ est reliée à $B$. Quitte à fermer toutes les arêtes $e_k,k \neq i,j$, nous pouvons considérer le cluster ouvert de ce chemin dans les deux boîtes arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $B$ dans $\Lambda(l,h)$ car $e_j$ est ouverte, il n'est pas connecté à $T$ dans $\Lambda'_l$ car $e_i$ est ouverte. nous pouvons donc trouver un contour fermé $C_i$ dans le graphe dual qui sépare ce cluster de $T,B$ qui traverse $e_i$ et $e_j$. Donc $e_i$ et $e_j$ sépare $C_i$ en deux chemins fermés disjoints.
 \begin{figure}[h]
 \begin{minipage}{0.45\linewidth}
 \center

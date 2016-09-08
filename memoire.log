@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  8 SEP 2016 15:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  8 SEP 2016 16:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -748,19 +748,19 @@ ndi-tions aux bords $^^E[]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 ^^E[]$
  []
 
 [6] [7]
-Overfull \hbox (6.5605pt too wide) in paragraph at lines 294--295
+Overfull \hbox (6.5605pt too wide) in paragraph at lines 302--303
 \OT1/cmr/m/n/12 trou-ver l'ar^ete qui a caus^^Se la diff^^Serence ^^Ra $\OML/cm
 m/m/it/12 E[]$\OT1/cmr/m/n/12 , en-suite nous r^^Sep^^Setons ce proc^^Sedure
  []
 
 
-Overfull \hbox (10.99722pt too wide) in paragraph at lines 297--298
+Overfull \hbox (10.99722pt too wide) in paragraph at lines 305--306
 []\OT1/cmr/m/n/12 nous es-ti-mons main-te-nant la pro-ba-bi-lit^^Se pour qu'une
  ar^ete de-viennent diff^^Serente
  []
 
 Excluding 'comment' comment. [8] [9]
-Overfull \hbox (11.54453pt too wide) in paragraph at lines 366--367
+Overfull \hbox (11.54453pt too wide) in paragraph at lines 374--375
 []\OT1/cmr/m/n/12 nous consid^^Serons $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^B 
 \OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 A[] \OMS/cmsy/m/n/12 ^^N
  \OML/cmm/m/it/12 B[]$\OT1/cmr/m/n/12 , donc $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/
@@ -769,7 +769,7 @@ Overfull \hbox (11.54453pt too wide) in paragraph at lines 366--367
  []
 
 
-Overfull \hbox (4.03522pt too wide) in paragraph at lines 380--381
+Overfull \hbox (4.03522pt too wide) in paragraph at lines 388--389
 []\OT1/cmr/m/n/12 Nous mon-trons main-te-nant $\OML/cmm/m/it/12 P\OT1/cmr/m/n/1
 2 (\OML/cmm/m/it/12 e[][]A; B\OT1/cmr/m/n/12 ) \U/msa/m/n/12 6 \OML/cmm/m/it/12
  P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e[][]B\OT1/cmr/m/n/12 )$ quand $\OML/cmm/m/
@@ -777,18 +777,18 @@ it/12 p$ \OT1/cmr/m/n/12 proche
  []
 
 [10]
-Overfull \hbox (4.61772pt too wide) in paragraph at lines 396--396
+Overfull \hbox (4.61772pt too wide) in paragraph at lines 404--404
 [] 
  []
 
 [11]
-Overfull \hbox (4.53194pt too wide) in paragraph at lines 443--444
+Overfull \hbox (4.53194pt too wide) in paragraph at lines 451--452
 []\OT1/cmr/m/n/12 Nous in-tro-dui-sons la no-tion de space-time che-min, en pro
 -lon-geant la connexion
  []
 
 
-Overfull \hbox (6.53578pt too wide) in paragraph at lines 443--444
+Overfull \hbox (6.53578pt too wide) in paragraph at lines 451--452
 \OT1/cmr/m/n/12 entre $\OML/cmm/m/it/12 s$ \OT1/cmr/m/n/12 et $\OML/cmm/m/it/12
  t$ \OT1/cmr/m/n/12 alors $(\OML/cmm/m/it/12 x; s\OT1/cmr/m/n/12 ) \OMS/cmsy/m/
 n/12  []! \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y; t\OT1/cmr/m/n/12 )$ par un space
@@ -796,7 +796,7 @@ n/12  []! \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y; t\OT1/cmr/m/n/12 )$ par un space
  []
 
 
-Overfull \hbox (0.44855pt too wide) in paragraph at lines 445--446
+Overfull \hbox (0.44855pt too wide) in paragraph at lines 453--454
 []\OT1/cmr/bx/n/12 Proposition 4. []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 n \
 OMS/cmsy/m/n/12 2 \U/msb/m/n/12 N$\OT1/cmr/m/it/12 , $\OML/cmm/m/it/12 t > \OT1
 /cmr/m/n/12 0$\OT1/cmr/m/it/12 , $\OML/cmm/m/it/12 p > []$\OT1/cmr/m/it/12 , so
@@ -806,12 +806,12 @@ mr/m/n/12 0) \OMS/cmsy/m/n/12  []!
  []
 
 
-Overfull \hbox (82.85056pt too wide) in paragraph at lines 453--453
+Overfull \hbox (82.85056pt too wide) in paragraph at lines 461--461
 [] 
  []
 
 [12] Excluding 'comment' comment.
-Overfull \hbox (16.7089pt too wide) in paragraph at lines 491--491
+Overfull \hbox (16.7089pt too wide) in paragraph at lines 499--499
 [] 
  []
 
@@ -823,7 +823,7 @@ Here is how much of TeX's memory you used:
  15258 multiletter control sequences out of 15000+600000
  15056 words of font info for 59 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,17n,55p,1055b,740s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,17n,55p,935b,740s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmc
@@ -842,7 +842,7 @@ cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
-Output written on memoire.pdf (15 pages, 237360 bytes).
+Output written on memoire.pdf (15 pages, 238112 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  92 compressed objects within 1 object stream
