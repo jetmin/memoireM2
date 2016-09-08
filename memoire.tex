@@ -125,7 +125,7 @@ $$
 Nous allons étudier l'influence de $l$ sur la loi de l'interface dans la boîte $\Lambda(l,h)$. Nous introduisons la notion de conditions aux bords. Pour instant, nous traitons uniquement le cas où seulement $l$ varie. Nous fixons alors un entier $h$ et nous introduisons l'ensemble $\{top,bot,null\}$. Nous notons $\partial^{in}\Lambda(l,h)$ le bord intérieur de $\Lambda(l,h)$, soit
 $$ \partial^{in}\Lambda(l,h) = \{x\in \Lambda(l,h), \exists y \notin \Lambda(l,h), \langle x,y\rangle\in E^2\}.
 $$
-Une condition aux bord $\Pi^{l,h}$ est une application de $\partial^{in}$ à $\{top,bot,null\}$ qui se définit en deux étapes.
+Une condition aux bord $\Pi_{l,h}$ est une application de $\partial^{in}$ à $\{top,bot,null\}$ qui se définit en deux étapes.
 Nous posons d'abord la condition aux bords sur les bords horizontaux $T(l,h)$ et $B(l,h)$:
 $$ \forall t\geqslant 0, \forall x\in T\cup B, \Pi_t^{l,h}(x) = \left\lbrace \begin{array}{ll}
 top & x\in T\\
@@ -136,8 +136,8 @@ $$ et nous appelons une condition aux bords nulle si
 $$\forall y\in V(l,h)\setminus \{(\pm l,\pm h))\}, \Pi(y) = null.
 $$
 
-Soit $t\geqslant 0$, pour un sommet $x$ sur le bord vertical $V(l,h)$, nous déterminons $\Pi^{l,h}_t(x)$ à l'aide une boîte plus grande de condition aux bords nulle. Plus précisément, une condition aux bords $\Pi^{l,h}$ est une application tel qu'il existe $m>l$ un entier naturel et une boîte $\Lambda(m,h)$ de condition aux bords nulle qui contient la boîte $\Lambda(l,h)$ de configuration $X$ qui vérifie:
-$$\forall x \in V(l,h),\Pi^{l,h}_t(x)=\left\lbrace \begin{array}{cl}
+Soit $t\geqslant 0$, pour un sommet $x$ sur le bord vertical $V(l,h)$, nous déterminons $\Pi_{l,h}(x)$ à l'aide une boîte plus grande de condition aux bords nulle. Plus précisément, une condition aux bords $\Pi_{l,h}$ est une application tel qu'il existe $m>l$ un entier naturel et une boîte $\Lambda(m,h)$ de condition aux bords nulle qui contient la boîte $\Lambda(l,h)$ de configuration $X$ qui vérifie:
+$$\forall x \in V(l,h),\Pi_{l,h}(x)=\left\lbrace \begin{array}{cl}
 top & \Leftrightarrow x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} T\\
 bot & \Leftrightarrow x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} B\\
 null & \Leftrightarrow x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\nleftrightarrow}} T\cup B 
@@ -169,22 +169,34 @@ la notation $x\overset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}
 \caption{Exemples d'une condition aux bords}
 \end{figure}
 
-Nous pouvons aussi déterminer la condition aux bords d'une boîte $\Lambda(l,h)$ induite par une boite $\Lambda(m,h)$ de configuration $X$ avec une condition aux bords $\Pi^{m,h}$ non nulle. Soit $x$ un sommet dans $V(l,h)$, 
-$$\Pi^{l,h}_t(x)=\left\lbrace \begin{array}{cl}
-top & \exists y \in \partial^{in}\Lambda(m,h), \Pi^{m,h}(y) = top, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} y\\
-bot & \exists y \in \partial^{in}\Lambda(m,h), \Pi^{m,h}(y) = bot, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} y\\
-null & \forall y \in \partial^{in}\Lambda(m,h), \Pi^{m,h}(y) \neq null, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\nleftrightarrow}} y
-\end{array} \right.,
+Nous pouvons aussi déterminer la condition aux bords d'une boîte $\Lambda(l,h)$ induite par une boite $\Lambda(m,h)$ de configuration $X$ avec une condition aux bords $\Pi_{m,h}$ non nulle. Soit $x$ un sommet dans $V(l,h)$, 
+$$\Pi_{l,h}(x)=\left\lbrace \begin{array}{cl}
+top & \exists y \in \partial^{in}\Lambda(m,h), \Pi_{m,h}(y) = top, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} y\\
+bot & \exists y \in \partial^{in}\Lambda(m,h), \Pi_{m,h}(y) = bot, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} y\\
+null & \forall y \in \partial^{in}\Lambda(m,h), \Pi_{m,h}(y) \neq null, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\nleftrightarrow}} y
+\end{array} \right..
 $$
 
+Nous généralisons désormais l'événement $T\leftrightarrow B$ avec la condition aux bords. Nous disons $T\leftrightarrow B$ s'il existe une connexion entre un sommet $x$ tel que $\Pi_{l,h}(x)= top$ (resp. $bot$) et $B(l,h)$ (resp. $T(l,h)$), de plus nous disons $T\leftrightarrow B$ s'il existe une connexion entre deux sommets $x,y$ tels que $\Pi_{l,h}(x) = top, \Pi_{l,h}(y) = bot$.
 \section{Quelques résultats géométriques}
-Nous allons étudier la probabilité qu'une arrête fixée soit dans l'interface. Dans la suite, nous considérons le régime surcritique, ceci correspond au cas $p>\frac{1}{2}$ en dimension 2. Nous faisons varier seulement la longueur du rectangle, soit $l \rightarrow \infty$ et nous voulons montrer que la probabilité $\mathbb{P}(E_0 \in I^l_t)$ converge pour $t$ fixé avec $E_0$ l'arête entre $(0,0)$ et $(0,1)$.
+Nous nous intéressons à la probabilité qu'une arrête fixée soit dans l'interface.Nous considérons désormais le régime surcritique, qui correspond au cas $p>\frac{1}{2}$ en dimension 2. Soit $e_0$ l'arête qui joint $(0,0)$ et $(1,1)$, notre objectif est de montrer que à $t$ fixé la probabilité $\mathbb{P}(e_0 \in I^l_t)$ converge lorsque $l$ tend vers l'infini.
 
-Intuitivement, nous pouvons deviner que l'influence d'une condition aux bords disparaît quand la taille de la boîte devient très grande. Plus précisément, nous considérons un couplage de processus de percolation dynamique conditionné à la condition $T\nleftrightarrow B$ dans deux boîtes de taille $l$ munies de deux conditions aux bords qui diffèrent à un seul sommet $v_0$. La proposition suivante décrit la façon dont cette différence au bord induit une différence à l'arête $E_0$.
+Intuitivement, nous imaginons que l'influence d'une condition aux bords disparaît quand la taille de la boîte grandit. %Plus précisément, nous considérons un couplage de processus de percolation dynamique conditionné à la condition $T\nleftrightarrow B$ dans deux boîtes de taille $l$ munies de deux conditions aux bords qui diffèrent en un seul sommet $v_0$. La proposition suivante décrit la façon dont cette différence au bord induit une différence à l'arête $e_0$.
+
+Soit $\Lambda(l,h)$ une boite dans $\mathbb{Z}^2,E^2$ munis de deux conditions aux bords $\Pi_{l,h}, \Pi'_{l,h}$ qui diffèrent à un seul sommet $v_0$. Nous considérons $(X_t)_{t\geqslant 0}$ un processus de percolation dynamique dans $\Lambda(l,h)$ et deux couplage $(X,Y)$ et $(X,Y')$ conditionnés par $T\nleftrightarrow B$ avec les deux conditions aux bords.
 
 \begin{chaine}
 \label{chaine}
-Soit $\Lambda(l,h), \Lambda'_l$ deux boites munis des processus $Y,Y'$ couplés avec un processus de percolation dynamique $X$ en commun démarrés avec la même configuration initiale et de condition aux bords qui diffèrent au sommet $v_0$. Soit $t>0$ premier instant où $E_0$ diffère dans les deux boites, alors $\exists N\in \mathbb{N},$ une suite d'arête $\epsilon_1,\dots,\epsilon_N$ et des instant $0<t_1< t_2<\dots<t_N=t$ tels que à $t_1$, $\epsilon_1$ devient différente et deux chemins fermés relient $\epsilon_1^*$ et le bord contenant $v_0$, de plus, $\forall i>1$, l'arête $\epsilon_i$ devient différente à $t_i$ et deux chemins fermés $p_i^1,p_i^2$ distincts relient $\epsilon_{i-1}^*$ et $\epsilon_i^*$ en graphe dual.
+Soit $t>0$ premier instant où $e_0$ diffère dans les deux configurations, alors il existe $N\in \mathbb{N},$ une suite d'arête $\varepsilon_1,\dots,\varepsilon_N$ et des instant $0<t_1< t_2<\dots<t_N=t$ tels que à $t_1$, $\varepsilon_1$ devient différente qui vérifie les conditions suivantes:
+
+\begin{itemize}
+\item[(i)] il existe deux chemins fermés $p_0^1,p_0^2$ qui relient $\varepsilon_1^*$ et le bord contenant $v_0$;
+
+\item[(ii)] pour tout $i>1$, l'arête $\varepsilon_i$ devient différente à $t_i$ et il existe deux chemins fermés $p_i^1,p_i^2$ distincts qui relient $\varepsilon_{i-1}^*$ et $\varepsilon_i^*$ en graphe dual.
+
+\item[(iii)] pour tout $i\geqslant 0$, à l'instant $t_i$, il existe un ensemble séparant $S_i$ et un chemin fermé $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (p_i^1\cup p_i^2)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert p_i^1\cup p_i^2 \vert$
+\end{itemize}
+
 \end{chaine}
 \begin{proof}
 Sans perte de généralité, nous pouvons supposer que à l'instant 0, toutes les arêtes dans les deux boîtes soient fermées. nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux boites. Par symétrie, nous pouvons supposer que $v_0$ soit dans le bord gauche et que $e_1$ soit fermée dans $\Lambda'_l$.
@@ -287,20 +299,20 @@ Soit $\Lambda(l,h)$ une boîte de longueur $l$, un cut $C$ est un ensemble d'ar�
 
 nous voyons bien que l'existence d'un cut dans une boite $\Lambda(l,h)$ est équivalent à $T\nleftrightarrow B$.
 
-\begin{bcut}
-Avec les notation précédente, $\forall i>1$, à l'instant $t_i$, il existe un cut $C_i$ et un chemin fermé $c_i^*$ dans le graphe dual disjoint de $C_i$ qui vérifie les conditions suivantes:
-\begin{itemize}
-\item $c^*_i \subset (p_i^1\cup p_i^2)$;
-\item $|c^*_i| \geqslant \frac{1}{2}|p_i^1\cup p_i^2|$.
-\end{itemize}
-\end{bcut}
+%\begin{bcut}
+%Avec les notation précédente, $\forall i>1$, à l'instant $t_i$, il existe un cut $C_i$ et un chemin fermé $c_i^*$ dans le graphe dual disjoint de $C_i$ qui vérifie les conditions suivantes:
+%\begin{itemize}
+%\item $c^*_i \subset (p_i^1\cup p_i^2)$;
+%\item $|c^*_i| \geqslant \frac{1}{2}|p_i^1\cup p_i^2|$.
+%\end{itemize}
+%\end{bcut}
 
 \begin{proof}
-nous considérons le contour fermé formé par $p_i^1$ et $p_i^2$, la condition $T\nleftrightarrow B$ impose qu'il existe un cut $K_i$ qui contient $\epsilon_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
+nous considérons le contour fermé formé par $p_i^1$ et $p_i^2$, la condition $T\nleftrightarrow B$ impose qu'il existe un cut $K_i$ qui contient $\varepsilon_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
 \begin{itemize}
-\item nous posons $\epsilon^*_i = k_0$;
-\item si $\epsilon^*_i$ est horizontale, nous posons $k_{-1}$ l'arête qui partage le sommet gauche de $\epsilon^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $\epsilon_i^*$ est verticale, nous posons $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
-\item Nous nous éloignons de $\epsilon_i$, jusqu'à avoir numéroté toutes les arêtes. Dans la direction négative, nous diminuons l'indice de 1 à chaque pas et nous augmentons de 1 par pas dans la direction positive.
+\item nous posons $\varepsilon^*_i = k_0$;
+\item si $\varepsilon^*_i$ est horizontale, nous posons $k_{-1}$ l'arête qui partage le sommet gauche de $\varepsilon^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $\varepsilon_i^*$ est verticale, nous posons $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
+\item Nous nous éloignons de $\varepsilon_i$, jusqu'à avoir numéroté toutes les arêtes. Dans la direction négative, nous diminuons l'indice de 1 à chaque pas et nous augmentons de 1 par pas dans la direction positive.
 \end{itemize}
 
 Nous considérons maintenant l'arête minimale et l'arête maximale de l'ensemble $K_i\cap (p_i^1\cup p_i^2)$ que nous notons $k_{min}$ et $k_{max}$. Les deux arêtes $k_{min}$ et $k_{max}$ coupe $K_i$ en 3 parties disjointes: $C^g_i$ un chemin entre le bord gauche et $k_{min}$; $C^d_i$ un chemin entre le bord droite et $k_{max}$; l'union d'un chemin entre $k_{min}$ et $k_{max}$ et ces deux arêtes. De plus, les deux sommets qui séparent ces trois parties coupent le contour $p_i^1\cup p_i^2$ en deux chemins disjoints $c_i^1$ et $c_i^2$. Quitte à échanger les numéros, nous supposons que $|c_i^1| \geqslant |c_i^2|$.
@@ -458,10 +470,10 @@ Soit $p\geqslant \frac{1}{2}$, $\bar{e}$ l'arête au centre de la boîte $\Lambd
 \begin{proof}
 
 Nous utilisons les notations de la proposition \ref{chaine} et son corollaire.
-D'après la proposition \ref{chaine}, nous savons qu'il existe une suite d'arêtes $\epsilon_1,\epsilon_n$ qui sont reliées l'une après l'autre à différentes instants. Nous notons $x_i,y_i$ les extrémités de $c_i^*$ chemin fermé dans le graphe dual et de $C_i$ le cut, nous notons aussi $k_i$ le cardinal de $p_i^1\cup p_i^2$. Nous séparons la suite en différentes sous suites selon l'indépendance, plus précisément, si $c^*_j$ et $c^*_{j+1}$  est de l'occurrence disjointe, alors nous coupons la suite à l'indice $j$. Ainsi, nous obtenons les indices $j_1,\dots,j_r$ telles que $\forall 1\leqslant u\leqslant r, c^*_{j_u}$ et $c^*_{j_{u+1}}$ sont disjoints, $\forall j_k \leqslant v \leqslant j_{k+1}$, $c_k^*$ et $c_{k+1}^*$ ne sont pas disjoints.
+D'après la proposition \ref{chaine}, nous savons qu'il existe une suite d'arêtes $\varepsilon_1,\varepsilon_n$ qui sont reliées l'une après l'autre à différentes instants. Nous notons $x_i,y_i$ les extrémités de $c_i^*$ chemin fermé dans le graphe dual et de $C_i$ le cut, nous notons aussi $k_i$ le cardinal de $p_i^1\cup p_i^2$. Nous séparons la suite en différentes sous suites selon l'indépendance, plus précisément, si $c^*_j$ et $c^*_{j+1}$  est de l'occurrence disjointe, alors nous coupons la suite à l'indice $j$. Ainsi, nous obtenons les indices $j_1,\dots,j_r$ telles que $\forall 1\leqslant u\leqslant r, c^*_{j_u}$ et $c^*_{j_{u+1}}$ sont disjoints, $\forall j_k \leqslant v \leqslant j_{k+1}$, $c_k^*$ et $c_{k+1}^*$ ne sont pas disjoints.
 
 \begin{align*}
-P(Y(\bar{e})\neq Y'(\bar{e})) =& P(\exists \epsilon_1,\dots,\epsilon_n, \forall i, \exists p_i^1,p_i^2, \epsilon_{i-1}\overset{p_i^1,p_i^2}{\longleftrightarrow}\epsilon_i) \\
+P(Y(\bar{e})\neq Y'(\bar{e})) =& P(\exists \varepsilon_1,\dots,\varepsilon_n, \forall i, \exists p_i^1,p_i^2, \varepsilon_{i-1}\overset{p_i^1,p_i^2}{\longleftrightarrow}\varepsilon_i) \\
  \leqslant &P(\exists x_1,\dots,x_n,y_1,\dots,y_n c^*_1,\dots,c^*_n,C_1,\dots,C_n) \\\
  \leqslant &\sum_{j_1,\dots,j_r}\prod_{1\leqslant k \leqslant r} P\left(\begin{array}{c}
  \exists x_{j_{k-1}+1},\dots,x_{j_k},\\
