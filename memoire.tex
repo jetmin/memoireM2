@@ -125,22 +125,25 @@ $$
 Nous allons étudier l'influence de $l$ sur la loi de l'interface dans la boîte $\Lambda(l,h)$. Nous introduisons la notion de conditions aux bords. Pour instant, nous traitons uniquement le cas où seulement $l$ varie. Nous fixons alors un entier $h$ et nous introduisons l'ensemble $\{top,bot,null\}$. Nous notons $\partial^{in}\Lambda(l,h)$ le bord intérieur de $\Lambda(l,h)$, soit
 $$ \partial^{in}\Lambda(l,h) = \{x\in \Lambda(l,h), \exists y \notin \Lambda(l,h), \langle x,y\rangle\in E^2\}.
 $$
-Nous posons d'abord la condition aux bords sur les bords horizontaux $T$ et $B$:
+Une condition aux bord $\Pi^{l,h}$ est une application de $\partial^{in}$ à $\{top,bot,null\}$ qui se définit en deux étapes.
+Nous posons d'abord la condition aux bords sur les bords horizontaux $T(l,h)$ et $B(l,h)$:
 $$ \forall t\geqslant 0, \forall x\in T\cup B, \Pi_t^{l,h}(x) = \left\lbrace \begin{array}{ll}
 top & x\in T\\
 bot & x\in B
 \end{array}
 \right.
+$$ et nous appelons une condition aux bords nulle si
+$$\forall y\in V(l,h)\setminus \{(\pm l,\pm h))\}, \Pi(y) = null.
 $$
 
-Soit $t\geqslant 0$, pour un sommet $x$ sur le bord vertical $V(l,h)$, nous déterminons $\Pi^{l,h}_t(x)$ à l'aide une boîte plus grande. Plus précisément, soit $m>l$ entier naturel, nous considérons une boîte $\Lambda(m,h)$ qui contient la boîte $\Lambda(l,h)$, avec une configuration $X_t$ et que pour tout $y\in V(m,h), \Pi^{m,h}_t(y) = null $:
-$$\Pi^{l,h}_t(x)=\left\lbrace \begin{array}{cc}
-top & x\overset{\Lambda_m \setminus \Lambda_l}{\longleftrightarrow} T\\
-bot & x\overset{\Lambda_m \setminus \Lambda_l}{\longleftrightarrow} B\\
-null & x\overset{\Lambda_m \setminus \Lambda_l}{\nleftrightarrow} T\cup B 
+Soit $t\geqslant 0$, pour un sommet $x$ sur le bord vertical $V(l,h)$, nous déterminons $\Pi^{l,h}_t(x)$ à l'aide une boîte plus grande de condition aux bords nulle. Plus précisément, une condition aux bords $\Pi^{l,h}$ est une application tel qu'il existe $m>l$ un entier naturel et une boîte $\Lambda(m,h)$ de condition aux bords nulle qui contient la boîte $\Lambda(l,h)$ de configuration $X$ qui vérifie:
+$$\forall x \in V(l,h),\Pi^{l,h}_t(x)=\left\lbrace \begin{array}{cl}
+top & \Leftrightarrow x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} T\\
+bot & \Leftrightarrow x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} B\\
+null & \Leftrightarrow x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\nleftrightarrow}} T\cup B 
 \end{array} \right.,
 $$
-la notation $x\overset{\Lambda_m \setminus \Lambda_l}{\longleftrightarrow} T(resp. B)$ signifie que le sommet $x$ est relié à $T(resp. B)$ uniquement par un chemin ouvert dont les arrêtes sont dans l'ensemble $(\Lambda_m \setminus \Lambda_l) \cup \partial \Lambda_l$.
+la notation $x\overset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow} T(resp. B)$ signifie que le sommet $x$ est relié à $T(resp. B)$ uniquement par un chemin ouvert dont les arrêtes sont dans l'ensemble $\big(\Lambda(m,h) \setminus \Lambda(l,h)\big) \cup \partial^{in} \Lambda(l,h)$. 
 
 \begin{figure}[h]
 \center
@@ -150,10 +153,10 @@ la notation $x\overset{\Lambda_m \setminus \Lambda_l}{\longleftrightarrow} T(res
 \draw[rounded corners] (-4,0.5) .. controls (-4.5,0) and (-4.3,0.5) .. (-5.5,1) 
 			   .. controls (-5.7,1.2) .. (-5,2);
 \draw (-3.7,0.5) node {$top$};
-\draw (0,2.3) node {$T$};
-\draw (0,-2.3) node {$B$};
-\draw (0,0) node {$\Lambda_l$};
-\draw (-5,0) node {$\Lambda_m\setminus \Lambda_l$};
+\draw (0,2.3) node {$T(l,h)$};
+\draw (0,-2.3) node {$B(l,h)$};
+\draw (0,0) node {$\Lambda(l,h)$};
+\draw (-5,0) node {$\Lambda(m,h)\setminus \Lambda(l,h)$};
 \draw[rounded corners] (-4,-0.5) .. controls (-4.5,0) and (-4.3,-1.5) ..(-5,-2);
 \draw (-3.7,-0.5) node {$bot$};
 \draw[rounded corners] (4.2,2) .. controls (3.5,1) and (3,.5) ..(4,0)
@@ -166,6 +169,14 @@ la notation $x\overset{\Lambda_m \setminus \Lambda_l}{\longleftrightarrow} T(res
 \caption{Exemples d'une condition aux bords}
 \end{figure}
 
+Nous pouvons aussi déterminer la condition aux bords d'une boîte $\Lambda(l,h)$ induite par une boite $\Lambda(m,h)$ de configuration $X$ avec une condition aux bords $\Pi^{m,h}$ non nulle. Soit $x$ un sommet dans $V(l,h)$, 
+$$\Pi^{l,h}_t(x)=\left\lbrace \begin{array}{cl}
+top & \exists y \in \partial^{in}\Lambda(m,h), \Pi^{m,h}(y) = top, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} y\\
+bot & \exists y \in \partial^{in}\Lambda(m,h), \Pi^{m,h}(y) = bot, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\longleftrightarrow}} y\\
+null & \forall y \in \partial^{in}\Lambda(m,h), \Pi^{m,h}(y) \neq null, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(l,h)}{\nleftrightarrow}} y
+\end{array} \right.,
+$$
+
 \section{Quelques résultats géométriques}
 Nous allons étudier la probabilité qu'une arrête fixée soit dans l'interface. Dans la suite, nous considérons le régime surcritique, ceci correspond au cas $p>\frac{1}{2}$ en dimension 2. Nous faisons varier seulement la longueur du rectangle, soit $l \rightarrow \infty$ et nous voulons montrer que la probabilité $\mathbb{P}(E_0 \in I^l_t)$ converge pour $t$ fixé avec $E_0$ l'arête entre $(0,0)$ et $(0,1)$.
 
@@ -173,17 +184,17 @@ Intuitivement, nous pouvons deviner que l'influence d'une condition aux bords di
 
 \begin{chaine}
 \label{chaine}
-Soit $\Lambda_l, \Lambda'_l$ deux boites munis des processus $Y,Y'$ couplés avec un processus de percolation dynamique $X$ en commun démarrés avec la même configuration initiale et de condition aux bords qui diffèrent au sommet $v_0$. Soit $t>0$ premier instant où $E_0$ diffère dans les deux boites, alors $\exists N\in \mathbb{N},$ une suite d'arête $\epsilon_1,\dots,\epsilon_N$ et des instant $0<t_1< t_2<\dots<t_N=t$ tels que à $t_1$, $\epsilon_1$ devient différente et deux chemins fermés relient $\epsilon_1^*$ et le bord contenant $v_0$, de plus, $\forall i>1$, l'arête $\epsilon_i$ devient différente à $t_i$ et deux chemins fermés $p_i^1,p_i^2$ distincts relient $\epsilon_{i-1}^*$ et $\epsilon_i^*$ en graphe dual.
+Soit $\Lambda(l,h), \Lambda'_l$ deux boites munis des processus $Y,Y'$ couplés avec un processus de percolation dynamique $X$ en commun démarrés avec la même configuration initiale et de condition aux bords qui diffèrent au sommet $v_0$. Soit $t>0$ premier instant où $E_0$ diffère dans les deux boites, alors $\exists N\in \mathbb{N},$ une suite d'arête $\epsilon_1,\dots,\epsilon_N$ et des instant $0<t_1< t_2<\dots<t_N=t$ tels que à $t_1$, $\epsilon_1$ devient différente et deux chemins fermés relient $\epsilon_1^*$ et le bord contenant $v_0$, de plus, $\forall i>1$, l'arête $\epsilon_i$ devient différente à $t_i$ et deux chemins fermés $p_i^1,p_i^2$ distincts relient $\epsilon_{i-1}^*$ et $\epsilon_i^*$ en graphe dual.
 \end{chaine}
 \begin{proof}
 Sans perte de généralité, nous pouvons supposer que à l'instant 0, toutes les arêtes dans les deux boîtes soient fermées. nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux boites. Par symétrie, nous pouvons supposer que $v_0$ soit dans le bord gauche et que $e_1$ soit fermée dans $\Lambda'_l$.
 
-Cette arête devient différente car il existe dans une boite un chemin ouvert entre $T$ et $B$ si elle est ouverte et pas dans l'autre boîte. Il existe alors un chemin ouvert entre cette arête et le sommet $v_0$ au bord. Sans perte de généralité, nous supposons que $\Pi'_l(v_0)=T$, il existe alors dans $\Lambda_l$ et $\Lambda'_l$ un chemin identique qui relie une extrémité de $e_0$ et $B$. nous considérons maintenant le cluster ouvert de ce chemin dans la boite $\Lambda'_l$, il n'est pas connecté à $B$ par la condition $T\nleftrightarrow B$ dans $\Lambda'_l$, de plus, il n'est pas connecté à $T$ car s'il l'était, $T\longleftrightarrow B$ dans la boîte $\Lambda_l$ où $e_0$ est ouverte. Il existe donc dans le graphe dual un contour fermé $C_1$ qui sépare ce cluster de $T$ et de $B$. L'arête $e^*_1$ sépare donc ce contour en deux parties disjointes (voir Figure \ref{fig:e1}). 
+Cette arête devient différente car il existe dans une boite un chemin ouvert entre $T$ et $B$ si elle est ouverte et pas dans l'autre boîte. Il existe alors un chemin ouvert entre cette arête et le sommet $v_0$ au bord. Sans perte de généralité, nous supposons que $\Pi'_l(v_0)=T$, il existe alors dans $\Lambda(l,h)$ et $\Lambda'_l$ un chemin identique qui relie une extrémité de $e_0$ et $B$. nous considérons maintenant le cluster ouvert de ce chemin dans la boite $\Lambda'_l$, il n'est pas connecté à $B$ par la condition $T\nleftrightarrow B$ dans $\Lambda'_l$, de plus, il n'est pas connecté à $T$ car s'il l'était, $T\longleftrightarrow B$ dans la boîte $\Lambda(l,h)$ où $e_0$ est ouverte. Il existe donc dans le graphe dual un contour fermé $C_1$ qui sépare ce cluster de $T$ et de $B$. L'arête $e^*_1$ sépare donc ce contour en deux parties disjointes (voir Figure \ref{fig:e1}). 
 \begin{figure}[h]
 \begin{minipage}{0.45\linewidth}
 \center
 \begin{tikzpicture}
-\draw (2.5,-0.5) node {$\Lambda_l$};
+\draw (2.5,-0.5) node {$\Lambda(l,h)$};
 \draw (5,0) --(0,0) -- (0,4) -- (5,4);
 \node[fill,circle,inner sep = 1pt] at (2,3) (e+) {};
 \node[fill,circle,inner sep = 1pt] at (2,2.8) (e-) {};
@@ -217,12 +228,12 @@ Cette arête devient différente car il existe dans une boite un chemin ouvert e
 \label{fig:e1}
 \end{figure}
 
-nous considérons maintenant une arête $e_i$ qui devient différente à cause d'une autre arête $e_j, j< i$ qui est déjà différente. Par symétrie, nous supposons que $e_j$ est ouverte dans $\Lambda_l$ et fermée dans $\Lambda'_l$, $e_i$ est fermée dans $\Lambda_l$ et ouverte dans $\Lambda'_l$. Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$ dans les deux boîtes et $e_i$ est reliée à $B$. Quitte à fermer toutes les arêtes $e_k,k \neq i,j$, nous pouvons considérer le cluster ouvert de ce chemin dans les deux boîtes arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $B$ dans $\Lambda_l$ car $e_j$ est ouverte, il n'est pas connecté à $T$ dans $\Lambda'_l$ car $e_i$ est ouverte. nous pouvons donc trouver un contour fermé $C_i$ dans le graphe dual qui sépare ce cluster de $T,B$ qui traverse $e_i$ et $e_j$. Donc $e_i$ et $e_j$ sépare $C_i$ en deux chemins fermés disjoints.
+nous considérons maintenant une arête $e_i$ qui devient différente à cause d'une autre arête $e_j, j< i$ qui est déjà différente. Par symétrie, nous supposons que $e_j$ est ouverte dans $\Lambda(l,h)$ et fermée dans $\Lambda'_l$, $e_i$ est fermée dans $\Lambda(l,h)$ et ouverte dans $\Lambda'_l$. Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$ dans les deux boîtes et $e_i$ est reliée à $B$. Quitte à fermer toutes les arêtes $e_k,k \neq i,j$, nous pouvons considérer le cluster ouvert de ce chemin dans les deux boîtes arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $B$ dans $\Lambda(l,h)$ car $e_j$ est ouverte, il n'est pas connecté à $T$ dans $\Lambda'_l$ car $e_i$ est ouverte. nous pouvons donc trouver un contour fermé $C_i$ dans le graphe dual qui sépare ce cluster de $T,B$ qui traverse $e_i$ et $e_j$. Donc $e_i$ et $e_j$ sépare $C_i$ en deux chemins fermés disjoints.
 \begin{figure}[h]
 \begin{minipage}{0.45\linewidth}
 \center
 \begin{tikzpicture}
-\draw (2.5,-0.5) node {$\Lambda_l$};
+\draw (2.5,-0.5) node {$\Lambda(l,h)$};
 \draw (5,0) --(0,0);
 \draw (0,4) -- (5,4);
 \node[fill,circle,inner sep = 1pt] at (2,3) (ej+) {};
@@ -243,7 +254,7 @@ nous considérons maintenant une arête $e_i$ qui devient différente à cause d
 \begin{minipage}{0.45\linewidth}
 \center
 \begin{tikzpicture}
-\draw (2.5,-0.5) node {$\Lambda_l$};
+\draw (2.5,-0.5) node {$\Lambda(l,h)$};
 \draw (5,0) --(0,0);
 \draw (0,4) -- (5,4);
 \node[fill,circle,inner sep = 1pt] at (2,3) (ej+) {};
@@ -271,10 +282,10 @@ Enfin, pour obtenir la suite dans l'énoncé, nous partons de l'instant $t$ pour
 nous estimons maintenant la probabilité pour qu'une arête deviennent différente à cause d'une autre arête ou directement à cause du bord. 
 
 \begin{cut}
-Soit $\Lambda_l$ une boîte de longueur $l$, un cut $C$ est un ensemble d'arête fermé dont le dual contient un chemin fermé de gauche à droite de $\Lambda_l$. Un cut minimal est un cut dont l'ouverture d'un sous-ensemble produit un chemin ouvert de $T$ à $B$.
+Soit $\Lambda(l,h)$ une boîte de longueur $l$, un cut $C$ est un ensemble d'arête fermé dont le dual contient un chemin fermé de gauche à droite de $\Lambda(l,h)$. Un cut minimal est un cut dont l'ouverture d'un sous-ensemble produit un chemin ouvert de $T$ à $B$.
 \end{cut}
 
-nous voyons bien que l'existence d'un cut dans une boite $\Lambda_l$ est équivalent à $T\nleftrightarrow B$.
+nous voyons bien que l'existence d'un cut dans une boite $\Lambda(l,h)$ est équivalent à $T\nleftrightarrow B$.
 
 \begin{bcut}
 Avec les notation précédente, $\forall i>1$, à l'instant $t_i$, il existe un cut $C_i$ et un chemin fermé $c_i^*$ dans le graphe dual disjoint de $C_i$ qui vérifie les conditions suivantes:
@@ -321,7 +332,7 @@ Enfin nous posons $C^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord
 nous allons énoncer quelques inégalités utiles pour montrer la convergence en loi de l'interface quand la taille de la boîte tend vers infini. Nous commençons par une inégalité de type BK adaptée au problème. Nous commençons par généraliser la notion de l'occurrence disjointe.
 
 \begin{occ}
-Soit $\Lambda_l$ une boîte de longueur $l$, soit $A$ l'événement $x\longleftrightarrow y$ à l'instant $s$, $B$ l'événement $u\longleftrightarrow v$ à l'instant $t$, soit $K(\omega) = \{e: e=1\}$, nous définissons l'occurrence disjointe de $A$ et $B$ noté par $A\circ B$ par:
+Soit $\Lambda(l,h)$ une boîte de longueur $l$, soit $A$ l'événement $x\longleftrightarrow y$ à l'instant $s$, $B$ l'événement $u\longleftrightarrow v$ à l'instant $t$, soit $K(\omega) = \{e: e=1\}$, nous définissons l'occurrence disjointe de $A$ et $B$ noté par $A\circ B$ par:
 \begin{itemize}
 \item si $s=t$, $A\circ B = \{\omega: \exists\omega_1\in A,\exists\omega_2\in B, K(\omega_1)\cap K(\omega_2) = \emptyset, K(\omega_1)\cup K(\omega_2)\subset K(\omega) \}$;
 \item si $s<t$, $A\circ B = \{\omega: \exists\omega_1\in A,\exists\omega_2\in B, K(\omega_1)\cup K(\omega_2)\subset K(\omega), \forall e\in (\omega_1)\cap K(\omega_2), \exists r\in [s,t], e(r) = 1 \}$.
@@ -330,23 +341,23 @@ Soit $\Lambda_l$ une boîte de longueur $l$, soit $A$ l'événement $x\longleftr
 Nous énonçons l'inégalité de BK pour la percolation dynamique:
 
 \begin{bk}
-Soit $\Lambda_l$ une boîte de longueur $l$, $0<s\leqslant t$, soit $A$ l'événement $x\longleftrightarrow y$ à l'instant $s$, $B$ l'événement $u\longleftrightarrow v$ à l'instant $t$, alors $P(A\circ B) \leqslant P(A)P(B)$ quand $p$ est assez proche de 1.
+Soit $\Lambda(l,h)$ une boîte de longueur $l$, $0<s\leqslant t$, soit $A$ l'événement $x\longleftrightarrow y$ à l'instant $s$, $B$ l'événement $u\longleftrightarrow v$ à l'instant $t$, alors $P(A\circ B) \leqslant P(A)P(B)$ quand $p$ est assez proche de 1.
 \end{bk}
 
 \begin{proof}
-Pour le premier cas, c'est l'inégalité de BK classique. Nous traitons uniquement le deuxième cas où les instants sont différents. Soit $\Gamma = \{f:[s,t]\rightarrow\{0,1\}\text{ càdlàg} \}^{|\Lambda_l|}$. Nous introduisons deux espaces de probabilité identiques $S_1 = (\Gamma_1,\mathcal{F}_1,P_1), S_2 = (\Gamma_2,\mathcal{F}_2,P_2)$, nous définissons $S$ l'espace produit de $S_1,S_2$. Nous écrivons $x\times y$ un point de $\Gamma_1 \times \Gamma_2$. Nous notons $A' = A\times \Gamma_2$, $B_k' = \{x\times y :(y_1,\dots,y_k,x_{k+1},\dots,x_{|\Lambda_l|}) \in B\}$. Nous notons $P_{12}$ la probabilité produit de $P_1,P_2$. Nous avons bien que $P(A\circ B) = P_{12}(A'\circ B'_0)$ et $P_{12}(A'\circ B'_{|\Lambda_l|}) = P(A)P(B)$. Nous montrons maintenant: $$\forall k>0, P_{12}(A'\circ B'_{k-1}) \leqslant P_{12}(A'\circ B'_k)$$. 
+Pour le premier cas, c'est l'inégalité de BK classique. Nous traitons uniquement le deuxième cas où les instants sont différents. Soit $\Gamma = \{f:[s,t]\rightarrow\{0,1\}\text{ càdlàg} \}^{|\Lambda(l,h)|}$. Nous introduisons deux espaces de probabilité identiques $S_1 = (\Gamma_1,\mathcal{F}_1,P_1), S_2 = (\Gamma_2,\mathcal{F}_2,P_2)$, nous définissons $S$ l'espace produit de $S_1,S_2$. Nous écrivons $x\times y$ un point de $\Gamma_1 \times \Gamma_2$. Nous notons $A' = A\times \Gamma_2$, $B_k' = \{x\times y :(y_1,\dots,y_k,x_{k+1},\dots,x_{|\Lambda(l,h)|}) \in B\}$. Nous notons $P_{12}$ la probabilité produit de $P_1,P_2$. Nous avons bien que $P(A\circ B) = P_{12}(A'\circ B'_0)$ et $P_{12}(A'\circ B'_{|\Lambda(l,h)|}) = P(A)P(B)$. Nous montrons maintenant: $$\forall k>0, P_{12}(A'\circ B'_{k-1}) \leqslant P_{12}(A'\circ B'_k)$$. 
 
-nous considérons $x\times y \in A'\circ B'_{k-1}$, donc $x\in A$ et $(y_1,\dots,y_{k-1},x_k,\dots,x_{|\Lambda_l|})\in B$. 
+nous considérons $x\times y \in A'\circ B'_{k-1}$, donc $x\in A$ et $(y_1,\dots,y_{k-1},x_k,\dots,x_{|\Lambda(l,h)|})\in B$. 
 
 nous considérons d'abord le cas où $e_k$ n'est pas pivot pour $B$. Nous vérifions facilement $x\times y \in A'\circ B'_k$.
 
-Nous considérons maintenant l'arête $e_k$ est pivot pour $A$ et $B$. Nous avons donc $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$. Nous posons $$x'=(x_1,\dots,x_{k-1},\bar{x}_k,x_{k+1},\dots,x_{|\Lambda_l|})$$
-$$y'=(y_1,\dots,y_{k-1},x'_k,y_{k+1},\dots,y_{|\Lambda_l|})$$ où $x'_k$ une copie indépendante de $x_k$. $x\times y' \in A'\circ B'_k$ et $\bar{x}_k$ vérifie $\bar{x}_k(s)=1$. nous avons donc $P_{12}(x\times y \in A'\circ B'_k; e_k \text{ pivot }A,B) = pP_{12}(x\times y \in A'\circ B'_{k-1}; e_k \text{ pivot }A,B)$.
+Nous considérons maintenant l'arête $e_k$ est pivot pour $A$ et $B$. Nous avons donc $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$. Nous posons $$x'=(x_1,\dots,x_{k-1},\bar{x}_k,x_{k+1},\dots,x_{|\Lambda(l,h)|})$$
+$$y'=(y_1,\dots,y_{k-1},x'_k,y_{k+1},\dots,y_{|\Lambda(l,h)|})$$ où $x'_k$ une copie indépendante de $x_k$. $x\times y' \in A'\circ B'_k$ et $\bar{x}_k$ vérifie $\bar{x}_k(s)=1$. nous avons donc $P_{12}(x\times y \in A'\circ B'_k; e_k \text{ pivot }A,B) = pP_{12}(x\times y \in A'\circ B'_{k-1}; e_k \text{ pivot }A,B)$.
 
 Il reste le cas $e_k$ pivot pour $B$ mais pas pour $A$. Nous avons maintenant $x_k(t) = 1$, nous posons 
-$$ x'=(x_1,\dots,x_{k-1},f_k,x_{k+1},\dots,x_{|\Lambda_l|})
+$$ x'=(x_1,\dots,x_{k-1},f_k,x_{k+1},\dots,x_{|\Lambda(l,h)|})
 $$
-$$y' =(y_1,\dots,y_{k-1},x'_k,y_{k+1},\dots,y_{|\Lambda_l|})
+$$y' =(y_1,\dots,y_{k-1},x'_k,y_{k+1},\dots,y_{|\Lambda(l,h)|})
 $$
 où $f_k:[s,t]\rightarrow\{0,1\}$ une fonction càdlàg et $x'_k$ une copie indépendante de $x_k$. Nous avons $x'\times y' \in A'\circ B'_k$, et $P_{12}(x\times y \in A'\circ B'_k; e_k \text{ pivot }B) = \frac{1}{p}P_{12}(x\times y \in A'\circ B'_{k-1}; e_k \text{ pivot }B)$.
 
@@ -441,7 +452,7 @@ Nous avons donc $N$ est borné par une variable aléatoire de loi de Poisson de 
 
 Nous montrons maintenant que la probabilité d'avoir une influence du bord sur une arête à l'intérieur de la boîte. 
 \begin{cvg}
-Soit $p\geqslant \frac{1}{2}$, $\bar{e}$ l'arête au centre de la boîte $\Lambda_l, \Lambda_l'$ décrit dans la proposition \ref{chaine}, il existe une constante $\lambda> 0$ tel que $P(Y(\bar{e})\neq Y'(\bar{e})) \leqslant e^{-\lambda l} P(T\nleftrightarrow B \text{ entre }[0,t])$.
+Soit $p\geqslant \frac{1}{2}$, $\bar{e}$ l'arête au centre de la boîte $\Lambda(l,h), \Lambda(l,h)'$ décrit dans la proposition \ref{chaine}, il existe une constante $\lambda> 0$ tel que $P(Y(\bar{e})\neq Y'(\bar{e})) \leqslant e^{-\lambda l} P(T\nleftrightarrow B \text{ entre }[0,t])$.
 \end{cvg}
 
 \begin{proof}
