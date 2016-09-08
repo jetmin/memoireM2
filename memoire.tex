@@ -204,12 +204,12 @@ Soit $t>0$ premier instant où $e_0$ diffère dans les deux configurations, alor
 \begin{proof}
 Nous notons $\tau_0 = 0$, $\tau_i = \inf \{s > \tau_{i-1}, \exists e \in \Lambda(l,h),Y_{s^-}(e) = Y'_{s^-}(e),Y_s(e) \neq Y'_s(e)\}$. Nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux boites. Par symétrie, nous pouvons supposer que $v_0$ soit dans le bord gauche et que $e_1$ soit fermée dans $\Lambda'_l$.
 
-Cette arête devient différente car il existe dans une boite un chemin ouvert entre $T$ et $B$ si elle est ouverte et pas dans l'autre boîte. Il existe alors un chemin ouvert entre cette arête et le sommet $v_0$ au bord. Sans perte de généralité, nous supposons que $\Pi'_l(v_0)=T$, il existe alors dans $\Lambda(l,h)$ et $\Lambda'_l$ un chemin identique qui relie une extrémité de $e_0$ et $B$. nous considérons maintenant le cluster ouvert de ce chemin dans la boite $\Lambda'_l$, il n'est pas connecté à $B$ par la condition $T\nleftrightarrow B$ dans $\Lambda'_l$, de plus, il n'est pas connecté à $T$ car s'il l'était, $T\longleftrightarrow B$ dans la boîte $\Lambda(l,h)$ où $e_0$ est ouverte. Il existe donc dans le graphe dual un contour fermé $C_1$ qui sépare ce cluster de $T$ et de $B$. L'arête $e^*_1$ sépare donc ce contour en deux parties disjointes (voir Figure \ref{fig:e1}). 
+Cette arête devient différente car il si elle était ouverte dans la configuration $Y'$, il existerait un chemin ouvert entre $T$ et $B$ et pas dans la configuration $Y$. Il existe alors un chemin ouvert entre $e_1$ et le sommet $v_0$ au bord. Sans perte de généralité, nous supposons que $\Pi'_l(v_0)=T$, il existe alors dans $Y_{\tau_1}$ et $Y'_{\tau_1}$ un chemin identique qui relie une extrémité de $e_0$ et $B$. Nous considérons maintenant le cluster ouvert de ce chemin dans la configuration $Y'_{\tau_1}$, il n'est pas connecté à $B$ par la condition $T\nleftrightarrow B$ dans $Y'_{\tau_1}$, de plus, il n'est pas connecté à $T$ car s'il l'était, $T\longleftrightarrow B$ dans la configuration $Y{\tau_1}$ où $e_0$ est ouverte. Il existe donc dans le graphe dual un contour fermé $C^*_1$ qui sépare ce cluster de $T$ et de $B$. L'arête $e^*_1$ sépare donc ce contour en deux parties disjointes (voir Figure \ref{fig:e1}). 
 \begin{figure}[h]
 \begin{minipage}{0.45\linewidth}
 \center
 \begin{tikzpicture}
-\draw (2.5,-0.5) node {$\Lambda(l,h)$};
+\draw (2.5,-0.5) node {$Y_{\tau_1}$};
 \draw (5,0) --(0,0) -- (0,4) -- (5,4);
 \node[fill,circle,inner sep = 1pt] at (2,3) (e+) {};
 \node[fill,circle,inner sep = 1pt] at (2,2.8) (e-) {};
@@ -226,7 +226,7 @@ Cette arête devient différente car il existe dans une boite un chemin ouvert e
 \begin{minipage}{0.45\linewidth}
 \center
 \begin{tikzpicture}
-\draw (2.5,-0.5) node {$\Lambda'_l$};
+\draw (2.5,-0.5) node {$Y'_{\tau_1}$};
 \draw (5,0) --(0,0) -- (0,4) -- (5,4);
 \node[fill,circle,inner sep = 1pt] at (2,3) (e+) {};
 \node[fill,circle,inner sep = 1pt] at (2,2.8) (e-) {};
@@ -243,41 +243,21 @@ Cette arête devient différente car il existe dans une boite un chemin ouvert e
 \label{fig:e1}
 \end{figure}
 
-Nous considérons maintenant une arête $e_i$ qui devient différente à cause des autres arêtes qui sont déjà différentes. 
+Nous considérons maintenant une arête $e_i$ qui devient différente à cause des autres arêtes qui sont déjà différentes. Par symétrie, nous supposons que $e_i$ est ouverte dans $Y_{\tau_i}$ et fermée dans $Y'_{\tau_i}$ et que dans les deux boîtes et $e_i$ est reliée à $B$.
 
-Nous pouvons choisir une arête $e_j,j< i$ qui est devenue différente avant 
+Nous pouvons choisir une arête $e_j$ avec $j< i$ qui est devenue différente avant $\tau_i$ et qui est restée différente entre $\tau_j$ et $\tau_i$. En plus, il existe un chemin ouvert qui les relie. En effet, nous considérons le cluster ouvert $C_i$ dans $Y_{\tau_i}$ du sommet qui est séparé de $B$ par l'arête $e_i$. Nous considérons $R_i$ l'ensemble suivant:
+$$ R_i = \left\lbrace e = \langle x,y\rangle, x\in C_i, y\notin C_i, y\underset{Y'_{\tau_i}}{\leftrightarrow} T\cup \Pi_{l,h}^{-1}(top), Y_{\tau_i}(e)\neq Y'_{\tau_i}(e) \right\rbrace.
+$$
+Cet ensemble n'est pas vide, car $e_i\overset{Y'_{\tau_i}}{\leftrightarrow} T$, mais pas dans $Y_{\tau_i}$, donc il existe un tel $\langle x,y\rangle$ sur le bord extérieur de $C_i$ qui diffère dans les deux configurations. Nous pouvons ordonner cet ensemble avec l'ordre lexicographique de $\mathbb{Z}^2$ et nous prenons $e_j$ la première arête de $R_i$.
 
-
-
-
-
-Par symétrie, nous supposons que $e_j$ est ouverte dans $\Lambda(l,h)$ et fermée dans $\Lambda'_l$, $e_i$ est fermée dans $\Lambda(l,h)$ et ouverte dans $\Lambda'_l$. Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$ dans les deux boîtes et $e_i$ est reliée à $B$. Quitte à fermer toutes les arêtes $e_k,k \neq i,j$, nous pouvons considérer le cluster ouvert de ce chemin dans les deux boîtes arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $B$ dans $\Lambda(l,h)$ car $e_j$ est ouverte, il n'est pas connecté à $T$ dans $\Lambda'_l$ car $e_i$ est ouverte. nous pouvons donc trouver un contour fermé $C_i$ dans le graphe dual qui sépare ce cluster de $T,B$ qui traverse $e_i$ et $e_j$. Donc $e_i$ et $e_j$ sépare $C_i$ en deux chemins fermés disjoints.
+Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$.
+Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y'_{\tau_i}$ arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $T$ car $e_i$ est ouverte, il n'est pas connecté à $B$ dans $Y'_{\tau_i}$ car $e_j$ est ouverte. Nous pouvons donc trouver un ensemble $S_i$ d'arêtes fermées qui sépare ce chemin de $T$ dans $Y_{\tau_i}$ et un ensemble $S'_i$ qui le sépare de $B$ dans $Y'_{\tau_i}$. Nous pouvons supposer que $S_i\cap S'_i \neq \emptyset$, sinon, nous avons deux ensembles qui séparent $T$ et $B$ dans $\Lambda(l,h)$ qui est de probabilité inférieure à $e^{-\lambda l}$ et nous avons le résultat voulu. Nous pouvons désormais considérer un ensemble $S*$ formé par des arêtes qui sont soit fermées dans l'une des deux configurations et qui sépare le chemin $c$ de $T$ et de $B$. Les deux arêtes $e_i$ et $e_j$ coupent cet ensemble en deux chemins fermés.
 \begin{figure}[h]
+
 \begin{minipage}{0.45\linewidth}
 \center
 \begin{tikzpicture}
-\draw (2.5,-0.5) node {$\Lambda(l,h)$};
-\draw (5,0) --(0,0);
-\draw (0,4) -- (5,4);
-\node[fill,circle,inner sep = 1pt] at (2,3) (ej+) {};
-\node[fill,circle,inner sep = 1pt] at (2,2.8) (ej-) {};
-\node[fill,circle,inner sep = 1pt] at (3.5,1) (ei+) {};
-\node[fill,circle,inner sep = 1pt] at (3.5,0.8) (ei-) {};
-\draw (ej+) -- (ej-);
-\node at (2,2.9) [right]  (ej) {$e_j$};
-\node[right] at (3.5,.9) (ei) {$e_i$};
-\draw (1,4) .. controls (1.5,3) .. (ej+);
-\draw (ej-) .. controls (3,2) .. (ei+);
-\draw (ei-) .. controls (2,0.5) .. (2.5,0);
-\draw[dashed] (1,0) .. controls (2.5,2) .. (3,2);
-\draw[dashed, red, rounded corners] (ej) .. controls (1,2.5) and (1.5,0.7).. (ei)
-					.. controls (4,1.4) and (3.5,2.5).. (ej);
-\end{tikzpicture}
-\end{minipage}
-\begin{minipage}{0.45\linewidth}
-\center
-\begin{tikzpicture}
-\draw (2.5,-0.5) node {$\Lambda(l,h)$};
+\draw (2.5,-0.5) node {$Y_{\tau_i}$};
 \draw (5,0) --(0,0);
 \draw (0,4) -- (5,4);
 \node[fill,circle,inner sep = 1pt] at (2,3) (ej+) {};
@@ -295,6 +275,28 @@ Par symétrie, nous supposons que $e_j$ est ouverte dans $\Lambda(l,h)$ et ferm�
 					.. controls (4,1.4) and (3.5,2.5).. (ej);
 \end{tikzpicture}
 \end{minipage}
+\begin{minipage}{0.45\linewidth}
+\center
+\begin{tikzpicture}
+\draw (2.5,-0.5) node {$Y'_{\tau_i}$};
+\draw (5,0) --(0,0);
+\draw (0,4) -- (5,4);
+\node[fill,circle,inner sep = 1pt] at (2,3) (ej+) {};
+\node[fill,circle,inner sep = 1pt] at (2,2.8) (ej-) {};
+\node[fill,circle,inner sep = 1pt] at (3.5,1) (ei+) {};
+\node[fill,circle,inner sep = 1pt] at (3.5,0.8) (ei-) {};
+\draw (ej+) -- (ej-);
+\node at (2,2.9) [right]  (ej) {$e_j$};
+\node[right] at (3.5,.9) (ei) {$e_i$};
+\draw (1,4) .. controls (1.5,3) .. (ej+);
+\draw (ej-) .. controls (3,2) .. (ei+);
+\draw (ei-) .. controls (2,0.5) .. (2.5,0);
+\draw[dashed] (1,0) .. controls (2.5,2) .. (3,2);
+\draw[dashed, red, rounded corners] (ej) .. controls (1,2.5) and (1.5,0.7).. (ei)
+					.. controls (4,1.4) and (3.5,2.5).. (ej);
+\end{tikzpicture}
+\end{minipage}
+
 \caption{La configuration dans les deux boites quand $e_i$ devient différente avec le contour $C_i$ en rouge}
 \label{fig:ei}
 \end{figure}
