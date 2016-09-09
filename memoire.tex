@@ -35,16 +35,15 @@
 \maketitle
 
 \section{Introduction}
-Dans ce mémoire, nous allons étudier les interfaces dans le modèle de percolation dans le réseau $\mathbb{Z}^2$ avec une méthode dynamique. Plus généralement, nous considérons un paramètre $p\in [0,1]$ et le réseau $(\mathbb{Z}^d,E^d)$. nous posons $\Omega = \{0,1\}^{E^d}$, $\mathcal{F}\subset \mathcal{P}(\Omega)$ la tribu cylindrique. Nous disons que $\omega = \{\omega(e), e\in E^d\} \in \Omega$ est une configuration pour le réseau $\mathbb{Z}^d$ et que l'arête $e$ est ouverte si $\omega(e) = 1$ et fermée si $\omega(e)= 0$. La probabilité de percolation indépendant de paramètre $p$ est la probabilité produit$P_p = \mathbb{B}_p^{E^d}$, où $\mathbb{B}_p = p\delta_1 +(1-p)\delta_0 $ (la loi de Bernoulli de paramètre $p$).
+Dans ce mémoire, nous allons étudier les interfaces dans le modèle de percolation dans le réseau $(\mathbb{Z}^2,\mathbb{E}^2)$ avec une méthode dynamique.
 
-Chaque configuration correspond à un sous graph de $\mathbb{Z}^d$ si nous considérons uniquement les arêtes ouvertes. Et plus intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^d$ avec une probabilité $1-p$. 
+\section{Modèle}
+Nous présentons le modèle sur lequel nous allons travailler dans ce mémoire. Pour commencer, nous présentons des notations que nous allons utiliser.
 
-Dans notre étude, nous nous concentrons pour instant au cas $d = 2$.
+\paragraph{Configuration.} Soit un réel $p\in [0,1]$, $\Omega = \{0,1\}^{\mathbb{E}^2}$, $\mathcal{F}\subset \mathcal{P}(\Omega)$ la tribu cylindrique. Nous disons que $\omega = \{\omega(e), e\in \mathbb{E}^2\} \in \Omega$ est une configuration pour le réseau $\mathbb{Z}^2$ et que l'arête $e$ est ouverte si $\omega(e) = 1$ et fermée si $\omega(e)= 0$. Chaque configuration correspond à un sous graph de $\mathbb{Z}^2$ si nous considérons uniquement les arêtes ouvertes.
+\paragraph{La probabilité de percolation.} Sur l'espace $(\Omega, \mathcal{F})$, nous considérons la probabilité produit $P_p = (p\delta_1 +(1-p)\delta_0)^{\mathbb{E}^2}$. Plus intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^2$ avec une probabilité $1-p$. 
 
-\section{Notations générales}
-Dans cette partie, nous définissons d'abord le processus de la percolation dynamique dans le réseau $(\mathbb{Z}^2,E^2)$ puis nous définissons l'interface d'abord à l'aide de la percolation dynamique et d'un couplage. Pour commencer, nous présentons des notations générales pour la suite du mémoire.
-
-Nous notons $\Lambda(l,h)$: le rectangle $[-l,l]\times[-h,h]$;  nous notons aussi les bords $T(l,h)$: les sommets de $\mathbb{Z}^2$ sur le segment $[-l,l]\times(0,h)$ (soit le côté haut de $\Lambda(l,h)$), nous notons aussi $B(l,h)$ les sommets dans $[-l,l]\times(0,-h)$, que nous appelons le coté bas du rectangle et enfin l'ensemble des sommets dans les deux bords verticaux de la boîte que nous notons $V(l,h)$.
+\paragraph{Boite $\Lambda(l,h)$.}Nous notons $\Lambda(l,h)$ le rectangle $[-l,l]\times[-h,h]$;  nous notons aussi les bords $T(l,h)$ le bord supérieur de $\Lambda(l,h)$, c'est à dire les sommets de $\mathbb{Z}^2$ sur le segment $[-l,l]\times(0,h)$ , nous notons aussi $B(l,h)$ le bord inférieur les sommets dans $[-l,l]\times(0,-h)$ et enfin les deux bords verticaux de la boîte que nous notons $V(l,h)$.
 \begin{figure}[h]
 \center
 \begin{tikzpicture}
@@ -55,12 +54,15 @@ Nous notons $\Lambda(l,h)$: le rectangle $[-l,l]\times[-h,h]$;  nous notons auss
 \node[left] at (0,3) {$V(l,h)$};
 \node[right] at (8,3) {$V(l,h)$};
 \end{tikzpicture}
-\caption{La boîte $\Lambda(l,h)$};
+\caption{La boîte $\Lambda(l,h)$}
 \end{figure}
 
-Soit $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, nous notons $x\longleftrightarrow y$ s'ils sont reliés par un chemin ouvert, et $x\nleftrightarrow y$ , si ce n'est pas le cas; de plus, soit $B$ un sous ensemble de $E^2$, nous notons $x\overset{B}{\longleftrightarrow} y$ si $x$ et $y$ sont reliés par des arêtes contenant dans $B$;
+\paragraph{Chemin.}Soit $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, nous notons $x\underset{\omega}{\longleftrightarrow} y$ s'ils sont reliés par un chemin ouvert, i.e.
+$$ \exists (x_0,\dots,x_n), \forall 0\leqslant i\leqslant n-1, \langle x_i,x_{i+1}\rangle \in \mathbb{E}^2, \omega(\langle x_i,x_{i+1}\rangle) = 1,
+$$
+nous notons $\smash x\underset{\omega}{\nleftrightarrow} y$ , si ce n'est pas le cas. Nous enlèverons $\omega$ dans la notations si cela ne créer pas de confusion. De plus, soit $B$ un sous ensemble de $\mathbb{E}^2$, nous notons $x\overset{B}{\longleftrightarrow} y$ si $x$ et $y$ sont reliés par des arêtes contenant dans $B$.
 
-\paragraph{Graphe dual}Nous rappelons qu'un graphe dual d'une percolation sur le réseau $\mathbb{Z}^2$ est un réseau sur $\mathbb{Z}^2+(\frac{1}{2},\frac{1}{2})$, dont une arête $e^*$ est ouverte ssi l'arête $e$ dans $\mathbb{Z}^2$ qui l'intersecte est ouverte. Désormais, les objets dans le graphe dual seront notés avec une $*$.
+\paragraph{Graphe dual.}Nous rappelons qu'un graphe dual d'une percolation sur le réseau $\mathbb{Z}^2$ est un réseau sur $\mathbb{Z}^2+(\frac{1}{2},\frac{1}{2})$, dont une arête $e^*$ est ouverte ssi l'arête $e$ dans $\mathbb{Z}^2$ qui l'intersecte est ouverte. Désormais, les objets dans le graphe dual seront notés avec une $*$.
 
 \begin{figure}[h]
 \center
@@ -74,9 +76,9 @@ Soit $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, nous notons $x\longleftrightar
 \caption{un réseau $\mathbb{Z}^2$ et son dual (pointillée)}
 \end{figure}
 
-\paragraph{Ensemble séparant}Nous introduisons la notion d'un ensemble séparant, soit $A,B$ deux sous ensemble de $\mathbb{Z}^2$, nous disons qu'un ensemble d'arête $S\subset E^2$ sépare $A$ et $B$ si pour tout sommet $x\in A$ et tout sommet $y\in B$, $x\overset{E^2\setminus S}{\nleftrightarrow} y$. $S$ est appelé un ensemble séparant pour $A$ et $B$.
+\paragraph{Ensemble séparant.}Nous introduisons la notion d'un ensemble séparant, soit $A,B$ deux sous ensemble de $\mathbb{Z}^2$, nous disons qu'un ensemble d'arête $S\subset \mathbb{E}^2$ sépare $A$ et $B$ si pour tout sommet $x\in A$ et tout sommet $y\in B$, $x\overset{\mathbb{E}^2\setminus S}{\nleftrightarrow} y$. $S$ est appelé un ensemble séparant pour $A$ et $B$.
 
-Nous disons que $S$ est un ensemble séparant minimal de $A,B$ si $S$ sépare $A,B$ et pour tout arête $e$ de $S$, il existe $x\in A$, $y\in B$ tel que $x\overset{E^2\setminus (S\setminus \{e\})}{\longleftrightarrow} y$.
+Nous disons que $S$ est un ensemble séparant minimal de $A,B$ si $S$ sépare $A,B$ et pour tout arête $e$ de $S$, il existe $x\in A$, $y\in B$ tel que $x\overset{\mathbb{E}^2\setminus (S\setminus \{e\})}{\longleftrightarrow} y$.
 \section{La percolation dynamique}
 Nous définissons d'abord le processus la percolation dynamique $$X: \mathbb{R}^+ \rightarrow \{0,1\}^{E^2}$$ dans un réseau $(\mathbb{Z}^2,E^2)$. 
 Soit $p\in [0,1]$, et soit $e\in E^2$, notons $X_t$ la configurations de $E^2$ à l'instant $t$ et $X_t(e)$ la configuration d'une arête $e$ à l'instant $t$. Nous écrivons que $X_t(e)= 1$ si $e$ est ouverte à l'instant $t$ et $X_t(e)=0$ sinon. Nous associons à $e$ indépendamment des autres arête un processus markovien de sauts à deux états $\{0,1\}$ qui représente le changement de configuration de l'arête. Le taux de saut dépend de la configuration de $e$:
@@ -192,14 +194,14 @@ Soit $\Lambda(l,h)$ une boite dans $\mathbb{Z}^2,E^2$ munis de deux conditions a
 
 \begin{chaine}
 \label{chaine}
-Soit $t>0$ premier instant où $e_0$ diffère dans les deux configurations, alors il existe $N\in \mathbb{N},$ une suite d'arête $\varepsilon_1,\dots,\varepsilon_N$ et des instant $0<t_1< t_2<\dots<t_N=t$ qui vérifient les conditions suivantes:
+Soit $\theta>0$ premier instant où $e_0$ diffère dans les deux configurations, alors il existe un entier aléatoire $N\in \mathbb{N},$ une suite d'arêtes aléatoires $e_1,\dots,e_N$ et des instants aléatoires $0<\theta_1< \theta_2<\dots<\theta_N=t$ qui vérifient les conditions suivantes:
 
 \begin{itemize}
-\item[(i)] à l'instant $t_1$, $\varepsilon_1$ diffère dans les deux configurations. Il existe deux chemins fermés $p_1^*,q_1^*$ disjoints qui relient $\varepsilon_1^*$ et le dual du bord contenant $v_0$;
+\item[(i)] à l'instant $\theta_1$, $e_1$ diffère dans les deux configurations. Il existe deux chemins fermés $p_1^*,\rho_1^*$ disjoints qui relient $e_1^*$ et le dual du bord contenant $v_0$;
 
-\item[(ii)] pour tout $i>1$, l'arête $\varepsilon_i$ devient différente à $t_i$ et il existe deux chemins fermés $p_i^*,q_i^*$ disjoints qui relient $\varepsilon_{i-1}^*$ et $\varepsilon_i^*$.
+\item[(ii)] pour tout $i>1$, l'arête $e_i$ devient différente à $\theta_i$ et il existe deux chemins fermés $\gamma_i^*,\rho_i^*$ disjoints qui relient $e_{i-1}^*$ et $e_i^*$.
 
-\item[(iii)] pour tout $i\geqslant 1$, à l'instant $t_i$, il existe un ensemble d'arêtes fermées $S_i$ qui sépare $T(l,h)$ et $B(l,h)$ et un chemin fermé $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (p_i^*\cup q_i^*)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert p_i^*\cup q_i^* \vert$
+\item[(iii)] pour tout $i\geqslant 1$, à l'instant $\theta_i$, il existe un ensemble d'arêtes fermées $S_i$ qui sépare $T(l,h)$ et $B(l,h)$ et un chemin fermé $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (\gamma_i^*\cup \rho_i^*)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert \gamma_i^*\cup \rho_i^* \vert$
 \end{itemize}
 
 \end{chaine}
@@ -253,7 +255,7 @@ $$
 Cet ensemble n'est pas vide, car $e_i\overset{Y'_{\tau_i}}{\leftrightarrow} T$, mais pas dans $Y_{\tau_i}$, donc il existe un tel $\langle x,y\rangle$ sur le bord extérieur de $C_i$ qui diffère dans les deux configurations. Nous pouvons ordonner cet ensemble avec l'ordre lexicographique de $\mathbb{Z}^2$ et nous prenons $e_j$ la première arête de $R_i$.
 
 Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$.
-Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y'_{\tau_i}$ arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $T$ car $e_i$ est ouverte, il n'est pas connecté à $B$ dans $Y'_{\tau_i}$ car $e_j$ est ouverte. Nous pouvons donc trouver un ensemble $S_i$ d'arêtes fermées qui sépare ce chemin de $T$ dans $Y_{\tau_i}$ et un ensemble $S'_i$ qui le sépare de $B$ dans $Y'_{\tau_i}$. Nous pouvons supposer que $S_i\cap S'_i \neq \emptyset$, sinon, nous avons deux ensembles qui séparent $T$ et $B$ dans $\Lambda(l,h)$ qui est de probabilité inférieure à $e^{-\lambda l}$ et nous avons le résultat voulu. Nous pouvons désormais considérer un ensemble $S*$ formé par des arêtes qui sont soit fermées dans l'une des deux configurations et qui sépare le chemin $c$ de $T$ et de $B$. Quitte à prendre prendre l'ensemble minimal, nous pouvons supposer que $S^*$ est un circuit qui relie $e_i$ et $e_j$. Les deux arêtes $e_i$ et $e_j$ coupent cet ensemble en deux chemins fermés $p_i^*, q_i^*$.
+Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y'_{\tau_i}$ arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $T$ car $e_i$ est ouverte, il n'est pas connecté à $B$ dans $Y'_{\tau_i}$ car $e_j$ est ouverte. Nous pouvons donc trouver un ensemble $S_i$ d'arêtes fermées qui sépare ce chemin de $T$ dans $Y_{\tau_i}$ et un ensemble $S'_i$ qui le sépare de $B$ dans $Y'_{\tau_i}$. Nous pouvons supposer que $S_i\cap S'_i \neq \emptyset$, sinon, nous avons deux ensembles qui séparent $T$ et $B$ dans $\Lambda(l,h)$ qui est de probabilité inférieure à $e^{-\lambda l}$ et nous avons le résultat voulu. Nous pouvons désormais considérer un ensemble $S*$ formé par des arêtes qui sont soit fermées dans l'une des deux configurations et qui sépare le chemin $c$ de $T$ et de $B$. Quitte à prendre prendre l'ensemble minimal, nous pouvons supposer que $S^*$ est un circuit qui relie $e_i$ et $e_j$. Les deux arêtes $e_i$ et $e_j$ coupent cet ensemble en deux chemins fermés $\gamma_i^*, \rho_i^*$.
 \begin{figure}[h]
 
 \begin{minipage}{0.45\linewidth}
@@ -303,16 +305,16 @@ Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y
 \label{fig:ei}
 \end{figure}
 
-Enfin, pour obtenir la suite $(\varepsilon_i)_{i\geqslant 1}$ dans l'énoncé, nous partons de l'instant $t$ pour trouver l'arête qui a causé la différence à $e_0$, ensuite nous répétons ce procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête est donnée par une horloge exponentielle, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $t$. nous pouvons donc trouver une suite finie d'arêtes $\varepsilon_0,\varepsilon_1,\dots, \varepsilon_N$ avec $\varepsilon_N = e_0$ et des instants $t_1<\dots< t_N = t$ qui vérifient les deux premiers points de l'énoncé.
+Enfin, pour obtenir la suite $(e_i)_{i\geqslant 1}$ dans l'énoncé, nous partons de l'instant $t$ pour trouver l'arête qui a causé la différence à $e_0$, ensuite nous répétons ce procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête est donnée par une horloge exponentielle, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $t$. Nous pouvons donc trouver une suite finie d'arêtes $e_0,e_1,\dots, e_N$ avec $e_N = e_0$ et des instants $\theta_1<\dots< \theta_N = t$ qui vérifient les deux premiers points de l'énoncé.
 
-Nous considérons le contour fermé formé par $p_i^1$ et $p_i^2$, la condition $T\nleftrightarrow B$ impose qu'il existe un ensemble séparant $K_i$ qui contient $\varepsilon_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. Nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
+Nous considérons le contour fermé formé par $\gamma_i^1$ et $\gamma_i^2$, la condition $T\nleftrightarrow B$ impose qu'il existe un ensemble séparant $K_i$ qui contient $e_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. Nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
 \begin{itemize}
-\item nous posons $\varepsilon^*_i = k_0$;
-\item si $\varepsilon^*_i$ est horizontale, nous posons $k_{-1}$ l'arête qui partage le sommet gauche de $\varepsilon^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $\varepsilon_i^*$ est verticale, nous posons $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
-\item Nous nous éloignons de $\varepsilon_i$, jusqu'à avoir numéroté toutes les arêtes. Dans la direction négative, nous diminuons l'indice de 1 à chaque pas et nous augmentons de 1 par pas dans la direction positive.
+\item nous posons $e^*_i = k_0$;
+\item si $e^*_i$ est horizontale, nous posons $k_{-1}$ l'arête qui partage le sommet gauche de $e^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $e_i^*$ est verticale, nous posons $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
+\item Nous nous éloignons de $e_i$, jusqu'à avoir numéroté toutes les arêtes. Dans la direction négative, nous diminuons l'indice de 1 à chaque pas et nous augmentons de 1 par pas dans la direction positive.
 \end{itemize}
 
-Nous considérons maintenant l'arête minimale et l'arête maximale de l'ensemble $K_i\cap (p_i^1\cup p_i^2)$ que nous notons $k_{min}$ et $k_{max}$. Les deux arêtes $k_{min}$ et $k_{max}$ coupe $K_i$ en 3 parties disjointes: $C^g_i$ un chemin entre le bord gauche et $k_{min}$; $C^d_i$ un chemin entre le bord droite et $k_{max}$; l'union d'un chemin entre $k_{min}$ et $k_{max}$ et ces deux arêtes. De plus, les deux sommets qui séparent ces trois parties coupent le contour $p_i^1\cup p_i^2$ en deux chemins disjoints $c_i^1$ et $c_i^2$. Quitte à échanger les numéros, nous supposons que $|c_i^1| \geqslant |c_i^2|$.
+Nous considérons maintenant l'arête minimale et l'arête maximale de l'ensemble $K_i\cap (\gamma_i^1\cup \rho_i^2)$ que nous notons $k_{min}$ et $k_{max}$. Les deux arêtes $k_{min}$ et $k_{max}$ coupe $K_i$ en 3 parties disjointes: $C^g_i$ un chemin entre le bord gauche et $k_{min}$; $C^d_i$ un chemin entre le bord droite et $k_{max}$; l'union d'un chemin entre $k_{min}$ et $k_{max}$ et ces deux arêtes. De plus, les deux sommets qui séparent ces trois parties coupent le contour $\gamma_i^1\cup \rho_i^2$ en deux chemins disjoints $c_i^1$ et $c_i^2$. Quitte à échanger les numéros, nous supposons que $|c_i^1| \geqslant |c_i^2|$.
 \begin{figure}[h]
 \center
 \begin{tikzpicture}
@@ -334,7 +336,7 @@ Nous considérons maintenant l'arête minimale et l'arête maximale de l'ensembl
 \caption{construction d'un chemin fermé disjoint d'un cut}
 \end{figure}
 
-Enfin nous posons $C^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord gauche au bord droite dans le graphe dual et $c_i^* = c_i^1$. nous posons $C_i$ le dual de $C^*_i$ qui est un cut. Or $|c_i^1| \geqslant |c_i^2|$, nous obtenons $|c^*_i| \geqslant \frac{1}{2}|p_i^1\cup p_i^2|$. Par construction, $C_i$ et $c_i^*$ sont disjoints.
+Enfin nous posons $S^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord gauche au bord droite dans le graphe dual et $c_i^* = c_i^1$. Nous posons $S_i$ le dual de $S^*_i$ qui est un cut. Or $|c_i^1| \geqslant |c_i^2|$, nous obtenons $|c^*_i| \geqslant \frac{1}{2}|\gamma_i^1\cup p_i^2|$. Par construction, $S_i$ et $c_i^*$ sont disjoints.
 \end{proof}
 
 \section{Quelques inégalités préliminaires}
@@ -466,7 +468,7 @@ Nous étudions la constante $\gamma(p,t)$ et nous avons la proposition suivante:
 \begin{tension}$\frac{\gamma(p,t)}{\gamma(p,0)} \rightarrow 1$ quand $p\rightarrow 1$.
 \end{tension}
 \begin{proof}
-Nous utilisons le fait que $\lim_n \frac{1}{n}\ln P(O\longleftrightarrow n\mathbf{e}_1) = \lim_n \frac{1}{n}\ln P(O\longleftrightarrow \partial \Lambda_n)$ et nous considérons une boite de taille $n$. Nous remarquons le nombre d'arête qui se ferme entre $[0,t]$ est borné par une loi de Poisson de paramètre $n^2(1-p)t$. Nous notons $N$ le nombre de bout d'un space-time chemin, c'est-à-dire le nombre de chemins fermés tel que $$ (O,0) = (x_1,t_1) \longleftrightarrow (x_1,t_2) \longleftrightarrow (x_2,t_2)\dots \longleftrightarrow (x_N,t_N) \longleftrightarrow (\partial\Lambda_n,t).
+Nous utilisons le fait que $\lim_n \frac{1}{n}\ln P(O\longleftrightarrow n\mathbf{e}_1) = \lim_n \frac{1}{n}\ln P(O\longleftrightarrow \partial \Lambda_n)$ et nous considérons une boite de taille $n$. Nous remarquons le nombre d'arête qui se ferme entre $[0,t]$ est borné par une loi de Poisson de paramètre $n^2(1-p)t$. Nous notons $N$ le nombre de bout d'un space-time chemin, c'est-à-dire le nombre de chemins fermés tel que $$ (O,0) = (x_1,\theta_1) \longleftrightarrow (x_1,\theta_2) \longleftrightarrow (x_2,\theta_2)\dots \longleftrightarrow (x_N,\theta_N) \longleftrightarrow (\partial\Lambda_n,t).
 $$
 Nous avons donc $N$ est borné par une variable aléatoire de loi de Poisson de paramètre $n^2(1-p)t$. Quand $p\rightarrow 1$, nous pouvons rendre $N$ d'ordre de 1 avec une probabilité proche de 1 et nous avons le résultat.
 \end{proof}
@@ -481,10 +483,10 @@ Soit $p\geqslant \frac{1}{2}$, $\bar{e}$ l'arête au centre de la boîte $\Lambd
 \begin{proof}
 
 Nous utilisons les notations de la proposition \ref{chaine} et son corollaire.
-D'après la proposition \ref{chaine}, nous savons qu'il existe une suite d'arêtes $\varepsilon_1,\varepsilon_n$ qui sont reliées l'une après l'autre à différentes instants. Nous notons $x_i,y_i$ les extrémités de $c_i^*$ chemin fermé dans le graphe dual et de $C_i$ le cut, nous notons aussi $k_i$ le cardinal de $p_i^1\cup p_i^2$. Nous séparons la suite en différentes sous suites selon l'indépendance, plus précisément, si $c^*_j$ et $c^*_{j+1}$  est de l'occurrence disjointe, alors nous coupons la suite à l'indice $j$. Ainsi, nous obtenons les indices $j_1,\dots,j_r$ telles que $\forall 1\leqslant u\leqslant r, c^*_{j_u}$ et $c^*_{j_{u+1}}$ sont disjoints, $\forall j_k \leqslant v \leqslant j_{k+1}$, $c_k^*$ et $c_{k+1}^*$ ne sont pas disjoints.
+D'après la proposition \ref{chaine}, nous savons qu'il existe une suite d'arêtes $e_1,e_n$ qui sont reliées l'une après l'autre à différentes instants. Nous notons $x_i,y_i$ les extrémités de $c_i^*$ chemin fermé dans le graphe dual et de $C_i$ le cut, nous notons aussi $k_i$ le cardinal de $p_i^1\cup p_i^2$. Nous séparons la suite en différentes sous suites selon l'indépendance, plus précisément, si $c^*_j$ et $c^*_{j+1}$  est de l'occurrence disjointe, alors nous coupons la suite à l'indice $j$. Ainsi, nous obtenons les indices $j_1,\dots,j_r$ telles que $\forall 1\leqslant u\leqslant r, c^*_{j_u}$ et $c^*_{j_{u+1}}$ sont disjoints, $\forall j_k \leqslant v \leqslant j_{k+1}$, $c_k^*$ et $c_{k+1}^*$ ne sont pas disjoints.
 
 \begin{align*}
-P(Y(\bar{e})\neq Y'(\bar{e})) =& P(\exists \varepsilon_1,\dots,\varepsilon_n, \forall i, \exists p_i^1,p_i^2, \varepsilon_{i-1}\overset{p_i^1,p_i^2}{\longleftrightarrow}\varepsilon_i) \\
+P(Y(\bar{e})\neq Y'(\bar{e})) =& P(\exists e_1,\dots,e_n, \forall i, \exists p_i^1,p_i^2, e_{i-1}\overset{p_i^1,p_i^2}{\longleftrightarrow}e_i) \\
  \leqslant &P(\exists x_1,\dots,x_n,y_1,\dots,y_n c^*_1,\dots,c^*_n,C_1,\dots,C_n) \\\
  \leqslant &\sum_{j_1,\dots,j_r}\prod_{1\leqslant k \leqslant r} P\left(\begin{array}{c}
  \exists x_{j_{k-1}+1},\dots,x_{j_k},\\
@@ -496,8 +498,8 @@ P(Y(\bar{e})\neq Y'(\bar{e})) =& P(\exists \varepsilon_1,\dots,\varepsilon_n, \f
  \end{array}
  \right)
 \end{align*}
-Nous utilisons la proposition \ref{stc} pour majorer chaque terme du produit. Or les $\forall j_{k-1}+1 \leqslant c^*_m \leqslant j_k$, les $c^*_m$ ne sont pas d'occurrence disjointe, nous avons un space-time chemin $\sigma_k$ qui relie $x_{j_{k-1}+1}$ et $y_{j_k}$. Donc elle est bornée par $$ \displaystyle |\sigma_k|^4 e^{-\gamma(p,t_{j_k}-t_{j_{k-1}+1})|\sigma_k|} P(\exists C_{j_{k-1}+1},\dots,C_{j_k} \text{ cut})$$ car $x_{j_{k-1}+1}$ et $y_{j_k}$ sont dans un carré de taille inférieure à $ |\sigma_k|$. Or $\exists \delta>0$ tel que $\forall x>1, x^4e^{-x} \leqslant e^{-\delta x}$, nous avons 
-$$|\sigma_k|^4 e^{-\gamma(p,t_{j_k}-t_{j_{k-1}+1})|\sigma_k|} \leqslant |\sigma_k|^4 e^{-\gamma(p,t)|\sigma_k|} \leqslant e^{-\delta\gamma(p,t)|\sigma_k|}$$
+Nous utilisons la proposition \ref{stc} pour majorer chaque terme du produit. Or les $\forall j_{k-1}+1 \leqslant c^*_m \leqslant j_k$, les $c^*_m$ ne sont pas d'occurrence disjointe, nous avons un space-time chemin $\sigma_k$ qui relie $x_{j_{k-1}+1}$ et $y_{j_k}$. Donc elle est bornée par $$ \displaystyle |\sigma_k|^4 e^{-\gamma(p,\theta_{j_k}-\theta_{j_{k-1}+1})|\sigma_k|} P(\exists C_{j_{k-1}+1},\dots,C_{j_k} \text{ cut})$$ car $x_{j_{k-1}+1}$ et $y_{j_k}$ sont dans un carré de taille inférieure à $ |\sigma_k|$. Or $\exists \delta>0$ tel que $\forall x>1, x^4e^{-x} \leqslant e^{-\delta x}$, nous avons 
+$$|\sigma_k|^4 e^{-\gamma(p,\theta_{j_k}-\theta_{j_{k-1}+1})|\sigma_k|} \leqslant |\sigma_k|^4 e^{-\gamma(p,t)|\sigma_k|} \leqslant e^{-\delta\gamma(p,t)|\sigma_k|}$$
 
 Nous partons de $\bar{e}$, $x_{j_{n-1}+1}$ est de distance inférieure à $2|\sigma_r|$ de $\bar{e}$, nous avons donc 
 \begin{align*}\sum_{1=j_1<\dots < j_r = n} &\prod_{1\leqslant k \leqslant r} e^{-\delta \gamma(p,t)|\sigma_k|} P(\exists C_{j_{k-1}+1},\dots,C_{j_k} \text{ cut}) \\
