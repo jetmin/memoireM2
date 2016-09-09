@@ -305,7 +305,7 @@ Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y
 
 Enfin, pour obtenir la suite $(\varepsilon_i)_{i\geqslant 1}$ dans l'énoncé, nous partons de l'instant $t$ pour trouver l'arête qui a causé la différence à $e_0$, ensuite nous répétons ce procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête est donnée par une horloge exponentielle, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $t$. nous pouvons donc trouver une suite finie d'arêtes $\varepsilon_0,\varepsilon_1,\dots, \varepsilon_N$ avec $\varepsilon_N = e_0$ et des instants $t_1<\dots< t_N = t$ qui vérifient les deux premiers points de l'énoncé.
 
-Nous considérons le contour fermé formé par $p_i^1$ et $p_i^2$, la condition $T\nleftrightarrow B$ impose qu'il existe un cut $K_i$ qui contient $\varepsilon_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
+Nous considérons le contour fermé formé par $p_i^1$ et $p_i^2$, la condition $T\nleftrightarrow B$ impose qu'il existe un ensemble séparant $K_i$ qui contient $\varepsilon_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. Nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
 \begin{itemize}
 \item nous posons $\varepsilon^*_i = k_0$;
 \item si $\varepsilon^*_i$ est horizontale, nous posons $k_{-1}$ l'arête qui partage le sommet gauche de $\varepsilon^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $\varepsilon_i^*$ est verticale, nous posons $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
@@ -356,12 +356,26 @@ Soit $\Lambda(l,h)$ une boîte de longueur $l$, $0<s\leqslant t$, soit $A$ l'év
 \begin{proof}
 Pour le premier cas, c'est l'inégalité de BK classique. Nous traitons uniquement le deuxième cas où les instants sont différents. Soit $\Gamma = \{f:[s,t]\rightarrow\{0,1\}\text{ càdlàg} \}^{|\Lambda(l,h)|}$. Nous introduisons deux espaces de probabilité identiques $S_1 = (\Gamma_1,\mathcal{F}_1,P_1), S_2 = (\Gamma_2,\mathcal{F}_2,P_2)$, nous définissons $S$ l'espace produit de $S_1,S_2$. Nous écrivons $x\times y$ un point de $\Gamma_1 \times \Gamma_2$. Nous notons $A' = A\times \Gamma_2$, $B_k' = \{x\times y :(y_1,\dots,y_k,x_{k+1},\dots,x_{|\Lambda(l,h)|}) \in B\}$. Nous notons $P_{12}$ la probabilité produit de $P_1,P_2$. Nous avons bien que $P(A\circ B) = P_{12}(A'\circ B'_0)$ et $P_{12}(A'\circ B'_{|\Lambda(l,h)|}) = P(A)P(B)$. Nous montrons maintenant: $$\forall k>0, P_{12}(A'\circ B'_{k-1}) \leqslant P_{12}(A'\circ B'_k)$$. 
 
-nous considérons $x\times y \in A'\circ B'_{k-1}$, donc $x\in A$ et $(y_1,\dots,y_{k-1},x_k,\dots,x_{|\Lambda(l,h)|})\in B$. 
+Nous considérons $x\times y \in A'\circ B'_{k-1}$, donc $x\in A$ et $(y_1,\dots,y_{k-1},x_k,\dots,x_{|\Lambda(l,h)|})\in B$. 
 
-nous considérons d'abord le cas où $e_k$ n'est pas pivot pour $B$. Nous vérifions facilement $x\times y \in A'\circ B'_k$.
+Nous considérons d'abord le cas où $e_k$ n'est pas pivot pour $B$. Nous vérifions facilement $x\times y \in A'\circ B'_k$.
 
-Nous considérons maintenant l'arête $e_k$ est pivot pour $A$ et $B$. Nous avons donc $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$. Nous posons $$x'=(x_1,\dots,x_{k-1},\bar{x}_k,x_{k+1},\dots,x_{|\Lambda(l,h)|})$$
-$$y'=(y_1,\dots,y_{k-1},x'_k,y_{k+1},\dots,y_{|\Lambda(l,h)|})$$ où $x'_k$ une copie indépendante de $x_k$. $x\times y' \in A'\circ B'_k$ et $\bar{x}_k$ vérifie $\bar{x}_k(s)=1$. nous avons donc $P_{12}(x\times y \in A'\circ B'_k; e_k \text{ pivot }A,B) = pP_{12}(x\times y \in A'\circ B'_{k-1}; e_k \text{ pivot }A,B)$.
+Nous considérons maintenant l'arête $e_k$ est pivot pour $A$ et $B$. Nous devons avoir $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$ pour $A\circ B_{k-1}$. Pour $A\circ B_k$, il faut $x_k(s)=1$ et $y_k(t)=1$. Nous montrons que $$P\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big)\leqslant P(x_k(s)=1,y_k(t)=1).$$
+
+Nous considérons la première instant de saut de $x_k$, soit 
+$$T = \inf\{ r> s, x_k(s) =0 \}
+$$
+et nous conditionnons la première probabilité par $\{T=r\}$, et nous utilisons la propriété de Markov forte qui donne:
+\begin{align*}&P\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big) \\
+&= E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{x_k(t) = 1}\mathbf{1}_{T<t}\right] \\
+&= E\left[E[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{x_k(t) = 1}\mathbf{1}_{T<t}| T=r]\right] \\
+&= E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{T = r}E[\mathbf{1}_{x_k(t) = 1}| T=r]\right] \\
+& = E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{T <t}P_0(x'_k(t-r) =1)\right] \\
+& \leqslant E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{T <t}\right]P(y_k(t-r) =1)\\
+& = P(x_k(s) = 1, T< t) P(y_k(t)=1) \\
+& \leqslant P(x_k(s)=1, y_k(t) = 1).
+\end{align*}
+Avec $x'_k$ le processus démarré à $T$. Nous avons $P_0(x'_k(t-r) = 1) \leqslant P(y_k(t-r) = 1)$ car $\{x_k(t-r) = 1\}$ est un événement croissant. Nous avons $P(y_k(t-r)= 1) = P(y_k(t)+1)$ car $y_k$ est stationnaire à l'équilibre.
 
 Il reste le cas $e_k$ pivot pour $B$ mais pas pour $A$. Nous avons maintenant $x_k(t) = 1$, nous posons 
 $$ x'=(x_1,\dots,x_{k-1},f_k,x_{k+1},\dots,x_{|\Lambda(l,h)|})

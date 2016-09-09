@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  9 SEP 2016 10:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  9 SEP 2016 13:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -748,8 +748,8 @@ ndi-tions aux bords $^^E[]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 ^^E[]$
  []
 
 [6] [7] [8] [9]
-Overfull \hbox (11.54453pt too wide) in paragraph at lines 359--360
-[]\OT1/cmr/m/n/12 nous consid^^Serons $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^B 
+Overfull \hbox (13.82506pt too wide) in paragraph at lines 359--360
+[]\OT1/cmr/m/n/12 Nous consid^^Serons $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^B 
 \OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 A[] \OMS/cmsy/m/n/12 ^^N
  \OML/cmm/m/it/12 B[]$\OT1/cmr/m/n/12 , donc $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/
 12 2 \OML/cmm/m/it/12 A$ \OT1/cmr/m/n/12 et $(\OML/cmm/m/it/12 y[]; [] ; y[]; x
@@ -757,7 +757,7 @@ Overfull \hbox (11.54453pt too wide) in paragraph at lines 359--360
  []
 
 [10]
-Overfull \hbox (4.03522pt too wide) in paragraph at lines 373--374
+Overfull \hbox (4.03522pt too wide) in paragraph at lines 387--388
 []\OT1/cmr/m/n/12 Nous mon-trons main-te-nant $\OML/cmm/m/it/12 P\OT1/cmr/m/n/1
 2 (\OML/cmm/m/it/12 e[][]A; B\OT1/cmr/m/n/12 ) \U/msa/m/n/12 6 \OML/cmm/m/it/12
  P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e[][]B\OT1/cmr/m/n/12 )$ quand $\OML/cmm/m/
@@ -765,26 +765,30 @@ it/12 p$ \OT1/cmr/m/n/12 proche
  []
 
 
-Overfull \hbox (4.61772pt too wide) in paragraph at lines 389--389
+Overfull \hbox (4.61772pt too wide) in paragraph at lines 403--403
 [] 
  []
 
 [11]
-Overfull \hbox (4.53194pt too wide) in paragraph at lines 436--437
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12]
+Overfull \hbox (4.53194pt too wide) in paragraph at lines 450--451
 []\OT1/cmr/m/n/12 Nous in-tro-dui-sons la no-tion de space-time che-min, en pro
 -lon-geant la connexion
  []
 
 
-Overfull \hbox (6.53578pt too wide) in paragraph at lines 436--437
+Overfull \hbox (6.53578pt too wide) in paragraph at lines 450--451
 \OT1/cmr/m/n/12 entre $\OML/cmm/m/it/12 s$ \OT1/cmr/m/n/12 et $\OML/cmm/m/it/12
  t$ \OT1/cmr/m/n/12 alors $(\OML/cmm/m/it/12 x; s\OT1/cmr/m/n/12 ) \OMS/cmsy/m/
 n/12  []! \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y; t\OT1/cmr/m/n/12 )$ par un space
 -time che-min ou-vert (resp.ferm^^Se).
  []
 
-[12]
-Overfull \hbox (0.44855pt too wide) in paragraph at lines 438--439
+
+Overfull \hbox (0.44855pt too wide) in paragraph at lines 452--453
 []\OT1/cmr/bx/n/12 Proposition 4. []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 n \
 OMS/cmsy/m/n/12 2 \U/msb/m/n/12 N$\OT1/cmr/m/it/12 , $\OML/cmm/m/it/12 t > \OT1
 /cmr/m/n/12 0$\OT1/cmr/m/it/12 , $\OML/cmm/m/it/12 p > []$\OT1/cmr/m/it/12 , so
@@ -794,20 +798,20 @@ mr/m/n/12 0) \OMS/cmsy/m/n/12  []!
  []
 
 
-Overfull \hbox (82.85056pt too wide) in paragraph at lines 446--446
+Overfull \hbox (82.85056pt too wide) in paragraph at lines 460--460
 [] 
  []
 
-Excluding 'comment' comment.
-Overfull \hbox (16.7089pt too wide) in paragraph at lines 484--484
+Excluding 'comment' comment. [13]
+Overfull \hbox (16.7089pt too wide) in paragraph at lines 498--498
 [] 
  []
 
-[13] [14] (./memoire.aux) ) 
+[14] [15] (./memoire.aux) ) 
 Here is how much of TeX's memory you used:
  12075 strings out of 493304
  214981 string characters out of 6139871
- 269758 words of memory out of 5000000
+ 271758 words of memory out of 5000000
  15258 multiletter control sequences out of 15000+600000
  15056 words of font info for 59 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -830,10 +834,10 @@ cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
-Output written on memoire.pdf (15 pages, 240563 bytes).
+Output written on memoire.pdf (16 pages, 242591 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
+ 131 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
