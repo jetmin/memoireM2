@@ -75,6 +75,8 @@ Soit $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, nous notons $x\longleftrightar
 \end{figure}
 
 \paragraph{Ensemble séparant}Nous introduisons la notion d'un ensemble séparant, soit $A,B$ deux sous ensemble de $\mathbb{Z}^2$, nous disons qu'un ensemble d'arête $S\subset E^2$ sépare $A$ et $B$ si pour tout sommet $x\in A$ et tout sommet $y\in B$, $x\overset{E^2\setminus S}{\nleftrightarrow} y$. $S$ est appelé un ensemble séparant pour $A$ et $B$.
+
+Nous disons que $S$ est un ensemble séparant minimal de $A,B$ si $S$ sépare $A,B$ et pour tout arête $e$ de $S$, il existe $x\in A$, $y\in B$ tel que $x\overset{E^2\setminus (S\setminus \{e\})}{\longleftrightarrow} y$.
 \section{La percolation dynamique}
 Nous définissons d'abord le processus la percolation dynamique $$X: \mathbb{R}^+ \rightarrow \{0,1\}^{E^2}$$ dans un réseau $(\mathbb{Z}^2,E^2)$. 
 Soit $p\in [0,1]$, et soit $e\in E^2$, notons $X_t$ la configurations de $E^2$ à l'instant $t$ et $X_t(e)$ la configuration d'une arête $e$ à l'instant $t$. Nous écrivons que $X_t(e)= 1$ si $e$ est ouverte à l'instant $t$ et $X_t(e)=0$ sinon. Nous associons à $e$ indépendamment des autres arête un processus markovien de sauts à deux états $\{0,1\}$ qui représente le changement de configuration de l'arête. Le taux de saut dépend de la configuration de $e$:
@@ -251,7 +253,7 @@ $$
 Cet ensemble n'est pas vide, car $e_i\overset{Y'_{\tau_i}}{\leftrightarrow} T$, mais pas dans $Y_{\tau_i}$, donc il existe un tel $\langle x,y\rangle$ sur le bord extérieur de $C_i$ qui diffère dans les deux configurations. Nous pouvons ordonner cet ensemble avec l'ordre lexicographique de $\mathbb{Z}^2$ et nous prenons $e_j$ la première arête de $R_i$.
 
 Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$.
-Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y'_{\tau_i}$ arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $T$ car $e_i$ est ouverte, il n'est pas connecté à $B$ dans $Y'_{\tau_i}$ car $e_j$ est ouverte. Nous pouvons donc trouver un ensemble $S_i$ d'arêtes fermées qui sépare ce chemin de $T$ dans $Y_{\tau_i}$ et un ensemble $S'_i$ qui le sépare de $B$ dans $Y'_{\tau_i}$. Nous pouvons supposer que $S_i\cap S'_i \neq \emptyset$, sinon, nous avons deux ensembles qui séparent $T$ et $B$ dans $\Lambda(l,h)$ qui est de probabilité inférieure à $e^{-\lambda l}$ et nous avons le résultat voulu. Nous pouvons désormais considérer un ensemble $S*$ formé par des arêtes qui sont soit fermées dans l'une des deux configurations et qui sépare le chemin $c$ de $T$ et de $B$. Les deux arêtes $e_i$ et $e_j$ coupent cet ensemble en deux chemins fermés.
+Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y'_{\tau_i}$ arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $T$ car $e_i$ est ouverte, il n'est pas connecté à $B$ dans $Y'_{\tau_i}$ car $e_j$ est ouverte. Nous pouvons donc trouver un ensemble $S_i$ d'arêtes fermées qui sépare ce chemin de $T$ dans $Y_{\tau_i}$ et un ensemble $S'_i$ qui le sépare de $B$ dans $Y'_{\tau_i}$. Nous pouvons supposer que $S_i\cap S'_i \neq \emptyset$, sinon, nous avons deux ensembles qui séparent $T$ et $B$ dans $\Lambda(l,h)$ qui est de probabilité inférieure à $e^{-\lambda l}$ et nous avons le résultat voulu. Nous pouvons désormais considérer un ensemble $S*$ formé par des arêtes qui sont soit fermées dans l'une des deux configurations et qui sépare le chemin $c$ de $T$ et de $B$. Quitte à prendre prendre l'ensemble minimal, nous pouvons supposer que $S^*$ est un circuit qui relie $e_i$ et $e_j$. Les deux arêtes $e_i$ et $e_j$ coupent cet ensemble en deux chemins fermés $p_i^*, q_i^*$.
 \begin{figure}[h]
 
 \begin{minipage}{0.45\linewidth}
@@ -301,28 +303,9 @@ Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y
 \label{fig:ei}
 \end{figure}
 
-Enfin, pour obtenir la suite dans l'énoncé, nous partons de l'instant $t$ pour trouver l'arête qui a causé la différence à $E_0$, ensuite nous répétons ce procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête est donnée par une horloge exponentielle, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $t$. nous pouvons donc trouver une suite finie d'arêtes $f_0,f_1,\dots, f_N$ avec $f_N = E_0$ et des instants $t_1<\dots< t_N = t$ qui vérifient l'énoncé.
-\end{proof}
+Enfin, pour obtenir la suite $(\varepsilon_i)_{i\geqslant 1}$ dans l'énoncé, nous partons de l'instant $t$ pour trouver l'arête qui a causé la différence à $e_0$, ensuite nous répétons ce procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête est donnée par une horloge exponentielle, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $t$. nous pouvons donc trouver une suite finie d'arêtes $\varepsilon_0,\varepsilon_1,\dots, \varepsilon_N$ avec $\varepsilon_N = e_0$ et des instants $t_1<\dots< t_N = t$ qui vérifient les deux premiers points de l'énoncé.
 
-nous estimons maintenant la probabilité pour qu'une arête deviennent différente à cause d'une autre arête ou directement à cause du bord. 
-
-\begin{comment}
-\begin{cut}
-Soit $\Lambda(l,h)$ une boîte de longueur $l$, un cut $C$ est un ensemble d'arête fermé dont le dual contient un chemin fermé de gauche à droite de $\Lambda(l,h)$. Un cut minimal est un cut dont l'ouverture d'un sous-ensemble produit un chemin ouvert de $T$ à $B$.
-\end{cut}
-\end{comment}
-nous voyons bien que l'existence d'un cut dans une boite $\Lambda(l,h)$ est équivalent à $T\nleftrightarrow B$.
-
-%\begin{bcut}
-%Avec les notation précédente, $\forall i>1$, à l'instant $t_i$, il existe un cut $C_i$ et un chemin fermé $c_i^*$ dans le graphe dual disjoint de $C_i$ qui vérifie les conditions suivantes:
-%\begin{itemize}
-%\item $c^*_i \subset (p_i^1\cup p_i^2)$;
-%\item $|c^*_i| \geqslant \frac{1}{2}|p_i^1\cup p_i^2|$.
-%\end{itemize}
-%\end{bcut}
-
-\begin{proof}
-nous considérons le contour fermé formé par $p_i^1$ et $p_i^2$, la condition $T\nleftrightarrow B$ impose qu'il existe un cut $K_i$ qui contient $\varepsilon_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
+Nous considérons le contour fermé formé par $p_i^1$ et $p_i^2$, la condition $T\nleftrightarrow B$ impose qu'il existe un cut $K_i$ qui contient $\varepsilon_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
 \begin{itemize}
 \item nous posons $\varepsilon^*_i = k_0$;
 \item si $\varepsilon^*_i$ est horizontale, nous posons $k_{-1}$ l'arête qui partage le sommet gauche de $\varepsilon^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $\varepsilon_i^*$ est verticale, nous posons $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
