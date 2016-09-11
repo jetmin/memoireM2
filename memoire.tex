@@ -5,12 +5,19 @@
 \usepackage{comment}
 \usepackage{tikz}
 \usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
 \usepackage[parfill]{parskip}
 \newcounter{def}
 \newcounter{thm}
 \newcounter{prop}
 \newcounter{cor}
 \frenchbsetup{StandardLists = true}
+
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+\makeatother
 
 \newtheorem{interface}[def]{Définition}
 \newtheorem{probainv}[thm]{Théorème}
@@ -36,7 +43,7 @@
 \maketitle
 
 \section{Introduction}
-Dans ce mémoire, nous allons étudier les interfaces dans le modèle de percolation dans le réseau $(\mathbb{Z}^2,\mathbb{E}^2)$ avec une méthode dynamique.
+ Dans ce mémoire, nous allons étudier les interfaces dans le modèle de percolation dans le réseau $(\mathbb{Z}^2,\mathbb{E}^2)$ avec une méthode dynamique.
 
 \section{Modèle}
 Nous présentons le modèle sur lequel nous allons travailler dans ce mémoire. Pour commencer, nous présentons des notations que nous allons utiliser.
@@ -358,16 +365,18 @@ Enfin nous posons $S^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord
 \end{proof}
 
 \section{Quelques inégalités préliminaires}
-nous allons énoncer quelques inégalités utiles pour montrer la convergence en loi de l'interface quand la taille de la boîte tend vers infini. Nous commençons par une inégalité de type BK adaptée au problème. Nous commençons par généraliser la notion de l'occurrence disjointe.
+Nous allons énoncer quelques inégalités pour la suite de notre étude. Nous commençons par une inégalité de type BK adaptée au problème. Nous commençons par généraliser la notion de l'occurrence disjointe.
 
+Nous considérons $A$ un événement croissant qui dépend d'un nombre fini d'arêtes à l'instant $s$, et $B$ un événement croissant qui dépend d'un nombre fini d'arête à l'instant $t$. Nous notons $K(\omega) = \{e: e=1\}$ l'ensemble d'arêtes ouvertes dans une configuration $\omega$. Nous définissons l'occurrence disjointe ainsi:
 \begin{occ}
-Soit $\Lambda(l,h)$ une boîte de longueur $l$, soit $A$ l'événement $x\longleftrightarrow y$ à l'instant $s$, $B$ l'événement $u\longleftrightarrow v$ à l'instant $t$, soit $K(\omega) = \{e: e=1\}$, nous définissons l'occurrence disjointe de $A$ et $B$ noté par $A\circ B$ par:
+Soit $A$, $B$ définis précédemment, l'occurrence disjointe de $A$ et $B$ noté par $A\circ B$ par:
 \begin{itemize}[leftmargin=*]
 \item si $s=t$, $A\circ B = \{\omega: \exists\omega_1\in A,\exists\omega_2\in B, K(\omega_1)\cap K(\omega_2) = \emptyset, K(\omega_1)\cup K(\omega_2)\subset K(\omega) \}$;
-\item si $s<t$, $A\circ B = \{\omega: \exists\omega_1\in A,\exists\omega_2\in B, K(\omega_1)\cup K(\omega_2)\subset K(\omega), \forall e\in (\omega_1)\cap K(\omega_2), \exists r\in [s,t], e(r) = 1 \}$.
+\item si $s<t$, $A\circ B = \{\omega: \exists\omega_1\in A,\exists\omega_2\in B, K(\omega_1)\cup K(\omega_2)\subset K(\omega), \forall e\in (\omega_1)\cap K(\omega_2), \exists r\in [s,t], e(r) \neq e(s) \}$.
 \end{itemize}
 \end{occ}
 Nous énonçons l'inégalité de BK pour la percolation dynamique:
+
 
 \begin{bk}
 Soit $\Lambda(l,h)$ une boîte de longueur $l$, $0<s\leqslant t$, soit $A$ l'événement $x\longleftrightarrow y$ à l'instant $s$, $B$ l'événement $u\longleftrightarrow v$ à l'instant $t$, alors $P(A\circ B) \leqslant P(A)P(B)$ quand $p$ est assez proche de 1.
@@ -376,17 +385,38 @@ Soit $\Lambda(l,h)$ une boîte de longueur $l$, $0<s\leqslant t$, soit $A$ l'év
 \begin{proof}
 Pour le premier cas, c'est l'inégalité de BK classique. Nous traitons uniquement le deuxième cas où les instants sont différents. Soit $\Gamma = \{f:[s,t]\rightarrow\{0,1\}\text{ càdlàg} \}^{|\Lambda(l,h)|}$. Nous introduisons deux espaces de probabilité identiques $S_1 = (\Gamma_1,\mathcal{F}_1,P_1), S_2 = (\Gamma_2,\mathcal{F}_2,P_2)$, nous définissons $S$ l'espace produit de $S_1,S_2$. Nous écrivons $x\times y$ un point de $\Gamma_1 \times \Gamma_2$. Nous notons $A' = A\times \Gamma_2$, $B_k' = \{x\times y :(y_1,\dots,y_k,x_{k+1},\dots,x_{|\Lambda(l,h)|}) \in B\}$. Nous notons $P_{12}$ la probabilité produit de $P_1,P_2$. Nous avons bien que $P(A\circ B) = P_{12}(A'\circ B'_0)$ et $P_{12}(A'\circ B'_{|\Lambda(l,h)|}) = P(A)P(B)$. Nous montrons maintenant: $$\forall k>0, P_{12}(A'\circ B'_{k-1}) \leqslant P_{12}(A'\circ B'_k)$$. 
 
-Nous considérons $x\times y \in A'\circ B'_{k-1}$, donc $x\in A$ et $(y_1,\dots,y_{k-1},x_k,\dots,x_{|\Lambda(l,h)|})\in B$. 
+Soit $e\in \mathbb{E}^2$ une arête, $\omega\in \Omega$, nous définissons les notations suivantes:
+$$\begin{array}{c}
+ \omega^e = \omega^e(f) = \left\lbrace \begin{array}{cc}
+	\omega(f) & f\neq e \\
+	1 & f=e 
+ \end{array}\right. \\
+ \omega_e = \omega_e(f) = \left\lbrace \begin{array}{cc}
+	\omega(f) & f\neq e \\
+	0 & f=e
+ \end{array}\right.
+\end{array}$$
+qui correspondent à des configurations ou $e$ est ouverte ou fermée. Soit $M$ un événement, nous disons que $e$ est pivot pour $M$ si $(\omega^e \in M, \omega_e\notin M)$ ou $(\omega^e \notin M, \omega_e\in M)$, c'est à dire un changement de l'arête $e$ change l'occurrence de $M$ dans la configuration $\omega$. Nous notons $e\triangleright M$ si $e$ est pivot pour $M$.
 
-Nous considérons d'abord le cas où $e_k$ n'est pas pivot pour $B$. Nous vérifions facilement $x\times y \in A'\circ B'_k$.
+Nous considérons d'abord le cas où $e_k$ n'est pas pivot pour $B$. Nous vérifions facilement que 
+$$ P_{12}(x\times y \in A'\circ B'_{k-1}, e_k \ntriangleright B) \leqslant P_{12}(x\times y \in A'\circ B'_k,e_k \ntriangleright B)
+$$
+car il suffit de poser $y_k$ une copie indépendante de $x_k$ qui réalise $A\circ B_{k-1}$ pour obtenir $A\circ B_k$.
 
-Nous considérons maintenant l'arête $e_k$ est pivot pour $A$ et $B$. Nous devons avoir $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$ pour $A\circ B_{k-1}$. Pour $A\circ B_k$, il faut $x_k(s)=1$ et $y_k(t)=1$. Nous montrons que $$P\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big)\leqslant P(x_k(s)=1,y_k(t)=1).$$
+Nous considérons maintenant le cas $e_k$ pivot pour $B$ mais pas pour $A$. Par symétrie nous pouvons supposer $ \omega^{e_k}\in B$. Il nous faut $x_k(t)=1$ réaliser pour $A\circ B_{k-1}$ et $y_k(t)= 1$ pour réaliser $A\circ B_k$. Or $x_k$ et $y_k$ sont de même loi, nous avons $P_{12}(x_k(t)=1) = P_{12}(y_k(t)=1)$. D'où:
+$$P_{12}(x\times y \in A'\circ B'_{k-1}, e_k \ntriangleright A,e_k \triangleright B) = P_{12}(x\times y \in A'\circ B'_k,e_k \ntriangleright A, e_k \triangleright B)
+$$
+
+Il reste le cas où l'arête $e_k$ est pivot pour $A$ et $B$. Quitte à changer $p$ en $(1-p)$, nous pouvons supposer que $\omega^{e_k}\in A$, il faut donc distinguer deux cas:
+\begin{itemize}[label = $\bullet$, leftmargin = *]
+\item Si $\omega^{e_k}\in A, \omega^{e_k}\in B$, nous devons avoir $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$ pour $A\circ B_{k-1}$. Pour $A\circ B_k$, il faut $x_k(s)=1$ et $y_k(t)=1$. Nous montrons que $$P\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big)\leqslant P(x_k(s)=1,y_k(t)=1).$$
 
 Nous considérons la première instant de saut de $x_k$, soit 
 $$T = \inf\{ r> s, x_k(s) =0 \}
 $$
 et nous conditionnons la première probabilité par $\{T=r\}$, et nous utilisons la propriété de Markov forte qui donne:
-\begin{align*}&P\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big) \\
+\begin{align*}
+&P\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big) \\
 &= E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{x_k(t) = 1}\mathbf{1}_{T<t}\right] \\
 &= E\left[E[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{x_k(t) = 1}\mathbf{1}_{T<t}| T=r]\right] \\
 &= E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{T = r}E[\mathbf{1}_{x_k(t) = 1}| T=r]\right] \\
@@ -397,31 +427,17 @@ et nous conditionnons la première probabilité par $\{T=r\}$, et nous utilisons
 \end{align*}
 Avec $x'_k$ le processus démarré à $T$. Nous avons $P_0(x'_k(t-r) = 1) \leqslant P(y_k(t-r) = 1)$ car $\{x_k(t-r) = 1\}$ est un événement croissant. Nous avons $P(y_k(t-r)= 1) = P(y_k(t)+1)$ car $y_k$ est stationnaire à l'équilibre.
 
-Il reste le cas $e_k$ pivot pour $B$ mais pas pour $A$. Nous avons maintenant $x_k(t) = 1$, nous posons 
-$$ x'=(x_1,\dots,x_{k-1},f_k,x_{k+1},\dots,x_{|\Lambda(l,h)|})
-$$
-$$y' =(y_1,\dots,y_{k-1},x'_k,y_{k+1},\dots,y_{|\Lambda(l,h)|})
-$$
-où $f_k:[s,t]\rightarrow\{0,1\}$ une fonction càdlàg et $x'_k$ une copie indépendante de $x_k$. Nous avons $x'\times y' \in A'\circ B'_k$, et $P_{12}(x\times y \in A'\circ B'_k; e_k \text{ pivot }B) = \frac{1}{p}P_{12}(x\times y \in A'\circ B'_{k-1}; e_k \text{ pivot }B)$.
-
-Nous montrons maintenant $P(e_k \text{ pivot } A,B) \leqslant P(e_k \text{ pivot } B)$ quand $p$ proche de 1. En effet, 
-\begin{multline*}
-P(e_k \text{ pivot } A,B)\leqslant P(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0)\\
- \leqslant 1- \exp(-(1-p)(t-s))
-\end{multline*}
-$$P(e_k \text{ pivot }B) \geqslant P(e_k \text{ ne change pas d'état}) \geqslant \exp(-(t-s))
-$$
-Pour $p$ assez proche de 1, nous avons l'inégalité demandée. Nous avons donc
+\item Si $\omega^{e_k}\in A, \omega_{e_k}\in B$, nous devons avoir $x_k(s)=1,x_k(t)=0$ pour réaliser $A\circ B_{k-1}$ et $x_k(s) = 1, y_k(t) = 0$ pour réaliser $A\circ B_k$. Or l'événement $x_k(t) = 1$ est un événement croissant, nous avons $$P_0(x_k(t-s) = 1)\leqslant P(x_k(t-s) =1).$$ Par la propriété de Markov forte, nous avons:
 \begin{align*}
-P_{12}(A'\circ B'_{k-1}) =& P_{12}(A'\circ B'_{k-1};e_k \text{ pivot } A,B) + P_{12}(A'\circ B'_{k-1};e_k \text{ pivot } B) \\
-  &+ P_{12}(A'\circ B'_{k-1};e_k \text{ non pivot })\\
-\leqslant &  p P_{12}(A'\circ B'_{k-1};e_k \text{ pivot } A,B) + \frac{1}{p}P_{12}(A'\circ B'_{k-1};e_k \text{ pivot } B) \\
-  &+ P_{12}(A'\circ B'_{k-1};e_k \text{ non pivot })\\
-\leqslant & P_{12}(A'\circ B'_{k};e_k \text{ pivot } A,B) + P_{12}(A'\circ B'_{k};e_k \text{ pivot } B) \\
-  &+ P_{12}(A'\circ B'_{k};e_k \text{ non pivot })\\
-  \leqslant & P_{12}(A'\circ B'_{k})
+P(x_k(s) = 0, x_k(t) = 1) &= E[\mathbf{1}_{x_k(s)=0}P_0(x_k(t-s) = 1)]\\
+& \leqslant P(x_k(s) = 0) P(y_k(t) = 1)
 \end{align*}
-Avec une récurrence sur $k$, nous avons l'inégalité demandée dans la proposition.
+\end{itemize}
+
+
+Nous obtenons l'inégalité voulu en combinant les deux cas précédents: $$P_{12}(A\circ B_{k-1}, e_k\triangleright A, e_k \triangleright B)\leqslant P_{12}(A\circ B_{k}, e_k\triangleright A, e_k \triangleright B).$$
+
+Enfin, nous en déduisons l'inégalité de BK en effectuant une récurrence sur $k$. 
 \end{proof}
 
 Nous avons déjà qu'un chemin fermé admet la propriété de décroissance exponentielle en fonction de son cardinal dans la phase surcritique, nous montrons maintenant une propriété similaire pour la percolation dynamique sur son comportement temporel: 
@@ -469,16 +485,23 @@ Nous avons donc
 
 Nous introduisons la notion de space-time chemin, en prolongeant la connexion dans le temps, c'est-à-dire si une arête $e=(x,y)$ reste ouverte (resp. fermée) entre $s$ et $t$ alors $(x,s)\longleftrightarrow (y,t)$ par un space-time chemin ouvert (resp.fermé). Nous montrons aussi une décroissance exponentielle avec les space-time chemin.
 
-\begin{stc} \label{stc} Soit $n\in \mathbb{N}$, $t>0$, $p> \frac{1}{2}$, soit $ A(n,t)$ l'événement $(O,0) \longleftrightarrow (n\mathbf{e}_1,t)$ par un space-time chemin fermé ou $\mathbf{e}_1 = (1,0)$, alors $\exists \gamma(p,t),$ une constante qui dépend de $p,t$ tel que $P(A(n,t)) \sim e^{-\gamma(p,t)n}$.
+\begin{stc} \label{stc} Soit $n\in \mathbb{N}$, $t>0$, $p> \frac{1}{2}$, soit $ A(n,t)$ l'événement $(O,0) \leftrightarrow (n\mathbf{e}_1,t)$ par un space-time chemin fermé où $\mathbf{e}_1 = (1,0)$, alors $\exists \gamma(p,t),$ une constante qui dépend de $p,t$ tel que $P(A(n,t)) \leqslant e^{-\gamma(p,t)n}$.
 \end{stc}
 
 \begin{proof}
 Nous montrons cette équivalence par le lemme sous-additif. En fait, 
 \begin{align*}
-P((O,0)\longleftrightarrow ((n+m)\mathbf{e}_1,s+t)) &\geqslant P((O,0)\longleftrightarrow (n\mathbf{e}_1,s))P((n\mathbf{e}_1,s)\longleftrightarrow ((m+n)\mathbf{e}_1,s+t))\\
-& \leqslant P((O,0)\longleftrightarrow (n\mathbf{e}_1,s))P((O,0)\longleftrightarrow (m\mathbf{e}_1,t))
+P((O,0)& \leftrightarrow ((n+m)\mathbf{e}_1,s+t)) \\
+\geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,s))P((n\mathbf{e}_1,s)\leftrightarrow ((m+n)\mathbf{e}_1,s+t))\\
+\geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,s))P((O,0)\leftrightarrow (m\mathbf{e}_1,t))
 \end{align*}
-Car nous avons l'invariance par translation. Nous concluons avec le lemme sous additif.
+Car nous avons l'invariance par translation. La suite $(-\ln P(A(n,t)))_{n\in \mathbb{N}}$ est sous-additive. Par le lemme sous-additif, nous obtenons:
+$$
+\lim_{n}-\frac{1}{n}\ln P(A(n,t)) = \inf_{n} -\frac{1}{n}\ln P(A(n,t)) = \gamma(p,t)
+$$
+Nous avons donc
+$$ \forall n, -\frac{1}{n}\ln P(A(n,t)) \geqslant \gamma(p,t).
+$$
 \end{proof}
 
 \begin{comment}

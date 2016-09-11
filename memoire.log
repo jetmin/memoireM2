@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.5)  10 SEP 2016 11:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.5)  11 SEP 2016 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -770,6 +770,9 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
@@ -780,26 +783,26 @@ Package: parskip 2001/04/09 non-zero parskip adjustments
  (./memoire.aux)
 \openout1 = `memoire.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Info: Redefining \degres on input line 33.
-LaTeX Info: Redefining \dots on input line 33.
-LaTeX Info: Redefining \up on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Info: Redefining \degres on input line 40.
+LaTeX Info: Redefining \dots on input line 40.
+LaTeX Info: Redefining \up on input line 40.
 
 
 Package frenchb.ldf Warning: OT1 encoding should not be used for French.
 (frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(frenchb.ldf)                of your document, on input line 33.
+(frenchb.ldf)                of your document, on input line 40.
 
 ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -863,17 +866,17 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 36.
+LaTeX Font Info:    Try loading font information for U+msa on input line 43.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 36.
+LaTeX Font Info:    Try loading font information for U+msb on input line 43.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 36.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 43.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -883,19 +886,15 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[1] [2] [3] [4]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[5] [6]
-Overfull \hbox (4.10963pt too wide) in paragraph at lines 211--212
+[1] [2] [3] [4] [5] [6]
+Overfull \hbox (4.10963pt too wide) in paragraph at lines 218--219
 []\OT1/cmr/m/n/12 Soit $^^C(\OML/cmm/m/it/12 l; h\OT1/cmr/m/n/12 )$ une boite d
 ans $\U/msb/m/n/12 Z[]\OML/cmm/m/it/12 ; E[]$ \OT1/cmr/m/n/12 mu-nis de deux co
 ndi-tions aux bords $^^E[]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 ^^E[]$
  []
 
 
-Overfull \hbox (4.69958pt too wide) in paragraph at lines 262--263
+Overfull \hbox (4.69958pt too wide) in paragraph at lines 269--270
  [] 
  []
 
@@ -903,75 +902,43 @@ Overfull \hbox (4.69958pt too wide) in paragraph at lines 262--263
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7] [8] [9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 365.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 373.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 365.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 373.
  [10]
-Overfull \hbox (13.82506pt too wide) in paragraph at lines 379--380
-[]\OT1/cmr/m/n/12 Nous consid^^Serons $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/12 ^^B 
-\OML/cmm/m/it/12 y \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 A[] \OMS/cmsy/m/n/12 ^^N
- \OML/cmm/m/it/12 B[]$\OT1/cmr/m/n/12 , donc $\OML/cmm/m/it/12 x \OMS/cmsy/m/n/
-12 2 \OML/cmm/m/it/12 A$ \OT1/cmr/m/n/12 et $(\OML/cmm/m/it/12 y[]; [] ; y[]; x
-[]; [] ; x[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 2
- []
+[11] [12]
 
-[11]
-Overfull \hbox (4.03522pt too wide) in paragraph at lines 407--408
-[]\OT1/cmr/m/n/12 Nous mon-trons main-te-nant $\OML/cmm/m/it/12 P\OT1/cmr/m/n/1
-2 (\OML/cmm/m/it/12 e[][]A; B\OT1/cmr/m/n/12 ) \U/msa/m/n/12 6 \OML/cmm/m/it/12
- P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e[][]B\OT1/cmr/m/n/12 )$ quand $\OML/cmm/m/
-it/12 p$ \OT1/cmr/m/n/12 proche
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (4.61772pt too wide) in paragraph at lines 423--423
-[] 
- []
-
-[12]
-Overfull \hbox (4.53194pt too wide) in paragraph at lines 470--471
+Overfull \hbox (4.53194pt too wide) in paragraph at lines 486--487
 []\OT1/cmr/m/n/12 Nous in-tro-dui-sons la no-tion de space-time che-min, en pro
 -lon-geant la connexion
  []
 
 
-Overfull \hbox (6.53578pt too wide) in paragraph at lines 470--471
+Overfull \hbox (6.53578pt too wide) in paragraph at lines 486--487
 \OT1/cmr/m/n/12 entre $\OML/cmm/m/it/12 s$ \OT1/cmr/m/n/12 et $\OML/cmm/m/it/12
  t$ \OT1/cmr/m/n/12 alors $(\OML/cmm/m/it/12 x; s\OT1/cmr/m/n/12 ) \OMS/cmsy/m/
 n/12  []! \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y; t\OT1/cmr/m/n/12 )$ par un space
 -time che-min ou-vert (resp.ferm^^Se).
  []
 
-[13]
-Overfull \hbox (0.44855pt too wide) in paragraph at lines 472--473
-[]\OT1/cmr/bx/n/12 Proposition 4. []\OT1/cmr/m/it/12 Soit $\OML/cmm/m/it/12 n \
-OMS/cmsy/m/n/12 2 \U/msb/m/n/12 N$\OT1/cmr/m/it/12 , $\OML/cmm/m/it/12 t > \OT1
-/cmr/m/n/12 0$\OT1/cmr/m/it/12 , $\OML/cmm/m/it/12 p > []$\OT1/cmr/m/it/12 , so
-it $\OML/cmm/m/it/12 A\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n; t\OT1/cmr/m/n/12 )$ 
-\OT1/cmr/m/it/12 l'^^Sev^^Senement $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 O; \OT1/c
-mr/m/n/12 0) \OMS/cmsy/m/n/12  []!
- []
-
-
-Overfull \hbox (82.85056pt too wide) in paragraph at lines 480--480
+[13] Excluding 'comment' comment. [14]
+Overfull \hbox (16.7089pt too wide) in paragraph at lines 541--541
 [] 
  []
 
-Excluding 'comment' comment.
-Overfull \hbox (16.7089pt too wide) in paragraph at lines 518--518
-[] 
- []
-
-[14] [15] (./memoire.aux) ) 
+[15] [16] (./memoire.aux) ) 
 Here is how much of TeX's memory you used:
- 14253 strings out of 494883
- 269841 string characters out of 6178694
- 314796 words of memory out of 5000000
- 17257 multiletter control sequences out of 15000+600000
+ 14260 strings out of 494883
+ 270078 string characters out of 6178694
+ 314896 words of memory out of 5000000
+ 17260 multiletter control sequences out of 15000+600000
  15056 words of font info for 59 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  55i,17n,54p,1075b,767s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -993,10 +960,10 @@ cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
-Output written on memoire.pdf (16 pages, 243265 bytes).
+Output written on memoire.pdf (17 pages, 245539 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
+ 134 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
