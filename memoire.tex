@@ -97,25 +97,23 @@ $$\begin{array}{c}
 qui correspondent à les deux configurations obtenues à partir de $\omega$ en ouvrant ou fermant l'arête $e$.
 \paragraph{Les chemins.} Soit $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, un chemin entre $x$ et $y$ est une suite $x_0,e_0, x_1,e_1,\dots, e_n,x_{n+1}$ de sommets $x_i$ et d'arêtes $e_i$ distincts où $x_0=x$ et $x_{n+1}=y$ et $e_i$ est l'arête joignant $x_i$ à $x_{i+1}$. 
 
-Nous disons que $x$ et $y$ sont reliés par un chemin ouvert (resp. fermé) s'il existe un chemin qui relie $x,y$ et toute arête de ce chemin est ouverte (resp. fermé).
+Nous disons que $x$ et $y$ sont reliés par un chemin ouvert, noté $\smash{x\underset{\omega}{\longleftrightarrow} y}$, s'il existe un chemin qui relie $x,y$ et toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons aussi $x\not\kern-10pt\longleftrightarrow y$ l'événement complémentaire.
 
 \paragraph{La probabilité de percolation.} Soit un réel $p\in [0,1]$. Sur l'espace $\Omega$, nous considérons $\mathcal{F}\subset \mathcal{P}(\Omega)$ la tribu cylindrique. Nous considérons la probabilité produit $$P_p = (p\delta_1 +(1-p)\delta_0)^{\otimes\mathbb{E}^2}.$$ Intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^2$ avec une probabilité $1-p$. 
 
 \section{La percolation dynamique}
-Nous définissons d'abord le processus la percolation dynamique dans un réseau $(\mathbb{Z}^2,E^2)$. 
-Il s'agit d'un processus $(X_t)_{t\geqslant 0}$ à temps continu à valeurs dans l'espace des configurations de percolation. 
-
-Si $e$ est une arête et $t\geqslant 0$, alors $X_t(e)\in \{0,1\}$ est l'état de l'arête $e$ au temps $t$.
+Nous définissons d'abord le processus la percolation dynamique sur le réseau $(\mathbb{Z}^2,E^2)$. 
+Il s'agit d'un processus $(X_t)_{t\geqslant 0}$ à temps continu à valeurs dans l'espace des configurations $\{0,1\}^{\mathbb{E}^2}$. Si $e$ est une arête et $t\geqslant 0$, alors $X_t(e)\in \{0,1\}$ est l'état de l'arête $e$ au temps $t$.
 
 La loi du processus $(X_t)_{t\geqslant 0}$ est définie de la manière suivante. Les processus $(X_t(e))_{t\geqslant 0,e\in\mathbb{E}^2}$ sont i.i.d.. Pour une arête $e$ fixée, le processus $(X_t(e))_{t\geqslant 0}$ est un processus markovien de sauts à deux états $\{0,1\}$, qui saute de 0 vers 1 à taux $p$ et de 1 vers 0 à taux $1-p$.
 
-\paragraph{Construction graphique.} Nous allons construire la percolation dynamique sur un espace de probabilité qui nous permettra de réaliser des couplages.
+\paragraph{Construction graphique.} Nous allons construire la percolation dynamique sur un espace de probabilité qui nous permettra de réaliser des couplages utiles pour les preuves.
 
 Nous commençons avec un espace de probabilité $(\Omega, \mathcal{F},P)$ sur lequel sont définis les objets suivants:
 
 \begin{itemize}[label = $\bullet$, leftmargin = *]
-\item Une famille iid $(N_t(e))_{t\geqslant 0, e \in \mathbb{E}^2}$ de processus de Poissons de paramètre 1;
-\item Une famille de variable aléatoire iid $U_n(e)_{n\geqslant 1}$ de loi uniforme sur $[0,1]$.
+\item Une famille iid de processus de Poisson de paramètre 1 $(N_t(e))_{t\geqslant 0}$ indexée par les arêtes $e \in \mathbb{E}^2$;
+\item Une famille de variables aléatoires iid $U_n(e)_{n\geqslant 1}, e\in \mathbb{E}^2$ de loi uniforme sur $[0,1]$.
 \end{itemize} 
 
 
@@ -123,18 +121,16 @@ Soit $e$ une arête de $\mathbb{E}^2$, notons $(T_i(e))_{i\geqslant 1}$, les ins
 
 Plus précisément, l'arête $e$ ne peut changer d'état qu'aux instants $(T_i(e))_{i\geqslant 1}$, et nous posons 
 $$ X_{T_i(e)}(e) = \left\lbrace \begin{array}{cc}
-1 & U_i(e) < p \\
-0 & U_i(e) > p
+1 & \text{si }U_i(e) < p \\
+0 & \text{si }U_i(e) > p
 \end{array}
-\right.
+\right..
 $$
 
-Nous pouvons aussi définir $(\tau_i)_{i\geqslant 0}$ la suite des instants de changement de configuration par récurrence dans une boîte finie $\Lambda(\ell,h)$: soit $$\left.
-\begin{array}{l}
-\tau_0 = 0 \\
-\forall i\in \mathbb{N},\tau_{i+1} = \inf \{ t>\tau_i, \exists e_{i+1} \in \Lambda(\ell,h), X_t(e) \neq X_{\tau_i}(e)\}
-\end{array}\right.,$$
-et nous appelons la suite $(e_{i+1})_{i\in\mathbb{N}}$ la suite des arêtes modifiées.
+Nous définissons la suite $(\tau_i)_{i\geqslant 0}$ des instants de changement dans une boîte finie $\Lambda(\ell,h)$, en posant $\tau_0 = 0$ et pour tout $i\geqslant 0$:
+$$\tau_{i+1} = \inf \,\big\{ \, t>\tau_i: {X_t}_{\mid \Lambda(\ell,h)} \neq {X_{\tau_i}}_{\mid \Lambda(\ell,h)} \big \}
+$$
+Pour tout $i\geqslant 1$, il existe une unique arête $e_i$ incluse dans $\Lambda(\ell,h)$ telle que $X_{\tau_i}(e_i) \neq X_{\tau_{i-1}}(e_i)$ et nous appelons la suite $(e_i)_{i\geqslant 1}$ la suite des arêtes modifiées.
 \section{L'interface}
 Nous définissons l'interface $\mathcal{I}$ à l'aide de la percolation dynamique. Nous définissons d'abord un couplage suivant:
 

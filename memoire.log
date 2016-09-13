@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  13 SEP 2016 14:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  13 SEP 2016 16:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -761,21 +761,21 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 387.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 383.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 387.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 383.
  [10] [11] [12]
-Overfull \hbox (4.53194pt too wide) in paragraph at lines 489--490
+Overfull \hbox (4.53194pt too wide) in paragraph at lines 485--486
 []\OT1/cmr/m/n/12 Nous in-tro-dui-sons la no-tion de space-time che-min, en pro
 -lon-geant la connexion
  []
 
 
-Overfull \hbox (6.53578pt too wide) in paragraph at lines 489--490
+Overfull \hbox (6.53578pt too wide) in paragraph at lines 485--486
 \OT1/cmr/m/n/12 entre $\OML/cmm/m/it/12 s$ \OT1/cmr/m/n/12 et $\OML/cmm/m/it/12
  t$ \OT1/cmr/m/n/12 alors $(\OML/cmm/m/it/12 x; s\OT1/cmr/m/n/12 ) \OMS/cmsy/m/
 n/12  []! \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y; t\OT1/cmr/m/n/12 )$ par un space
@@ -783,7 +783,7 @@ n/12  []! \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y; t\OT1/cmr/m/n/12 )$ par un space
  []
 
 [13] Excluding 'comment' comment.
-Overfull \hbox (16.7089pt too wide) in paragraph at lines 544--544
+Overfull \hbox (16.7089pt too wide) in paragraph at lines 540--540
 [] 
  []
 
@@ -791,7 +791,7 @@ Overfull \hbox (16.7089pt too wide) in paragraph at lines 544--544
 Here is how much of TeX's memory you used:
  12378 strings out of 493304
  220146 string characters out of 6139871
- 277851 words of memory out of 5000000
+ 278851 words of memory out of 5000000
  15554 multiletter control sequences out of 15000+600000
  15056 words of font info for 59 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -814,7 +814,7 @@ cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
-Output written on memoire.pdf (16 pages, 244419 bytes).
+Output written on memoire.pdf (16 pages, 245048 bytes).
 PDF statistics:
  131 PDF objects out of 1000 (max. 8388607)
  94 compressed objects within 1 object stream
