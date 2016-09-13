@@ -31,6 +31,7 @@
 \newtheorem{stc}[prop]{Proposition}
 \newtheorem{tension}[prop]{Proposition}
 
+\newcommand{\nlongleftrightarrow}{\longleftrightarrow \kern-15pt\not \kern15pt}
 
 \title{Mémoire M2}
 \author{Wei ZHOU}
@@ -97,7 +98,7 @@ $$\begin{array}{c}
 qui correspondent à les deux configurations obtenues à partir de $\omega$ en ouvrant ou fermant l'arête $e$.
 \paragraph{Les chemins.} Soit $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, un chemin entre $x$ et $y$ est une suite $x_0,e_0, x_1,e_1,\dots, e_n,x_{n+1}$ de sommets $x_i$ et d'arêtes $e_i$ distincts où $x_0=x$ et $x_{n+1}=y$ et $e_i$ est l'arête joignant $x_i$ à $x_{i+1}$. 
 
-Nous disons que $x$ et $y$ sont reliés par un chemin ouvert, noté $\smash{x\underset{\omega}{\longleftrightarrow} y}$, s'il existe un chemin qui relie $x,y$ et toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons aussi $x\not\kern-10pt\longleftrightarrow y$ l'événement complémentaire.
+Nous disons que $x$ et $y$ sont reliés par un chemin ouvert, noté $\smash{x\longleftrightarrow y}$, s'il existe un chemin qui relie $x,y$ et toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons aussi $x\nlongleftrightarrow y$ l'événement complémentaire.
 
 \paragraph{La probabilité de percolation.} Soit un réel $p\in [0,1]$. Sur l'espace $\Omega$, nous considérons $\mathcal{F}\subset \mathcal{P}(\Omega)$ la tribu cylindrique. Nous considérons la probabilité produit $$P_p = (p\delta_1 +(1-p)\delta_0)^{\otimes\mathbb{E}^2}.$$ Intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^2$ avec une probabilité $1-p$. 
 
@@ -131,22 +132,12 @@ Nous définissons la suite $(\tau_i)_{i\geqslant 0}$ des instants de changement 
 $$\tau_{i+1} = \inf \,\big\{ \, t>\tau_i: {X_t}_{\mid \Lambda(\ell,h)} \neq {X_{\tau_i}}_{\mid \Lambda(\ell,h)} \big \}
 $$
 Pour tout $i\geqslant 1$, il existe une unique arête $e_i$ incluse dans $\Lambda(\ell,h)$ telle que $X_{\tau_i}(e_i) \neq X_{\tau_{i-1}}(e_i)$ et nous appelons la suite $(e_i)_{i\geqslant 1}$ la suite des arêtes modifiées.
-\section{L'interface}
-Nous définissons l'interface $\mathcal{I}$ à l'aide de la percolation dynamique. Nous définissons d'abord un couplage suivant:
 
-Soit $X_t$ le processus de percolation dynamique de paramètre $p$ dans $\Lambda_{\ell,h}$ qui satisfait $T\overset{X_0}{\nleftrightarrow}B$ et $(\tau_i)_{i\geqslant 0}$ sa suite des instants de changement de configuration, soit $Y_t$ un processus à valeurs dans $\{0,1\}^E$. Nous déterminons $Y_t$ par récurrence sur $i$: $Y_0=X_0$; soit $i\geqslant 0$, pour tout $s\in [\tau_i, \tau_{i+1}[$, $Y_s = Y_{\tau_i}$, soit $\bar{Y}_i$ la configuration où nous remplaçons $Y_{\tau_i}(e_{i+1})$ par $Y_{\tau_{i+1}}(e_{i+1})$ dans $Y_{\tau_i}$, nous déterminons $(X_{\tau_{i+1}},Y_{\tau_{i+1}})$ ainsi:
-$$(X_{\tau_{i+1}}(e),Y_{\tau_{i+1}}(e))=\left\lbrace \begin{array}{cc}
-(X_{\tau_{i+1}}(e),X_{\tau_{i+1}}(e)) & e \neq e_{i+1}\\
-(X_{\tau_{i+1}}(e_{i+1}),X_{\tau_{i+1}}(e)_{i+1}) & e = e_{i+1}, T \overset{\bar{Y}_i}{\nleftrightarrow} B \\
-(1,0) & e = e_{i+1},T\overset{\bar{Y}_i}{\leftrightarrow} B 
-\end{array}\right..$$
-
-Nous remarquons d'abord qu'une arête $e$ devient différente dans les deux configurations à l'instant $\tau_i$ si et seulement si $e$ devient ouverte à $\tau_i$ mais cette ouverture induit une connexion entre $T$ et $B$ dans la configuration $\bar{Y}_{i-1}$; dans ce cas, l'arête $e$ reste fermée dans la configuration $Y_t$. 
-
-La chaîne de Markov $(X_{\tau_i})_{i\geqslant 0}$ est irréductible et à l'espace d'états fini donc elle admet une probabilité invariante qui est la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $(Y_{\tau_i})_{i\geqslant 0}$ est aussi irréductible car toute configuration de $(Y_{\tau_i})_{i\geqslant 0}$ est reliée à la configuration où toutes les arêtes sont fermées. En effet, pour toute arête $e$ dans $\Lambda(\ell,h)$, et à toute instant de saut $(T_i(e))_{i\geqslant 0}$, on peut choisir de fermer $e$ avec probabilité $1-p$ qui est strictement positive. Le théorème suivant décrit la probabilité invariante de $Y$.
+\section{Les chaînes de Markov conditionnées}
+Nous énonçons un théorème général sur les chaînes de Markov conditionnées.
 
 \begin{probainv}
-Soit $Z_n$ une chaîne de Markov à valeurs dans un ensemble $E$ fini, irréductible de probabilité invariante $\pi$, soit $A\subset E$, nous définissons $Z_n^A$ par sa probabilité de transition:
+Soit $(Z_n)_{n\geqslant 0}$ une chaîne de Markov à valeurs dans un ensemble $E$ fini, irréductible apériodique de probabilité invariante $\pi$. Soit $A\subset E$, nous définissons la chaîne $(Z_n)_{n\geqslant 0}$ conditionnée à rester dans $A$, notée $(Z_n^A)_{n\geqslant 0}$ par sa valeur initiale $Z_0 \in A$ et sa probabilité de transition
 $$p^A(x,y)=\left\lbrace \begin{array}{cc}
 p(x,y) & y\in A, x\neq y \\
 0 & y\notin A \\
@@ -154,8 +145,21 @@ p(x,y) & y\in A, x\neq y \\
 \end{array}
 \right.
 $$
-alors $Z^A$ admet une probabilité invariante qui est $\frac{\mathbf{1}_A(\centerdot)\pi(\centerdot)}{\pi(A)}$ soit la probabilité invariante de la chaîne conditionnée à rester dans $A$.
+alors la chaîne $(Z^A_n)_{n\geqslant 0}$ admet une probabilité invariante qui est la probabilité invariante de la chaîne conditionnée à rester dans $A$, c'est à dire:
+$$\forall x\in A \quad \pi^A(x) = \pi(x\mid A)= \frac{\pi(\{x\})}{\pi(A)}
+$$
 \end{probainv}
+\section{L'interface}
+Nous allons proposer une définition d'interface à l'aide de la percolation dynamique. Soit $(X_t)_{t\geqslant 0}$ le processus de percolation dynamique de paramètre $p$ dans $\Lambda_{\ell,h}$ issu d'une configuration initiale $X_0$ appartenant à l'événement $\smash{\{T\overset{X_0}{\nleftrightarrow}B\}}$ et $(\tau_i)_{i\geqslant 0}$ sa suite des instants de changement. Nous allons coupler $Y_t$ un processus à valeurs dans $\{0,1\}^{\mathbb{E}^2}$ avec $X_t$ ainsi: $Y_0=X_0$; soit $i\geqslant 0$, pour tout $s\in [\tau_i, \tau_{i+1}[$, $Y_s = Y_{\tau_i}$, et nous déterminons $Y_{\tau_{i+1}}$ en fonction de $X_{\tau_{i+1}}$:
+$$Y_{\tau_{i+1}}=\left\lbrace \begin{array}{cl}
+{Y_{\tau_i}}_{e_{i+1}} &\text{si } X_{\tau_{i+1}}(e_{i+1}) = 0\\
+Y_{\tau_i}^{e_{i+1}} & \text{si }X_{\tau_{i+1}}(e_{i+1}) = 1, T \nlongleftrightarrow B \text{ dans }Y_{\tau_i}^{e_{i+1}}\\
+Y_{\tau_i} & \text{si }X_{\tau_{i+1}}(e_{i+1}) = 1, T \longleftrightarrow B \text{ dans }Y_{\tau_i}^{e_{i+1}}
+\end{array}\right..$$
+
+Remarquons d'abord qu'une arête $e$ devient différente dans les deux configurations à l'instant $\tau_i$ si et seulement si $e$ devient ouverte à $\tau_i$ mais cette ouverture induit une connexion entre $T$ et $B$ dans la configuration $\bar{Y}_{i-1}$; dans ce cas, l'arête $e$ reste fermée dans la configuration $Y_t$.
+
+La chaîne de Markov $(X_{\tau_i})_{i\geqslant 0}$ est irréductible apériodique et à l'espace d'états fini donc elle admet une probabilité invariante qui est la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $(Y_{\tau_i})_{i\geqslant 0}$ est aussi irréductible car toute configuration de $(Y_{\tau_i})_{i\geqslant 0}$ est reliée à la configuration où toutes les arêtes sont fermées. En effet, pour toute arête $e$ dans $\Lambda(\ell,h)$, et à toute instant de saut $(T_i(e))_{i\geqslant 0}$, on peut choisir de fermer $e$ avec probabilité $1-p$ qui est strictement positive.
 
 Nous appliquons le théorème à $(Y_{\tau_i})_{i\geqslant 0}$ avec $A$ l'ensemble des configuration qui satisfont $T\nleftrightarrow B$. Nous obtenons la probabilité invariante qui est la loi de la percolation Bernoulli de paramètre $p$ conditionnée par l'événement $T\nleftrightarrow B$.
 
