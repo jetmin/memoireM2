@@ -367,7 +367,7 @@ Enfin nous posons $S^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord
 \section{Quelques inégalités préliminaires}
 Nous allons énoncer quelques inégalités pour la suite de notre étude. Nous commençons par une inégalité de type BK adaptée au problème. Nous commençons par généraliser la notion de l'occurrence disjointe.
 
-Nous considérons $A$ un événement croissant qui dépend d'un nombre fini d'arêtes à l'instant $s$, et $B$ un événement croissant qui dépend d'un nombre fini d'arête à l'instant $t$. Nous notons $K(\omega) = \{e: e=1\}$ l'ensemble d'arêtes ouvertes dans une configuration $\omega$. Nous définissons l'occurrence disjointe ainsi:
+Nous considérons dans cette partie $A$ un événement croissant qui dépend d'un nombre fini d'arêtes à l'instant $s$, et $B$ un événement croissant qui dépend d'un nombre fini d'arête à l'instant $t$. Nous notons $K(\omega) = \{e: e=1\}$ l'ensemble d'arêtes ouvertes dans une configuration $\omega$. Nous définissons l'occurrence disjointe ainsi:
 \begin{occ}
 Soit $A$, $B$ définis précédemment, l'occurrence disjointe de $A$ et $B$ noté par $A\circ B$ par:
 \begin{itemize}[leftmargin=*]
@@ -379,7 +379,7 @@ Nous énonçons l'inégalité de BK pour la percolation dynamique:
 
 
 \begin{bk}
-Soit $\Lambda(l,h)$ une boîte de longueur $l$, $0<s\leqslant t$, soit $A$ l'événement $x\longleftrightarrow y$ à l'instant $s$, $B$ l'événement $u\longleftrightarrow v$ à l'instant $t$, alors $P(A\circ B) \leqslant P(A)P(B)$ quand $p$ est assez proche de 1.
+Soit $\Lambda(l,h)$ une boîte de longueur $l$, $0<s\leqslant t$, soit $A$ et $B$ des événements définis au début de la partie, alors $P(A\circ B) \leqslant P(A)P(B)$.
 \end{bk}
 
 \begin{proof}
@@ -485,15 +485,15 @@ Nous avons donc
 
 Nous introduisons la notion de space-time chemin, en prolongeant la connexion dans le temps, c'est-à-dire si une arête $e=(x,y)$ reste ouverte (resp. fermée) entre $s$ et $t$ alors $(x,s)\longleftrightarrow (y,t)$ par un space-time chemin ouvert (resp.fermé). Nous montrons aussi une décroissance exponentielle avec les space-time chemin.
 
-\begin{stc} \label{stc} Soit $n\in \mathbb{N}$, $t>0$, $p> \frac{1}{2}$, soit $ A(n,t)$ l'événement $(O,0) \leftrightarrow (n\mathbf{e}_1,t)$ par un space-time chemin fermé où $\mathbf{e}_1 = (1,0)$, alors $\exists \gamma(p,t),$ une constante qui dépend de $p,t$ tel que $P(A(n,t)) \leqslant e^{-\gamma(p,t)n}$.
+\begin{stc} \label{stc} Soit $n\in \mathbb{N}$, $t>0$, $p> \frac{1}{2}$, soit $ A(n,t)$ l'événement $(O,0) \leftrightarrow (n\mathbf{e}_1,nt)$ par un space-time chemin fermé où $\mathbf{e}_1 = (1,0)$, alors $\exists \gamma(p,t),$ une constante qui dépend de $p,t$ tel que $P(A(n,t)) \leqslant e^{-\gamma(p,t)n}$.
 \end{stc}
 
 \begin{proof}
 Nous montrons cette équivalence par le lemme sous-additif. En fait, 
 \begin{align*}
-P((O,0)& \leftrightarrow ((n+m)\mathbf{e}_1,s+t)) \\
-\geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,s))P((n\mathbf{e}_1,s)\leftrightarrow ((m+n)\mathbf{e}_1,s+t))\\
-\geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,s))P((O,0)\leftrightarrow (m\mathbf{e}_1,t))
+P((O,0)& \leftrightarrow ((n+m)\mathbf{e}_1,(n+m)t)) \\
+\geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,nt))P((n\mathbf{e}_1,nt)\leftrightarrow ((n+m)\mathbf{e}_1,(n+m)t))\\
+\geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,nt))P((O,0)\leftrightarrow (m\mathbf{e}_1,mt))
 \end{align*}
 Car nous avons l'invariance par translation. La suite $(-\ln P(A(n,t)))_{n\in \mathbb{N}}$ est sous-additive. Par le lemme sous-additif, nous obtenons:
 $$
