@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  13 SEP 2016 10:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  13 SEP 2016 14:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -633,9 +633,6 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
-Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
-)
 (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
@@ -729,77 +726,76 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 43.
+LaTeX Font Info:    Try loading font information for U+msa on input line 41.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+LaTeX Font Info:    Try loading font information for U+msb on input line 41.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 43.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 41.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[1] [2] [3] [4] [5] [6]
-Overfull \hbox (4.10963pt too wide) in paragraph at lines 218--219
-[]\OT1/cmr/m/n/12 Soit $^^C(\OML/cmm/m/it/12 l; h\OT1/cmr/m/n/12 )$ une boite d
-ans $\U/msb/m/n/12 Z[]\OML/cmm/m/it/12 ; E[]$ \OT1/cmr/m/n/12 mu-nis de deux co
-ndi-tions aux bords $^^E[]\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 ^^E[]$
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1] [2]
+Overfull \hbox (5.64165pt too wide) in paragraph at lines 102--103
+\OT1/cmr/m/n/12 Intuitivement, une confi-gu-ra-tion s'ob-tient en fer-mant ind^
+^Sependamment chaque
  []
 
+[3] [4] [5] [6]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7] [8] [9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 373.
+[7]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 387.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 373.
- [10]
-[11] [12]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (4.53194pt too wide) in paragraph at lines 486--487
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 387.
+ [10] [11] [12]
+Overfull \hbox (4.53194pt too wide) in paragraph at lines 489--490
 []\OT1/cmr/m/n/12 Nous in-tro-dui-sons la no-tion de space-time che-min, en pro
 -lon-geant la connexion
  []
 
 
-Overfull \hbox (6.53578pt too wide) in paragraph at lines 486--487
+Overfull \hbox (6.53578pt too wide) in paragraph at lines 489--490
 \OT1/cmr/m/n/12 entre $\OML/cmm/m/it/12 s$ \OT1/cmr/m/n/12 et $\OML/cmm/m/it/12
  t$ \OT1/cmr/m/n/12 alors $(\OML/cmm/m/it/12 x; s\OT1/cmr/m/n/12 ) \OMS/cmsy/m/
 n/12  []! \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y; t\OT1/cmr/m/n/12 )$ par un space
 -time che-min ou-vert (resp.ferm^^Se).
  []
 
-[13] Excluding 'comment' comment. [14]
-Overfull \hbox (16.7089pt too wide) in paragraph at lines 541--541
+[13] Excluding 'comment' comment.
+Overfull \hbox (16.7089pt too wide) in paragraph at lines 544--544
 [] 
  []
 
-[15] [16] (./memoire.aux) ) 
+[14] [15] (./memoire.aux) ) 
 Here is how much of TeX's memory you used:
- 12385 strings out of 493304
- 220383 string characters out of 6139871
- 278924 words of memory out of 5000000
- 15557 multiletter control sequences out of 15000+600000
+ 12378 strings out of 493304
+ 220146 string characters out of 6139871
+ 277851 words of memory out of 5000000
+ 15554 multiletter control sequences out of 15000+600000
  15056 words of font info for 59 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,17n,55p,1075b,743s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,17n,55p,1081b,737s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmc
@@ -818,10 +814,10 @@ cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b>
-Output written on memoire.pdf (17 pages, 245240 bytes).
+Output written on memoire.pdf (16 pages, 244419 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
+ 131 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
