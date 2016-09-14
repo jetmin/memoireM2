@@ -134,9 +134,10 @@ $$
 Pour tout $i\geqslant 1$, il existe une unique arête $e_i$ incluse dans $\Lambda(\ell,h)$ telle que $X_{\tau_i}(e_i) \neq X_{\tau_{i-1}}(e_i)$ et nous appelons la suite $(e_i)_{i\geqslant 1}$ la suite des arêtes modifiées.
 
 \section{Les chaînes de Markov conditionnées}
-Nous énonçons un théorème général sur les chaînes de Markov conditionnées.
+Nous énonçons un théorème général sur les chaînes de Markov conditionnées que nous allons utiliser dans la construction de l'interface.
 
 \begin{probainv}
+\label{probainv}
 Soit $(Z_n)_{n\geqslant 0}$ une chaîne de Markov à valeurs dans un ensemble $E$ fini, irréductible apériodique de probabilité invariante $\pi$. Soit $A\subset E$, nous définissons la chaîne $(Z_n)_{n\geqslant 0}$ conditionnée à rester dans $A$, notée $(Z_n^A)_{n\geqslant 0}$ par sa valeur initiale $Z_0 \in A$ et sa probabilité de transition
 $$p^A(x,y)=\left\lbrace \begin{array}{cc}
 p(x,y) & y\in A, x\neq y \\
@@ -145,7 +146,7 @@ p(x,y) & y\in A, x\neq y \\
 \end{array}
 \right.
 $$
-alors la chaîne $(Z^A_n)_{n\geqslant 0}$ admet une probabilité invariante qui est la probabilité invariante de la chaîne conditionnée à rester dans $A$, c'est à dire:
+alors la chaîne $(Z^A_n)_{n\geqslant 0}$ admet une probabilité invariante qui est la probabilité invariante de la chaîne $(Z_n)_{n\geqslant 0}$ conditionnée à rester dans $A$, c'est à dire:
 $$\forall x\in A \quad \pi^A(x) = \pi(x\mid A)= \frac{\pi(\{x\})}{\pi(A)}
 $$
 \end{probainv}
@@ -157,39 +158,41 @@ Y_{\tau_i}^{e_{i+1}} & \text{si }X_{\tau_{i+1}}(e_{i+1}) = 1, T \nlongleftrighta
 Y_{\tau_i} & \text{si }X_{\tau_{i+1}}(e_{i+1}) = 1, T \longleftrightarrow B \text{ dans }Y_{\tau_i}^{e_{i+1}}
 \end{array}\right..$$
 
-Remarquons d'abord qu'une arête $e$ devient différente dans les deux configurations à l'instant $\tau_i$ si et seulement si $e$ devient ouverte à $\tau_i$ mais cette ouverture induit une connexion entre $T$ et $B$ dans la configuration $\bar{Y}_{i-1}$; dans ce cas, l'arête $e$ reste fermée dans la configuration $Y_t$.
+Remarquons d'abord que l'arête $e_i$ devient différente dans les deux configurations à l'instant $\tau_i$ si et seulement si $e_i$ devient ouverte à $\tau_i$ dans $(X_t)_{t\geqslant 0}$ mais cette ouverture induit une connexion entre $T$ et $B$ dans la configuration $\bar{Y}_{i-1}$. Dans ce cas, l'arête $e$ reste fermée dans la configuration $Y_t$.
 
-La chaîne de Markov $(X_{\tau_i})_{i\geqslant 0}$ est irréductible apériodique et à l'espace d'états fini donc elle admet une probabilité invariante qui est la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $(Y_{\tau_i})_{i\geqslant 0}$ est aussi irréductible car toute configuration de $(Y_{\tau_i})_{i\geqslant 0}$ est reliée à la configuration où toutes les arêtes sont fermées. En effet, pour toute arête $e$ dans $\Lambda(\ell,h)$, et à toute instant de saut $(T_i(e))_{i\geqslant 0}$, on peut choisir de fermer $e$ avec probabilité $1-p$ qui est strictement positive.
+La chaîne de Markov $(X_{\tau_i})_{i\geqslant 0}$ est irréductible apériodique et à l'espace d'états fini donc elle admet une probabilité invariante qui est la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $(Y_{\tau_i})_{i\geqslant 0}$ est aussi irréductible car toute configuration de $(Y_{\tau_i})_{i\geqslant 0}$ est reliée à la configuration où toutes les arêtes sont fermées. En effet, pour chaque arête $e$ dans $\Lambda(\ell,h)$, et à tout instant de saut $(T_i(e))_{i\geqslant 0}$, nous pouvons fermer $e$ avec probabilité $1-p>0$.
 
-Nous appliquons le théorème à $(Y_{\tau_i})_{i\geqslant 0}$ avec $A$ l'ensemble des configuration qui satisfont $T\nleftrightarrow B$. Nous obtenons la probabilité invariante qui est la loi de la percolation Bernoulli de paramètre $p$ conditionnée par l'événement $T\nleftrightarrow B$.
+Nous appliquons le théorème \ref{probainv} à $(X_{\tau_i})_{i\geqslant 0}$ avec $A$ l'ensemble des configuration qui satisfont l'événement $\{T\nleftrightarrow B\}$. Nous obtenons la probabilité invariante qui est la loi de la percolation Bernoulli de paramètre $p$ conditionnée par l'événement $\{T\nleftrightarrow B\}$.
 
+Nous proposons la définition de l'interface en se servant du couplage.
 \begin{interface}
-Soit $(X_t,Y_t)_{t\geqslant 0}$ un couplage défini précédemment, nous appelons une interface dans $\Lambda({\ell,h})$ notée $\mathcal{I}_t({\ell,h})$ l'ensemble aléatoire des arêtes qui sont ouvertes dans $X_t$ et fermé dans $Y_t$: $$ \mathcal{I}_t({\ell,h}) = \big\{ e\in E: X_t(e) = 1, Y_t(e) = 0 \big\}.
+Soit $(X_t,Y_t)_{t\geqslant 0}$ un couplage défini précédemment, nous appelons une interface dans $\Lambda({\ell,h})$ à l'instant $i$ notée $\mathcal{I}_t({\ell,h})$ l'ensemble aléatoire des arêtes qui sont ouvertes dans $X_t$ et fermé dans $Y_t$: $$ \mathcal{I}_t({\ell,h}) = \big\{ e\in E: X_t(e) = 1, Y_t(e) = 0 \big\}.
 $$
 \end{interface}
-\section{Condition aux bords}
-Nous allons étudier l'influence de $\ell$ sur la loi de l'interface dans la boîte $\Lambda(\ell,h)$. Nous introduisons la notion de conditions aux bords. Pour instant, nous traitons uniquement le cas où seulement $\ell$ varie. Nous fixons alors un entier $h$ et nous introduisons l'ensemble $\{top,bot,null\}$. Nous notons $\partial^{in}\Lambda(\ell,h)$ le bord intérieur de $\Lambda(\ell,h)$, soit
-$$ \partial^{in}\Lambda(\ell,h) = \{x\in \Lambda(\ell,h), \exists y \notin \Lambda(\ell,h), \langle x,y\rangle\in E^2\}.
+\section{Les conditions aux bords}
+Nous fixons un entier $h$ et nous allons étudier l'influence de $\ell$ sur la loi de l'interface dans la boîte $\Lambda(\ell,h)$. Pour cela, nous introduisons des conditions aux bords. Désormais, nous enlèverons $h$ si cela ne cause pas de confusion. Nous notons $R(\ell)$ le rectangle $\Lambda(\ell,h)$ et  $\partial^{in}\Lambda(\ell,h)$ son bord intérieur, c'est à dire:
+$$ \partial^{in}R(\ell) = \big\{ \, x\in R(\ell): \exists y \notin R(\ell) \quad \langle x,y\rangle\in E^2\, \big\}.
 $$
-Une condition aux bord $\Pi_{\ell,h}$ est une application de $\partial^{in}$ à $\{top,bot,null\}$ qui se définit en deux étapes.
-Nous posons d'abord la condition aux bords sur les bords horizontaux $T(\ell,h)$ et $B(\ell,h)$:
-$$ \forall t\geqslant 0, \forall x\in T\cup B, \Pi_t^{\ell,h}(x) = \left\lbrace \begin{array}{ll}
-top & x\in T\\
-bot & x\in B
+Les conditions aux bords sont données par $\Pi_{\ell}$ une application de $\partial^{in}R(\ell)$ à l'ensemble $\{top,bot,null\}$.
+L'application $\Pi_{l}$ vaut $top$ et $bot$ sur les bords horizontaux $T(\ell)$ et $B(\ell)$, plus précisément:
+$$ \forall x\in T(\ell)\cup B(\ell) \quad \Pi_{\ell}(x) = \left\lbrace \begin{array}{ll}
+top & \text{si }x\in T(\ell)\\
+bot & \text{si }x\in B(\ell)
 \end{array}
-\right.
-$$ et nous appelons une condition aux bords nulle si
-$$\forall y\in V(\ell,h)\setminus \{(\pm \ell,\pm h))\}, \Pi(y) = null.
+\right..
+$$ 
+Nous appelons une condition aux bords nulle si
+$$\forall y\in V(\ell)\setminus \{(\pm \ell,\pm h))\} \quad \Pi_{\ell}(y) = null.
 $$
 
-Soit $t\geqslant 0$, pour un sommet $x$ sur le bord vertical $V(\ell,h)$, nous déterminons $\Pi_{\ell,h}(x)$ à l'aide une boîte plus grande de condition aux bords nulle. Plus précisément, une condition aux bords $\Pi_{\ell,h}$ est une application tel qu'il existe $m>\ell$ un entier naturel et une boîte $\Lambda(m,h)$ de condition aux bords nulle qui contient la boîte $\Lambda(\ell,h)$ de configuration $X$ qui vérifie:
-$$\forall x \in V(\ell,h),\Pi_{\ell,h}(x)=\left\lbrace \begin{array}{cl}
-top & \Leftrightarrow x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\longleftrightarrow}} T\\
-bot & \Leftrightarrow x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\longleftrightarrow}} B\\
-null & \Leftrightarrow x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\nleftrightarrow}} T\cup B 
+Soit $m> \ell$, et soit $R(m)$ une boîte avec des conditions aux bords $\Theta$. Soit $\omega$ la configuration de percolation dans $R(m)$. Nous pouvons définir les conditions aux bords $\Pi_{\ell}$ induites sur $V(\ell)$ comme suit. Soit $x$ un sommet dans $V(\ell,h)$, 
+$$\Pi^\Theta_{\ell}(x)=\left\lbrace \begin{array}{cl}
+top &\text{si } \exists y \in \partial^{in}R(m) \quad \Theta(y) = top, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\longleftrightarrow}} y\\
+bot &\text{si } \exists y \in \partial^{in}R(m)\quad \Theta(y) = bot, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\longleftrightarrow}} y\\
+null &\text{si } \forall y \in \partial^{in}R(m)\quad \Theta(y) \neq null, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\nlongleftrightarrow}} y
 \end{array} \right.,
 $$
-la notation $x\overset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\longleftrightarrow} T(resp. B)$ signifie que le sommet $x$ est relié à $T(resp. B)$ uniquement par un chemin ouvert dont les arrêtes sont dans l'ensemble $\big(\Lambda(m,h) \setminus \Lambda(\ell,h)\big) \cup \partial^{in} \Lambda(\ell,h)$. 
+avec la notation $\smash{x\overset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\longleftrightarrow} T(resp. B)}$ signifie que le sommet $x$ est relié à $T(resp. B)$ uniquement par un chemin ouvert dont les arrêtes sont dans l'ensemble $\big(\Lambda(m,h) \setminus \Lambda(\ell,h)\big) \cup \partial^{in} \Lambda(\ell,h)$. 
 
 \begin{figure}[h]
 \center
@@ -199,10 +202,10 @@ la notation $x\overset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\longleftrightarr
 \draw[rounded corners] (-4,0.5) .. controls (-4.5,0) and (-4.3,0.5) .. (-5.5,1) 
 			   .. controls (-5.7,1.2) .. (-5,2);
 \draw (-3.7,0.5) node {$top$};
-\draw (0,2.3) node {$T(\ell,h)$};
-\draw (0,-2.3) node {$B(\ell,h)$};
-\draw (0,0) node {$\Lambda(\ell,h)$};
-\draw (-5,0) node {$\Lambda(m,h)\setminus \Lambda(\ell,h)$};
+\draw (0,2.3) node {$T(\ell)$};
+\draw (0,-2.3) node {$B(\ell)$};
+\draw (0,0) node {$R(\ell)$};
+\draw (-5,0) node {$R(m)\setminus R(\ell)$};
 \draw[rounded corners] (-4,-0.5) .. controls (-4.5,0) and (-4.3,-1.5) ..(-5,-2);
 \draw (-3.7,-0.5) node {$bot$};
 \draw[rounded corners] (4.2,2) .. controls (3.5,1) and (3,.5) ..(4,0)
@@ -215,15 +218,7 @@ la notation $x\overset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\longleftrightarr
 \caption{Exemples d'une condition aux bords}
 \end{figure}
 
-Nous pouvons aussi déterminer la condition aux bords d'une boîte $\Lambda(\ell,h)$ induite par une boite $\Lambda(m,h)$ de configuration $X$ avec une condition aux bords $\Pi_{m,h}$ non nulle. Soit $x$ un sommet dans $V(\ell,h)$, 
-$$\Pi_{\ell,h}(x)=\left\lbrace \begin{array}{cl}
-top & \exists y \in \partial^{in}\Lambda(m,h), \Pi_{m,h}(y) = top, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\longleftrightarrow}} y\\
-bot & \exists y \in \partial^{in}\Lambda(m,h), \Pi_{m,h}(y) = bot, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\longleftrightarrow}} y\\
-null & \forall y \in \partial^{in}\Lambda(m,h), \Pi_{m,h}(y) \neq null, x\overset{X}{\underset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\nleftrightarrow}} y
-\end{array} \right..
-$$
-
-Nous généralisons désormais l'événement $T\leftrightarrow B$ avec la condition aux bords. Nous disons $T\leftrightarrow B$ s'il existe une connexion entre un sommet $x$ tel que $\Pi_{\ell,h}(x)= top$ (resp. $bot$) et $B(\ell,h)$ (resp. $T(\ell,h)$), de plus nous disons $T\leftrightarrow B$ s'il existe une connexion entre deux sommets $x,y$ tels que $\Pi_{\ell,h}(x) = top, \Pi_{\ell,h}(y) = bot$.
+Nous généralisons désormais l'événement $\{T\longleftrightarrow B\}$ en tenant compte des conditions aux bords. Nous disons que $\{T\longleftrightarrow B\}$ arrive dans la boite $R(\ell)$ s'il existe une connexion entre deux sommets $x,y$ tels que $\Pi_{\ell}(x) = top, \Pi_{\ell}(y) = bot$.
 \section{Quelques résultats géométriques}
 Nous nous intéressons à la probabilité qu'une arrête fixée soit dans l'interface.Nous considérons désormais le régime surcritique, qui correspond au cas $p>\frac{1}{2}$ en dimension 2. Soit $e_0$ l'arête qui joint $(0,0)$ et $(1,1)$, notre objectif est de montrer que à $t$ fixé la probabilité $\mathbb{P}(e_0 \in I^\ell_t)$ converge lorsque $\ell$ tend vers l'infini.
 
