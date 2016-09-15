@@ -333,13 +333,13 @@ Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y
 \end{tikzpicture}
 \end{minipage}
 
-\caption{La configuration dans les deux boites quand $e_i$ devient différente avec le contour $C_i$ en rouge}
+\caption{L'instant $\theta_i$ quand $e_i$ devient différente}
 \label{fig:ei}
 \end{figure}
 
 Enfin, pour obtenir la suite $(e_i)_{i\geqslant 1}$ d'arêtes et les temps $(\theta_i)_{i\geqslant 1}$ comme  dans l'énoncé, nous partons de l'instant $\theta$ pour trouver l'arête qui a causé la différence à $e_0$, ensuite nous répétons cette procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête ne peut se produire qu'aux instants d'arrivée des processus de Poisson, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $\theta$. Nous pouvons donc trouver une suite finie d'arêtes $e_0,e_1,\dots, e_N$ avec $e_N = e_0$ et des instants $\theta_1<\dots< \theta_N = \theta$ qui vérifient les deux premiers points de l'énoncé.
 
-Nous considérons le contour fermé formé par $\gamma_i^1$ et $\gamma_i^2$, la condition $T\nlongleftrightarrow B$ impose qu'il existe un ensemble séparant $K_i$ qui contient $e_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. Nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
+Nous considérons le contour fermé formé par les deux chemins fermés dans le graph dual $\gamma_i^*$ et $\rho_i^*$, la condition $T\nlongleftrightarrow B$ impose qu'il existe un ensemble séparant $K_i$ qui contient $e_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. Nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
 \begin{itemize}[label = $\bullet$, leftmargin =*]
 \item nous posons $e^*_i = k_0$;
 \item si $e^*_i$ est horizontale, nous posons $k_{-1}$ l'arête qui partage le sommet gauche de $e^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $e_i^*$ est verticale, nous posons $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
@@ -365,10 +365,10 @@ Nous considérons maintenant l'arête minimale et l'arête maximale de l'ensembl
 \node at (1.5,1) {$C_i^g$};
 \node at (7,2) {$C_i^d$};
 \end{tikzpicture}
-\caption{construction d'un chemin fermé disjoint d'un cut}
+\caption{construction d'un chemin fermé disjoint d'un ensemble séparant}
 \end{figure}
 
-Enfin nous posons $S^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord gauche au bord droite dans le graphe dual et $c_i^* = c_i^1$. Nous posons $S_i$ le dual de $S^*_i$ qui est un cut. Or $|c_i^1| \geqslant |c_i^2|$, nous obtenons $|c^*_i| \geqslant \frac{1}{2}|\gamma_i^1\cup p_i^2|$. Par construction, $S_i$ et $c_i^*$ sont disjoints.
+Enfin nous posons $S^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord gauche au bord droite dans le graphe dual et $c_i^* = c_i^1$. Nous posons $S_i$ le dual de $S^*_i$ qui est un cut. Or $|c_i^1| \geqslant |c_i^2|$, nous obtenons $|c^*_i| \geqslant \frac{1}{2}|\gamma_i^1\cup p_i^2|$. Par construction, l'ensemble séparant $S_i$ et le chemin fermé $c_i^*$ sont disjoints.
 \end{proof}
 
 \section{Quelques inégalités préliminaires}
