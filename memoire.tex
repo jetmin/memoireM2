@@ -219,35 +219,33 @@ avec la notation $\smash{x\overset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\long
 \end{figure}
 
 Nous généralisons désormais l'événement $\{T\longleftrightarrow B\}$ en tenant compte des conditions aux bords. Nous disons que $\{T\longleftrightarrow B\}$ arrive dans la boite $R(\ell)$ s'il existe une connexion entre deux sommets $x,y$ tels que $\Pi_{\ell}(x) = top, \Pi_{\ell}(y) = bot$.
-\section{Quelques résultats géométriques}
-Nous nous intéressons à la probabilité qu'une arrête fixée soit dans l'interface.Nous considérons désormais le régime surcritique, qui correspond au cas $p>\frac{1}{2}$ en dimension 2. Soit $e_0$ l'arête qui joint $(0,0)$ et $(1,1)$, notre objectif est de montrer que à $t$ fixé la probabilité $\mathbb{P}(e_0 \in I^\ell_t)$ converge lorsque $\ell$ tend vers l'infini.
+\section{La propagation des conditions aux bords}
+Nous nous intéressons à la probabilité qu'une arête fixée soit dans l'interface. Nous considérons désormais le régime surcritique, qui correspond à $p>\frac{1}{2}$ en dimension 2. Soit $e_0$ l'arête d'extrémités $(0,0)$ et $(0,1)$. Notre objectif est de montrer que, à $t$ fixé, la probabilité $P(e_0 \in I^\ell_t)$ converge lorsque $\ell$ tend vers l'infini. Intuitivement, nous imaginons que l'influence des conditions aux bords disparaissent lorsque la taille de la boîte grandit. %Plus précisément, nous considérons un couplage de processus de percolation dynamique conditionné à la condition $T\nleftrightarrow B$ dans deux boîtes de taille $l$ munies de deux conditions aux bords qui diffèrent en un seul sommet $v_0$. La proposition suivante décrit la façon dont cette différence au bord induit une différence à l'arête $e_0$.
 
-Intuitivement, nous imaginons que l'influence d'une condition aux bords disparaît quand la taille de la boîte grandit. %Plus précisément, nous considérons un couplage de processus de percolation dynamique conditionné à la condition $T\nleftrightarrow B$ dans deux boîtes de taille $l$ munies de deux conditions aux bords qui diffèrent en un seul sommet $v_0$. La proposition suivante décrit la façon dont cette différence au bord induit une différence à l'arête $e_0$.
-
-Soit $\Lambda(\ell,h)$ une boite dans $\mathbb{Z}^2,E^2$ munis de deux conditions aux bords $\Pi_{\ell,h}, \Pi'_{\ell,h}$ qui diffèrent à un seul sommet $v_0$. Nous considérons $(X_t)_{t\geqslant 0}$ un processus de percolation dynamique dans $\Lambda(\ell,h)$ et deux couplage $(X,Y)$ et $(X,Y')$ conditionnés par $T\nleftrightarrow B$ avec les deux conditions aux bords.
+Plus formellement, soit $R(\ell)$ une boite dans $(\mathbb{Z}^2,E^2)$ et considérons deux conditions aux bords $\Pi, \Pi'$ sur $R(\ell)$ qui diffèrent en un seul sommet $v_0$. Nous considérons $(X_t)_{t\geqslant 0}$ le processus de percolation dynamique dans $R(\ell)$ et deux couplages $(X,Y)$ et $(X,Y')$ conditionnés par l'événement $\{T\nleftrightarrow B\}$ associés aux deux conditions aux bords $\Pi, \Pi'$.
 
 \begin{chaine}
 \label{chaine}
-Soit $\theta>0$ premier instant où $e_0$ diffère dans les deux configurations, alors il existe un entier aléatoire $N\in \mathbb{N},$ une suite d'arêtes aléatoires $e_1,\dots,e_N$ et des instants aléatoires $0<\theta_1< \theta_2<\dots<\theta_N=t$ qui vérifient les conditions suivantes:
+Soit $\theta>0$ le premier instant où $e_0$ diffère dans les deux processus $(Y_t)_{t\geqslant 0}$ et $(Y_t')_{t\geqslant 0}$, alors il existe un entier aléatoire $N\in \mathbb{N},$ une suite d'arêtes aléatoires $e_1,\dots,e_N$ et des instants aléatoires $0<\theta_1< \theta_2<\dots<\theta_N=\theta$ qui vérifient les conditions suivantes:
 
 \begin{enumerate}[leftmargin =*]
-\item à l'instant $\theta_1$, $e_1$ diffère dans les deux configurations. Il existe deux chemins fermés $p_1^*,\rho_1^*$ disjoints qui relient $e_1^*$ et le dual du bord contenant $v_0$;
+\item à l'instant $\theta_1$, il existe deux chemins fermés $\gamma_1^*,\rho_1^*$ disjoints qui relient $e_1^*$ et le bord vertical contenant $v_0$;
 
-\item pour tout $i>1$, l'arête $e_i$ devient différente à $\theta_i$ et il existe deux chemins fermés $\gamma_i^*,\rho_i^*$ disjoints qui relient $e_{i-1}^*$ et $e_i^*$.
+\item pour tout $i>1$, à l'instant $\theta_i$, il existe deux chemins fermés $\gamma_i^*,\rho_i^*$ disjoints qui relient $e_{i-1}^*$ et $e_i^*$.
 
-\item pour tout $i\geqslant 1$, à l'instant $\theta_i$, il existe un ensemble d'arêtes fermées $S_i$ qui sépare $T(\ell,h)$ et $B(\ell,h)$ et un chemin fermé $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (\gamma_i^*\cup \rho_i^*)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert \gamma_i^*\cup \rho_i^* \vert$
+\item pour tout $i\geqslant 1$, à l'instant $\theta_i$, l'arête $e_i$ devient différente dans les deux processus. Il existe un ensemble d'arêtes fermées $S_i$ qui sépare $T(\ell)$ et $B(\ell)$ et un chemin fermé $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (\gamma_i^*\cup \rho_i^*)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert \gamma_i^*\cup \rho_i^* \vert$
 \end{enumerate}
 
 \end{chaine}
 \begin{proof}
-Nous notons $\tau_0 = 0$, $\tau_i = \inf \{s > \tau_{i-1}, \exists e \in \Lambda(\ell,h),Y_{s^-}(e) = Y'_{s^-}(e),Y_s(e) \neq Y'_s(e)\}$. Nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux boites. Par symétrie, nous pouvons supposer que $v_0$ soit dans le bord gauche et que $e_1$ soit fermée dans $\Lambda'_\ell$.
+Nous notons $\tau_0 = 0$, et $$\tau_i = \inf \, \big\{\,s > \tau_{i-1}: \exists e \in R(\ell)\quad Y_{s^-}(e) = Y'_{s^-}(e),Y_s(e) \neq Y'_s(e)\,\big\}.$$ Par symétrie, nous pouvons supposer que $v_0$ soit dans le bord gauche et que $e_1$ est fermée dans le processus $(Y'_t)_{t\geqslant 0}$. Nous pouvons aussi supposer $\Pi'(v_0)=T$ sans perte de la généralité. 
 
-Cette arête devient différente car il si elle était ouverte dans la configuration $Y'$, il existerait un chemin ouvert entre $T$ et $B$ et pas dans la configuration $Y$. Il existe alors un chemin ouvert entre $e_1$ et le sommet $v_0$ au bord. Sans perte de généralité, nous supposons que $\Pi'_\ell(v_0)=T$, il existe alors dans $Y_{\tau_1}$ et $Y'_{\tau_1}$ un chemin identique qui relie une extrémité de $e_0$ et $B$. Nous considérons maintenant le cluster ouvert de ce chemin dans la configuration $Y'_{\tau_1}$, il n'est pas connecté à $B$ par la condition $T\nleftrightarrow B$ dans $Y'_{\tau_1}$, de plus, il n'est pas connecté à $T$ car s'il l'était, $T\longleftrightarrow B$ dans la configuration $Y{\tau_1}$ où $e_0$ est ouverte. Il existe donc dans le graphe dual un contour fermé $C^*_1$ qui sépare ce cluster de $T$ et de $B$. L'arête $e^*_1$ sépare donc ce contour en deux parties disjointes (voir Figure \ref{fig:e1}). 
+Nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux boites. Cette arête devient différente car il si elle était ouverte dans la configuration $Y'_{\tau_1}$, il existerait un chemin ouvert entre $T$ et $B$ alors que ce n'est pas le cas dans la configuration $Y_{\tau_1}$. Il existe un chemin ouvert entre $e_1$ et le sommet $v_0$. Nous considérons le cluster ouvert $C_1$ contenant ce chemin dans la configuration $Y'_{\tau_1}$, il n'est pas connecté à $B$ vu la condition $T\nlongleftrightarrow B$. De plus, le cluster $C_1$ n'est pas connecté à $T$ car s'il l'était, l'événement $\{T\longleftrightarrow B\}$ arriverait dans la configuration $Y{\tau_1}$ dans laquelle $e_0$ est ouverte. Il existe donc dans le graphe dual un chemin fermé $C^*_1$ qui sépare le cluster $C_1$ de $T$ et de $B$, et l'arête $e^*_1$ sépare ce chemin en deux chemins disjoints que nous notons $\gamma_1^*$ et $\rho_1^*$ (voir Figure \ref{fig:e1}). 
 \begin{figure}[h]
 \begin{minipage}{0.45\linewidth}
 \center
 \begin{tikzpicture}
-\draw (2.5,-0.5) node {$Y_{\tau_1}$};
+\draw (2.5,-0.5) node {$Y_{\theta_1}$};
 \draw (5,0) --(0,0) -- (0,4) -- (5,4);
 \node[fill,circle,inner sep = 1pt] at (2,3) (e+) {};
 \node[fill,circle,inner sep = 1pt] at (2,2.8) (e-) {};
@@ -264,7 +262,7 @@ Cette arête devient différente car il si elle était ouverte dans la configura
 \begin{minipage}{0.45\linewidth}
 \center
 \begin{tikzpicture}
-\draw (2.5,-0.5) node {$Y'_{\tau_1}$};
+\draw (2.5,-0.5) node {$Y'_{\theta_1}$};
 \draw (5,0) --(0,0) -- (0,4) -- (5,4);
 \node[fill,circle,inner sep = 1pt] at (2,3) (e+) {};
 \node[fill,circle,inner sep = 1pt] at (2,2.8) (e-) {};
@@ -277,16 +275,16 @@ Cette arête devient différente car il si elle était ouverte dans la configura
 					.. controls (3,4) .. (0,3.5);
 \end{tikzpicture}
 \end{minipage}
-\caption{La configuration dans les deux boites quand $e_1$ devient différente et le contour $C_1$ en rouge}
+\caption{L'instant $\theta_1$ quand $e_1$ devient différente}
 \label{fig:e1}
 \end{figure}
 
-Nous considérons maintenant une arête $e_i$ qui devient différente à cause des autres arêtes qui sont déjà différentes. Par symétrie, nous supposons que $e_i$ est ouverte dans $Y_{\tau_i}$ et fermée dans $Y'_{\tau_i}$ et que dans les deux boîtes et $e_i$ est reliée à $B$.
+Nous considérons maintenant le cas d'une arête $e_i$ qui devient différente à cause des autres arêtes qui sont déjà différentes. Par symétrie, nous supposons que $e_i$ est ouverte dans $Y_{\theta_i}$ et fermée dans $Y'_{\theta_i}$ et que dans la configuration $Y'_{\theta_i}$, $e_i$ est reliée à $B$.
 
 Nous pouvons choisir une arête $e_j$ avec $j< i$ qui est devenue différente avant $\tau_i$ et qui est restée différente entre $\tau_j$ et $\tau_i$. En plus, il existe un chemin ouvert qui les relie. En effet, nous considérons le cluster ouvert $C_i$ dans $Y_{\tau_i}$ du sommet qui est séparé de $B$ par l'arête $e_i$. Nous considérons $R_i$ l'ensemble suivant:
-$$ R_i = \left\lbrace e = \langle x,y\rangle, x\in C_i, y\notin C_i, y\underset{Y'_{\tau_i}}{\leftrightarrow} T\cup \Pi_{\ell,h}^{-1}(top), Y_{\tau_i}(e)\neq Y'_{\tau_i}(e) \right\rbrace.
+$$ R_i = \big\{ \, e = \langle x,y\rangle:\, x\in C_i, y\notin C_i, y\underset{Y'_{\tau_i}}{\leftrightarrow} T\cup \Pi'^{-1}(top), Y_{\tau_i}(e)\neq Y'_{\tau_i}(e) \,\big\}.
 $$
-Cet ensemble n'est pas vide, car $e_i\overset{Y'_{\tau_i}}{\leftrightarrow} T$, mais pas dans $Y_{\tau_i}$, donc il existe un tel $\langle x,y\rangle$ sur le bord extérieur de $C_i$ qui diffère dans les deux configurations. Nous pouvons ordonner cet ensemble avec l'ordre lexicographique de $\mathbb{Z}^2$ et nous prenons $e_j$ la première arête de $R_i$.
+Cet ensemble n'est pas vide, car $e_i\overset{Y'_{\tau_i}}{\leftrightarrow} T$, mais pas dans $Y_{\tau_i}$, donc il existe un tel $\langle x,y\rangle$ sur le bord extérieur de $C_i$ qui diffère dans les deux configurations. Nous fixons un ordre arbitraire sur les arêtes $\mathbb{E}^2$ et nous ordonnons cet ensemble avec cet ordre. Notons $e_j$ la première arête de $R_i$.
 
 Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$.
 Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y'_{\tau_i}$ arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $T$ car $e_i$ est ouverte, il n'est pas connecté à $B$ dans $Y'_{\tau_i}$ car $e_j$ est ouverte. Nous pouvons donc trouver un ensemble $S_i$ d'arêtes fermées qui sépare ce chemin de $T$ dans $Y_{\tau_i}$ et un ensemble $S'_i$ qui le sépare de $B$ dans $Y'_{\tau_i}$. Nous pouvons supposer que $S_i\cap S'_i \neq \emptyset$, sinon, nous avons deux ensembles qui séparent $T$ et $B$ dans $\Lambda(\ell,h)$ qui est de probabilité inférieure à $e^{-\lambda \ell}$ et nous avons le résultat voulu. Nous pouvons désormais considérer un ensemble $S*$ formé par des arêtes qui sont soit fermées dans l'une des deux configurations et qui sépare le chemin $c$ de $T$ et de $B$. Quitte à prendre prendre l'ensemble minimal, nous pouvons supposer que $S^*$ est un circuit qui relie $e_i$ et $e_j$. Les deux arêtes $e_i$ et $e_j$ coupent cet ensemble en deux chemins fermés $\gamma_i^*, \rho_i^*$.
@@ -339,7 +337,7 @@ Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y
 \label{fig:ei}
 \end{figure}
 
-Enfin, pour obtenir la suite $(e_i)_{i\geqslant 1}$ dans l'énoncé, nous partons de l'instant $t$ pour trouver l'arête qui a causé la différence à $e_0$, ensuite nous répétons ce procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête est donnée par une horloge exponentielle, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $t$. Nous pouvons donc trouver une suite finie d'arêtes $e_0,e_1,\dots, e_N$ avec $e_N = e_0$ et des instants $\theta_1<\dots< \theta_N = t$ qui vérifient les deux premiers points de l'énoncé.
+Enfin, pour obtenir la suite $(e_i)_{i\geqslant 1}$ d'arêtes et les temps $(\theta_i)_{i\geqslant 1}$ comme  dans l'énoncé, nous partons de l'instant $t$ pour trouver l'arête qui a causé la différence à $e_0$, ensuite nous répétons cette procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête ne peut se produire qu'aux instants d'arrivée des processus de Poisson, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $\theta$. Nous pouvons donc trouver une suite finie d'arêtes $e_0,e_1,\dots, e_N$ avec $e_N = e_0$ et des instants $\theta_1<\dots< \theta_N = \theta$ qui vérifient les deux premiers points de l'énoncé.
 
 Nous considérons le contour fermé formé par $\gamma_i^1$ et $\gamma_i^2$, la condition $T\nleftrightarrow B$ impose qu'il existe un ensemble séparant $K_i$ qui contient $e_i$ dans la configuration où elle est fermée. Quitte à ouvrir les arêtes de $K_i$ qui ne sont pas pivotes, nous pouvons supposer $K_i$ minimal. Nous considérons le dual de $K_i$, qui est un chemin fermé simple de gauche à droite. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
 \begin{itemize}[label = $\bullet$, leftmargin =*]
