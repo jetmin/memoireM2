@@ -287,7 +287,7 @@ $$
 Cet ensemble n'est pas vide, car $e_i\overset{Y'_{\theta_i}}{\leftrightarrow} T$, mais pas dans $Y_{\theta_i}$, donc il existe un tel $\langle x,y\rangle$ sur le bord extérieur de $C_i$ qui diffère dans les deux configurations. Nous fixons un ordre arbitraire sur les arêtes $\mathbb{E}^2$ et nous ordonnons cet ensemble avec cet ordre. Notons $e_j$ la première arête de $R_i$.
 
 Comme pour la première arête $e_0$, il y a un chemin ouvert qui relie $e_i$ et $e_j$. Sans perte de généralité, nous supposons que $e_j$ est reliée à $T$.
-Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y'_{\theta_i}$ arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $T$ car $e_i$ est ouverte, il n'est pas connecté à $B$ dans $Y'_{\theta_i}$ car $e_j$ est ouverte. Nous pouvons donc trouver un ensemble $S_i$ d'arêtes fermées qui sépare ce chemin de $T$ dans $Y_{\theta_i}$ et un ensemble $S'_i$ qui le sépare de $B$ dans $Y'_{\theta_i}$. Nous pouvons supposer que $S_i\cap S'_i \neq \emptyset$, sinon, nous avons deux ensembles qui séparent $T$ et $B$ dans $R(\ell)$ qui est de probabilité inférieure à $e^{-\lambda \ell}$ et nous avons le résultat voulu. Nous pouvons désormais considérer un ensemble $S*$ formé par des arêtes qui sont soit fermées dans l'une des deux configurations et qui sépare le chemin $c$ de $T$ et de $B$. Quitte à prendre prendre l'ensemble minimal, nous pouvons supposer que $S^*$ est un circuit qui relie $e_i$ et $e_j$. Les deux arêtes $e_i$ et $e_j$ coupent cet ensemble en deux chemins fermés $\gamma_i^*, \rho_i^*$.
+Nous pouvons considérer le cluster ouvert du chemin $c$ entre $e_i,e_j$ dans $Y'_{\theta_i}$ arrêté à $e_j$ et $e_i$. Ce cluster n'est pas connecté à $T$ car $e_i$ est ouverte, il n'est pas connecté à $B$ dans $Y'_{\theta_i}$ car $e_j$ est ouverte. Nous pouvons donc trouver un ensemble $S_i$ d'arêtes fermées qui sépare ce chemin de $T$ dans $Y_{\theta_i}$ et un ensemble $S'_i$ qui le sépare de $B$ dans $Y'_{\theta_i}$. Nous pouvons supposer que $S_i\cap S'_i \neq \emptyset$, sinon, nous avons deux ensembles qui séparent $T$ et $B$ dans $R(\ell)$ qui est de probabilité inférieure à $e^{-\lambda \ell}$ et nous avons le résultat voulu. Nous pouvons désormais considérer un ensemble $S^*$ formé par des arêtes qui sont soit fermées dans l'une des deux configurations et qui sépare le chemin $c$ de $T$ et de $B$. Quitte à prendre prendre l'ensemble minimal, nous pouvons supposer que $S^*$ est un circuit qui relie $e_i$ et $e_j$. Les deux arêtes $e_i$ et $e_j$ coupent cet ensemble en deux chemins fermés $\gamma_i^*, \rho_i^*$.
 \begin{figure}[h]
 
 \begin{minipage}{0.45\linewidth}
@@ -371,22 +371,22 @@ Nous considérons maintenant l'arête minimale et l'arête maximale de l'ensembl
 Enfin nous posons $S^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin fermé du bord gauche au bord droite dans le graphe dual et $c_i^* = c_i^1$. Nous posons $S_i$ le dual de $S^*_i$ qui est un cut. Or $|c_i^1| \geqslant |c_i^2|$, nous obtenons $|c^*_i| \geqslant \frac{1}{2}|\gamma_i^1\cup p_i^2|$. Par construction, l'ensemble séparant $S_i$ et le chemin fermé $c_i^*$ sont disjoints.
 \end{proof}
 
-\section{Quelques inégalités préliminaires}
-Nous allons énoncer quelques inégalités pour la suite de notre étude. Nous commençons par une inégalité de type BK adaptée au problème. Nous commençons par généraliser la notion de l'occurrence disjointe.
+\section{Une inégalité BK temporelle}
+Nous énonçons ici pour le processus de percolation dynamique une inégalité de type BK. Nous commençons par généraliser la notion de l'occurrence disjointe pour des événements qui arrivenet à des instants différents.
 
-Nous considérons dans cette partie $A$ un événement croissant qui dépend d'un nombre fini d'arêtes à l'instant $s$, et $B$ un événement croissant qui dépend d'un nombre fini d'arête à l'instant $t$. Nous notons $K(\omega) = \{e: e=1\}$ l'ensemble d'arêtes ouvertes dans une configuration $\omega$. Nous définissons l'occurrence disjointe ainsi:
+Nous considérons d'abord le processus de percolation dynamique $(X_t)_{t\geqslant 0}$ qui est à valeurs dans $\{0,1\}^{\mathbb{E}^2}$, un événement croissant $A$ qui dépend d'un nombre fini d'arêtes à l'instant $s$, et un autre événement croissant $B$ qui dépend d'un nombre fini d'arête à l'instant $t$. Nous notons $$K(\omega) = \{e: \omega(e)=1\}$$ l'ensemble des arêtes ouvertes dans la configuration $\omega$. Nous définissons l'occurrence disjointe comme suit:
 \begin{occ}
-Soit $A$, $B$ définis précédemment, l'occurrence disjointe de $A$ et $B$ noté par $A\circ B$ par:
+Soit $A$, $B$ définis précédemment, l'occurrence disjointe de $A$ et $B$ noté par $\smash{A\overset{s,t}{\circ} B}$ par:
 \begin{itemize}[leftmargin=*]
-\item si $s=t$, $A\circ B = \{\omega: \exists\omega_1\in A,\exists\omega_2\in B, K(\omega_1)\cap K(\omega_2) = \emptyset, K(\omega_1)\cup K(\omega_2)\subset K(\omega) \}$;
-\item si $s<t$, $A\circ B = \{\omega: \exists\omega_1\in A,\exists\omega_2\in B, K(\omega_1)\cup K(\omega_2)\subset K(\omega), \forall e\in (\omega_1)\cap K(\omega_2), \exists r\in [s,t], e(r) \neq e(s) \}$.
+\item si $s=t$, $A\overset{s,t}{\circ} B = \{(X_t)_{t\geqslant 0}: \quad \exists\omega_1\in A,\exists\omega_2\in B \quad K(\omega_1)\cap K(\omega_2) = \emptyset, K(\omega_1)\cup K(\omega_2)\subset K(X_t) \}$;
+\item si $s<t$, $A\overset{s,t}{\circ} B = \{(X_t)_{t\geqslant 0}: \exists\omega_1\in A,\exists\omega_2\in B\quad K(\omega_1)\subset K(X_s),K(\omega_2)\subset K(X_t)\text{ et } \forall e\in K(\omega_1)\cap K(\omega_2) \quad \exists r\in [s,t]\, X_r(e) \neq X_s(e) \}$.
 \end{itemize}
 \end{occ}
 Nous énonçons l'inégalité de BK pour la percolation dynamique:
 
 
 \begin{bk}
-Soit $\Lambda(\ell,h)$ une boîte de longueur $\ell$, $0<s\leqslant t$, soit $A$ et $B$ des événements définis au début de la partie, alors $P(A\circ B) \leqslant P(A)P(B)$.
+Soit $\Lambda(\ell,h)$ une boîte de longueur $\ell$, $0<s\leqslant t$, soit $A$ et $B$ des événements définis au début de la partie, alors $\smash{P(A\overset{s,t}{\circ}B) \leqslant P(A)P(B)}$.
 \end{bk}
 
 \begin{proof}
