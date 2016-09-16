@@ -94,9 +94,9 @@ $$
 $$
 Les configurations $\omega^e,\omega_e$ sont obtenues à partir de $\omega$ en ouvrant ou fermant l'arête $e$.
 \paragraph{Les chemins.} Soient $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, un chemin entre $x$ et $y$ est une suite $x_0,e_0, x_1,e_1,\dots, e_n,x_{n+1}$ de sommets $x_i$ et d'arêtes $e_i$ distincts où $x_0=x$ et $x_{n+1}=y$ et $e_i$ est l'arête joignant $x_i$ à $x_{i+1}$. 
-Nous disons que $x$ et $y$ sont reliés par un chemin ouvert dans la configuration $\omega$, noté $\smash{x\underset{\omega}{\longleftrightarrow }y}$, s'il existe un chemin qui relie $x,y$ tel que toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons aussi $\smash{x\underset{\omega}{\nlongleftrightarrow} y}$ l'événement complémentaire.
+Nous disons que $x$ et $y$ sont reliés par un chemin ouvert dans la configuration $\omega$, noté $\smash{x\overset{\omega}{\longleftrightarrow }y}$, s'il existe un chemin qui relie $x,y$ tel que toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons aussi $\smash{x\overset{\omega}{\nlongleftrightarrow} y}$ l'événement complémentaire. Soit $A$ un sous-ensemble de $\Lambda(l,h)$, nous notons $x\overset{A}{\longleftrightarrow} y$ s'il existe un chemin entre $x$ et $y$ dont les arêtes sont à l'intérieur de $A$.
 
-Dans ce mémoire, nous étudions en particulier les chemins entre un sommet de $T(l,h)$ et un sommet de $B(l,h)$. Nous notons $\smash{T\underset{\omega}{\longleftrightarrow} B}$ s'il existe un tel chemin dans la configuration $\omega$. 
+Dans ce mémoire, nous étudions en particulier les chemins entre un sommet de $T(l,h)$ et un sommet de $B(l,h)$. Nous notons $\smash{T\overset{\omega}{\longleftrightarrow} B}$ s'il existe un tel chemin dans la configuration $\omega$. 
 
 \paragraph{La probabilité de percolation.} Soit un réel $p\in [0,1]$. Sur l'espace $\Omega$, nous considérons la tribu cylindrique $\mathcal{F}$. Nous considérons la probabilité produit $$P_p = (p\delta_1 +(1-p)\delta_0)^{\otimes\mathbb{E}^2}.$$ Intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^2$ avec une probabilité $1-p$. 
 
@@ -160,12 +160,12 @@ Nous appliquons le théorème \ref{probainv} à $(X_{\tau_i})_{i\geqslant 0}$ av
 
 Nous proposons la définition de l'interface en se servant du couplage.
 \begin{interface}
-Soit $(X_t,Y_t)_{t\geqslant 0}$ un couplage défini précédemment, nous définissons l'interface dans $\Lambda({\ell,h})$ au temps $t$, que nous notons $\mathcal{I}_t({\ell,h})$, comme l'ensemble aléatoire des arêtes qui sont ouvertes dans $X_t$ et fermé dans $Y_t$: $$ \mathcal{I}_t({\ell,h}) \,=\, \big\{ \,e\in \mathbb{E}^2: X_t(e) = 1, Y_t(e) = 0 \, \big\}.
+Soit $(X_t,Y_t)_{t\geqslant 0}$ un couplage défini précédemment, nous définissons l'interface dans $\Lambda({\ell,h})$ au temps $t$, que nous notons $\mathcal{I}_t({\ell,h})$, comme l'ensemble aléatoire des arêtes qui sont ouvertes dans $X_t$ et fermé dans $Y_t$: $$ \mathcal{I}_t({\ell,h}) \,=\,, \big\{ \,e\in \mathbb{E}^2: X_t(e) = 1, Y_t(e) = 0 \, \big\}.
 $$
 \end{interface}
 \section{Les conditions aux bords}
-Nous fixons un entier $h$ et nous allons étudier l'influence de $\ell$ sur la loi de l'interface dans la boîte $\Lambda(\ell,h)$. Pour cela, nous introduisons des conditions aux bords. Désormais, nous enlèverons $h$ si cela ne cause pas de confusion. Nous notons $R(\ell)$ le rectangle $\Lambda(\ell,h)$ et  $\partial^{in}\Lambda(\ell,h)$ son bord intérieur, c'est à dire:
-$$ \partial^{in}R(\ell) = \big\{ \, x\in R(\ell): \exists y \notin R(\ell) \quad \langle x,y\rangle\in \mathbb{E}^2\, \big\}.
+Nous fixons un entier $h$ et nous allons étudier l'influence de $\ell$ sur la loi de l'interface dans la boîte $\Lambda(\ell,h)$. Pour cela, nous introduisons des conditions aux bords. Désormais, nous enlèverons $h$ des notations si cela ne cause pas de confusion. Nous notons $R(\ell)$ le rectangle $\Lambda(\ell,h)$ et  $\partial^{in}\Lambda(\ell,h)$ son bord intérieur, c'est à dire:
+$$ \partial^{in}R(\ell) \,=\, \big\{ \, x\in R(\ell): \exists y \notin R(\ell) \quad \langle x,y\rangle\in \mathbb{E}^2\, \big\}.
 $$
 Les conditions aux bords sont données par $\Pi_{\ell}$ une application de $\partial^{in}R(\ell)$ à l'ensemble $\{top,bot,null\}$.
 L'application $\Pi_{l}$ vaut $top$ et $bot$ sur les bords horizontaux $T(\ell)$ et $B(\ell)$, plus précisément:
@@ -175,18 +175,18 @@ bot & \text{si }x\in B(\ell)
 \end{array}
 \right..
 $$ 
-Nous appelons une condition aux bords nulle si
+La condition aux bords nulle correspond au choix suivant:
 $$\forall y\in V(\ell)\setminus \{(\pm \ell,\pm h))\} \quad \Pi_{\ell}(y) = null.
 $$
 
 Soit $m> \ell$, et soit $R(m)$ une boîte avec des conditions aux bords $\Theta$. Soit $\omega$ la configuration de percolation dans $R(m)$. Nous pouvons définir les conditions aux bords $\Pi_{\ell}$ induites sur $V(\ell)$ comme suit. Soit $x$ un sommet dans $V(\ell,h)$, 
 $$\Pi^\Theta_{\ell}(x)=\left\lbrace \begin{array}{cl}
-top &\text{si } \exists y \in \partial^{in}R(m) \quad \Theta(y) = top, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\longleftrightarrow}} y\\
-bot &\text{si } \exists y \in \partial^{in}R(m)\quad \Theta(y) = bot, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\longleftrightarrow}} y\\
-null &\text{si } \forall y \in \partial^{in}R(m)\quad \Theta(y) \neq null, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\nlongleftrightarrow}} y
-\end{array} \right.,
+top &\text{si } \exists y \in \partial^{in}R(m) \quad \Theta(y) = top,\, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\longleftrightarrow}} y\\
+bot &\text{si } \exists y \in \partial^{in}R(m)\quad \Theta(y) = bot,\, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\longleftrightarrow}} y\\
+null, &\text{si } \forall y \in \partial^{in}R(m)\quad \Theta(y) \neq null,\, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\nlongleftrightarrow}} y,
+\end{array} \right..
 $$
-avec la notation $\smash{x\overset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\longleftrightarrow} T(resp. B)}$ signifie que le sommet $x$ est relié à $T(resp. B)$ uniquement par un chemin ouvert dont les arrêtes sont dans l'ensemble $\big(\Lambda(m,h) \setminus \Lambda(\ell,h)\big) \cup \partial^{in} \Lambda(\ell,h)$. 
+
 
 \begin{figure}[h]
 \center
@@ -212,7 +212,7 @@ avec la notation $\smash{x\overset{\Lambda(m,h) \setminus \Lambda(\ell,h)}{\long
 \caption{Exemples d'une condition aux bords}
 \end{figure}
 
-Nous généralisons désormais l'événement $\{T\longleftrightarrow B\}$ en tenant compte des conditions aux bords. Nous disons que $\{T\longleftrightarrow B\}$ arrive dans la boite $R(\ell)$ s'il existe une connexion entre deux sommets $x,y$ tels que $\Pi_{\ell}(x) = top, \Pi_{\ell}(y) = bot$.
+Nous définissons désormais l'événement $\{T\longleftrightarrow B\}$ en tenant compte des conditions aux bords. Nous disons que $\{top\longleftrightarrow bot\}$ arrive dans la boite $R(\ell)$ s'il existe une connexion entre deux sommets $x,y$ tels que $\Pi_{\ell}(x) = top, \Pi_{\ell}(y) = bot$.
 \section{La propagation des conditions aux bords}
 Nous nous intéressons à la probabilité qu'une arête fixée soit dans l'interface. Nous considérons désormais le régime surcritique, qui correspond à $p>\frac{1}{2}$ en dimension 2. Soit $e_0$ l'arête d'extrémités $(0,0)$ et $(0,1)$. Notre objectif est de montrer que, à $t$ fixé, la probabilité $P(e_0 \in I^\ell_t)$ converge lorsque $\ell$ tend vers l'infini. Intuitivement, nous imaginons que l'influence des conditions aux bords disparaissent lorsque la taille de la boîte grandit. %Plus précisément, nous considérons un couplage de processus de percolation dynamique conditionné à la condition $T\nlongleftrightarrow B$ dans deux boîtes de taille $l$ munies de deux conditions aux bords qui diffèrent en un seul sommet $v_0$. La proposition suivante décrit la façon dont cette différence au bord induit une différence à l'arête $e_0$.
 
