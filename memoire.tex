@@ -396,21 +396,21 @@ Enfin, pour obtenir la suite $(e_i)_{i\geqslant 1}$ d'arêtes et les temps $(\th
 \end{proof}
 
 \section{Une inégalité BK temporelle}
-Nous énonçons ici pour le processus de percolation dynamique une inégalité de type BK. Nous commençons par généraliser la notion de l'occurrence disjointe pour des événements qui arrivenet à des instants différents.
+Nous énonçons ici pour le processus de percolation dynamique une inégalité de type BK. Nous commençons par généraliser la notion de l'occurrence disjointe pour des événements qui arrivent à des instants différents.
 
-Nous considérons d'abord le processus de percolation dynamique $(X_t)_{t\geqslant 0}$ qui est à valeurs dans $\{0,1\}^{\mathbb{E}^2}$, un événement croissant $A$ qui dépend d'un nombre fini d'arêtes à l'instant $s$, et un autre événement croissant $B$ qui dépend d'un nombre fini d'arête à l'instant $t$. Nous notons $$K(\omega) = \{e: \omega(e)=1\}$$ l'ensemble des arêtes ouvertes dans la configuration $\omega$. Nous définissons l'occurrence disjointe comme suit:
+Nous considérons le processus de percolation dynamique $(X_t)_{t\geqslant 0}$. Notons, pour une configuration $\omega$, $$K(\omega) = \{e: \omega(e)=1\}$$ l'ensemble des arêtes ouvertes dans la configuration $\omega$. Nous définissons l'occurrence disjointe comme suit:
 \begin{occ}
-Soit $A$, $B$ définis précédemment, l'occurrence disjointe de $A$ et $B$ noté par $\smash{A\overset{s,t}{\circ} B}$ par:
+Soient $A$, $B$ 2 événements qui arrivent à deux instants $0\leqslant s \leqslant t$, l'occurrence disjointe de $A$ et $B$ noté par $\smash{A\overset{s,t}{\circ} B}$ est l'événement défini par:
 \begin{itemize}[leftmargin=*]
-\item si $s=t$, $A\overset{s,t}{\circ} B = \{(X_t)_{t\geqslant 0}: \quad \exists\omega_1\in A,\exists\omega_2\in B \quad K(\omega_1)\cap K(\omega_2) = \emptyset, K(\omega_1)\cup K(\omega_2)\subset K(X_t) \}$;
-\item si $s<t$, $A\overset{s,t}{\circ} B = \{(X_t)_{t\geqslant 0}: \exists\omega_1\in A,\exists\omega_2\in B\quad K(\omega_1)\subset K(X_s),K(\omega_2)\subset K(X_t)\text{ et } \forall e\in K(\omega_1)\cap K(\omega_2) \quad \exists r\in [s,t]\, X_r(e) \neq X_s(e) \}$.
+\item si $s=t$, $A\overset{s,t}{\circ} B = \{\, \exists\omega_1\in A,\exists\omega_2\in B \quad K(\omega_1)\cap K(\omega_2) = \emptyset, K(\omega_1)\cup K(\omega_2)\subset K(X_t) \,\}$;
+\item si $s<t$, $A\overset{s,t}{\circ} B = \{\, \exists\omega_1\in A,\exists\omega_2\in B\quad K(\omega_1)\subset K(X_s),K(\omega_2)\subset K(X_t)\text{ et } \forall e\in K(\omega_1)\cap K(\omega_2) \quad \exists r\in [s,t]\, X_r(e) \neq X_s(e) \,\}$.
 \end{itemize}
 \end{occ}
 Nous énonçons l'inégalité de BK pour la percolation dynamique:
 
 
 \begin{bk}
-Soit $\Lambda(\ell,h)$ une boîte de longueur $\ell$, $0<s\leqslant t$, soit $A$ et $B$ des événements définis au début de la partie, alors $\smash{P(A\overset{s,t}{\circ}B) \leqslant P(A)P(B)}$.
+Soient $0 \leqslant s \leqslant t$ deux instants, soit un événement croissant $A$ qui dépend d'un nombre fini d'arêtes à l'instant $s$, et un autre événement croissant $B$ qui dépend d'un nombre fini d'arête à l'instant $t$, alors $$P(A\overset{s,t}{\circ}B) \leqslant P(A)P(B).$$
 \end{bk}
 
 \begin{proof}
