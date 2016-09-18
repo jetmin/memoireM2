@@ -105,6 +105,7 @@ Dans ce mémoire, nous étudions en particulier les chemins entre un sommet de $
 
 \paragraph{La probabilité de percolation.} Soit un réel $p\in [0,1]$. Sur l'espace $\Omega$, nous considérons la tribu cylindrique $\mathcal{F}$. Nous considérons la probabilité produit $$P_p = (p\delta_1 +(1-p)\delta_0)^{\otimes\mathbb{E}^2}.$$ Intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^2$ avec une probabilité $1-p$. 
 
+
 \section{La percolation dynamique}
 Nous définissons d'abord la percolation dynamique sur le réseau $(\mathbb{Z}^2,\mathbb{E}^2)$. 
 Il s'agit d'un processus $(X_t)_{t\geqslant 0}$ à temps continu à valeurs dans l'espace des configurations $\{0,1\}^{\mathbb{E}^2}$. Si $e$ est une arête et $t\geqslant 0$, alors $X_t(e)\in \{0,1\}$ est l'état de l'arête $e$ au temps $t$. La loi du processus $(X_t)_{t\geqslant 0}$ est définie de la manière suivante. Les processus $(X_t(e))_{t\geqslant 0,e\in\mathbb{E}^2}$ sont i.i.d.. Pour une arête $e$ fixée, le processus $(X_t(e))_{t\geqslant 0}$ est un processus markovien de sauts à deux états $\{0,1\}$, qui saute de 0 vers 1 à taux $p$ et de 1 vers 0 à taux $1-p$.
@@ -130,6 +131,12 @@ Nous définissons la suite $(\tau_i)_{i\geqslant 0}$ des instants de changement 
 $$\tau_{i+1} \,=\, \inf \,\big\{ \, t>\tau_i: {X_t}\mid_{ \Lambda(\ell,h)} \neq {X_{\tau_i}}\mid_{ \Lambda(\ell,h)} \big \}
 $$
 Pour tout $i\geqslant 1$, il existe une unique arête $e_i$ incluse dans $\Lambda(\ell,h)$ telle que $X_{\tau_i}(e_i) \neq X_{\tau_{i-1}}(e_i)$. Nous appelons la suite $(e_i)_{i\geqslant 1}$ la suite des arêtes modifiées.
+
+\paragraph{Le space-time chemin.} Soit $(X_t)_{t\geqslant 0}$ un processus de percolation dynamique. Un space-time chemin s'obtient en prolongeant un chemin dans le temps. Plus précisément, soient $0\leqslant s\leqslant t$ deux instants et deux sommets $x,y\in\mathbb{Z}^2$. Nous disons que $(x,s)$ est connecté à $(y,t)$ par un space-time chemin ouvert dans le processus $(X_t)_{t\geqslant 0}$, que nous notons $$(x,s)\overset{\small(X_t)_{t\geqslant 0}}{\longleftrightarrow} (y,t),$$ s'il existe une suite d'instants $s =\theta_0 <\theta_1 < \dots < \theta_n = t$, une suite de sommets $z_0,\dots, z_{n+1}$ et une suite d'arêtes $e_1,\dots, e_{n-1}$ telles que 
+$$ \forall 0 \leqslant i \leqslant n  \quad z_i \overset{X_{\theta_i}}{\longleftrightarrow} z_{i+1}
+$$
+et $$ \forall 1\leqslant i\leqslant n \quad z_i \text{ est une extrémité de } e_i\quad  \forall r\in  [\theta_{i-1},\theta_i] \,X_r(e_i) = 1.
+$$
 
 \section{Les chaînes de Markov conditionnées}
 Nous énonçons un théorème général sur les chaînes de Markov conditionnées que nous allons utiliser dans la construction de l'interface.
@@ -461,7 +468,7 @@ Enfin, nous en déduisons l'inégalité de BK en effectuant une récurrence sur 
 \end{proof}
 
 \section{Décroissance exponentielle pour la percolation dynamique}
-La probabilité qu'un chemin fermé décroît exponentiellement vite avec sa longueur dans la phase surcritique. Nous montrons ici une propriété similaire pour la percolation dynamique: 
+Dans la phase surcritique, la probabilité d'avoir un chemin fermé décroît exponentiellement vite avec sa longueur. Nous avons des résultats similaires pour la percolation dynamique. Nous montrons d'abord que la probabilité d'avoir un chemin fermé décroît exponentiellement avec sa durée. C'est à dire:
 
 \begin{decexp}
 Soient $p>\frac{1}{2}$, et deux instants $0<s<t$. Soient $\gamma,\rho$ deux chemins fixés. Nous avons l'inégalité suivante:
@@ -473,7 +480,7 @@ $$
 avec $\lambda$ une constante indépendante de $\gamma,\rho$.
 \end{decexp}
 \begin{proof}
-nous considérons une arête $(x,y)$ fermé et une modification locale $M$ pour l'ouvrir suivante: nous fermons deux arêtes perpendiculaires de même côté qui contiennent respectivement un sommet $x,y$ et l'arête qui relie ces deux arêtes; ensuite nous ouvrons l'arête $(x,y)$. Chaque étape de la modification est déterminée par une horloge exponentielle et elle respecte la condition de $T\nlongleftrightarrow B$. Entre $[0,1]$, cette modification a une probabilité positive $r$ pour se réaliser. Nous en déduisons qu'il existe une constante $\lambda$ pour qu'entre $[s,t]$, la probabilité que cette modification ne se réalise pas est inférieur à $e^{-\lambda(t-s)}$. 
+Nous considérons une arête $(x,y)$ fermé et une modification locale $M$ pour l'ouvrir suivante: nous fermons deux arêtes perpendiculaires de même côté qui contiennent respectivement un sommet $x,y$ et l'arête qui relie ces deux arêtes; ensuite nous ouvrons l'arête $(x,y)$. Chaque étape de la modification est déterminée par une horloge exponentielle et elle respecte la condition de $T\nlongleftrightarrow B$. Entre $[0,1]$, cette modification a une probabilité positive $r$ pour se réaliser. Nous en déduisons qu'il existe une constante $\lambda$ pour qu'entre $[s,t]$, la probabilité que cette modification ne se réalise pas est inférieur à $e^{-\lambda(t-s)}$. 
 
 Nous considérons maintenant deux arêtes $e,e'$ voisines, nous pouvons choisir les arêtes que nous modifions pour que $e,e'$ soient modifiées indépendamment. En effet, si les $e,e'$ sont colinéaires alors nous effectuons les modifications à différents côtés; si $e,e'$ sont perpendiculaires, alors nous effectuons la modification à l'extérieur de l'angle formé par $e,e'$, voir figure \ref{fig:mod}.
 
@@ -509,25 +516,24 @@ Nous avons donc
  & \geqslant (1-e^{-\lambda (t-s)})^m \geqslant 1-me^{-\lambda (t-s)}
 \end{align*} 
 \end{proof}
-
-Nous introduisons la notion de space-time chemin, en prolongeant la connexion dans le temps, c'est-à-dire si une arête $e=(x,y)$ reste ouverte (resp. fermée) entre $s$ et $t$ alors $(x,s)\longleftrightarrow (y,t)$ par un space-time chemin ouvert (resp.fermé). Nous montrons aussi une décroissance exponentielle avec les space-time chemin.
-
-\begin{stc} \label{stc} Soit $n\in \mathbb{N}$, $t>0$, $p> \frac{1}{2}$, soit $ A(n,t)$ l'événement $(O,0) \leftrightarrow (n\mathbf{e}_1,nt)$ par un space-time chemin fermé où $\mathbf{e}_1 = (1,0)$, alors $\exists \gamma(p,t),$ une constante qui dépend de $p,t$ tel que $P(A(n,t)) \leqslant e^{-\gamma(p,t)n}$.
+Nous montrons aussi une décroissance exponentielle en fonction de la longueur d'un space-time chemin.
+\begin{stc} \label{stc} Soient $n\in \mathbb{N}$, $t>0$ et $p> \frac{1}{2}$, notons $\mathbf{e}_1 = (1,0)$ le vecteur unitaire horizontal. Il existe $\gamma(p,t),$ une constante qui dépend de $p,t$ tel que 
+$$\forall n\geqslant 0 \quad P\big((O,0)\longleftrightarrow (n\mathbf{e}_1,nt)\big) \leqslant e^{-\gamma(p,t)n}.$$
 \end{stc}
 
 \begin{proof}
-Nous montrons cette équivalence par le lemme sous-additif. En fait, 
+Nous montrons ce résultat à l'aide du lemme sous-additif. Notons $A(n,t)$ l'événement $\{(O,0)\longleftrightarrow (n\mathbf{e}_1,nt)\}$. En fait, pour tout $m,n\geqslant 0, t>0$,
 \begin{align*}
 P((O,0)& \leftrightarrow ((n+m)\mathbf{e}_1,(n+m)t)) \\
 \geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,nt))P((n\mathbf{e}_1,nt)\leftrightarrow ((n+m)\mathbf{e}_1,(n+m)t))\\
 \geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,nt))P((O,0)\leftrightarrow (m\mathbf{e}_1,mt))
 \end{align*}
-Car nous avons l'invariance par translation. La suite $(-\ln P(A(n,t)))_{n\in \mathbb{N}}$ est sous-additive. Par le lemme sous-additif, nous obtenons:
+car nous avons l'invariance par translation. La suite $(-\ln P(A(n,t)))_{n\in \mathbb{N}}$ est sous-additive. Par le lemme sous-additif, nous obtenons:
 $$
 \lim_{n}-\frac{1}{n}\ln P(A(n,t)) = \inf_{n} -\frac{1}{n}\ln P(A(n,t)) = \gamma(p,t)
 $$
 Nous avons donc
-$$ \forall n, -\frac{1}{n}\ln P(A(n,t)) \geqslant \gamma(p,t).
+$$ \forall n\geqslant 1 \quad -\frac{1}{n}\ln P(A(n,t)) \geqslant \gamma(p,t).
 $$
 \end{proof}
 

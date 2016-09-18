@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.5)  18 SEP 2016 11:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.5.5)  18 SEP 2016 14:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -886,64 +886,64 @@ Overfull \hbox (5.64165pt too wide) in paragraph at lines 106--107
  []
 
 [3]
-Overfull \hbox (15.4953pt too wide) in paragraph at lines 137--138
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 135.
+
+
+Overfull \hbox (15.4953pt too wide) in paragraph at lines 144--145
 \OT1/cmr/m/n/12 irr^^Seductible ap^^Seriodique de pro-ba-bi-lit^^Se in-va-riant
 e $\OML/cmm/m/it/12 ^^Y$\OT1/cmr/m/n/12 . Soit $\OML/cmm/m/it/12 A \OMS/cmsy/m/
 n/12 ^^Z \OML/cmm/m/it/12 E$\OT1/cmr/m/n/12 , nous d^^Sefinissons
  []
 
-[4]
-Overfull \hbox (19.41315pt too wide) in paragraph at lines 168--168
+[4] [5]
+Overfull \hbox (19.41315pt too wide) in paragraph at lines 175--175
 []\OT1/cmr/bx/n/12 D^^Sefinition 1. []\OT1/cmr/m/it/12 Soit $\OT1/cmr/m/n/12 (\
 OML/cmm/m/it/12 X[]; Y[]\OT1/cmr/m/n/12 )[]$ \OT1/cmr/m/it/12 un cou-plage d^^S
 efini pr^^Sec^^Sedemment, nous d^^Sefinissons
  []
 
-[5]
-Overfull \hbox (5.07379pt too wide) in paragraph at lines 221--221
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6]
+Overfull \hbox (5.07379pt too wide) in paragraph at lines 228--228
 []\OT1/cmr/bx/n/17.28 La pro-pa-ga-tion des condi-tions aux bords 
  []
 
-[6] [7]
-Overfull \hbox (11.96964pt too wide) in paragraph at lines 278--279
+[7]
+Overfull \hbox (11.96964pt too wide) in paragraph at lines 285--286
  [] 
  []
 
-[8] [9] [10]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 404.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8] [9]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 411.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 404.
- [11]
-[12] [13]
-Overfull \hbox (4.53194pt too wide) in paragraph at lines 513--514
-[]\OT1/cmr/m/n/12 Nous in-tro-dui-sons la no-tion de space-time che-min, en pro
--lon-geant la connexion
- []
-
-
-Overfull \hbox (6.53578pt too wide) in paragraph at lines 513--514
-\OT1/cmr/m/n/12 entre $\OML/cmm/m/it/12 s$ \OT1/cmr/m/n/12 et $\OML/cmm/m/it/12
- t$ \OT1/cmr/m/n/12 alors $(\OML/cmm/m/it/12 x; s\OT1/cmr/m/n/12 ) \OMS/cmsy/m/
-n/12  []! \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 y; t\OT1/cmr/m/n/12 )$ par un space
--time che-min ou-vert (resp.ferm^^Se).
- []
-
-[14] Excluding 'comment' comment.
-Overfull \hbox (16.7089pt too wide) in paragraph at lines 568--568
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 411.
+ [11] [12]
+[13] [14] Excluding 'comment' comment.
+Overfull \hbox (16.7089pt too wide) in paragraph at lines 574--574
 [] 
  []
 
 [15] [16] (./memoire.aux) ) 
 Here is how much of TeX's memory you used:
- 14256 strings out of 494883
- 269885 string characters out of 6178694
- 313825 words of memory out of 5000000
- 17260 multiletter control sequences out of 15000+600000
- 15056 words of font info for 59 fonts, out of 8000000 for 9000
+ 14257 strings out of 494883
+ 269902 string characters out of 6178694
+ 315826 words of memory out of 5000000
+ 17261 multiletter control sequences out of 15000+600000
+ 15356 words of font info for 60 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  55i,17n,54p,993b,790s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/am
@@ -962,11 +962,12 @@ c/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-bm10.pfb>
-Output written on memoire.pdf (17 pages, 241961 bytes).
+am7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
+10.pfb>
+Output written on memoire.pdf (17 pages, 251577 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 134 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
