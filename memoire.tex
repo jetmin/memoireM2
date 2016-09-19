@@ -541,13 +541,13 @@ $$\forall n\geqslant 0 \quad P\big((O,0)\longleftrightarrow (n\mathbf{e}_1,nt)\b
 \end{stc}
 
 \begin{proof}
-Nous montrons ce résultat à l'aide du lemme sous-additif. Notons $A(n,t)$ l'événement $\{(O,0)\longleftrightarrow (n\mathbf{e}_1,nt)\}$. En fait, pour tout $m,n\geqslant 0, t>0$,
+Nous montrons ce résultat à l'aide du lemme sous-additif. Notons $A(n,t)$ l'événement $\{(O,0)\longleftrightarrow (n\mathbf{e}_1,nt)\}$. En fait, pour deux entiers $m,n\geqslant 0$,et $t>0$,
 \begin{align*}
 P((O,0)& \leftrightarrow ((n+m)\mathbf{e}_1,(n+m)t)) \\
 \geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,nt))P((n\mathbf{e}_1,nt)\leftrightarrow ((n+m)\mathbf{e}_1,(n+m)t))\\
 \geqslant & P((O,0)\leftrightarrow (n\mathbf{e}_1,nt))P((O,0)\leftrightarrow (m\mathbf{e}_1,mt))
 \end{align*}
-car nous avons l'invariance par translation. La suite $(-\ln P(A(n,t)))_{n\in \mathbb{N}}$ est sous-additive. Par le lemme sous-additif, nous obtenons:
+ici, nous utilisons l'inégalité FKB \cite{grimmett1999percolation} pour obtenir le produit et l'invariance par translation en temps et en espace pour remplacer le deuxième terme du produit. La suite $(-\ln P(A(n,t)))_{n\in \mathbb{N}}$ est sous-additive. Par le lemme sous-additif, nous obtenons:
 $$
 \lim_{n}-\frac{1}{n}\ln P(A(n,t)) = \inf_{n} -\frac{1}{n}\ln P(A(n,t)) = \gamma(p,t)
 $$
