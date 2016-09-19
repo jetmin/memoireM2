@@ -33,14 +33,33 @@
 
 \newcommand{\nlongleftrightarrow}{\longleftrightarrow \kern-15pt\not \kern15pt}
 
-\title{Mémoire M2}
+\title{Etudes sur l'interface dans le modèle de percolation dynamique}
 \author{Wei ZHOU}
 
 
 \setlength{\parskip}{0pt}
 \begin{document}
-\maketitle
 
+\makeatletter
+  \begin{titlepage}
+  \centering
+      {\large \textsc{Université Paris-Sud}}\\
+      \textsc{Département de mathématiques}\\
+      {\large\textbf{	\@date\\
+       Mémoire pour le M2 mathématiques de l'aléatoire}}\\
+    \vfill
+       {\LARGE \textbf{\@title}} \\
+    \vspace{2em}
+        {\large \@author} \\
+    \vspace{2em}
+    		{\large Directeur: Raphaël Cerf}
+    \vfill
+  \end{titlepage}
+\makeatother
+
+\tableofcontents
+
+\newpage
 \section{Introduction}
 Dans ce mémoire, nous allons étudier les interfaces dans le modèle de percolation Bernoulli sur le réseau $(\mathbb{Z}^2,\mathbb{E}^2)$ avec une méthode dynamique.
 
@@ -551,7 +570,7 @@ Nous avons donc $N$ est borné par une variable aléatoire de loi de Poisson de 
 
 Nous montrons maintenant que la probabilité que le bord influence une arête à l'intérieur de la boîte décroit exponentiellement avec la taille de la boite. 
 \begin{cvg}
-Soit $p\geqslant \frac{1}{2}$, $\bar{e}$ l'arête au centre de la boîte $\Lambda(l,h)$ avec deux processus $Y,Y'$ définis avec deux conditions aux bords $\Pi, \Pi'$, il existe une constante $\lambda> 0$ tel que $P(Y(\bar{e})\neq Y'(\bar{e})) \leqslant e^{-\lambda \ell} P(T\nlongleftrightarrow B \text{ entre }[0,t])$.
+Soient $p\geqslant \frac{1}{2}, t> 0$, et $e_0$ l'arête d'extrémités $(0,0)$ et $(0,1)$, $Y,Y'$ deux processus de percolation dynamique dans la boîte $R(\ell)$ conditionnées par l'événement $\{top \nlongleftrightarrow bot\}$ définis avec deux conditions aux bords $\Pi, \Pi'$, il existe une constante $\lambda> 0$ telle que $$P\big(Y_t(e_0)\neq Y'_t(e)\big) \leqslant e^{-\lambda \ell} P(T\nlongleftrightarrow B \text{ entre }[0,t]).$$
 \end{cvg}
 
 \begin{proof}
@@ -584,4 +603,10 @@ Nous partons de $\bar{e}$, $x_{j_{n-1}+1}$ est de distance inférieure à $2|\si
 Enfin, $r$ est borné par une variable aléatoire de loi de Poisson de paramètre $\ell^2 (1-p) t$, nous avons le résultat.
 \end{proof}
 
+\section{Conclusion}
+
+Dans ce mémoire, nous avons proposé une définition de l'interface à l'aide de la percolation dynamique et nous avons montré que la probabilité que le bord influence une arête au centre de la boîte $R(\ell)$ décroît exponentiellement avec la taille de la boîte. Dans la suite, nous étudions plus en détails le nombre d'arête qui deviennent différente pendant la propagation des conditions aux bords. Nous étudions aussi la perturbation d'un événement pour comparer les événements dans les deux processus de conditions aux bords différentes. Enfin, nous allons utiliser ce résultat pour montrer la convergence en loi de l'interface quand la taille de la boîte tend vers l'infini.
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{bibmemoire}
 \end{document}
