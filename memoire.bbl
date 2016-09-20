@@ -1,9 +1,26 @@
 \begin{thebibliography}{1}
 
+\bibitem{Dehghanpour1997}
+Pouria Dehghanpour and H.~Roberto Schonmann.
+\newblock Metropolis dynamics relaxation via nucleation and growth.
+\newblock {\em Communications in Mathematical Physics}, 188(1):89--119, 1997.
+
 \bibitem{grimmett1999percolation}
 G.~Grimmett.
 \newblock {\em Percolation}.
 \newblock Die Grundlehren der mathematischen Wissenschaften in
   Einzeldarstellungen. Springer, 1999.
+
+\bibitem{Häggström1997}
+Peres Yuval Steif Jeffrey~E. Häggström, Olle.
+\newblock Dynamical percolation.
+\newblock {\em Annales de l'I.H.P. Probabilités et statistiques},
+  33(4):497--528, 1997.
+
+\bibitem{schonmann1994}
+Roberto~H. Schonmann.
+\newblock Slow droplet-driven relaxation of stochastic ising models in the
+  vicinity of the phase coexistence region.
+\newblock {\em Comm. Math. Phys.}, 161(1):1--49, 1994.
 
 \end{thebibliography}

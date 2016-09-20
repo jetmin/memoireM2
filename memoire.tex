@@ -5,6 +5,7 @@
 \usepackage{comment}
 \usepackage{tikz}
 \usepackage[utf8]{inputenc}
+\usepackage{centernot}
 \usepackage[parfill]{parskip}
 \newcounter{def}
 \newcounter{thm}
@@ -52,7 +53,7 @@
     \vspace{2em}
         {\large \@author} \\
     \vspace{2em}
-    		{\large Directeur: Raphaël CERF}
+    		{\large Directeur: Rapha\"{e}l CERF}
     \vfill
   \end{titlepage}
 \makeatother
@@ -66,9 +67,9 @@ Dans ce mémoire, nous allons étudier les interfaces dans le modèle de percola
 \section{Modèle}
 Nous présentons le modèle sur lequel nous allons travailler dans ce mémoire. Pour commencer, nous présentons les notations que nous allons utiliser.
 
-\paragraph{Le réseau $(\mathbb{Z}^2,\mathbb{E}^2)$.} Soit $x,y$ deux points de $\mathbb{Z}^2$, nous disons que $x,y$ sont voisins s'ils sont à distance 1 en norme euclidienne. L'ensemble $\mathbb{E}^2$ est l'ensemble des paires $\{x,y\}$, où $x,y$ sont deux points voisins de $\mathbb{Z}^2$. Le réseau $(\mathbb{Z}^2, \mathbb{E}^2)$ est le graphe dont $\mathbb{Z}^2$ est l'ensemble des sommets et $\mathbb{E}^2$ est l'ensemble des arêtes.
+\paragraph{Le réseau $(\mathbb{Z}^2,\mathbb{E}^2)$.} Soit $x,y$ deux points de $\mathbb{Z}^2$, nous disons que $x,y$ sont voisins s'ils sont à distance 1 en norme euclidienne. L'ensemble $\mathbb{E}^2$ est l'ensemble des paires $\{x,y\}$, où $x,y$ sont deux points voisins de $\mathbb{Z}^2$. Le réseau $(\mathbb{Z}^2, \mathbb{E}^2)$ est le graphe dont $\mathbb{Z}^2$ est l'ensemble des sommets et $\mathbb{E}^2$ est l'ensemble des arêtes. Soit $A$ un sous-ensemble de $(\mathbb{R}^2)$, nous disons que $e = \langle x,y\rangle$ est incluse dans $A$ si le segment ouvert $]x,y[$ est inclus dans $A$.
 
-\paragraph{Les boites $\Lambda(\ell,h)$.} Nous notons $\Lambda(\ell,h)$ le rectangle $[-\ell,\ell]\times[-h,h]$. Nous notons aussi $T(\ell,h)$ le bord supérieur de $\Lambda(\ell,h)$, i.e. le segment $[-\ell,\ell]\times(0,h)$. Nous notons aussi $B(\ell,h)$ le bord inférieur de $\Lambda(\ell,h)$, i.e. $[-\ell,\ell]\times(0,-h)$. Les deux bords verticaux de la boîte $\Lambda(\ell,h)$ sont notés $V(\ell,h)$.
+\paragraph{Les boîtes $\Lambda(\ell,h)$.} Nous notons $\Lambda(\ell,h)$ le sous graphe de $(\mathbb{Z}^2,\mathbb{E}^2)$ à l'intérieur du rectangle $[-\ell,\ell]\times[-h,h]$. Nous notons aussi $T(\ell,h)$ le bord supérieur de $\Lambda(\ell,h)$, i.e. le segment $[-\ell,\ell]\times(0,h)$. Nous notons aussi $B(\ell,h)$ le bord inférieur de $\Lambda(\ell,h)$, i.e. $[-\ell,\ell]\times(0,-h)$. Les deux bords verticaux de la boîte $\Lambda(\ell,h)$ sont notés $V(\ell,h)$.
 \begin{figure}[h]
 \center
 \begin{tikzpicture}
@@ -82,9 +83,9 @@ Nous présentons le modèle sur lequel nous allons travailler dans ce mémoire. 
 \caption{La boîte $\Lambda(\ell,h)$}
 \end{figure}
 
-\paragraph{Les ensembles séparants.} Soient $A,B$ deux sous-ensembles de $\mathbb{Z}^2$. Nous disons qu'un ensemble d'arêtes $S\subset \mathbb{E}^2$ sépare $A$ et $B$ si aucune partie connexe du graphe $(\mathbb{Z}^2,\mathbb{E}^2 \setminus S)$ n'intersecte simultanément $A$ et $B$. Un tel ensemble est appelé un ensemble séparant pour $A$ et $B$. Nous disons que $S$ est un ensemble séparant minimal de $A,B$ si aucun sous-ensemble strict de $S$ ne sépare $A$ et $B$.
+\paragraph{Les ensembles séparants.} Soient $A,B$ deux sous-ensembles de $\mathbb{Z}^2$. Nous disons qu'un ensemble d'arêtes $S\subset \mathbb{E}^2$ sépare $A$ et $B$ si aucune partie connexe du graphe $(\mathbb{Z}^2,\mathbb{E}^2 \setminus S)$ n'intersecte simultanément $A$ et $B$. Un tel ensemble est appelé un ensemble séparant pour $A$ et $B$. Nous disons que $S$ est un ensemble séparant minimal pour $A,B$ si aucun sous-ensemble strict de $S$ ne sépare $A$ et $B$.
 
-\paragraph{Le graphe dual.}Le graphe dual du réseau $\mathbb{Z}^2$ est le graphe de sommets les points de $ \mathbb{Z}^{2*} = \mathbb{Z}^2+(\frac{1}{2},\frac{1}{2})$ et d'arêtes $\mathbb{E}^{2*}$, où $\mathbb{E}^{2*}$ est l'ensemble des arêtes joignant deux sommets de $\mathbb{Z}^{2*}$ à distance 1. Si $e$ est une arête dans $\mathbb{Z}^2$, nous notons $e^*$ l'unique arête qui l'intersecte orthogonalement en son milieu. Désormais, les objets dans le graphe dual seront notés avec une $*$.
+\paragraph{Le graphe dual.}Le graphe dual du réseau $(\mathbb{Z}^2,\mathbb{E}^2)$ est le graphe de sommets les points de $ \mathbb{Z}^{2*} = \mathbb{Z}^2+(\frac{1}{2},\frac{1}{2})$ et d'arêtes $\mathbb{E}^{2*}$, où $\mathbb{E}^{2*}$ est l'ensemble des arêtes joignant deux sommets de $\mathbb{Z}^{2*}$ à distance 1. Si $e$ est une arête dans $\mathbb{E}^2$, nous notons $e^*$ l'unique arête de $\mathbb{E}^{2*}$ qui l'intersecte orthogonalement en son milieu. Les objets dans le graphe dual seront notés avec une $*$.
 \begin{figure}[h]
 \center
 \begin{tikzpicture}[scale = 2]
@@ -95,17 +96,19 @@ Nous présentons le modèle sur lequel nous allons travailler dans ce mémoire. 
 \draw[red,thick] (1.5,0.5) -- (1.5,1.5);
 \draw[red,thick,dashed] (1,1)--(2,1);
 \end{tikzpicture}
-\caption{un réseau $\mathbb{Z}^2$ et son dual (pointillée)}
+\caption{le réseau $(\mathbb{Z}^2,\mathbb{E}^2)$ et son dual}
 \end{figure}
-
-\paragraph{Les configurations.} L'espace de configuration est $\Omega = \{0,1\}^{\mathbb{E}^2}$. Une configuration générique est notée $\omega = \{\omega(e), e\in \mathbb{E}^2\} \in \Omega$ . L'arête $e$ est ouverte si $\omega(e) = 1$ et fermée si $\omega(e)= 0$. 
-Soient $A$ un sous-ensemble de $\mathbb{Z}^2$ et $\omega$ une configuration, la configuration $\omega$ restreinte à $A$, notée $\omega_{\mid A}$, est la restriction de $\omega$ aux arêtes dont les 2 extrémités sont incluses dans $A$.
+La boîte duale de $\Lambda(\ell,h)$ est le sous graphe de $(\mathbb{Z}^{2*},\mathbb{E}^{2*})$ à l'intérieur du rectangle $]-\ell -\frac{1}{2},\ell+\frac{1}{2}[\times ]-h-\frac{1}{2},h+\frac{1}{2}[$, que nous notons $\Lambda^*(\ell,h)$. Nous définissons le bord extérieur de $\Lambda^*(\ell,h)$, que notons $\partial^{ext}\Lambda^*(\ell,h)$, par,
+$$\partial^{ext}\Lambda^*(\ell,h) \,=\, \big\{y\in \mathbb{Z}^{2*}\setminus \Lambda(l,h): \exists x\in \mathbb{Z}^{2*} \quad \langle x,y\rangle \in \Lambda^*(\ell,h) \big\}
+$$
+\paragraph{Les configurations.} L'espace des configurations est $\Omega = \{0,1\}^{\mathbb{E}^2}$. Une configuration générique est notée $\omega = \{\omega(e), e\in \mathbb{E}^2\} \in \Omega$ . L'arête $e$ est ouverte dans la configuration $\omega$ si $\omega(e) = 1$ et fermée si $\omega(e)= 0$. 
+Soient $A$ un sous-ensemble de $\mathbb{Z}^2$ et $\omega$ une configuration, la configuration $\omega$ restreinte à $A$, notée $\omega\mid_{ A}$, est la restriction de $\omega$ aux arêtes dont les 2 extrémités sont incluses dans $A$.
 Soient $e\in \mathbb{E}^2$ une arête et $\omega\in \Omega$ une configuration, nous définissons les configurations $\omega^e,\omega_e$ par:
 $$
  \forall f\in \mathbb{E}^2 \qquad\omega^e(f) = \left\lbrace \begin{array}{cc}
 	\omega(f) & f\neq e \\
 	1 & f=e 
- \end{array}\right. \quad
+ \end{array}\right., \quad
  \omega_e(f) = \left\lbrace \begin{array}{cc}
 	\omega(f) & f\neq e \\
 	0 & f=e
@@ -113,92 +116,95 @@ $$
 $$
 Les configurations $\omega^e,\omega_e$ sont obtenues à partir de $\omega$ en ouvrant ou fermant l'arête $e$.
 
-Soient $\omega,\omega'$ deux configurations, nous définissons $\omega\wedge \omega'$ la configuration suivante:
+Soient $\omega,\omega'$ deux configurations, nous définissons  la configuration $\omega\wedge \omega'$ par:
 $$ \forall e \in \mathbb{E}^2 \qquad \omega\wedge \omega'(e) = \omega(e)\omega'(e).
 $$
 Une arête $e$ est ouverte dans $\omega\wedge \omega'$ si et seulement si elle est ouverte dans $\omega$ et $\omega'$.
 \paragraph{Les chemins.} Soient $x$ et $y$ deux sommets dans $\mathbb{Z}^2$, un chemin entre $x$ et $y$ est une suite $x_0,e_0, x_1,e_1,\dots, e_n,x_{n+1}$ de sommets $x_i$ et d'arêtes $e_i$ distincts où $x_0=x$ et $x_{n+1}=y$ et $e_i$ est l'arête joignant $x_i$ à $x_{i+1}$. 
-Nous disons que $x$ et $y$ sont reliés par un chemin ouvert dans la configuration $\omega$, noté $\smash{x\overset{\omega}{\longleftrightarrow }y}$, s'il existe un chemin qui relie $x,y$ tel que toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons aussi $\smash{x\overset{\omega}{\nlongleftrightarrow} y}$ l'événement complémentaire. Soit $A$ un sous-ensemble de $\Lambda(l,h)$, nous notons $x\overset{A}{\longleftrightarrow} y$ s'il existe un chemin entre $x$ et $y$ dont les arêtes sont à l'intérieur de $A$.
+Nous disons que $x$ et $y$ sont reliés par un chemin ouvert dans la configuration $\omega$, noté $\smash{x\overset{\omega}{\longleftrightarrow }y}$, s'il existe un chemin qui relie $x,y$ tel que toute arête de ce chemin est ouverte dans la configuration $\omega$. Nous notons aussi $\smash{x\overset{\omega}{\nlongleftrightarrow} y}$ l'événement complémentaire. Soit $A$ un sous-ensemble de $\Lambda(l,h)$, nous notons $\smash{x\overset{A}{\longleftrightarrow} y}$ s'il existe un chemin ouvert entre $x$ et $y$ dont les arêtes sont incluses dans $A$.
 
-Dans ce mémoire, nous étudions en particulier les chemins entre un sommet de $T(l,h)$ et un sommet de $B(l,h)$. Nous notons $\smash{T\overset{\omega}{\longleftrightarrow} B}$ s'il existe un tel chemin dans la configuration $\omega$. 
+Soient $A,B$ deux sous-graphes de $(\mathbb{Z}^2,\mathbb{E}^2)$, nous disons que $A$ est connecté à $B$ dans la configuration $\omega$, que nous notons $\smash{A\overset{\omega}{\longleftrightarrow} B}$, s'il existe un chemin entre un sommet de $A$ et un sommet de $B$. Dans ce mémoire, nous étudions en particulier les chemins entre un sommet de $T(l,h)$ et un sommet de $B(l,h)$.
 
 \paragraph{La probabilité de percolation.} Soit un réel $p\in [0,1]$. Sur l'espace $\Omega$, nous considérons la tribu cylindrique $\mathcal{F}$. Nous considérons la probabilité produit $$P_p = (p\delta_1 +(1-p)\delta_0)^{\otimes\mathbb{E}^2}.$$ Intuitivement, une configuration s'obtient en fermant indépendamment chaque arête du réseau $\mathbb{Z}^2$ avec une probabilité $1-p$. 
 
 
 \section{La percolation dynamique}
 Nous définissons d'abord la percolation dynamique sur le réseau $(\mathbb{Z}^2,\mathbb{E}^2)$. 
-Il s'agit d'un processus $(X_t)_{t\geqslant 0}$ à temps continu à valeurs dans l'espace des configurations $\{0,1\}^{\mathbb{E}^2}$. Si $e$ est une arête et $t\geqslant 0$, alors $X_t(e)\in \{0,1\}$ est l'état de l'arête $e$ au temps $t$. La loi du processus $(X_t)_{t\geqslant 0}$ est définie de la manière suivante. Les processus $(X_t(e))_{t\geqslant 0,e\in\mathbb{E}^2}$ sont i.i.d.. Pour une arête $e$ fixée, le processus $(X_t(e))_{t\geqslant 0}$ est un processus markovien de sauts à deux états $\{0,1\}$, qui saute de 0 vers 1 à taux $p$ et de 1 vers 0 à taux $1-p$.
+Il s'agit d'un processus $(X_t)_{t\geqslant 0}$ à temps continu à valeurs dans l'espace des configurations $\{0,1\}^{\mathbb{E}^2}$. Si $e$ est une arête et $t\geqslant 0$, alors $X_t(e)\in \{0,1\}$ est l'état de l'arête $e$ au temps $t$. La loi du processus $(X_t)_{t\geqslant 0}$ est définie de la manière suivante. Les processus $(X_t(e))_{t\geqslant 0},e\in\mathbb{E}^2$ sont i.i.d.. Pour une arête $e$ fixée, le processus $(X_t(e))_{t\geqslant 0}$ est un processus markovien de sauts à deux états $\{0,1\}$, qui saute de 0 vers 1 à taux $p$ et de 1 vers 0 à taux $1-p$.
 
-\paragraph{Construction graphique.} Nous allons construire la percolation dynamique sur un espace de probabilité qui nous permettra de réaliser des couplages utiles pour les preuves. Nous commençons avec un espace de probabilité $(\Phi, \mathcal{A},P)$ sur lequel sont définis les objets suivants:
+\paragraph{Construction graphique.} Nous allons construire la percolation dynamique sur un espace de probabilité qui nous permettra de réaliser des couplages utiles pour les preuves. Nous commençons avec un espace de probabilité sur lequel sont définis les objets suivants:
 
 \begin{itemize}[label = $\bullet$, leftmargin = *]
-\item Une famille $(N_t(e))_{t\geqslant 0}$ de processus de Poisson iid de paramètre 1 indexée par les arêtes $e \in \mathbb{E}^2$;
-\item Une famille de variables aléatoires $U_n(e)_{n\geqslant 1}, e\in \mathbb{E}^2$ iid de loi uniforme sur $[0,1]$.
+\item Une famille $(N_t(e))_{t\geqslant 0},e\in\mathbb{E}^2$ de processus de Poisson iid de paramètre 1 indexée par les arêtes $e \in \mathbb{E}^2$;
+\item Une famille de variables aléatoires $U_n(e)_{n\geqslant 1}, e\in \mathbb{E}^2$, iid de loi uniforme sur $[0,1]$.
 \end{itemize} 
 
-
+La probabilité sur cet espace sera notée par $\mathbb{P}$.
 Soit $e$ une arête de $\mathbb{E}^2$, notons $(T_i(e))_{i\geqslant 1}$, les instants des sauts du processus de Poisson $(N_t(e))_{t\geqslant 0}$ associé à $e$. A l'instant $T_i(e)$, nous retirons l'état de l'arête à l'aide de la v.a. $U_i(e)$.
 Plus précisément, l'arête $e$ ne peut changer d'état qu'aux instants $(T_i(e))_{i\geqslant 1}$, et nous posons 
 $$ X_{T_i(e)}(e) = \left\lbrace \begin{array}{cc}
-1 & \text{si }U_i(e) < p, \\
-0 & \text{si }U_i(e) > p.
+1 & \text{si }U_i(e) < p \\
+0 & \text{si }U_i(e) > p
 \end{array}
-\right.
+\right..
 $$
 
-Nous définissons la suite $(\tau_i)_{i\geqslant 0}$ des instants de changement dans une boîte finie $\Lambda(\ell,h)$, en posant $\tau_0 = 0$ et pour tout $i\geqslant 0$:
-$$\tau_{i+1} \,=\, \inf \,\big\{ \, t>\tau_i: {X_t}\mid_{ \Lambda(\ell,h)} \neq {X_{\tau_i}}\mid_{ \Lambda(\ell,h)} \big \}
+Nous définissons la suite $(\tau_i)_{i\geqslant 0}$ des instants de changement dans une boîte finie $\Lambda(\ell,h)$, en posant $\tau_0 = 0$ et pour tout $i\geqslant 0$,
+$$\tau_{i+1} \,=\, \inf \,\big\{ \, t>\tau_i: {X_t}\mid_{ \Lambda(\ell,h)} \neq {X_{\tau_i}}\mid_{ \Lambda(\ell,h)} \big \}.
 $$
 Pour tout $i\geqslant 1$, il existe une unique arête $e_i$ incluse dans $\Lambda(\ell,h)$ telle que $X_{\tau_i}(e_i) \neq X_{\tau_{i-1}}(e_i)$. Nous appelons la suite $(e_i)_{i\geqslant 1}$ la suite des arêtes modifiées.
 
-\paragraph{Le space-time chemin.} Soit $(X_t)_{t\geqslant 0}$ un processus de percolation dynamique. Un space-time chemin s'obtient en prolongeant un chemin dans le temps. Plus précisément, soient $0\leqslant s\leqslant t$ deux instants et deux sommets $x,y\in\mathbb{Z}^2$. Nous disons que $(x,s)$ est connecté à $(y,t)$ par un space-time chemin ouvert dans le processus $(X_t)_{t\geqslant 0}$, que nous notons $$(x,s)\overset{\small(X_t)_{t\geqslant 0}}{\longleftrightarrow} (y,t),$$ s'il existe une suite d'instants $s =\theta_0 <\theta_1 < \dots < \theta_n = t$, une suite de sommets $z_0,\dots, z_{n+1}$ et une suite d'arêtes $e_1,\dots, e_{n-1}$ telles que 
-$$ \forall 0 \leqslant i \leqslant n  \quad z_i \overset{X_{\theta_i}}{\longleftrightarrow} z_{i+1}
+\paragraph{Le space-time chemin (STC).} Soit $(X_t)_{t\geqslant 0}$ un processus de percolation dynamique. Un space-time chemin s'obtient en prolongeant un chemin dans le temps. Plus précisément, nous définissons une relation d'équivalence $\overset{X}{\longleftrightarrow}$ sur les couples $(e,t) \in (\mathbb{E}^2,\mathbb{R}_+)$ par, soient $e = \langle a,b\rangle,f = \langle c,d\rangle \in \mathbb{E}^2$ deux arêtes, et $s,t\geqslant 0$ deux instants,
+\begin{align*}
+(e,t) \overset{X}{\longleftrightarrow} (f,t) &\text{ si }
+ a\overset{X_t}{\longleftrightarrow} c, X_t(e) = 1, X_t(f)=1\\
+(e,s) \overset{X}{\longleftrightarrow} (e,t) &\text{ si } \forall r \in [s\wedge t,s\vee t]\quad X_r(r)  = 1.
+\end{align*} 
+Nous généralisons ensuite cette relation d'équivalence sur les sommets de $\mathbb{Z}^2$ par, soit $x,y\in \mathbb{Z}^2, s,t\in \mathbb{R}_+$,
+$$ (x,s) \overset{X}{\longleftrightarrow} (y,t) \text{ si }
+\exists e\text{ d'une extrémité }x, f\text{ d'une extrémité }y\quad
+(e,s)\overset{X}{\longleftrightarrow} (f,t).
 $$
-et $$ \forall 1\leqslant i\leqslant n \quad z_i \text{ est une extrémité de } e_i\quad  \forall r\in  [\theta_{i-1},\theta_i] \,X_r(e_i) = 1.
-$$
-
+Nous disons qu'il existe un space-time chemin (STC) entre $(x,s)$ et $(y,t)$ si $\smash{(x,s) \overset{X}{\longleftrightarrow} (y,t)}$.
 \section{Les chaînes de Markov conditionnées}
 Nous énonçons un théorème général sur les chaînes de Markov conditionnées que nous allons utiliser dans la construction de l'interface.
 
-Soit $(Z_n)_{n\geqslant 0}$ une chaîne de Markov à valeurs dans un ensemble $E$ fini, irréductible apériodique de probabilité invariante $\pi$. Soit $A\subset E$, nous définissons la chaîne $(Z_n)_{n\geqslant 0}$ conditionnée à rester dans $A$, notée $(Z_n^A)_{n\geqslant 0}$ par sa valeur initiale $Z_0 \in A$ et sa probabilité de transition
+Soit $(Z_n)_{n\geqslant 0}$ une chaîne de Markov à valeurs dans un ensemble $E$ fini, irréductible apériodique de probabilité invariante $\pi$. Soit $A\subset E$, nous définissons la chaîne $(Z_n)_{n\geqslant 0}$ conditionnée à rester dans $A$, notée $(Z_n^A)_{n\geqslant 0}$ par sa valeur initiale $Z_0^A \in A$ et sa probabilité de transition
 $$p^A(x,y)=\left\lbrace \begin{array}{cc}
 p(x,y) & y\in A, x\neq y \\
 0 & y\notin A \\
 1-\sum_{y\neq x}p^A(x,y) & x = y\\
 \end{array}
-\right.
+\right..
 $$
 \begin{probainv}
 \label{probainv}
 La chaîne $(Z^A_n)_{n\geqslant 0}$ admet une probabilité invariante qui est la probabilité invariante de la chaîne $(Z_n)_{n\geqslant 0}$ conditionnée à rester dans $A$, c'est à dire:
-$$\forall x\in A \quad \pi^A(x) = \pi(x\mid A)= \frac{\pi(\{x\})}{\pi(A)}
+$$\forall x\in A \quad \pi^A(x) = \pi(x\mid A)= \frac{\pi(\{x\})}{\pi(A)}.
 $$
 \end{probainv}
 \section{L'interface}
-Nous allons proposer une définition d'interface à l'aide de la percolation dynamique. Soit $(X_t)_{t\geqslant 0}$ le processus de percolation dynamique de paramètre $p$ dans $\Lambda(\ell,h)$ issu d'une configuration initiale $X_0$ appartenant à l'événement $\smash{\{T\underset{X_0}{\nlongleftrightarrow}B\}}$ et $(\tau_i)_{i\geqslant 0}$ sa suite des instants de changement. Nous allons coupler un processus $(Y_t)_{t\geqslant 0}$ à valeurs dans $\{0,1\}^{\mathbb{E}^2}$ avec $(X_t)_{t\geqslant 0}$ comme suit. D'abord nous posons $Y_0=X_0$. Ensuit, soit $i\geqslant 0$, pour tout $s\in [\tau_i, \tau_{i+1}[$, nous posons $Y_s = Y_{\tau_i}$, et nous déterminons $Y_{\tau_{i+1}}$ en fonction de $X_{\tau_{i+1}}$ via la formule suivante:
-$$Y_{\tau_{i+1}}(e)=\left\lbrace \begin{array}{cl}
-Y_{\tau_i}(e) & \text{si } e\neq e_{i+1}\\
-0 &\text{si } e = e_{i+1}, X_{\tau_{i+1}}(e_{i+1}) = 0\\
-1 & \text{si } e = e_{i+1}, X_{\tau_{i+1}}(e_{i+1}) = 1, T \nlongleftrightarrow B \text{ dans }Y_{\tau_i}^{e_{i+1}}\\
-0 & \text{si }e= e_{i+1},X_{\tau_{i+1}}(e_{i+1}) = 1, T \longleftrightarrow B \text{ dans }Y_{\tau_i}^{e_{i+1}}
+Nous allons proposer une définition de l'interface à l'aide de la percolation dynamique. Soit $(X_t)_{t\geqslant 0}$ le processus de percolation dynamique de paramètre $p$ dans $\Lambda(\ell,h)$ issu d'une configuration initiale $X_0$ appartenant à l'événement $\smash{\{T\underset{X_0}{\centernot\longleftrightarrow}B\}}$ et $(\tau_i)_{i\geqslant 0}$ sa suite des instants de changement. Nous allons coupler un processus $(Y_t)_{t\geqslant 0}$ à valeurs dans $\{0,1\}^{\mathbb{E}^2}$ avec $(X_t)_{t\geqslant 0}$ comme suit. D'abord nous posons $Y_0=X_0$. Ensuite, soit $i\geqslant 0$, pour tout $s\in [\tau_i, \tau_{i+1}[$, nous posons $Y_s = Y_{\tau_i}$, et $Y_{\tau_{i+1}}(e) =Y_{\tau_i}(e)$ si $e\neq e_{i+1}$, et nous déterminons $Y_{\tau_{i+1}}(e_{i+1})$ en fonction de $X_{\tau_{i+1}}$ via la formule suivante:
+$$Y_{\tau_{i+1}}(e_{i+1})=\left\lbrace \begin{array}{cl}
+0 &\text{si }X_{\tau_{i+1}}(e_{i+1}) = 0\\
+1 & \text{si }X_{\tau_{i+1}}(e_{i+1}) = 1, T \nlongleftrightarrow B \text{ dans }(Y_{\tau_i})^{e_{i+1}}\\
+0 & \text{si }X_{\tau_{i+1}}(e_{i+1}) = 1, T \longleftrightarrow B \text{ dans }(Y_{\tau_i})^{e_{i+1}}
 \end{array}\right..$$
 
-Remarquons que l'arête $e_i$ devient différente dans les deux processus $(X_t)_{t\geqslant 0}$ et $(Y_t)_{t\geqslant 0}$ à l'instant $\tau_i$ si et seulement si $e_i$ devient ouverte à $\tau_i$ dans $(X_t)_{t\geqslant 0}$ mais cette ouverture induit une connexion entre $T$ et $B$ dans la configuration $Y_{\tau_{i-1}}^{e_{i}}$. Dans ce cas, l'arête $e_i$ reste fermée dans le processus $(Y_t)_{t\geqslant 0}$.
-
-La chaîne de Markov $(X_{\tau_i})_{i\geqslant 0}$ est irréductible apériodique et d'espace d'états fini donc elle admet une unique probabilité invariante qui est simpla probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $(Y_{\tau_i})_{i\geqslant 0}$ est aussi irréductible car toute configuration de $(Y_{\tau_i})_{i\geqslant 0}$ est reliée à la configuration où toutes les arêtes sont fermées. En effet, pour chaque arête $e$ dans $\Lambda(\ell,h)$, et à chaque instant de saut $(T_i(e))_{i\geqslant 0}$, nous pouvons fermer $e$ avec probabilité $1-p>0$.
+Remarquons que l'arête $e_i$ devient différente dans les deux processus $(X_t)_{t\geqslant 0}$ et $(Y_t)_{t\geqslant 0}$ à l'instant $\tau_i$ si et seulement si $e_i$ devient ouverte à $\tau_i$ dans $(X_t)_{t\geqslant 0}$ mais cette ouverture induit une connexion entre $T$ et $B$ dans la configuration $(Y_{\tau_{i-1}})^{e_{i}}$. Dans ce cas, l'arête $e_i$ reste fermée dans le processus $(Y_t)_{t\geqslant 0}$.
+La chaîne de Markov $(X_{\tau_i})_{i\geqslant 0}$ est irréductible apériodique et d'espace d'états fini donc elle admet une unique probabilité invariante qui est simplement la probabilité de la percolation Bernoulli de paramètre $p$. La chaîne $(Y_{\tau_i})_{i\geqslant 0}$ est aussi irréductible car toute configuration de $(Y_{\tau_i})_{i\geqslant 0}$ est reliée à la configuration où toutes les arêtes sont fermées. En effet, pour chaque arête $e$ dans $\Lambda(\ell,h)$, et à chaque instant de saut $(T_i(e))_{i\geqslant 0}$, nous pouvons fermer $e$ avec probabilité $1-p>0$.
 
 Nous appliquons le théorème \ref{probainv} à $(X_{\tau_i})_{i\geqslant 0}$ avec $A$ l'ensemble des configurations qui satisfont l'événement $\{T\nlongleftrightarrow B\}$. Nous obtenons que la probabilité invariante du processus $(Y_t)_{t\geqslant 0}$ est la loi de la percolation Bernoulli de paramètre $p$ conditionnée par l'événement $\{T\nlongleftrightarrow B\}$.
-
-Nous proposons la définition de l'interface en se servant du couplage.
+Nous proposons une définition de l'interface en à l'aide de ce  couplage.
 \begin{interface}
-Soit $(X_t,Y_t)_{t\geqslant 0}$ un couplage défini précédemment, nous définissons l'interface dans $\Lambda({\ell,h})$ au temps $t$, que nous notons $\mathcal{I}_t({\ell,h})$, comme l'ensemble aléatoire des arêtes qui sont ouvertes dans $X_t$ et fermé dans $Y_t$: $$ \mathcal{I}_t({\ell,h}) \,=\,, \big\{ \,e\in \mathbb{E}^2: X_t(e) = 1, Y_t(e) = 0 \, \big\}.
+Soit $(X_t,Y_t)_{t\geqslant 0}$ un couplage défini précédemment, nous définissons l'interface dans $\Lambda({\ell,h})$ au temps $t$, que nous notons $\mathcal{I}_t({\ell,h})$, comme l'ensemble aléatoire des arêtes qui sont ouvertes dans $X_t$ et fermées dans $Y_t$: $$ \mathcal{I}_t({\ell,h}) \,=\, \big\{ \,e\in \mathbb{E}^2: X_t(e) = 1, Y_t(e) = 0 \, \big\}.
 $$
 \end{interface}
 \section{Les conditions aux bords}
-Nous fixons un entier $h$ et nous allons étudier l'influence de $\ell$ sur la loi de l'interface dans la boîte $\Lambda(\ell,h)$. Pour cela, nous introduisons des conditions aux bords. Désormais, nous enlèverons $h$ des notations si cela ne cause pas de confusion. Nous notons $R(\ell)$ le rectangle $\Lambda(\ell,h)$ et  $\partial^{in}\Lambda(\ell,h)$ son bord intérieur, c'est à dire:
+Nous fixons un entier $h$ et nous allons étudier l'influence de $\ell$ sur la loi de l'interface dans la boîte $\Lambda(\ell,h)$. Pour cela, nous introduisons des conditions aux bords. Désormais, nous enlèverons $h$ des notations si cela ne cause pas de confusion. Nous notons $R(\ell)$ le rectangle $\Lambda(\ell,h)$ et  $\partial^{in}\Lambda(\ell,h)$ son bord intérieur, c'est à dire,
 $$ \partial^{in}R(\ell) \,=\, \big\{ \, x\in R(\ell): \exists y \notin R(\ell) \quad \langle x,y\rangle\in \mathbb{E}^2\, \big\}.
 $$
-Les conditions aux bords sont données par $\Pi_{\ell}$ une application de $\partial^{in}R(\ell)$ à l'ensemble $\{top,bot,null\}$.
+Les conditions aux bords sont données par une application $\Pi_{\ell}$ de $\partial^{in}R(\ell)$ dans l'ensemble $\{top,bot,null\}$.
 L'application $\Pi_{l}$ vaut $top$ et $bot$ sur les bords horizontaux $T(\ell)$ et $B(\ell)$, plus précisément:
 $$ \forall x\in T(\ell)\cup B(\ell) \quad \Pi_{\ell}(x) = \left\lbrace \begin{array}{ll}
 top & \text{si }x\in T(\ell)\\
@@ -210,11 +216,11 @@ La condition aux bords nulle correspond au choix suivant:
 $$\forall y\in V(\ell)\setminus \{(\pm \ell,\pm h))\} \quad \Pi_{\ell}(y) = null.
 $$
 
-Soit $m> \ell$, et soit $R(m)$ une boîte avec des conditions aux bords $\Theta$. Soit $\omega$ la configuration de percolation dans $R(m)$. Nous pouvons définir les conditions aux bords $\Pi_{\ell}$ induites sur $V(\ell)$ comme suit. Soit $x$ un sommet dans $V(\ell,h)$, 
+Soit $m> \ell$, et soit $R(m)$ une boîte avec des conditions aux bords $\Theta$. Soit $\omega$ la configuration de percolation dans $R(m)$. Nous pouvons définir les conditions aux bords $\Pi_{\ell}$ induites sur $V(\ell)$ comme suit. Soit $x$ un sommet dans $V(\ell,h)$,  nous posons
 $$\Pi^\Theta_{\ell}(x)=\left\lbrace \begin{array}{cl}
 top &\text{si } \exists y \in \partial^{in}R(m) \quad \Theta(y) = top,\, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\longleftrightarrow}} y\\
 bot &\text{si } \exists y \in \partial^{in}R(m)\quad \Theta(y) = bot,\, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\longleftrightarrow}} y\\
-null, &\text{si } \forall y \in \partial^{in}R(m)\quad \Theta(y) \neq null,\, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\nlongleftrightarrow}} y,
+null &\text{si } \forall y \in \partial^{in}R(m)\quad \Theta(y) \neq null,\, x\overset{\omega}{\underset{R(m) \setminus R(\ell)}{\nlongleftrightarrow}} y,
 \end{array} \right..
 $$
 
@@ -243,32 +249,32 @@ $$
 \caption{Exemples d'une condition aux bords}
 \end{figure}
 
-Nous définissons désormais l'événement $\{T\longleftrightarrow B\}$ en tenant compte des conditions aux bords. Nous disons que $\{top\longleftrightarrow bot\}$ arrive dans la boite $R(\ell)$ s'il existe une connexion entre deux sommets $x,y$ tels que $\Pi_{\ell}(x) = top, \Pi_{\ell}(y) = bot$.
+Nous définissons ensuite la connexion entre le bord supérieur et le bord inférieur en tenant compte des conditions aux bords. Nous disons que l'événement $\{top\longleftrightarrow bot\}$ arrive dans la boîte $R(\ell)$ s'il existe un chemin ouvert entre deux sommets $x,y$ tels que $\Pi_{\ell}(x) = top, \Pi_{\ell}(y) = bot$.
 \section{La propagation des conditions aux bords}
 Nous considérons désormais le régime surcritique, qui correspond à $p>\frac{1}{2}$ en dimension 2. Nous nous intéressons à la probabilité qu'une arête fixée soit dans l'interface. Soit $e_0$ l'arête d'extrémités $(0,0)$ et $(0,1)$. Notre objectif est de montrer que, à $t$ fixé, la probabilité $P(e_0 \in I^\ell_t)$ converge lorsque $\ell$ tend vers l'infini. Intuitivement, nous imaginons que l'influence des conditions aux bords disparaissent lorsque la taille de la boîte grandit. %Plus précisément, nous considérons un couplage de processus de percolation dynamique conditionné à la condition $T\nlongleftrightarrow B$ dans deux boîtes de taille $l$ munies de deux conditions aux bords qui diffèrent en un seul sommet $v_0$. La proposition suivante décrit la façon dont cette différence au bord induit une différence à l'arête $e_0$.
-
-Plus formellement, soit $R(\ell)$ une boîte dans $(\mathbb{Z}^2,\mathbb{E}^2)$ et considérons deux conditions aux bords $\Pi, \Pi'$ sur $R(\ell)$ qui diffèrent en un seul sommet $v_0$. Nous considérons $(X_t)_{t\geqslant 0}$ le processus de percolation dynamique dans $R(\ell)$ et deux couplages $(X,Y)$ et $(X,Y')$ conditionnés par l'événement $\{top\nlongleftrightarrow bot\}$ associés aux deux conditions aux bords $\Pi, \Pi'$. Notons $D_t$ l'ensemble des arêtes qui sont différentes dans les deux configurations $Y_t,Y'_t$.
+Plus formellement, soit $R(\ell)$ une boîte dans $(\mathbb{Z}^2,\mathbb{E}^2)$ et considérons deux conditions aux bords $\Pi, \Pi'$ sur $R(\ell)$ qui diffèrent en un seul sommet $v_0$ sur le bord gauche de $R(\ell)$. Nous considérons $(X_t)_{t\geqslant 0}$ le processus de percolation dynamique dans $R(\ell)$ et deux couplages $(X,Y)$ et $(X,Y')$ conditionnés par l'événement $\{top\nlongleftrightarrow bot\}$ associés aux deux conditions aux bords $\Pi, \Pi'$ construit sur l'espace de probabilité de la construction graphique. Pour $t\geqslant 0$, nous notons $D_t$ l'ensemble des arêtes qui sont différentes dans les deux configurations $Y_t,Y'_t$.
 
 \begin{chaine}
 \label{chaine}
-Soit $\theta>0$ le premier instant où $e_0$ diffère dans les deux processus $(Y_t)_{t\geqslant 0}$ et $(Y_t')_{t\geqslant 0}$. Il existe un entier aléatoire $N$, une suite d'arêtes aléatoires $e_1,\dots,e_N$ et des instants aléatoires $0<\theta_1< \theta_2<\dots<\theta_N=\theta$ qui vérifient les conditions suivantes:
-
+Soit $\theta>0$ le premier instant où $e_0$ diffère dans les deux processus $(Y_t)_{t\geqslant 0}$ et $(Y_t')_{t\geqslant 0}$. Il existe un entier aléatoire $N$, une suite aléatoires $e_1,\dots,e_N$ et des instants aléatoires $0<\theta_1< \theta_2<\dots<\theta_N=\theta$. 
+Notons $$ e_1^*=\langle x_i^*,y_i^*\rangle, \dots,e_N^*=\langle x_N^*,y_N^*\rangle
+$$ les arêtes duales de $e_1,\dots,e_N$, ainsi que leurs extrémités, alors nous avons,
 \begin{enumerate}[leftmargin =*]
-\item à l'instant $\theta_1$, il existe deux chemins $\gamma_1^*,\rho_1^*$ disjoints dont les arêtes sont fermées en dehors de $D_{\theta_i}^*$ qui relient $e_1^*$ et le bord vertical contenant $v_0$.
+\item à l'instant $\theta_1$, il existe deux chemins $\gamma_1^*,\rho_1^*$ disjoints dont les arêtes sont fermées en dehors de $D_{\theta_1}^*$ qui relient $x_1^*$ et $y_1^*$ au bord gauche de $\partial^{ext}R^*(\ell)$.
 
-\item pour tout $1<i\leqslant N$, à l'instant $\theta_i$, il existe deux chemins $\gamma_i^*,\rho_i^*$ disjoints dont les arêtes en dehors de $D_{\theta_i}^*$ sont fermées dans les deux configurations $Y_{\theta_i}$ et $Y'_{\theta_i}$. De plus, $\gamma_i^*,\rho_i^*$ relient $e_{i-1}^*$ et $e_i^*$;
+\item pour tout $1<i\leqslant N$, à l'instant $\theta_i$, il existe deux chemins $\gamma_i^*,\rho_i^*$ disjoints dont les arêtes en dehors de $D_{\theta_i}^*$ sont fermées dans les deux configurations $Y_{\theta_i}$ et $Y'_{\theta_i}$. De plus, $\gamma_i^*$ relie $x_{i-1}^*$ à $x_i^*$, et $\rho_i^*$ relie  $y_{i-1}^*$ à $y_i^*$;
 
-\item pour tout $1\leqslant i \leqslant N$, à l'instant $\theta_i$, l'arête $e_i$ devient différente dans les deux processus. Il existe un ensemble d'arêtes $S_i$ qui sépare $T(\ell)$ et $B(\ell)$ et un chemin $c^*_i$ disjoint de $S_i$ tel que $c_i^* \subset (\gamma_i^*\cup \rho_i^*)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert \gamma_i^*\cup \rho_i^* \vert$. Toutes les arêtes de $S_i\setminus D_{\theta_i}$ et de  $c^*_i\setminus D_{\theta_i}^*$ sont fermées.
+\item pour tout $1\leqslant i \leqslant N$, à l'instant $\theta_i$, l'arête $e_i$ devient différente dans les deux processus. Il existe un ensemble d'arêtes $S_i$ qui sépare $T(\ell)$ et $B(\ell)$ et un chemin $c^*_i$ disjoint de $S^*_i$ tel que $c_i^* \subset (\gamma_i^*\cup \rho_i^*)$ et $\vert c_i^*\vert \geqslant \frac{1}{2} \vert \gamma_i^*\cup \rho_i^* \vert$. Toutes les arêtes de $S_i\setminus D_{\theta_i}$ et de  $c^*_i\setminus D_{\theta_i}^*$ sont fermées.
 \end{enumerate}
 
 \end{chaine}
 \begin{proof}
 Nous notons $\tau_0 = 0$, et $$\tau_i = \inf \, \big\{\,s > \tau_{i-1}: \exists e \in R(\ell)\quad Y_{s^-}(e) = Y'_{s^-}(e),Y_s(e) \neq Y'_s(e)\,\big\}.$$ Nous pouvons aussi supposer $\Pi'(v_0)=top$ sans perte de généralité. 
 
-Nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux processus. Par symétrie, nous pouvons supposer que $v_0$ soit dans le bord gauche et que $e_1$ est fermée dans le processus $(Y'_t)_{t\geqslant 0}$. Cette arête devient différente car il si elle était ouverte dans la configuration $Y'_{\tau_1}$, il existerait un chemin ouvert entre $top$ et $bot$, alors que ce n'est pas le cas dans la configuration $Y_{\tau_1}$. Il existe donc un chemin ouvert entre $e_1$ et le sommet $v_0$ à l'instant $\tau_1$. Nous considérons le cluster ouvert $C_1$ contenant ce chemin dans la configuration $Y'_{\tau_1}$, il n'est pas connecté à $B$ vu la condition $top\nlongleftrightarrow bot$. De plus, le cluster $C_1$ n'est pas connecté à $top$ car s'il l'était, l'événement $\{top\longleftrightarrow top\}$ arriverait dans la configuration $Y_{\tau_1}$ dans laquelle $e_1$ est ouverte. Considérons le bord arête de $C_1$:
+Nous considérons maintenant la première arête $e_1$ qui devient différente dans les deux processus $(Y_t)_{t\geqslant 0}$ et $(Y'_t)_{t\geqslant 0}$. Supposons par exemple $e_1$ est fermée dans le processus $(Y'_t)_{t\geqslant 0}$. Cette arête devient différente car si elle était ouverte dans la configuration $Y'_{\tau_1}$, il existerait un chemin ouvert entre $top$ et $bot$, alors que ce n'est pas le cas dans la configuration $Y_{\tau_1}$. Nécessairement, il existe un chemin ouvert entre une extrémité de $e_1$ et le sommet $v_0$ à l'instant $\tau_1$. Nous considérons le cluster ouvert $C_1$ contenant ce chemin dans la configuration $Y'_{\tau_1}$. Le cluster $C_1$ n'est pas connecté à $B$ vu la condition $\{top\nlongleftrightarrow bot\}$. De plus, le cluster $C_1$ n'est pas connecté à $top$ car s'il l'était, l'événement $\{top\longleftrightarrow bot\}$ arriverait dans la configuration $Y_{\tau_1}$ dans laquelle $e_1$ est ouverte. Considérons le bord arête de $C_1$:
 $$ S_1 \,=\, \big\{\, e = \langle x,y\rangle :\quad x\in C_1, y\notin C_1\,\big\}
 $$
-L'arête $e_1$ appartient à $S_1$, les arêtes de $S_1$ sont fermées et l'ensemble $S_1$ sépare $C_1$ de $top$ et de $bot$. Comme la dimension est 2, l'ensemble dual $S_1^*$ contient un chemin dual fermé qui sépare $C_1$ de $top,bot$, et ce chemin passe nécessairement par $e_1^*$; en particulier si nous enlevons $e_1^*$ de ce chemin, nous obtenons 2 chemins disjoints que nous notons $\gamma_1^*, \rho_1^*$. Chacun de ces chemins relie une extrémité de $e_1^*$ au bord vertical contenant $v_0$(voir Figure \ref{fig:e1}). 
+L'arête $e_1$ appartient à $S_1$, les arêtes de $S_1$ sont fermées et l'ensemble $S_1$ sépare $C_1$ de $top$ et de $bot$. Comme la dimension est 2, l'ensemble dual $S_1^*$ contient un chemin dual fermé qui sépare $C_1$ de $top,bot$, et ce chemin passe nécessairement par $e_1^*$; en particulier si nous enlevons $e_1^*$ de ce chemin, nous obtenons 2 chemins disjoints que nous notons $\gamma_1^*, \rho_1^*$. Chacun de ces chemins relie une extrémité de $e_1^*$ au bord gauche de $\partial^{ext}R^*(\ell)$ (voir Figure \ref{fig:e1}). 
 \begin{figure}[h]
 \begin{minipage}{0.45\linewidth}
 \center
@@ -282,7 +288,6 @@ L'arête $e_1$ appartient à $S_1$, les arêtes de $S_1$ sont fermées et l'ense
 \draw (2.3,2.9) node{$e_0$};
 \draw (0,3.2) .. controls (1,2.7) .. (e+);
 \draw (e-) .. controls (4,2) and (3,1.2) .. (4,0);
-\draw[dashed] (2,4) .. controls (0.5,3.5) .. (1,2.8);
 \draw[dashed, red, rounded corners] (0,2.2) .. controls (1,1.5) and (1.5,2.7).. (2,2.9)
 					.. controls (3,4) .. (0,3.5);
 \end{tikzpicture}
@@ -298,7 +303,6 @@ L'arête $e_1$ appartient à $S_1$, les arêtes de $S_1$ sont fermées et l'ense
 \draw (2.3,2.9) node{$e_0$};
 \draw (0,3.2) .. controls (1,2.7) .. (e+);
 \draw (e-) .. controls (4,2) and (3,1.2) .. (4,0);
-\draw[dashed] (2,0) .. controls (0.5,1.5) .. (1,2.8);
 \draw[dashed, red, rounded corners] (0,2.2) .. controls (1,1.5) and (1.5,2.7).. (2,2.9)
 					.. controls (3,4) .. (0,3.5);
 \end{tikzpicture}
@@ -307,35 +311,31 @@ L'arête $e_1$ appartient à $S_1$, les arêtes de $S_1$ sont fermées et l'ense
 \label{fig:e1}
 \end{figure}
 
-Considérons maintenant la ième arête $e_i$ qui devient différente dans les deux processus $(Y_t)_{t\geqslant 0}$ et $(Y'_t)_{t\geqslant 0}$. Notons $x_i,y_i$ les extrémités de $e_i$. Nous supposons par exemple que $e_i$ est ouverte dans $Y_{\tau_i}$ et fermé dans $Y'_{\tau_i}$. Nécessairement, l'une extrémité de $e_i$ est reliée à $bot$ dans $Y'_{\tau_i}$, par exemple $x_i$, et l'autre extrémité $y_i$ est reliée à $top$ dans $Y'_{\tau_i}$. Par contre, ce n'est pas le cas dans $Y_{\tau_i}$, sinon l'arête $e_i$ ne pourrait pas s'ouvrir dans $(Y_{t})_{t\geqslant 0}$ à l'instant $\tau_i$.
-
-Choisissons dans $Y'_{\tau_i}$ un chemin ouvert de $x_i$ à $bot$ et un chemin ouvert de $y_i$ à $top$.
+Considérons maintenant la ième arête $e_i$ qui devient différente dans les deux processus $(Y_t)_{t\geqslant 0}$ et $(Y'_t)_{t\geqslant 0}$. Notons $x_i,y_i$ les extrémités de $e_i$. Nous supposons par exemple que $e_i$ est ouverte dans $Y_{\tau_i}$ et fermé dans $Y'_{\tau_i}$. Nécessairement, l'une extrémité de $e_i$ est reliée à $bot$ dans $Y'_{\tau_i}$, par exemple $x_i$, et l'autre extrémité $y_i$ est reliée à $top$ dans $Y'_{\tau_i}$. Par contre, ce n'est pas le cas dans $Y_{\tau_i}$, sinon l'arête $e_i$ ne pourrait pas s'ouvrir dans $(Y_{t})_{t\geqslant 0}$ à l'instant $\tau_i$. Choisissons dans $Y'_{\tau_i}$ un chemin ouvert de $x_i$ à $bot$ et un chemin ouvert de $y_i$ à $top$.
 Deux cas se présentent:
 \begin{itemize}[label = $\bullet$, leftmargin =*]
 \item Premier cas: les deux chemins sont aussi ouverts dans $Y_{\tau_i}$. Nécessairement, le chemin ouvert de $y_i$ à $top$ relie $y_i$ à $v_0$;
 \item Second cas: les deux chemins ne sont pas tous les deux ouverts dans $Y_{\tau_i}$.
 \end{itemize}
 
-Le premier cas est similaire au cas de l'arête $e_1$. La seule différence c'est que nous trouvons les deux chemins fermés dans la configuration $Y_{\tau_i}\wedge Y'_{\tau_i}$ à cause de l'existence des arêtes différentes. Nous considérons désormais le second cas.
+Le premier cas est similaire au cas de l'arête $e_1$. La seule différence c'est que nous trouvons les deux chemins $\gamma_i^*,\rho_i^*$ que nous obtenons sont fermés dans la configuration $Y_{\tau_i}\wedge Y'_{\tau_i}$ certaines arêtes sont différentes. Nous considérons désormais le second cas.
 
-Considérons $R_i = R_i^1\cup R_i^2$ un sous-ensemble de $D_{\tau_i}$ avec:
-\begin{multline*}R_i^1 \,=\, \big\{ \,e \,=\, \langle x,y\rangle: \quad x\longleftrightarrow x_i \text{ dans } Y_{\tau_i}\wedge Y'_{\tau_i}
- \quad y\longleftrightarrow bot\text{ dans }Y'_{\tau_i}\\
-Y_{\tau_i}(e) = 0\quad Y'_{\tau_i}(e) = 1
+Considérons $R_i = R_i^1\cup R_i^2$ le sous-ensemble de $D_{\tau_i}$ défini par:
+\begin{multline*}R_i^1 \,=\, \big\{ \,e \,=\, \langle x,y\rangle: x\longleftrightarrow x_i \text{ dans } Y_{\tau_i}\wedge Y'_{\tau_i}
+ , y\longleftrightarrow bot\text{ dans }Y'_{\tau_i},\\
+Y_{\tau_i}(e) = 0, Y'_{\tau_i}(e) = 1
 \,\big\}
 \end{multline*}
 et 
-\begin{multline*}R_i^2 \,=\, \big\{ \,e \,=\, \langle x,y\rangle: \quad x\longleftrightarrow y_i \text{ dans } Y_{\tau_i}\wedge Y'_{\tau_i}
- \quad y\longleftrightarrow top\text{ dans }Y'_{\tau_i}\\
-Y_{\tau_i}(e) = 0\quad Y'_{\tau_i}(e) = 1
+\begin{multline*}R_i^2 \,=\, \big\{ \,e \,=\, \langle x,y\rangle: x\longleftrightarrow y_i \text{ dans } Y_{\tau_i}\wedge Y'_{\tau_i},
+ y\longleftrightarrow top\text{ dans }Y'_{\tau_i},\\
+Y_{\tau_i}(e) = 0, Y'_{\tau_i}(e) = 1
 \,\big\}
 \end{multline*}
 
-L'ensemble $R_i$ n'est pas vide, sinon les événements $\{x_i\longleftrightarrow bot\}$ et $\{y_i\longleftrightarrow top\}$ arriveraient dans $Y_{\tau_i}$. Nous disons que $R_i$ est l'ensemble des arêtes qui causent la différence en $e_i$. Nous fixons un ordre arbitraire sur $\mathbb{E}^2$ et nous ordonnons l'ensemble $R_i$ avec cet ordre. Nous notons $e_j$ la première arête de $R_i$. Notons $x_j,y_j$ les extrémités de $e_j$ et supposons par exemple que $y_j \longleftrightarrow top$ dans $Y'_{\tau_i}$ et $y_i\longleftrightarrow x_j$ dans $Y'_{\tau_i}\wedge Y_{\tau_i}$. (Le cas où $y_j\longleftrightarrow bot$, $x_i\longleftrightarrow x_j$ se traite de manière analogue.)
-
-Soit $c_i'$ un chemin de $x_j$ à $y_i$ qui est ouvert dans $Y_{\tau_i}\wedge Y'_{\tau_i}$ et soit $C_i'$ le cluster ouvert dans $Y'_{\tau_i}$ qui contient $c_i$. Le cluster $C'_i$ n'est pas connecté à $top$ dans $Y_{\tau_i}$ car $e_i$ est ouverte, il n'est pas connecté à $B$ dans $Y'_{\tau_i}$ car $e_j$ est ouverte. Il existe donc un ensemble $B_i^*$ d'arêtes duales qui séparent $C'_i$ de $top$ et de $bot$, et qui sont fermées dans $Y_{\tau_i}\wedge Y'_{\tau_i}$.
-
-Comme nous sommes en dimension 2, nous pouvons de plus choisir $B_i^*$ de sorte que les arêtes de $B_i^*$ forment un circuit entourant $C'_i$ et qui passe par les arêtes $e_i^*$ et $e_j^*$. Dans ce cas, l'ensemble $B_i^*\setminus \{e_i^*,e_j^*\}$ est formé de deux chemins $\gamma_i^*, \rho_i^*$
+L'ensemble $R_i$ n'est pas vide, sinon les événements $\{x_i\longleftrightarrow bot\}$ et $\{y_i\longleftrightarrow top\}$ arriveraient dans $Y_{\tau_i}$ et $e_i$ ne pourrait être ouverte dans $Y_{\tau_i}$. Nous appelons que $R_i$ est l'ensemble des arêtes qui causent la différence en $e_i$. Nous fixons un ordre arbitraire sur $\mathbb{E}^2$ et nous ordonnons l'ensemble $R_i$ avec cet ordre. Nous notons $e_j$ la première arête de $R_i$ selon cet ordre. Supposons par exemple que $y_j \longleftrightarrow top$ dans $Y'_{\tau_i}$ et $y_i\longleftrightarrow x_j$ dans $Y'_{\tau_i}\wedge Y_{\tau_i}$. (Le cas où $y_j\longleftrightarrow bot$, $x_i\longleftrightarrow x_j$ se traite de manière analogue.)
+Soit $c_i'$ un chemin de $x_j$ à $y_i$ qui est ouvert dans $Y_{\tau_i}\wedge Y'_{\tau_i}$ et soit $C_i'$ le cluster ouvert dans $Y'_{\tau_i}$ qui contient $c_i$. Le cluster $C'_i$ n'est pas connecté à $top$ dans $Y_{\tau_i}$ car $e_i$ est ouverte dans $Y'_{\tau_i}$, il n'est pas connecté à $bot$ dans $Y_{\tau_i}$ car $e_j$ est ouverte dans $Y'_{\tau_i}$. Il existe donc un ensemble $B_i^*$ d'arêtes duales qui séparent $C'_i$ de $top$ et de $bot$, et qui sont fermées dans $Y_{\tau_i}\wedge Y'_{\tau_i}$.
+Comme nous sommes en dimension 2, nous pouvons de plus choisir $B_i^*$ de sorte que les arêtes de $B_i^*$ forment un circuit entourant $C'_i$ et qui passe par les arêtes $e_i^*$ et $e_j^*$. Dans ce cas, l'ensemble $B_i^*\setminus \{e_i^*,e_j^*\}$ est formé de deux chemins $\gamma_i^*, \rho_i^*$ disjoints.
 \begin{figure}[h]
 
 \begin{minipage}{0.45\linewidth}
@@ -354,7 +354,6 @@ Comme nous sommes en dimension 2, nous pouvons de plus choisir $B_i^*$ de sorte 
 \draw (1,4) .. controls (1.5,3) .. (ej+);
 \draw (ej-) .. controls (3,2) .. (ei+);
 \draw (ei-) .. controls (2,0.5) .. (2.5,0);
-\draw[dashed] (4,4) .. controls (4,3) .. (3,2);
 \draw[dashed, red, rounded corners] (ej) .. controls (1,2.5) and (1.5,0.7).. (ei)
 					.. controls (4,1.4) and (3.5,2.5).. (ej);
 \end{tikzpicture}
@@ -375,7 +374,6 @@ Comme nous sommes en dimension 2, nous pouvons de plus choisir $B_i^*$ de sorte 
 \draw (1,4) .. controls (1.5,3) .. (ej+);
 \draw (ej-) .. controls (3,2) .. (ei+);
 \draw (ei-) .. controls (2,0.5) .. (2.5,0);
-\draw[dashed] (1,0) .. controls (2.5,2) .. (3,2);
 \draw[dashed, red, rounded corners] (ej) .. controls (1,2.5) and (1.5,0.7).. (ei)
 					.. controls (4,1.4) and (3.5,2.5).. (ej);
 \end{tikzpicture}
@@ -385,14 +383,8 @@ Comme nous sommes en dimension 2, nous pouvons de plus choisir $B_i^*$ de sorte 
 \label{fig:ei}
 \end{figure}
 
-Voyons maintenant le troisième point, nous considérons le circuit $B_i^*$, la condition $top\nlongleftrightarrow bot$ impose qu'il existe un ensemble $K_i$ séparant $top$ et $bot$ dans la configuration $Y'_{\tau_i}$. Vu que la dimension est 2, nous pouvons supposer que $K_i^*$ est un chemin fermé. Comme $e_i$ est pivot pour $top\longleftrightarrow bot$ dans la configuration $Y'_{\tau_i}$, nécessairement $K_i^*$ emprunte l'arête $e_i^*$. Nous pouvons numéroter les arêtes de $K_i$ de la façon suivante:
-\begin{itemize}[label = $\bullet$, leftmargin =*]
-\item nous posons $e^*_i = k_0$;
-\item si $e^*_i$ est horizontale, nous posons $k_{-1}$ l'arête qui partage le sommet gauche de $e^*_i$ et $k_1$ l'arête qui partage le sommet droite. S'il $e_i^*$ est verticale, nous posons $k_{-1}$ l'arête en bas et $k_1$ celle en haut.
-\item Nous nous éloignons de $e_i$, jusqu'à avoir numéroté toutes les arêtes. Dans la direction négative, nous diminuons l'indice de 1 à chaque pas et nous augmentons de 1 par pas dans la direction positive.
-
-
-Nous considérons maintenant l'arête minimale et l'arête maximale de l'ensemble $K_i\cap (\gamma_i^1\cup \rho_i^2)$ que nous notons $k_{min}$ et $k_{max}$. Les deux arêtes $k_{min}$ et $k_{max}$ coupe $K_i$ en 3 parties disjointes: $C^g_i$ un chemin entre le bord gauche et $k_{min}$; $C^d_i$ un chemin entre le bord droite et $k_{max}$; un chemin entre $k_{min}$ et $k_{max}$ contenant ces deux arêtes. De plus, les deux sommets qui séparent ces trois parties coupent le contour $\gamma_i^1\cup \rho_i^2$ en deux chemins disjoints $c_i^1$ et $c_i^2$. Quitte à échanger les numéros, nous supposons que $|c_i^1| \geqslant |c_i^2|$.
+Voyons maintenant le troisième point. Nous considérons le circuit $B_i^*$. La condition $top\nlongleftrightarrow bot$ impose qu'il existe un ensemble $K_i$ séparant $top$ et $bot$ dans la configuration $Y'_{\tau_i}$. Vu que la dimension est 2, nous pouvons supposer que $K_i^*$ est un chemin fermé. Comme $e_i$ est pivot pour $top\longleftrightarrow bot$ dans la configuration $Y'_{\tau_i}$, nécessairement $K_i^*$ emprunte l'arête $e_i^*$. Nous pouvons numéroter les arêtes de $K_i$ selon un ordre croissant de gauche à droite. 
+Nous considérons maintenant l'arête minimale et l'arête maximale de l'ensemble $K_i\cap (\gamma_i\cup \rho_i)$ que nous notons $k_{min}$ et $k_{max}$. L'ensemble $K_i\setminus \{k_{min} ,k_{max}\}$ se décompose en 3 chemins disjoints: $C^g_i$ un chemin entre le bord gauche et $k_{min}$; $C^d_i$ un chemin entre le bord droit et $k_{max}$; un chemin entre $k_{min}$ et $k_{max}$ contenant ces deux arêtes. De plus, les deux sommets qui séparent ces trois parties coupent le contour $\gamma_i^1\cup \rho_i^2$ en deux chemins disjoints $c_i^1$ et $c_i^2$. Quitte à échanger les numéros, nous supposons que $|c_i^1| \geqslant |c_i^2|$.
 \begin{figure}[h]
 \center
 \begin{tikzpicture}
@@ -418,25 +410,25 @@ Pour terminer, nous posons $S^*_i = C^g_i \cup C^d_i \cup c_i^2$ un chemin ferm�
 
 
 Enfin, pour obtenir la suite $(e_i)_{i\geqslant 1}$ d'arêtes et les temps $(\theta_i)_{i\geqslant 1}$ comme  dans l'énoncé, nous partons de l'instant $\theta$ pour trouver une arête qui a causé la différence à $e_0$, ensuite nous répétons cette procédure à l'instant où cette arête est devenue différente jusqu'à arriver au bord. Comme chaque ouverture ou fermeture d'une arête ne peut se produire qu'aux instants d'arrivée des processus de Poisson, il y a presque sûrement un nombre fini d'arêtes qui sont devenues différentes avant $\theta$. Nous pouvons donc trouver une suite finie d'arêtes $e_0,e_1,\dots, e_N$ avec $e_N = e_0$ et des instants $\theta_1<\dots< \theta_N = \theta$ qui vérifient les deux premiers points de l'énoncé.
-\end{itemize}
 \end{proof}
 
 \section{Une inégalité BK temporelle}
 Nous énonçons ici pour le processus de percolation dynamique une inégalité de type BK. Nous commençons par généraliser la notion de l'occurrence disjointe pour des événements qui arrivent à des instants différents.
-
-Nous considérons le processus de percolation dynamique $(X_t)_{t\geqslant 0}$. Notons, pour une configuration $\omega$, $$K(\omega) = \{e: \omega(e)=1\}$$ l'ensemble des arêtes ouvertes dans la configuration $\omega$. Nous définissons l'occurrence disjointe comme suit:
+Nous considérons le processus de percolation dynamique $(X_t)_{t\geqslant 0}$. Nous notons, pour une configuration $\omega$, $$K(\omega) = \{e: \omega(e)=1\}$$ l'ensemble des arêtes ouvertes dans la configuration $\omega$. Nous définissons l'occurrence disjointe comme suit:
 \begin{occ}
-Soient $A$, $B$ 2 événements qui arrivent à deux instants $0\leqslant s \leqslant t$, l'occurrence disjointe de $A$ et $B$ noté par $\smash{A\overset{s,t}{\circ} B}$ est l'événement défini par:
+Soient $A$, $B$ 2 événements de percolation et deux instants $0\leqslant s \leqslant t$, l'occurrence disjointe de $A$ et $B$, instants $s$ et $t$, noté par $\smash{A\overset{s,t}{\circ} B}$ est l'événement défini par:
 \begin{itemize}[leftmargin=*]
-\item si $s=t$, $A\overset{s,t}{\circ} B = \{\, \exists\omega_1\in A,\exists\omega_2\in B \quad K(\omega_1)\cap K(\omega_2) = \emptyset, K(\omega_1)\cup K(\omega_2)\subset K(X_t) \,\}$;
-\item si $s<t$, $A\overset{s,t}{\circ} B = \{\, \exists\omega_1\in A,\exists\omega_2\in B\quad K(\omega_1)\subset K(X_s),K(\omega_2)\subset K(X_t)\text{ et } \forall e\in K(\omega_1)\cap K(\omega_2) \quad \exists r\in [s,t]\, X_r(e) \neq X_s(e) \,\}$.
+\item si $s=t$, $$A\overset{s,t}{\circ} B = \big\{\, \exists\omega_1\in A,\exists\omega_2\in B \quad K(\omega_1)\cap K(\omega_2) = \emptyset, K(\omega_1)\cup K(\omega_2)\subset K(X_t) \,\big\};$$
+\item si $s<t$, 
+\begin{multline*} A\overset{s,t}{\circ} B = \big\{\, \exists\omega_1\in A,\exists\omega_2\in B\quad K(\omega_1)\subset K(X_s),K(\omega_2)\subset K(X_t)\text{ et }\\ \forall e\in K(\omega_1)\cap K(\omega_2) \quad \exists r\in [s,t]\quad X_r(e) \neq X_s(e) \,\big\}.
+\end{multline*}
 \end{itemize}
 \end{occ}
-Nous énonçons l'inégalité de BK pour la percolation dynamique:
+Nous énonçons alors une inégalité de BK pour la percolation dynamique.
 
 
 \begin{bk}
-Soient $0 \leqslant s \leqslant t$ deux instants, soit un événement croissant $A$ qui dépend d'un nombre fini d'arêtes à l'instant $s$, et un autre événement croissant $B$ qui dépend d'un nombre fini d'arête à l'instant $t$, alors $$P(A\overset{s,t}{\circ}B) \leqslant P(A)P(B).$$
+Soient $0 \leqslant s \leqslant t$ deux instants. Soient deux  événements croissants $A,B$ qui dépendant d'un nombre fini d'arêtes, alors $$\mathbb{P}(A\overset{s,t}{\circ}B) \leqslant P(A)P(B).$$
 \end{bk}
 
 \begin{proof}
@@ -455,28 +447,28 @@ $$
 
 Il reste le cas où l'arête $e_k$ est pivot pour $A$ et $B$. Quitte à changer $p$ en $(1-p)$, nous pouvons supposer que $\omega^{e_k}\in A$, il faut donc distinguer deux cas:
 \begin{itemize}[label = $\bullet$, leftmargin = *]
-\item Si $\omega^{e_k}\in A, \omega^{e_k}\in B$, nous devons avoir $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$ pour $A\circ B_{k-1}$. Pour $A\circ B_k$, il faut $x_k(s)=1$ et $y_k(t)=1$. Nous montrons que $$P\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big)\leqslant P(x_k(s)=1,y_k(t)=1).$$
+\item Si $\omega^{e_k}\in A, \omega^{e_k}\in B$, nous devons avoir $x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0$ pour $A\circ B_{k-1}$. Pour $A\circ B_k$, il faut $x_k(s)=1$ et $y_k(t)=1$. Nous montrons que $$\mathbb{P}\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big)\leqslant \mathbb{P}(x_k(s)=1,y_k(t)=1).$$
 
 Nous considérons la première instant de saut de $x_k$, soit 
 $$T = \inf\{ r> s, x_k(s) =0 \}
 $$
 et nous conditionnons la première probabilité par $\{T=r\}$, et nous utilisons la propriété de Markov forte qui donne:
 \begin{align*}
-&P\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big) \\
+&\mathbb{P}\big(x_k(s) = 1, x_k(t) =1, \exists r\in [s,t], x_k(r) = 0\big) \\
 &= E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{x_k(t) = 1}\mathbf{1}_{T<t}\right] \\
 &= E\left[E[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{x_k(t) = 1}\mathbf{1}_{T<t}| T=r]\right] \\
 &= E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{T = r}E[\mathbf{1}_{x_k(t) = 1}| T=r]\right] \\
 & = E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{T <t}P_0(x'_k(t-r) =1)\right] \\
 & \leqslant E\left[\mathbf{1}_{x_k(s) = 1}\mathbf{1}_{T <t}\right]P(y_k(t-r) =1)\\
-& = P(x_k(s) = 1, T< t) P(y_k(t)=1) \\
-& \leqslant P(x_k(s)=1, y_k(t) = 1).
+& = \mathbb{P}(x_k(s) = 1, T< t) P(y_k(t)=1) \\
+& \leqslant \mathbb{P}(x_k(s)=1, y_k(t) = 1).
 \end{align*}
-Avec $x'_k$ le processus démarré à $T$. Nous avons $P_0(x'_k(t-r) = 1) \leqslant P(y_k(t-r) = 1)$ car $\{x_k(t-r) = 1\}$ est un événement croissant. Nous avons $P(y_k(t-r)= 1) = P(y_k(t)+1)$ car $y_k$ est stationnaire à l'équilibre.
+Avec $x'_k$ le processus démarré à $T$. Nous avons $\mathbb{P}_0(x'_k(t-r) = 1) \leqslant \mathbb{P}(y_k(t-r) = 1)$ car $\{x_k(t-r) = 1\}$ est un événement croissant. Nous avons $\mathbb{P}(y_k(t-r)= 1) = \mathbb{P}(y_k(t)+1)$ car $y_k$ est stationnaire à l'équilibre.
 
-\item Si $\omega^{e_k}\in A, \omega_{e_k}\in B$, nous devons avoir $x_k(s)=1,x_k(t)=0$ pour réaliser $A\circ B_{k-1}$ et $x_k(s) = 1, y_k(t) = 0$ pour réaliser $A\circ B_k$. Or l'événement $x_k(t) = 1$ est un événement croissant, nous avons $$P_0(x_k(t-s) = 1)\leqslant P(x_k(t-s) =1).$$ Par la propriété de Markov forte, nous avons:
+\item Si $\omega^{e_k}\in A, \omega_{e_k}\in B$, nous devons avoir $x_k(s)=1,x_k(t)=0$ pour réaliser $A\circ B_{k-1}$ et $x_k(s) = 1, y_k(t) = 0$ pour réaliser $A\circ B_k$. Or l'événement $x_k(t) = 1$ est un événement croissant, nous avons $$\mathbb{P}_0(x_k(t-s) = 1)\leqslant\mathbb{P}(x_k(t-s) =1).$$ Par la propriété de Markov forte, nous avons:
 \begin{align*}
-P(x_k(s) = 0, x_k(t) = 1) &= E[\mathbf{1}_{x_k(s)=0}P_0(x_k(t-s) = 1)]\\
-& \leqslant P(x_k(s) = 0) P(y_k(t) = 1)
+\mathbb{P}(x_k(s) = 0, x_k(t) = 1) &= E[\mathbf{1}_{x_k(s)=0}\mathbb{P}_0(x_k(t-s) = 1)]\\
+& \leqslant \mathbb{P}(x_k(s) = 0) \mathbb{P}(y_k(t) = 1)
 \end{align*}
 \end{itemize}
 
@@ -486,7 +478,7 @@ Nous obtenons l'inégalité voulu en combinant les deux cas précédents: $$P_{1
 Enfin, nous en déduisons l'inégalité de BK en effectuant une récurrence sur $k$. 
 \end{proof}
 
-\section{Décroissance exponentielle pour la percolation dynamique}
+\section{Décroissance exponentielle des STCs}
 Dans la phase surcritique, la probabilité d'avoir un chemin fermé décroît exponentiellement vite avec sa longueur. Nous avons des résultats similaires pour la percolation dynamique. Nous montrons d'abord que la probabilité d'avoir un chemin fermé décroît exponentiellement avec sa durée. C'est à dire:
 
 \begin{decexp}
@@ -499,9 +491,9 @@ $$
 avec $\lambda$ une constante indépendante de $\gamma,\rho$.
 \end{decexp}
 \begin{proof}
-Nous considérons une arête $(x,y)$ fermé et une modification locale $M$ pour l'ouvrir suivante: nous fermons deux arêtes perpendiculaires de même côté qui contiennent respectivement un sommet $x,y$ et l'arête qui relie ces deux arêtes; ensuite nous ouvrons l'arête $(x,y)$. Chaque étape de la modification est déterminée par une horloge exponentielle et elle respecte la condition de $T\nlongleftrightarrow B$. Entre $[0,1]$, cette modification a une probabilité positive $r$ pour se réaliser. Nous en déduisons qu'il existe une constante $\lambda$ pour qu'entre $[s,t]$, la probabilité que cette modification ne se réalise pas est inférieur à $e^{-\lambda(t-s)}$. 
+Nous considérons une arête $(x,y)$ fermé et une modification locale $M$ pour l'ouvrir suivante: nous fermons deux arêtes perpendiculaires de même côté qui contiennent respectivement un sommet $x,y$ et l'arête qui relie ces deux arêtes; ensuite nous ouvrons l'arête $(x,y)$. Chaque étape de la modification est déterminée par une horloge exponentielle et elle respecte la condition de $top\nlongleftrightarrow bot$. Entre $[0,1]$, cette modification a une probabilité positive $r$ de se réaliser. Nous en déduisons qu'il existe une constante $\lambda$ pour que entre $[s,t]$, la probabilité que cette modification ne se réalise pas est inférieur à $e^{-\lambda(t-s)}$. 
 
-Nous considérons maintenant deux arêtes $e,e'$ voisines, nous pouvons choisir les arêtes que nous modifions pour que $e,e'$ soient modifiées indépendamment. En effet, si les $e,e'$ sont colinéaires alors nous effectuons les modifications à différents côtés; si $e,e'$ sont perpendiculaires, alors nous effectuons la modification à l'extérieur de l'angle formé par $e,e'$, voir figure \ref{fig:mod}.
+Nous considérons maintenant deux arêtes $e,e'$ voisines, nous pouvons choisir les arêtes que nous modifions pour que $e,e'$ soient modifiées indépendamment. En effet, si les $e,e'$ sont colinéaires alors nous effectuons les modifications sur différents côtés; si $e,e'$ sont perpendiculaires, alors nous effectuons la modification à l'extérieur de l'angle formé par $e,e'$, voir figure \ref{fig:mod}.
 
 \begin{figure}[h]
 
@@ -561,16 +553,16 @@ Nous étudions la constante $\gamma(p,t)$ et nous avons la proposition suivante:
 \begin{tension}$\frac{\gamma(p,t)}{\gamma(p,0)} \rightarrow 1$ quand $p\rightarrow 1$.
 \end{tension}
 \begin{proof}
-Nous utilisons le fait que $\lim_n \frac{1}{n}\ln P(O\longleftrightarrow n\mathbf{e}_1) = \lim_n \frac{1}{n}\ln P(O\longleftrightarrow \partial \Lambda_n)$ et nous considérons une boite de taille $n$. Nous remarquons le nombre d'arête qui se ferme entre $[0,t]$ est borné par une loi de Poisson de paramètre $n^2(1-p)t$. Nous notons $N$ le nombre de bout d'un space-time chemin, c'est-à-dire le nombre de chemins fermés tel que $$ (O,0) = (x_1,\theta_1) \longleftrightarrow (x_1,\theta_2) \longleftrightarrow (x_2,\theta_2)\dots \longleftrightarrow (x_N,\theta_N) \longleftrightarrow (\partial\Lambda_n,t).
+Nous utilisons le fait que $\lim_n \frac{1}{n}\ln P(O\longleftrightarrow n\mathbf{e}_1) = \lim_n \frac{1}{n}\ln P(O\longleftrightarrow \partial \Lambda_n)$ et nous considérons une boîte de taille $n$. Nous remarquons le nombre d'arête qui se ferme entre $[0,t]$ est borné par une loi de Poisson de paramètre $n^2(1-p)t$. Nous notons $N$ le nombre de bout d'un space-time chemin, c'est-à-dire le nombre de chemins fermés tel que $$ (O,0) = (x_1,\theta_1) \longleftrightarrow (x_1,\theta_2) \longleftrightarrow (x_2,\theta_2)\dots \longleftrightarrow (x_N,\theta_N) \longleftrightarrow (\partial\Lambda_n,t).
 $$
 Nous avons donc $N$ est borné par une variable aléatoire de loi de Poisson de paramètre $n^2(1-p)t$. Quand $p\rightarrow 1$, nous pouvons rendre $N$ d'ordre de 1 avec une probabilité proche de 1 et nous avons le résultat.
 \end{proof}
 \end{comment}
 \section{La probabilité d'une influence du bord}
 
-Nous montrons maintenant que la probabilité que le bord influence une arête à l'intérieur de la boîte décroit exponentiellement avec la taille de la boite. 
+Nous montrons maintenant que la probabilité que le bord influence une arête à l'intérieur de la boîte décroit exponentiellement avec la taille de la boîte. 
 \begin{cvg}
-Soient $p\geqslant \frac{1}{2}, t> 0$, et $e_0$ l'arête d'extrémités $(0,0)$ et $(0,1)$, $Y,Y'$ deux processus de percolation dynamique dans la boîte $R(\ell)$ conditionnées par l'événement $\{top \nlongleftrightarrow bot\}$ définis avec deux conditions aux bords $\Pi, \Pi'$, il existe une constante $\lambda> 0$ telle que $$P\big(Y_t(e_0)\neq Y'_t(e)\big) \leqslant e^{-\lambda \ell} P(T\nlongleftrightarrow B \text{ entre }[0,t]).$$
+Soient $p\geqslant \frac{1}{2}, t> 0$, et $e_0$ l'arête d'extrémités $(0,0)$ et $(0,1)$. Soient $\Pi,\Pi'$ deux conditions aux bords et soient $(Y_t)_{t\geqslant 0},(Y'_t)_{t\geqslant 0}$ deux processus associés construits via le couplage, il existe une constante $\lambda> 0$ telle que $$\mathbb{P}\big(Y_t(e_0)\neq Y'_t(e)\big) \leqslant e^{-\lambda \ell}.$$
 \end{cvg}
 
 \begin{proof}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  20 SEP 2016 12:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.6.24)  20 SEP 2016 20:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -633,6 +633,9 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/centernot.sty
+Package: centernot 2011/07/11 v1.3 Centers the not symbol horizontally (HO)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
@@ -640,29 +643,51 @@ Package: parskip 2001/04/09 non-zero parskip adjustments
 \c@thm=\count125
 \c@prop=\count126
 \c@cor=\count127
- (./memoire.aux)
+ (./memoire.aux
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.49 ...nalty \@M \hskip \z@skip \egroup m1997}{3}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+
+LaTeX Warning: Label `H\unhbox \voidb@x \bgroup \accent 127a\penalty \@M \hskip
+ \z@skip \egroup ggstr\unhbox \voidb@x \bgroup \accent 127o\penalty \@M \hskip 
+\z@skip \egroup m1997' multiply defined.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.49 ...nalty \@M \hskip \z@skip \egroup m1997}{3}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+)
 \openout1 = `memoire.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Info: Redefining \degres on input line 41.
-LaTeX Info: Redefining \dots on input line 41.
-LaTeX Info: Redefining \up on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Info: Redefining \degres on input line 42.
+LaTeX Info: Redefining \dots on input line 42.
+LaTeX Info: Redefining \up on input line 42.
 
 
 Package frenchb.ldf Warning: OT1 encoding should not be used for French. 
 (frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(frenchb.ldf)                of your document, on input line 41.
+(frenchb.ldf)                of your document, on input line 42.
 
 ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -733,49 +758,64 @@ e
 \openout5 = `memoire.toc'.
 
  [1]
-LaTeX Font Info:    Try loading font information for U+msa on input line 64.
+LaTeX Font Info:    Try loading font information for U+msa on input line 65.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 64.
+LaTeX Font Info:    Try loading font information for U+msb on input line 65.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 64.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 65.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [2] [3]
-Overfull \hbox (5.64165pt too wide) in paragraph at lines 125--126
+)
+Overfull \hbox (10.28447pt too wide) in paragraph at lines 72--85
+ \OT1/cmr/bx/n/12 Les bo^^^Ptes $\OT1/cmr/m/n/12 ^^C(\OML/cmm/m/it/12 `; h\OT1/
+cmr/m/n/12 )$\OT1/cmr/bx/n/12 .[] \OT1/cmr/m/n/12 Nous no-tons $^^C(\OML/cmm/m/
+it/12 `; h\OT1/cmr/m/n/12 )$ le sous graphe de $(\U/msb/m/n/12 Z[]\OML/cmm/m/it
+/12 ; \U/msb/m/n/12 E[]\OT1/cmr/m/n/12 )$ ^^Ra l'int^^Serieur
+ []
+
+[2] [3]
+Overfull \hbox (5.64165pt too wide) in paragraph at lines 128--129
 \OT1/cmr/m/n/12 Intuitivement, une confi-gu-ra-tion s'ob-tient en fer-mant ind^
 ^Sependamment chaque
  []
 
 [4]
+Overfull \hbox (14.13403pt too wide) detected at line 167
+\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x; s\OT1/cmr/m/n/12 ) [] (\OML/cmm/m/it/12 y;
+ t\OT1/cmr/m/n/12 )[]\OMS/cmsy/m/n/12 9\OML/cmm/m/it/12 e[]x; f[]y \OT1/cmr/m/n
+/12 (\OML/cmm/m/it/12 e; s\OT1/cmr/m/n/12 ) [] (\OML/cmm/m/it/12 f; t\OT1/cmr/m
+/n/12 )\OML/cmm/m/it/12 :
+ []
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 154.
-
-
-Overfull \hbox (15.4953pt too wide) in paragraph at lines 163--164
+[5]
+Overfull \hbox (15.4953pt too wide) in paragraph at lines 172--173
 \OT1/cmr/m/n/12 irr^^Seductible ap^^Seriodique de pro-ba-bi-lit^^Se in-va-riant
 e $\OML/cmm/m/it/12 ^^Y$\OT1/cmr/m/n/12 . Soit $\OML/cmm/m/it/12 A \OMS/cmsy/m/
 n/12 ^^Z \OML/cmm/m/it/12 E$\OT1/cmr/m/n/12 , nous d^^Sefinissons
  []
 
-[5] [6]
-Overfull \hbox (19.41315pt too wide) in paragraph at lines 194--194
+[6]
+Overfull \hbox (19.41315pt too wide) in paragraph at lines 200--200
 []\OT1/cmr/bx/n/12 D^^Sefinition 1. []\OT1/cmr/m/it/12 Soit $\OT1/cmr/m/n/12 (\
 OML/cmm/m/it/12 X[]; Y[]\OT1/cmr/m/n/12 )[]$ \OT1/cmr/m/it/12 un cou-plage d^^S
 efini pr^^Sec^^Sedemment, nous d^^Sefinissons
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [7]
-Overfull \hbox (5.07379pt too wide) in paragraph at lines 247--247
+Overfull \hbox (18.37717pt too wide) in paragraph at lines 252--253
+\OT1/cmr/m/n/12 inf^^Serieur en te-nant compte des condi-tions aux bords. Nous 
+di-sons que l'^^Sev^^Senement
+ []
+
+
+Overfull \hbox (5.07379pt too wide) in paragraph at lines 253--253
 []\OT1/cmr/bx/n/17.28 La pro-pa-ga-tion des condi-tions aux bords 
  []
 
@@ -788,49 +828,85 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [11]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 430.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 420.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 430.
- [12] [13]
-[14] [15] Excluding 'comment' comment. [16]
-Overfull \hbox (18.20544pt too wide) in paragraph at lines 602--602
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 420.
+
+Overfull \hbox (9.69139pt too wide) detected at line 421
+\OML/cmm/m/it/12 A [] B \OT1/cmr/m/n/12 = [] \OMS/cmsy/m/n/12 9\OML/cmm/m/it/12
+ ![] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 A; \OMS/cmsy/m/n/12 9\OML/cmm/m/it/12 
+![] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 B K\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ![
+]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 \ \OML/cmm/m/it/12 K\OT1/cmr/m/n/12 (\OML/c
+mm/m/it/12 ![]\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ;\OML/cmm/m/it/12 ; K\OT1/cm
+r/m/n/12 (\OML/cmm/m/it/12 ![]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 [ \OML/cmm/m/i
+t/12 K\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ![]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^
+^Z \OML/cmm/m/it/12 K\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X[]\OT1/cmr/m/n/12 ) [];
+
+ []
+
+[12]
+Overfull \hbox (2.63522pt too wide) in paragraph at lines 427--428
+[]\OT1/cmr/m/n/12 Nous ^^Senon^^Xcons alors une in^^Segalit^^Se de BK pour la p
+er-co-la-tion dy-na-mique. 
+ []
+
+[13] [14] [15] Excluding 'comment' comment. [16]
+Overfull \hbox (18.20544pt too wide) in paragraph at lines 594--594
 [] 
  []
 
-[17] (./memoire.bbl) [18] (./memoire.aux) ) 
+[17] (./memoire.bbl) [18] (./memoire.aux
+! Missing \endcsname inserted.
+<to be read again> 
+                   \unhbox 
+l.49 ...nalty \@M \hskip \z@skip \egroup m1997}{3}
+                                                  
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Extra \endcsname.
+\@newl@bel ... \bbl@tempa \csname #1@#2\endcsname 
+                                                  \def \bbl@tempb {#3}\@safe...
+l.49 ...nalty \@M \hskip \z@skip \egroup m1997}{3}
+                                                  
+I'm ignoring this, since I wasn't doing a \csname.
+
+)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 12382 strings out of 493304
- 220206 string characters out of 6139871
- 279932 words of memory out of 5000000
- 15553 multiletter control sequences out of 15000+600000
- 13474 words of font info for 50 fonts, out of 8000000 for 9000
+ 12391 strings out of 493304
+ 220413 string characters out of 6139871
+ 283159 words of memory out of 5000000
+ 15559 multiletter control sequences out of 15000+600000
+ 13174 words of font info for 49 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,17n,55p,993b,771s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msbm10.pfb>
-Output written on memoire.pdf (19 pages, 250388 bytes).
+ 56i,17n,55p,1032b,741s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on memoire.pdf (19 pages, 247114 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
+ 133 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

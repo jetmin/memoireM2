@@ -3,44 +3,57 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: memoire.aux
 The style file: plain.bst
 Database file #1: bibmemoire.bib
-You've used 1 entry,
+Too many commas in name 1 of "Häggström, Olle, Peres, Yuval, Steif, Jeffrey E." for entry Häggström1997
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Häggström, Olle, Peres, Yuval, Steif, Jeffrey E." for entry Häggström1997
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Häggström, Olle, Peres, Yuval, Steif, Jeffrey E." for entry Häggström1997
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Häggström, Olle, Peres, Yuval, Steif, Jeffrey E." for entry Häggström1997
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Häggström, Olle, Peres, Yuval, Steif, Jeffrey E." for entry Häggström1997
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Häggström, Olle, Peres, Yuval, Steif, Jeffrey E." for entry Häggström1997
+while executing---line 1090 of file plain.bst
+You've used 4 entries,
             2118 wiz_defined-function locations,
-            503 strings with 4127 characters,
-and the built_in function-call counts, 247 in all, are:
-= -- 23
-> -- 7
+            526 strings with 4653 characters,
+and the built_in function-call counts, 1128 in all, are:
+= -- 115
+> -- 34
 < -- 0
-+ -- 3
-- -- 2
-* -- 11
-:= -- 50
-add.period$ -- 4
-call.type$ -- 1
-change.case$ -- 3
++ -- 14
+- -- 10
+* -- 76
+:= -- 198
+add.period$ -- 13
+call.type$ -- 4
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 12
-empty$ -- 23
-format.name$ -- 2
-if$ -- 51
+cite$ -- 4
+duplicate$ -- 45
+empty$ -- 100
+format.name$ -- 10
+if$ -- 233
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 2
-newline$ -- 8
-num.names$ -- 2
-pop$ -- 6
+int.to.str$ -- 4
+missing$ -- 5
+newline$ -- 23
+num.names$ -- 8
+pop$ -- 13
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 13
 quote$ -- 0
-skip$ -- 6
+skip$ -- 28
 stack$ -- 0
-substring$ -- 5
-swap$ -- 1
+substring$ -- 79
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2
+type$ -- 14
 warning$ -- 0
-while$ -- 2
-width$ -- 2
-write$ -- 13
+while$ -- 13
+width$ -- 5
+write$ -- 46
+(There were 6 error messages)
