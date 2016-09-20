@@ -52,7 +52,7 @@
     \vspace{2em}
         {\large \@author} \\
     \vspace{2em}
-    		{\large Directeur: Raphaël Cerf}
+    		{\large Directeur: Raphaël CERF}
     \vfill
   \end{titlepage}
 \makeatother
@@ -440,7 +440,7 @@ Soient $0 \leqslant s \leqslant t$ deux instants, soit un événement croissant 
 \end{bk}
 
 \begin{proof}
-Pour le premier cas, c'est l'inégalité de BK classique. Nous traitons uniquement le deuxième cas où les instants sont différents. Soit $\Gamma = \{f:[s,t]\rightarrow\{0,1\}\text{ càdlàg} \}^{|\Lambda(\ell,h)|}$. Nous introduisons deux espaces de probabilité identiques $S_1 = (\Gamma_1,\mathcal{F}_1,P_1), S_2 = (\Gamma_2,\mathcal{F}_2,P_2)$, nous définissons $S$ l'espace produit de $S_1,S_2$. Nous écrivons $x\times y$ un point de $\Gamma_1 \times \Gamma_2$. Nous notons $A' = A\times \Gamma_2$, $B_k' = \{x\times y :(y_1,\dots,y_k,x_{k+1},\dots,x_{|\Lambda(\ell,h)|}) \in B\}$. Nous notons $P_{12}$ la probabilité produit de $P_1,P_2$. Nous avons bien que $P(A\circ B) = P_{12}(A'\circ B'_0)$ et $P_{12}(A'\circ B'_{|\Lambda(\ell,h)|}) = P(A)P(B)$. Nous montrons maintenant: $$\forall k>0, P_{12}(A'\circ B'_{k-1}) \leqslant P_{12}(A'\circ B'_k)$$. 
+Pour le premier cas, c'est l'inégalité de BK classique, voir \cite{grimmett1999percolation}. Nous traitons uniquement le deuxième cas où les instants sont différents. Soit $\Gamma = \{f:[s,t]\rightarrow\{0,1\}\text{ càdlàg} \}^{|\Lambda(\ell,h)|}$. Nous introduisons deux espaces de probabilité identiques $S_1 = (\Gamma_1,\mathcal{F}_1,P_1), S_2 = (\Gamma_2,\mathcal{F}_2,P_2)$, nous définissons $S$ l'espace produit de $S_1,S_2$. Nous écrivons $x\times y$ un point de $\Gamma_1 \times \Gamma_2$. Nous notons $A' = A\times \Gamma_2$, $B_k' = \{x\times y :(y_1,\dots,y_k,x_{k+1},\dots,x_{|\Lambda(\ell,h)|}) \in B\}$. Nous notons $P_{12}$ la probabilité produit de $P_1,P_2$. Nous avons bien que $P(A\circ B) = P_{12}(A'\circ B'_0)$ et $P_{12}(A'\circ B'_{|\Lambda(\ell,h)|}) = P(A)P(B)$. Nous montrons maintenant: $$\forall k>0, P_{12}(A'\circ B'_{k-1}) \leqslant P_{12}(A'\circ B'_k)$$. 
 
 Soit $M$ un événement, nous disons que $e$ est pivot pour $M$ si $(\omega^e \in M, \omega_e\notin M)$ ou $(\omega^e \notin M, \omega_e\in M)$, c'est à dire un changement de l'arête $e$ change l'occurrence de $M$ dans la configuration $\omega$. Nous notons $e\triangleright M$ si $e$ est pivot pour $M$.
 
@@ -575,19 +575,19 @@ Soient $p\geqslant \frac{1}{2}, t> 0$, et $e_0$ l'arête d'extrémités $(0,0)$ 
 
 \begin{proof}
 
-Nous utilisons les notations de la proposition \ref{chaine} et son corollaire.
-D'après la proposition \ref{chaine}, nous savons qu'il existe une suite d'arêtes $e_1,e_n$ qui sont reliées l'une après l'autre à différentes instants. Nous notons $x_i,y_i$ les extrémités de $c_i^*$ chemin fermé dans le graphe dual et de $C_i$ le cut, nous notons aussi $k_i$ le cardinal de $p_i^1\cup p_i^2$. Nous séparons la suite en différentes sous suites selon l'indépendance, plus précisément, si $c^*_j$ et $c^*_{j+1}$  est de l'occurrence disjointe, alors nous coupons la suite à l'indice $j$. Ainsi, nous obtenons les indices $j_1,\dots,j_r$ telles que $\forall 1\leqslant u\leqslant r, c^*_{j_u}$ et $c^*_{j_{u+1}}$ sont disjoints, $\forall j_k \leqslant v \leqslant j_{k+1}$, $c_k^*$ et $c_{k+1}^*$ ne sont pas disjoints.
+Nous utilisons les notations de la proposition \ref{chaine}.
+D'après la proposition \ref{chaine}, il existe une suite d'arêtes $e_1,\dots,e_n$ telle que, pour tout $1\leqslant i\leqslant n$, $\smash{e_i^*\overset{Y_{t_i}}{\longleftrightarrow} e_{i+1}^*}$ par un chemin fermé. Il existe aussi à chaque instant $t_i$, un ensemble $S_i$ sépare $top$ et $bot$ qui est disjoint de $c_i^*$. Nous notons $x_i,y_i$ les extrémités de $c_i^*$ chemin fermé dans le graphe dual, nous notons aussi $k_i$ le cardinal de $p_i^1\cup p_i^2$. Nous séparons la suite en différentes sous-suites selon leur occurrence, plus précisément, si $c^*_j$ et $c^*_{j+1}$  est de l'occurrence disjointe, alors nous coupons la suite à l'indice $j$. Ainsi, nous obtenons les indices $j_1,\dots,j_r$ telles que pour tout $ 1\leqslant u\leqslant r-1, c^*_{j_u}$ et $c^*_{j_{u+1}}$ sont disjoints, et pour tout $ j_k \leqslant v < j_{k+1}-1$, $c_v^*$ et $c_{v+1}^*$ ne sont pas disjoints.
 
 \begin{align*}
-P(Y(\bar{e})\neq Y'(\bar{e})) =& P(\exists e_1,\dots,e_n, \forall i, \exists p_i^1,p_i^2, e_{i-1}\overset{p_i^1,p_i^2}{\longleftrightarrow}e_i) \\
- \leqslant &P(\exists x_1,\dots,x_n,y_1,\dots,y_n c^*_1,\dots,c^*_n,C_1,\dots,C_n) \\\
+P(Y(e_0)\neq& Y'(e_0)) \,=\, P(\exists e_1,\dots,e_n, \forall i\, \exists p_i^1,p_i^2\, e_{i-1}\overset{p_i^1,p_i^2}{\longleftrightarrow}e_i) \\
+ =&\quad P(\exists x_1,\dots,x_n,y_1,\dots,y_n c^*_1,\dots,c^*_n,S_1,\dots,S_n) \\\
  \leqslant &\sum_{j_1,\dots,j_r}\prod_{1\leqslant k \leqslant r} P\left(\begin{array}{c}
  \exists x_{j_{k-1}+1},\dots,x_{j_k},\\
  y_{j_{k-1}+1},\dots,y_{j_k},\\
  c_{j_{k-1}+1},\dots,c^*_{j_k},\\
- C_{j_{k-1}+1},\dots,C_{j_k} \text{ cut},\\
+ S_{j_{k-1}+1},\dots,S_{j_k} \text{ sépare } top \text{ et }bot,\\
  \forall j_{k-1}+1 \leqslant m \leqslant j_k, x_m\overset{c^*_m}{\longleftrightarrow} y_m, 
- c^*_m\circ C_m
+ c^*_m\circ S_m
  \end{array}
  \right)
 \end{align*}
@@ -595,10 +595,10 @@ Nous utilisons la proposition \ref{stc} pour majorer chaque terme du produit. Or
 $$|\sigma_k|^4 e^{-\gamma(p,\theta_{j_k}-\theta_{j_{k-1}+1})|\sigma_k|} \leqslant |\sigma_k|^4 e^{-\gamma(p,t)|\sigma_k|} \leqslant e^{-\delta\gamma(p,t)|\sigma_k|}$$
 
 Nous partons de $\bar{e}$, $x_{j_{n-1}+1}$ est de distance inférieure à $2|\sigma_r|$ de $\bar{e}$, nous avons donc 
-\begin{align*}\sum_{1=j_1<\dots < j_r = n} &\prod_{1\leqslant k \leqslant r} e^{-\delta \gamma(p,t)|\sigma_k|} P(\exists C_{j_{k-1}+1},\dots,C_{j_k} \text{ cut}) \\
-\leqslant & P(\exists C_1,\dots,C_n \text{ cut})\sum_{1=j_1<\dots < j_{r-1}} 4|\sigma_r|^2e^{-\delta \gamma(p,t)|\sigma_r|}\prod_{1\leqslant k \leqslant r-1}e^{-\delta \gamma(p,t)|\sigma_k|} \\
-\leqslant & P(\exists C_1,\dots,C_n \text{ cut})\sum_{1=j_1<\dots < j_{r-1}} 4e^{-\delta^2 \gamma(p,t)|\sigma_r|}\prod_{1\leqslant k \leqslant r-1}e^{-\delta \gamma(p,t)|\sigma_k|} \\
-\leqslant & 4^r e^{-\delta^2 \gamma(p,t)\sum_1^r|\sigma_k|}P(\exists C_1,\dots,C_n \text{ séparent } T,B)
+\begin{align*}&\sum_{1=j_1<\dots < j_r = n} \prod_{1\leqslant k \leqslant r} e^{-\delta \gamma(p,t)|\sigma_k|} P(\exists C_{j_{k-1}+1},\dots,C_{j_k} \text{ sépare }top \text{ et }bot) \\
+\leqslant & P(\exists C_1,\dots,C_n \text{ sépare }top \text{ et }bot)\sum_{1=j_1<\dots < j_{r-1}} 4|\sigma_r|^2e^{-\delta \gamma(p,t)|\sigma_r|}\prod_{1\leqslant k \leqslant r-1}e^{-\delta \gamma(p,t)|\sigma_k|} \\
+\leqslant & P(\exists C_1,\dots,C_n \text{ sépare }top \text{ et }bot)\sum_{1=j_1<\dots < j_{r-1}} 4e^{-\delta^2 \gamma(p,t)|\sigma_r|}\prod_{1\leqslant k \leqslant r-1}e^{-\delta \gamma(p,t)|\sigma_k|} \\
+\leqslant & 4^r e^{-\delta^2 \gamma(p,t)\sum_1^r|\sigma_k|}P(\exists C_1,\dots,C_n \text{ sépare }top \text{ et }bot)
 \end{align*}
 Enfin, $r$ est borné par une variable aléatoire de loi de Poisson de paramètre $\ell^2 (1-p) t$, nous avons le résultat.
 \end{proof}
