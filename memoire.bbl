@@ -11,11 +11,16 @@ G.~Grimmett.
 \newblock Die Grundlehren der mathematischen Wissenschaften in
   Einzeldarstellungen. Springer, 1999.
 
-\bibitem{Häggström1997}
-Peres Yuval Steif Jeffrey~E. Häggström, Olle.
+\bibitem{Kelly:2011:RSN:2025239}
+F.~P. Kelly.
+\newblock {\em Reversibility and Stochastic Networks}.
+\newblock Cambridge University Press, New York, NY, USA, 2011.
+
+\bibitem{OLLE1997497}
+Häggström Olle, Peres Yuval, and E.~Steif Jeffrey.
 \newblock Dynamical percolation.
-\newblock {\em Annales de l'I.H.P. Probabilités et statistiques},
-  33(4):497--528, 1997.
+\newblock {\em Annales de l'Institut Henri Poincare (B) Probability and
+  Statistics}, 33(4):497 -- 528, 1997.
 
 \bibitem{schonmann1994}
 Roberto~H. Schonmann.
