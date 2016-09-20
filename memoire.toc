@@ -1,0 +1,21 @@
+\select@language {french}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Mod\IeC {\`e}le}{2}
+\contentsline {paragraph}{Le r\IeC {\'e}seau $(\mathbb {Z}^2,\mathbb {E}^2)$.}{2}
+\contentsline {paragraph}{Les bo\IeC {\^\i }tes $\Lambda (\ell ,h)$.}{2}
+\contentsline {paragraph}{Les ensembles s\IeC {\'e}parants.}{3}
+\contentsline {paragraph}{Le graphe dual.}{3}
+\contentsline {paragraph}{Les configurations.}{3}
+\contentsline {paragraph}{Les chemins.}{4}
+\contentsline {paragraph}{La probabilit\IeC {\'e} de percolation.}{4}
+\contentsline {section}{\numberline {3}La percolation dynamique}{4}
+\contentsline {paragraph}{Construction graphique.}{5}
+\contentsline {paragraph}{Le space-time chemin (STC).}{5}
+\contentsline {section}{\numberline {4}Les cha\IeC {\^\i }nes de Markov conditionn\IeC {\'e}es}{6}
+\contentsline {section}{\numberline {5}L'interface}{6}
+\contentsline {section}{\numberline {6}Les conditions aux bords}{7}
+\contentsline {section}{\numberline {7}La propagation des conditions aux bords}{8}
+\contentsline {section}{\numberline {8}Une in\IeC {\'e}galit\IeC {\'e} BK temporelle}{12}
+\contentsline {section}{\numberline {9}D\IeC {\'e}croissance exponentielle des STCs}{15}
+\contentsline {section}{\numberline {10}La probabilit\IeC {\'e} d'une influence du bord}{16}
+\contentsline {section}{\numberline {11}Conclusion}{18}
